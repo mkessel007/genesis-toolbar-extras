@@ -9,8 +9,8 @@ msgid ""
 msgstr ""
 "Project-Id-Version: Genesis Toolbar Extras\n"
 "Report-Msgid-Bugs-To: http://wordpress.org/tags/genesis-toolbar-extras?forum_id=10\n"
-"POT-Creation-Date: 2012-03-25 16:40+0200\n"
-"PO-Revision-Date: 2012-03-25 17:05+0100\n"
+"POT-Creation-Date: 2012-05-07 20:12+0200\n"
+"PO-Revision-Date: 2012-05-07 20:11+0100\n"
 "Last-Translator: David Decker <deckerweb.mobil@googlemail.com>\n"
 "Language-Team: DECKERWEB <deckerweb.mobil@googlemail.com>\n"
 "MIME-Version: 1.0\n"
@@ -49,305 +49,299 @@ msgid "http://deckerweb.de/"
 msgstr "http://deckerweb.de/"
 
 #@ genesis-toolbar-extras
-#. translators: plugin header field 'Version'
-#: genesis-toolbar-extras.php:0
-msgid "1.0"
-msgstr "1.0"
-
-#@ genesis-toolbar-extras
-#: genesis-toolbar-extras.php:74
+#: includes/gtbe-admin.php:33
 msgid "FAQ"
 msgstr "FAQ - Häufige Fragen"
 
 #@ genesis-toolbar-extras
-#: genesis-toolbar-extras.php:76
+#: includes/gtbe-admin.php:35
 msgid "http://genesisthemes.de/en/donate/"
 msgstr "http://genesisthemes.de/spenden/"
 
 #@ genesis-toolbar-extras
-#: genesis-toolbar-extras.php:76
+#: includes/gtbe-admin.php:35
 msgid "Donate"
 msgstr "Spenden"
 
 #@ genesis-toolbar-extras
-#: genesis-toolbar-extras.php:190
-#: genesis-toolbar-extras.php:192
+#: genesis-toolbar-extras.php:248
+#: genesis-toolbar-extras.php:250
 msgid "Search Forum"
 msgstr "Forum durchsuchen"
 
 #@ genesis-toolbar-extras
-#: genesis-toolbar-extras.php:196
-#: genesis-toolbar-extras.php:198
+#: genesis-toolbar-extras.php:254
+#: genesis-toolbar-extras.php:256
 msgid "My Subscribed Topics"
 msgstr "Meine abonnierten Themen"
 
 #@ genesis-toolbar-extras
-#: genesis-toolbar-extras.php:202
-#: genesis-toolbar-extras.php:204
+#: genesis-toolbar-extras.php:260
+#: genesis-toolbar-extras.php:262
 msgid "New Topics since last visit"
 msgstr "Neue Themen seit letztem Besuch"
 
 #@ genesis-toolbar-extras
-#: genesis-toolbar-extras.php:208
-#: genesis-toolbar-extras.php:210
+#: genesis-toolbar-extras.php:266
+#: genesis-toolbar-extras.php:268
 msgid "New Topics Today"
 msgstr "Neue Themen heute"
 
 #@ genesis-toolbar-extras
-#: genesis-toolbar-extras.php:214
-#: genesis-toolbar-extras.php:216
+#: genesis-toolbar-extras.php:272
+#: genesis-toolbar-extras.php:274
 msgid "User Account at Support Site"
 msgstr "Benutzerkonto bei Support-Seite"
 
 #@ genesis-toolbar-extras
-#: genesis-toolbar-extras.php:222
+#: genesis-toolbar-extras.php:280
 msgid "Ultimate User Guide"
 msgstr "Ultimative Benutzeranleitung"
 
 #@ genesis-toolbar-extras
-#: genesis-toolbar-extras.php:234
-#: genesis-toolbar-extras.php:236
+#: genesis-toolbar-extras.php:292
+#: genesis-toolbar-extras.php:294
 msgid "Hook Reference"
 msgstr "Hook-Referenz"
 
 #@ genesis-toolbar-extras
-#: genesis-toolbar-extras.php:240
-#: genesis-toolbar-extras.php:242
+#: genesis-toolbar-extras.php:298
+#: genesis-toolbar-extras.php:300
 msgid "Visual Hook Guide"
 msgstr "Visueller Hook-Leitfaden"
 
 #@ genesis-toolbar-extras
-#: genesis-toolbar-extras.php:246
-#: genesis-toolbar-extras.php:248
+#: genesis-toolbar-extras.php:304
+#: genesis-toolbar-extras.php:306
 msgid "Filter Reference"
 msgstr "Filter-Referenz"
 
 #@ genesis-toolbar-extras
-#: genesis-toolbar-extras.php:252
-#: genesis-toolbar-extras.php:254
+#: genesis-toolbar-extras.php:310
+#: genesis-toolbar-extras.php:312
 msgid "Shortcode Reference"
 msgstr "Shortcode-Referenz"
 
 #@ genesis-toolbar-extras
-#: genesis-toolbar-extras.php:258
-#: genesis-toolbar-extras.php:260
+#: genesis-toolbar-extras.php:316
+#: genesis-toolbar-extras.php:318
 msgid "Visual Markup Guide"
 msgstr "Visueller Markup-Leitfaden"
 
 #@ genesis-toolbar-extras
-#: genesis-toolbar-extras.php:266
-#: genesis-toolbar-extras.php:268
+#: genesis-toolbar-extras.php:324
+#: genesis-toolbar-extras.php:326
 msgid "Tutorials &amp; Snippets"
 msgstr "Anleitungen &amp; Code-Schnipsel"
 
 #@ genesis-toolbar-extras
-#: genesis-toolbar-extras.php:272
+#: genesis-toolbar-extras.php:330
 msgid "Tutorials by Brian Gardner"
 msgstr "Anleitungen von Brian Gardner"
 
 #@ genesis-toolbar-extras
-#: genesis-toolbar-extras.php:278
+#: genesis-toolbar-extras.php:336
 msgid "Snippets by Brian Gardner"
 msgstr "Code-Schnipsel von Brian Gardner"
 
 #@ genesis-toolbar-extras
-#: genesis-toolbar-extras.php:284
+#: genesis-toolbar-extras.php:342
 msgid "Tutorials by Bill Erickson"
 msgstr "Anleitungen von Bill Erickson"
 
 #@ genesis-toolbar-extras
-#: genesis-toolbar-extras.php:290
+#: genesis-toolbar-extras.php:348
 msgid "Snippets by Bill Erickson"
 msgstr "Code-Schnipsel von Bill Erickson"
 
 #@ genesis-toolbar-extras
-#: genesis-toolbar-extras.php:296
+#: genesis-toolbar-extras.php:354
 msgid "Tutorials by Travis Smith"
 msgstr "Anleitungen von Travis Smith"
 
 #@ genesis-toolbar-extras
-#: genesis-toolbar-extras.php:302
+#: genesis-toolbar-extras.php:360
 msgid "Grid Loop by Travis Smith"
 msgstr "Grid-Loop von Travis Smith"
 
 #@ genesis-toolbar-extras
-#: genesis-toolbar-extras.php:308
+#: genesis-toolbar-extras.php:366
 msgid "Tuturials by Gary Jones"
 msgstr "Tuturials von Gary Jones"
 
 #@ genesis-toolbar-extras
-#: genesis-toolbar-extras.php:314
+#: genesis-toolbar-extras.php:372
 msgid "Tuturials by Nick Croft"
 msgstr "Tuturials von Nick Croft"
 
 #@ genesis-toolbar-extras
-#: genesis-toolbar-extras.php:320
+#: genesis-toolbar-extras.php:378
 msgid "Video Tutorials"
 msgstr "Video-Anleitungen"
 
 #@ genesis-toolbar-extras
-#: genesis-toolbar-extras.php:334
+#: genesis-toolbar-extras.php:392
 msgid "Official Blog"
 msgstr "Offizieller Blog"
 
 #@ genesis-toolbar-extras
-#: genesis-toolbar-extras.php:336
+#: genesis-toolbar-extras.php:394
 msgid "Official Blog (StudioPress.com)"
 msgstr "Offizieller Blog (StudioPress.com)"
 
 #@ genesis-toolbar-extras
-#: genesis-toolbar-extras.php:340
+#: genesis-toolbar-extras.php:398
 msgid "Brian Gardner Blog"
 msgstr "Brian Gardners Blog"
 
 #@ genesis-toolbar-extras
-#: genesis-toolbar-extras.php:342
+#: genesis-toolbar-extras.php:400
 msgid "Brian Gardner Blog (The Genesis Leader - briangardner.com)"
 msgstr "Brian Gardners Blog (Der Genesis-Herausgeber - briangardner.com)"
 
 #@ genesis-toolbar-extras
-#: genesis-toolbar-extras.php:346
+#: genesis-toolbar-extras.php:404
 msgid "CopyBlogger Blog"
 msgstr "CopyBlogger-Blog"
 
 #@ genesis-toolbar-extras
-#: genesis-toolbar-extras.php:348
+#: genesis-toolbar-extras.php:406
 msgid "CopyBlogger Blog (Genesis Backing Company - copyblogger.com)"
 msgstr "CopyBlogger-Blog (Genesis-Herausgeber - copyblogger.com)"
 
 #@ genesis-toolbar-extras
-#: genesis-toolbar-extras.php:352
-#: genesis-toolbar-extras.php:354
+#: genesis-toolbar-extras.php:410
+#: genesis-toolbar-extras.php:412
 msgid "Showcase Gallery"
 msgstr "Beispiele/ Showcase"
 
 #@ genesis-toolbar-extras
-#: genesis-toolbar-extras.php:388
-#: genesis-toolbar-extras.php:390
+#: genesis-toolbar-extras.php:446
+#: genesis-toolbar-extras.php:448
 msgid "Affiliate Program"
 msgstr "Partnerprogramm"
 
 #@ genesis-toolbar-extras
-#: genesis-toolbar-extras.php:394
-#: genesis-toolbar-extras.php:396
+#: genesis-toolbar-extras.php:452
+#: genesis-toolbar-extras.php:454
 msgid "Affiliate Login"
 msgstr "Affiliate-Login"
 
 #@ genesis-toolbar-extras
-#: genesis-toolbar-extras.php:400
-#: genesis-toolbar-extras.php:402
+#: genesis-toolbar-extras.php:458
+#: genesis-toolbar-extras.php:460
 msgid "More free plugins/extensions at WP.org"
 msgstr "Mehr freie Plugins bei WP.org"
 
 #@ genesis-toolbar-extras
-#: genesis-toolbar-extras.php:428
+#: genesis-toolbar-extras.php:486
 msgid "German language files"
 msgstr "Deutsche Sprachdateien"
 
 #@ genesis-toolbar-extras
-#: genesis-toolbar-extras.php:435
+#: genesis-toolbar-extras.php:493
 msgid "For Child Themes"
 msgstr "Für Child Themes"
 
 #@ genesis-toolbar-extras
-#: genesis-toolbar-extras.php:442
+#: genesis-toolbar-extras.php:500
 msgid "For Plugins"
 msgstr "Für Plugins"
 
 #@ genesis-toolbar-extras
-#: genesis-toolbar-extras.php:460
+#: genesis-toolbar-extras.php:518
 msgid "Register to Translate"
 msgstr "Anmelden zum Übersetzen"
 
 #@ genesis-toolbar-extras
-#: genesis-toolbar-extras.php:467
+#: genesis-toolbar-extras.php:525
 msgid "Translations Forum"
 msgstr "Übersetzungen-Forum"
 
 #@ genesis-toolbar-extras
-#: genesis-toolbar-extras.php:481
-#: genesis-toolbar-extras.php:483
+#: genesis-toolbar-extras.php:539
+#: genesis-toolbar-extras.php:541
 #: includes/gtbe-themedy.php:37
 msgid "Theme Settings"
 msgstr "Theme-Einstellungen"
 
 #@ genesis-toolbar-extras
-#: genesis-toolbar-extras.php:502
-#: genesis-toolbar-extras.php:504
-#: includes/gtbe-themedy.php:156
-#: includes/gtbe-themedy.php:158
+#: genesis-toolbar-extras.php:560
+#: genesis-toolbar-extras.php:562
+#: includes/gtbe-themedy.php:195
+#: includes/gtbe-themedy.php:197
 msgid "Custom Background"
 msgstr "Hintergrund anpassen"
 
 #@ genesis-toolbar-extras
-#: genesis-toolbar-extras.php:512
-#: genesis-toolbar-extras.php:514
-#: includes/gtbe-themedy.php:166
-#: includes/gtbe-themedy.php:168
+#: genesis-toolbar-extras.php:570
+#: genesis-toolbar-extras.php:572
+#: includes/gtbe-themedy.php:205
+#: includes/gtbe-themedy.php:207
 msgid "Custom Header"
 msgstr "Kopfzeile anpassen"
 
 #@ genesis-toolbar-extras
-#: genesis-toolbar-extras.php:524
-#: genesis-toolbar-extras.php:526
+#: genesis-toolbar-extras.php:582
+#: genesis-toolbar-extras.php:584
 msgid "SEO Settings"
 msgstr "SEO-Einstellungen"
 
 #@ genesis-toolbar-extras
-#: includes/gtbe-studiopress.php:457
-#: includes/gtbe-studiopress.php:459
+#: includes/gtbe-studiopress.php:480
+#: includes/gtbe-studiopress.php:482
 msgid "Design Settings"
 msgstr "Design-Einstellungen"
 
 #@ genesis-toolbar-extras
-#: genesis-toolbar-extras.php:534
+#: genesis-toolbar-extras.php:592
 msgid "Import &amp; Export"
 msgstr "Import &amp; Export"
 
 #@ genesis-toolbar-extras
-#: genesis-toolbar-extras.php:551
+#: genesis-toolbar-extras.php:617
 msgid "Active Extensions"
 msgstr "Aktive Erweiterungen"
 
 #@ genesis-toolbar-extras
-#: genesis-toolbar-extras.php:172
-#: genesis-toolbar-extras.php:626
+#: genesis-toolbar-extras.php:229
+#: genesis-toolbar-extras.php:704
 msgid "Genesis"
 msgstr "Genesis"
 
 #@ genesis-toolbar-extras
-#: includes/gtbe-studiopress.php:429
-#: includes/gtbe-studiopress.php:431
-#: includes/gtbe-themedy.php:138
-#: includes/gtbe-themedy.php:140
-#: includes/gtbe-themes.php:162
-#: includes/gtbe-themes.php:164
-#: includes/gtbe-themes.php:716
-#: includes/gtbe-themes.php:718
+#: includes/gtbe-studiopress.php:451
+#: includes/gtbe-studiopress.php:453
+#: includes/gtbe-themedy.php:177
+#: includes/gtbe-themedy.php:179
+#: includes/gtbe-themes.php:185
+#: includes/gtbe-themes.php:187
+#: includes/gtbe-themes.php:837
+#: includes/gtbe-themes.php:839
 msgid "README Info"
 msgstr "LIESMICH-Informationen"
 
 #@ genesis-toolbar-extras
-#: includes/gtbe-studiopress.php:438
-#: includes/gtbe-themedy.php:147
-#: includes/gtbe-themes.php:171
+#: includes/gtbe-studiopress.php:460
+#: includes/gtbe-themedy.php:186
+#: includes/gtbe-themes.php:194
 msgid "Support Forum"
 msgstr "Support-Forum"
 
 #@ genesis-toolbar-extras
-#: includes/gtbe-themedy.php:149
+#: includes/gtbe-themedy.php:188
 msgid "Support Forum for Child Theme"
 msgstr "Support-Forum für Child Theme"
 
 #@ genesis-toolbar-extras
-#: includes/gtbe-themedy.php:360
-#: includes/gtbe-themedy.php:362
+#: includes/gtbe-themedy.php:416
+#: includes/gtbe-themedy.php:418
 msgid "Themedy Support Forum"
 msgstr "Themedy Support-Foren"
 
 #@ genesis-toolbar-extras
-#: includes/gtbe-themedy.php:366
-#: includes/gtbe-themedy.php:368
+#: includes/gtbe-themedy.php:422
+#: includes/gtbe-themedy.php:424
 msgid "Themedy User Profile"
 msgstr "Themedy Benutzerprofil"
 
@@ -358,46 +352,46 @@ msgid "This plugin adds useful admin settings links and massive resources for Ge
 msgstr "Dieses Plugin fügt der WordPress Wergzeugleiste bzw. Adminbar nützliche Administratorenlinks und massive Ressourcen für das Genesis Framework plus Child Themes bzw. Erweiterungen hinzu."
 
 #@ genesis-toolbar-extras
-#: genesis-toolbar-extras.php:358
-#: genesis-toolbar-extras.php:360
+#: genesis-toolbar-extras.php:416
+#: genesis-toolbar-extras.php:418
 msgid "Resources"
 msgstr "Ressourcen"
 
 #@ genesis-toolbar-extras
-#: genesis-toolbar-extras.php:364
-#: genesis-toolbar-extras.php:366
+#: genesis-toolbar-extras.php:422
+#: genesis-toolbar-extras.php:424
 msgid "Free Web Graphics"
 msgstr "Freie Web-Grafiken"
 
 #@ genesis-toolbar-extras
-#: genesis-toolbar-extras.php:370
-#: genesis-toolbar-extras.php:372
+#: genesis-toolbar-extras.php:428
+#: genesis-toolbar-extras.php:430
 msgid "Color Palettes"
 msgstr "Farbschemen"
 
 #@ genesis-toolbar-extras
-#: genesis-toolbar-extras.php:376
+#: genesis-toolbar-extras.php:434
 msgid "Mobile Responsive Testing"
 msgstr "Mobiler Responsive-Test"
 
 #@ genesis-toolbar-extras
-#: genesis-toolbar-extras.php:378
+#: genesis-toolbar-extras.php:436
 msgid "Mobile Responsive Design Testing"
 msgstr "Mobiles Responsive Design testen"
 
 #@ genesis-toolbar-extras
-#: genesis-toolbar-extras.php:382
-#: genesis-toolbar-extras.php:384
+#: genesis-toolbar-extras.php:440
+#: genesis-toolbar-extras.php:442
 msgid "Media Queries Tester"
 msgstr "Media Queries testen"
 
 #@ genesis-toolbar-extras
-#: genesis-toolbar-extras.php:414
+#: genesis-toolbar-extras.php:472
 msgid "GenesisFinder (Search)"
 msgstr "GenesisFinder (Suche)"
 
 #@ genesis-toolbar-extras
-#: includes/gtbe-studiopress.php:467
+#: includes/gtbe-studiopress.php:490
 msgid "Custom Code &amp; CSS"
 msgstr "Eigenes CSS+Funktionen"
 
@@ -444,499 +438,482 @@ msgid "Simple Comments"
 msgstr "Einfache Kommentare"
 
 #@ genesis-toolbar-extras
-#: includes/gtbe-plugins.php:298
-#: includes/gtbe-plugins.php:305
+#: includes/gtbe-plugins.php:312
+#: includes/gtbe-plugins.php:319
 msgid "Generate Box"
 msgstr "Generate-Box"
 
 #@ genesis-toolbar-extras
-#: includes/gtbe-plugins.php:336
+#: includes/gtbe-plugins.php:350
 msgid "Genesis Connect"
 msgstr "Genesis Connect"
 
 #@ genesis-toolbar-extras
-#: includes/gtbe-plugins.php:351
-#: includes/gtbe-plugins.php:353
+#: includes/gtbe-plugins.php:365
+#: includes/gtbe-plugins.php:367
 msgid "Scribe SEO"
 msgstr "Scribe SEO"
 
 #@ genesis-toolbar-extras
-#: includes/gtbe-plugins.php:419
-#: includes/gtbe-plugins.php:421
+#: includes/gtbe-plugins.php:440
+#: includes/gtbe-plugins.php:442
 msgid "AgentPress Listings"
 msgstr "AgentPress Auflistungen"
 
 #@ genesis-toolbar-extras
-#: includes/gtbe-plugins.php:425
-#: includes/gtbe-plugins.php:427
+#: includes/gtbe-plugins.php:446
+#: includes/gtbe-plugins.php:448
 msgid "Add new Listing"
 msgstr "Neue Auflistung hinzufügen"
 
 #@ genesis-toolbar-extras
-#: includes/gtbe-plugins.php:431
-#: includes/gtbe-plugins.php:433
+#: includes/gtbe-plugins.php:452
+#: includes/gtbe-plugins.php:454
 msgid "Add/Edit Features"
 msgstr "Features hinzufügen/bearbeiten"
 
 #@ genesis-toolbar-extras
-#: includes/gtbe-plugins.php:440
-#: includes/gtbe-plugins.php:442
+#: includes/gtbe-plugins.php:461
+#: includes/gtbe-plugins.php:463
 msgid "Register new Taxonomy"
 msgstr "Neue Taxonomie registrieren"
 
 #@ genesis-toolbar-extras
-#: includes/gtbe-plugins.php:469
-#: includes/gtbe-plugins.php:471
+#: includes/gtbe-plugins.php:562
+#: includes/gtbe-plugins.php:564
 msgid "Genesis Media Project"
 msgstr "Genesis Medienprojekt"
 
 #@ genesis-toolbar-extras
-#: includes/gtbe-plugins.php:475
-#: includes/gtbe-plugins.php:477
+#: includes/gtbe-plugins.php:568
+#: includes/gtbe-plugins.php:570
 msgid "Videos"
 msgstr "Videos"
 
 #@ genesis-toolbar-extras
-#: includes/gtbe-plugins.php:481
-#: includes/gtbe-plugins.php:483
+#: includes/gtbe-plugins.php:574
+#: includes/gtbe-plugins.php:576
 msgid "Add new Video"
 msgstr "Neues Video hinzufügen"
 
 #@ genesis-toolbar-extras
-#: includes/gtbe-plugins.php:487
-#: includes/gtbe-plugins.php:489
+#: includes/gtbe-plugins.php:580
+#: includes/gtbe-plugins.php:582
 msgid "SlideShows"
 msgstr "Slideshows"
 
 #@ genesis-toolbar-extras
-#: includes/gtbe-plugins.php:493
-#: includes/gtbe-plugins.php:495
+#: includes/gtbe-plugins.php:586
+#: includes/gtbe-plugins.php:588
 msgid "Video Categories"
 msgstr "Videokategorien"
 
 #@ genesis-toolbar-extras
-#: includes/gtbe-plugins.php:499
-#: includes/gtbe-plugins.php:501
+#: includes/gtbe-plugins.php:592
+#: includes/gtbe-plugins.php:594
 msgid "Video Tags"
 msgstr "Videoschlagwörter"
 
 #@ genesis-toolbar-extras
-#: includes/gtbe-plugins.php:508
-#: includes/gtbe-plugins.php:510
+#: includes/gtbe-plugins.php:601
+#: includes/gtbe-plugins.php:603
 msgid "Tab Slider Settings"
 msgstr "Tab Slider-Einstellungen"
 
 #@ genesis-toolbar-extras
-#: includes/gtbe-plugins.php:528
-#: includes/gtbe-plugins.php:530
+#: includes/gtbe-plugins.php:621
+#: includes/gtbe-plugins.php:623
 msgid "Media Project Settings"
 msgstr "Medienprojekt Einstellungen"
 
 #@ genesis-toolbar-extras
-#: includes/gtbe-plugins.php:534
-#: includes/gtbe-plugins.php:536
+#: includes/gtbe-plugins.php:627
+#: includes/gtbe-plugins.php:629
 msgid "Media Project: Tab Slider Settings"
 msgstr "Medienprojekt: Tab Slider-Einstellungen"
 
 #@ genesis-toolbar-extras
-#: includes/gtbe-plugins.php:620
-#: includes/gtbe-plugins.php:622
+#: includes/gtbe-plugins.php:725
+#: includes/gtbe-plugins.php:727
 msgid "Simple URLs"
 msgstr "Einfache URLs"
 
 #@ genesis-toolbar-extras
-#: includes/gtbe-plugins.php:626
-#: includes/gtbe-plugins.php:628
+#: includes/gtbe-plugins.php:731
+#: includes/gtbe-plugins.php:733
 msgid "Add new URL"
 msgstr "Neue URL hinzufügen"
 
 #@ genesis-toolbar-extras
-#: includes/gtbe-plugins.php:643
-#: includes/gtbe-plugins.php:645
-#: includes/gtbe-plugins.php:650
-#: includes/gtbe-plugins.php:652
+#: includes/gtbe-plugins.php:751
+#: includes/gtbe-plugins.php:753
+#: includes/gtbe-plugins.php:759
+#: includes/gtbe-plugins.php:761
 msgid "WP-Cycle"
 msgstr "WP-Cycle"
 
 #@ genesis-toolbar-extras
-#: includes/gtbe-plugins.php:667
-#: includes/gtbe-plugins.php:669
-#: includes/gtbe-plugins.php:674
-#: includes/gtbe-plugins.php:676
+#: includes/gtbe-plugins.php:779
+#: includes/gtbe-plugins.php:781
+#: includes/gtbe-plugins.php:787
+#: includes/gtbe-plugins.php:789
 msgid "Dynamic Content Gallery"
 msgstr "Dynamische Inhaltsgalerie"
 
 #@ genesis-toolbar-extras
-#: includes/gtbe-plugins.php:685
-#: includes/gtbe-plugins.php:687
+#: includes/gtbe-plugins.php:798
+#: includes/gtbe-plugins.php:800
 msgid "Manage Content"
 msgstr "Inhalt verwalten"
 
 #@ genesis-toolbar-extras
-#: includes/gtbe-plugins.php:701
+#: includes/gtbe-premise.php:26
 msgid "Premise"
 msgstr "Premise"
 
 #@ genesis-toolbar-extras
-#: includes/gtbe-plugins.php:703
+#: includes/gtbe-premise.php:28
 msgid "Premise Landing Pages &amp; Membership Content"
 msgstr "Premise Landingseiten &amp; Mitglieder-Inhalte"
 
 #@ genesis-toolbar-extras
-#: includes/gtbe-plugins.php:707
-#: includes/gtbe-plugins.php:709
+#: includes/gtbe-premise.php:32
+#: includes/gtbe-premise.php:34
 msgid "Landing Pages"
 msgstr "Landingseiten"
 
 #@ genesis-toolbar-extras
-#: includes/gtbe-plugins.php:713
-#: includes/gtbe-plugins.php:715
+#: includes/gtbe-premise.php:38
+#: includes/gtbe-premise.php:40
 msgid "Add new Landing Page"
 msgstr "Neue Landingseite hinzufügen"
 
 #@ genesis-toolbar-extras
-#: includes/gtbe-plugins.php:721
-#: includes/gtbe-plugins.php:723
+#: includes/gtbe-premise.php:49
+#: includes/gtbe-premise.php:51
 msgid "Main Settings"
 msgstr "Haupteinstellungen"
 
 #@ genesis-toolbar-extras
-#: includes/gtbe-plugins.php:727
-#: includes/gtbe-plugins.php:729
+#: includes/gtbe-premise.php:55
+#: includes/gtbe-premise.php:57
 msgid "Style Settings"
 msgstr "Stil-Einstellungen"
 
 #@ genesis-toolbar-extras
-#: includes/gtbe-plugins.php:733
-#: includes/gtbe-plugins.php:735
+#: includes/gtbe-premise.php:61
+#: includes/gtbe-premise.php:63
 msgid "Add new Style"
 msgstr "Neuen Stil hinzufügen"
 
 #@ genesis-toolbar-extras
-#: includes/gtbe-plugins.php:749
-#: includes/gtbe-plugins.php:751
+#: includes/gtbe-premise.php:80
+#: includes/gtbe-premise.php:82
 msgid "Premise Member Access"
 msgstr "Premise Mitglieder-Zugriff"
 
 #@ genesis-toolbar-extras
-#: includes/gtbe-plugins.php:755
-#: includes/gtbe-plugins.php:757
-#: includes/gtbe-themedy.php:299
-#: includes/gtbe-themedy.php:301
-#: includes/gtbe-themedy.php:328
-#: includes/gtbe-themedy.php:330
+#: includes/gtbe-premise.php:86
+#: includes/gtbe-premise.php:88
+#: includes/gtbe-themedy.php:353
+#: includes/gtbe-themedy.php:355
+#: includes/gtbe-themedy.php:383
+#: includes/gtbe-themedy.php:385
 msgid "Products"
 msgstr "Produkte"
 
 #@ genesis-toolbar-extras
-#: includes/gtbe-plugins.php:761
-#: includes/gtbe-plugins.php:763
+#: includes/gtbe-premise.php:92
+#: includes/gtbe-premise.php:94
 msgid "Orders"
 msgstr "Bestellungen"
 
 #@ genesis-toolbar-extras
-#: includes/gtbe-plugins.php:767
-#: includes/gtbe-plugins.php:769
+#: includes/gtbe-premise.php:98
+#: includes/gtbe-premise.php:100
 msgid "Link Manager"
 msgstr "Link-Manager"
 
 #@ genesis-toolbar-extras
-#: includes/gtbe-plugins.php:773
-#: includes/gtbe-plugins.php:775
+#: includes/gtbe-premise.php:104
+#: includes/gtbe-premise.php:106
 msgid "Reports"
 msgstr "Berichte/ Statistiken"
 
 #@ genesis-toolbar-extras
-#: includes/gtbe-plugins.php:779
-#: includes/gtbe-plugins.php:781
+#: includes/gtbe-premise.php:110
+#: includes/gtbe-premise.php:112
 msgid "Settings"
 msgstr "Einstellungen"
 
 #@ genesis-toolbar-extras
-#: includes/gtbe-themes.php:726
+#: includes/gtbe-themes.php:847
 msgid "Support Site"
 msgstr "Support-Seite"
 
 #@ genesis-toolbar-extras
-#: includes/gtbe-themes.php:736
+#: includes/gtbe-themes.php:857
 msgid "Knowledge Base"
 msgstr "Wissensbasis"
 
 #@ genesis-toolbar-extras
-#: genesis-toolbar-extras.php:224
+#: genesis-toolbar-extras.php:282
 msgctxt "Translators: For the tooltip"
 msgid "Ultimate User Guide (PDF/ EBook)"
 msgstr "Ultimative Benutzeranleitung (PDF/ EBook)"
 
 #@ genesis-toolbar-extras
-#: genesis-toolbar-extras.php:274
+#: genesis-toolbar-extras.php:332
 msgctxt "Translators: For the tooltip"
 msgid "Genesis Tutorials by Brian Gardner"
 msgstr "Genesis Anleitungen von Brian Gardner"
 
 #@ genesis-toolbar-extras
-#: genesis-toolbar-extras.php:280
+#: genesis-toolbar-extras.php:338
 msgctxt "Translators: For the tooltip"
 msgid "Genesis Code Snippets by Brian Gardner"
 msgstr "Genesis Code-Schnipsel von Brian Gardner"
 
 #@ genesis-toolbar-extras
-#: genesis-toolbar-extras.php:286
+#: genesis-toolbar-extras.php:344
 msgctxt "Translators: For the tooltip"
 msgid "Genesis &amp; WordPress Tutorials by Bill Erickson"
 msgstr "Genesis- &amp; Wordpress-Anleitungen von Bill Erickson"
 
 #@ genesis-toolbar-extras
-#: genesis-toolbar-extras.php:292
+#: genesis-toolbar-extras.php:350
 msgctxt "Translators: For the tooltip"
 msgid "Genesis Code Snippets by Bill Erickson"
 msgstr "Genesis Code-Schnipsel von Bill Erickson"
 
 #@ genesis-toolbar-extras
-#: genesis-toolbar-extras.php:298
+#: genesis-toolbar-extras.php:356
 msgctxt "Translators: For the tooltip"
 msgid "Genesis Tutorials by Travis Smith"
 msgstr "Genesis-Anleitungen von Travis Smith"
 
 #@ genesis-toolbar-extras
-#: genesis-toolbar-extras.php:304
+#: genesis-toolbar-extras.php:362
 msgctxt "Translators: For the tooltip"
 msgid "Genesis Grid Loop Tutorials by Travis Smith"
 msgstr "Genesis Grid-Loop-Anleitungen von Travis Smith"
 
 #@ genesis-toolbar-extras
-#: genesis-toolbar-extras.php:310
+#: genesis-toolbar-extras.php:368
 msgctxt "Translators: For the tooltip"
 msgid "Genesis Tutorials by Gary Jones"
 msgstr "Genesis-Anleitungen von Gary Jones"
 
 #@ genesis-toolbar-extras
-#: genesis-toolbar-extras.php:316
+#: genesis-toolbar-extras.php:374
 msgctxt "Translators: For the tooltip"
 msgid "Genesis Tutorials by Nick Croft"
 msgstr "Genesis-Anleitungen von Nick Croft"
 
 #@ genesis-toolbar-extras
-#: genesis-toolbar-extras.php:322
+#: genesis-toolbar-extras.php:380
 msgctxt "Translators: For the tooltip"
 msgid "Community Video Tutorials from the Community"
 msgstr "Community Video-Anleitungen "
 
 #@ genesis-toolbar-extras
-#: genesis-toolbar-extras.php:416
+#: genesis-toolbar-extras.php:474
 msgctxt "Translators: For the tooltip"
 msgid "GenesisFinder.com - Genesis Search Engine"
 msgstr "GenesisFinder.com - Genesis Suchmaschine"
 
 #@ genesis-toolbar-extras
-#: genesis-toolbar-extras.php:430
+#: genesis-toolbar-extras.php:488
 msgctxt "Translators: For the tooltip"
 msgid "German language files for Genesis Framework, Child Themes and more extensions"
 msgstr "Deutsche Sprachdateien für Genesis Framework, Child Themes und weitere Plugins/ Erweiterungen"
 
 #@ genesis-toolbar-extras
-#: genesis-toolbar-extras.php:437
+#: genesis-toolbar-extras.php:495
 msgctxt "Translators: For the tooltip"
 msgid "For Child Themes"
 msgstr "Übersetzungen für Genesis Child Themes"
 
 #@ genesis-toolbar-extras
-#: genesis-toolbar-extras.php:444
+#: genesis-toolbar-extras.php:502
 msgctxt "Translators: For the tooltip"
 msgid "For Plugins"
 msgstr "Übersetzungen für Genesis Plugins"
 
 #@ genesis-toolbar-extras
-#: includes/gtbe-studiopress.php:469
+#: includes/gtbe-studiopress.php:492
 msgctxt "Translators: For the tooltip"
 msgid "Custom Code &amp; CSS for Prose"
 msgstr "Eigener Code plus eigene CSS-Regeln für Prose"
 
 #@ genesis-toolbar-extras
-#: genesis-toolbar-extras.php:536
+#: genesis-toolbar-extras.php:594
 msgctxt "Translators: For the tooltip"
 msgid "Import &amp; Export"
 msgstr "Import &amp; Export von Einstellungen"
 
 #@ genesis-toolbar-extras
-#: genesis-toolbar-extras.php:629
+#: genesis-toolbar-extras.php:707
 msgctxt "Translators: For the tooltip"
 msgid "Genesis Framework"
 msgstr "Genesis Framework"
 
 #@ genesis-toolbar-extras
-#: includes/gtbe-plugins.php:300
+#: includes/gtbe-plugins.php:314
 msgctxt "Translators: For the tooltip"
 msgid "Generate Box (for Generate Child Theme)"
 msgstr "Generate-Box (für das Generate Child Theme)"
 
 #@ genesis-toolbar-extras
-#: includes/gtbe-plugins.php:338
+#: includes/gtbe-plugins.php:352
 msgctxt "Translators: For the tooltip"
 msgid "Genesis Connect (for BuddyPress)"
 msgstr "Genesis Connect (für BuddyPress)"
 
 #@ genesis-toolbar-extras
-#: includes/gtbe-studiopress.php:440
-#: includes/gtbe-themes.php:173
+#: includes/gtbe-studiopress.php:462
+#: includes/gtbe-themes.php:196
 msgctxt "Translators: For the tooltip"
 msgid "Support Forum for Child Theme"
 msgstr "Support-Forum für das aktive Child Theme"
 
 #@ genesis-toolbar-extras
-#: includes/gtbe-themes.php:728
+#: includes/gtbe-themes.php:849
 msgctxt "Translators: For the tooltip"
 msgid "Support Site/Info for Child Theme"
 msgstr "Support-Seite/ -Info für das aktive Child Theme"
 
 #@ genesis-toolbar-extras
-#: includes/gtbe-themes.php:738
+#: includes/gtbe-themes.php:859
 msgctxt "Translators: For the tooltip"
 msgid "Documentation/ Knowledge Base for Child Theme"
 msgstr "Dokumentation bzw. Wissensbasis für das aktive Child Theme"
 
 #@ genesis-toolbar-extras
 #: includes/gtbe-studiopress.php:38
-#: includes/gtbe-themes.php:43
+#: includes/gtbe-themes.php:49
+#: includes/gtbe-themes.php:50
 msgid "Theme"
 msgstr "Theme"
 
 #@ genesis-toolbar-extras
-#: includes/gtbe-themedy.php:179
-#: includes/gtbe-themedy.php:181
-#: includes/gtbe-themedy.php:198
-#: includes/gtbe-themedy.php:200
+#: includes/gtbe-themedy.php:221
+#: includes/gtbe-themedy.php:223
+#: includes/gtbe-themedy.php:241
+#: includes/gtbe-themedy.php:243
 msgid "Portfolio Items"
 msgstr "Portfolio-Elemente"
 
 #@ genesis-toolbar-extras
-#: includes/gtbe-themedy.php:185
-#: includes/gtbe-themedy.php:187
-#: includes/gtbe-themedy.php:204
-#: includes/gtbe-themedy.php:206
+#: includes/gtbe-plugins.php:499
+#: includes/gtbe-plugins.php:501
+#: includes/gtbe-themedy.php:227
+#: includes/gtbe-themedy.php:229
+#: includes/gtbe-themedy.php:247
+#: includes/gtbe-themedy.php:249
 msgid "Add new Portfolio"
 msgstr "Neues Portfolio hinzufügen"
 
 #@ genesis-toolbar-extras
-#: includes/gtbe-themedy.php:191
-#: includes/gtbe-themedy.php:193
-#: includes/gtbe-themedy.php:210
-#: includes/gtbe-themedy.php:212
+#: includes/gtbe-themedy.php:233
+#: includes/gtbe-themedy.php:235
+#: includes/gtbe-themedy.php:253
+#: includes/gtbe-themedy.php:255
 msgid "Portfolio Categories"
 msgstr "Portfolio-Kategorien"
 
 #@ genesis-toolbar-extras
-#: includes/gtbe-themedy.php:223
-#: includes/gtbe-themedy.php:225
-#: includes/gtbe-themedy.php:236
-#: includes/gtbe-themedy.php:238
+#: includes/gtbe-themedy.php:269
+#: includes/gtbe-themedy.php:271
+#: includes/gtbe-themedy.php:283
+#: includes/gtbe-themedy.php:285
 msgid "Slides"
 msgstr "Slides"
 
 #@ genesis-toolbar-extras
-#: includes/gtbe-themedy.php:229
-#: includes/gtbe-themedy.php:231
-#: includes/gtbe-themedy.php:242
-#: includes/gtbe-themedy.php:244
+#: includes/gtbe-themedy.php:275
+#: includes/gtbe-themedy.php:277
+#: includes/gtbe-themedy.php:289
+#: includes/gtbe-themedy.php:291
 msgid "Add new Slide"
 msgstr "Neue Slide hinzufügen"
 
 #@ genesis-toolbar-extras
-#: includes/gtbe-themedy.php:255
-#: includes/gtbe-themedy.php:257
-#: includes/gtbe-themedy.php:274
-#: includes/gtbe-themedy.php:276
+#: includes/gtbe-themedy.php:305
+#: includes/gtbe-themedy.php:307
+#: includes/gtbe-themedy.php:325
+#: includes/gtbe-themedy.php:327
 msgid "Photos"
 msgstr "Fotos"
 
 #@ genesis-toolbar-extras
-#: includes/gtbe-themedy.php:261
-#: includes/gtbe-themedy.php:263
-#: includes/gtbe-themedy.php:280
-#: includes/gtbe-themedy.php:282
+#: includes/gtbe-themedy.php:311
+#: includes/gtbe-themedy.php:313
+#: includes/gtbe-themedy.php:331
+#: includes/gtbe-themedy.php:333
 msgid "Add new Photo"
 msgstr "Neues Foto hinzufügen"
 
 #@ genesis-toolbar-extras
-#: includes/gtbe-themedy.php:267
-#: includes/gtbe-themedy.php:269
-#: includes/gtbe-themedy.php:286
-#: includes/gtbe-themedy.php:288
+#: includes/gtbe-themedy.php:317
+#: includes/gtbe-themedy.php:319
+#: includes/gtbe-themedy.php:337
+#: includes/gtbe-themedy.php:339
 msgid "Photo Galleries"
 msgstr "Fotogalerien"
 
 #@ genesis-toolbar-extras
-#: includes/gtbe-themedy.php:305
-#: includes/gtbe-themedy.php:307
-#: includes/gtbe-themedy.php:334
-#: includes/gtbe-themedy.php:336
+#: includes/gtbe-themedy.php:359
+#: includes/gtbe-themedy.php:361
+#: includes/gtbe-themedy.php:389
+#: includes/gtbe-themedy.php:391
 msgid "Add new Product"
 msgstr "Neues Produkt hinzufügen"
 
 #@ genesis-toolbar-extras
-#: includes/gtbe-themedy.php:311
-#: includes/gtbe-themedy.php:313
-#: includes/gtbe-themedy.php:340
-#: includes/gtbe-themedy.php:342
+#: includes/gtbe-themedy.php:365
+#: includes/gtbe-themedy.php:367
+#: includes/gtbe-themedy.php:395
+#: includes/gtbe-themedy.php:397
 msgid "Product Categories"
 msgstr "Produktkategorien"
 
 #@ genesis-toolbar-extras
-#: includes/gtbe-themes.php:181
+#: includes/gtbe-themes.php:204
 msgid "Theme How To"
 msgstr "Theme-Anleitung"
 
 #@ genesis-toolbar-extras
-#: includes/gtbe-themes.php:183
+#: includes/gtbe-themes.php:206
 msgctxt "Translators: For the tooltip"
 msgid "Theme How To"
 msgstr "Anleitung für das Theme"
 
 #@ genesis-toolbar-extras
-#: includes/gtbe-themes.php:188
-#: includes/gtbe-themes.php:202
+#: includes/gtbe-themes.php:211
+#: includes/gtbe-themes.php:225
 msgid "(in)SPYR Slides"
 msgstr "(in)SPYR Slides"
 
 #@ genesis-toolbar-extras
-#: includes/gtbe-themes.php:190
-#: includes/gtbe-themes.php:204
+#: includes/gtbe-themes.php:213
+#: includes/gtbe-themes.php:227
 msgctxt "Translators: For the tooltip"
 msgid "(in)SPYR Slides"
 msgstr "Slides für das (in)SPYR Theme"
 
 #@ genesis-toolbar-extras
-#: includes/gtbe-themes.php:194
-#: includes/gtbe-themes.php:208
+#: includes/gtbe-themes.php:217
+#: includes/gtbe-themes.php:231
 msgid "(in)SPYR Add new Slide"
 msgstr "(in)SPYR neue Slide hinzufügen"
 
 #@ genesis-toolbar-extras
-#: includes/gtbe-themes.php:196
-#: includes/gtbe-themes.php:210
+#: includes/gtbe-themes.php:219
+#: includes/gtbe-themes.php:233
 msgctxt "Translators: For the tooltip"
 msgid "(in)SPYR Add new Slide"
 msgstr "(in)SPYR neue Slide hinzufügen"
-
-#@ genesis-toolbar-extras
-#: includes/gtbe-plugins.php:450
-#: includes/gtbe-plugins.php:452
-msgid "Listing Archives Settings"
-msgstr "Auflistungen: Archiv-Einstellungen"
-
-#@ genesis-toolbar-extras
-#: includes/gtbe-plugins.php:518
-#: includes/gtbe-plugins.php:520
-msgid "Video Archives Settings"
-msgstr "Videos: Archiv-Einstellungen"
-
-#@ genesis-toolbar-extras
-#: includes/gtbe-themedy.php:319
-#: includes/gtbe-themedy.php:321
-#: includes/gtbe-themedy.php:348
-#: includes/gtbe-themedy.php:350
-msgid "Product Archives Settings"
-msgstr "Produkte: Archiv-Einstellungen"
 
 #@ genesis-toolbar-extras
 #: includes/gtbe-plugins.php:114
@@ -951,216 +928,210 @@ msgid "Favicon Uploader"
 msgstr "Favicon hochladen"
 
 #@ genesis-toolbar-extras
-#: includes/gtbe-plugins.php:249
-#: includes/gtbe-plugins.php:251
+#: includes/gtbe-plugins.php:264
+#: includes/gtbe-plugins.php:266
 msgid "Footer Widgets"
 msgstr "Fußzeilen-Widgets"
 
 #@ genesis-toolbar-extras
-#: includes/gtbe-plugins.php:264
-#: includes/gtbe-plugins.php:266
+#: includes/gtbe-plugins.php:279
+#: includes/gtbe-plugins.php:281
 msgid "Simple Defaults"
 msgstr "Einfache Standardeinstellungen"
 
 #@ genesis-toolbar-extras
-#: includes/gtbe-plugins.php:307
+#: includes/gtbe-plugins.php:321
 msgctxt "Translators: For the tooltip"
 msgid "Generate Box (for Email/Lead Management)"
 msgstr "Generate-Box (für E-Mail-Listenverwaltung)"
 
 #@ genesis-toolbar-extras
-#: includes/gtbe-plugins.php:366
-#: includes/gtbe-plugins.php:368
+#: includes/gtbe-plugins.php:382
+#: includes/gtbe-plugins.php:384
 msgid "Accordion Settings"
 msgstr "Accordion Einstellungen"
 
 #@ genesis-toolbar-extras
-#: includes/gtbe-plugins.php:396
-#: includes/gtbe-plugins.php:398
+#: includes/gtbe-plugins.php:413
+#: includes/gtbe-plugins.php:415
 msgid "SEO Data Transporter"
 msgstr "SEO-Daten Transporter"
 
 #@ genesis-toolbar-extras
-#: includes/gtbe-plugins.php:552
-#: includes/gtbe-plugins.php:554
+#: includes/gtbe-plugins.php:649
+#: includes/gtbe-plugins.php:651
 msgid "Press Post Type"
 msgstr "Presse Inhaltstyp"
 
 #@ genesis-toolbar-extras
-#: includes/gtbe-plugins.php:558
-#: includes/gtbe-plugins.php:560
+#: includes/gtbe-plugins.php:655
+#: includes/gtbe-plugins.php:657
 msgid "Add new Press/News"
 msgstr "Neuen Presseinhalt hinzufügen"
 
 #@ genesis-toolbar-extras
-#: includes/gtbe-plugins.php:564
-#: includes/gtbe-plugins.php:566
+#: includes/gtbe-plugins.php:661
+#: includes/gtbe-plugins.php:663
 msgid "Press/News Categories"
 msgstr "Presse-Kategorien"
 
 #@ genesis-toolbar-extras
-#: includes/gtbe-plugins.php:570
-#: includes/gtbe-plugins.php:572
+#: includes/gtbe-plugins.php:667
+#: includes/gtbe-plugins.php:669
 msgid "Press/News Tags"
 msgstr "Presse-Schlagwörter"
 
 #@ genesis-toolbar-extras
-#: includes/gtbe-plugins.php:579
-#: includes/gtbe-plugins.php:581
-msgid "Press Archives Settings"
-msgstr "Presse Archiv-Einstellungen"
-
-#@ genesis-toolbar-extras
-#: includes/gtbe-plugins.php:597
+#: includes/gtbe-plugins.php:698
 msgid "Promotions"
 msgstr "Promotions"
 
 #@ genesis-toolbar-extras
-#: includes/gtbe-plugins.php:599
+#: includes/gtbe-plugins.php:700
 msgctxt "Translators: For the tooltip - Genesis Promotion Box Post Type"
 msgid "Genesis Promotion Box"
 msgstr "Genesis Promotion-Box (Inhaltstyp)"
 
 #@ genesis-toolbar-extras
-#: includes/gtbe-plugins.php:603
-#: includes/gtbe-plugins.php:605
+#: includes/gtbe-plugins.php:704
+#: includes/gtbe-plugins.php:706
 msgid "Add new Promotion"
 msgstr "Neue Promotion hinzufügen"
 
 #@ genesis-toolbar-extras
-#: includes/gtbe-plugins.php:739
-#: includes/gtbe-plugins.php:741
+#: includes/gtbe-premise.php:67
+#: includes/gtbe-premise.php:69
 msgid "Premise Help"
 msgstr "Premise-Hilfe"
 
 #@ genesis-toolbar-extras
-#: includes/gtbe-plugins.php:204
-#: includes/gtbe-plugins.php:206
+#: includes/gtbe-plugins.php:219
+#: includes/gtbe-plugins.php:221
 msgid "Style Select"
 msgstr "Stil-Auswahl"
 
 #@ genesis-toolbar-extras
-#: includes/gtbe-plugins.php:219
-#: includes/gtbe-plugins.php:221
+#: includes/gtbe-plugins.php:234
+#: includes/gtbe-plugins.php:236
 msgid "Title Toggle"
 msgstr "Seitentitelanzeige"
 
 #@ genesis-toolbar-extras
-#: includes/gtbe-plugins.php:234
-#: includes/gtbe-plugins.php:236
+#: includes/gtbe-plugins.php:249
+#: includes/gtbe-plugins.php:251
 msgid "Featured Images"
 msgstr "Standard-Artikelbild (Featured Bild)"
 
 #@ genesis-toolbar-extras
-#: includes/gtbe-plugins.php:320
-#: includes/gtbe-plugins.php:322
+#: includes/gtbe-plugins.php:334
+#: includes/gtbe-plugins.php:336
 msgid "bbPress Genesis Options"
 msgstr "bbPress Genesis-Einstellungen"
 
 #@ genesis-toolbar-extras
-#: includes/gtbe-plugins.php:381
-#: includes/gtbe-plugins.php:383
+#: includes/gtbe-plugins.php:398
+#: includes/gtbe-plugins.php:400
 msgid "Genesis Hooks"
 msgstr "Genesis Hooks-Anzeige"
 
 #@ genesis-toolbar-extras
-#: includes/gtbe-plugins.php:189
-#: includes/gtbe-plugins.php:191
+#: includes/gtbe-plugins.php:204
+#: includes/gtbe-plugins.php:206
 msgid "Teaser Boxes Settings"
 msgstr "Grid-/ Anreißer-Boxen Einstellungen"
 
 #@ genesis-toolbar-extras
-#: genesis-toolbar-extras.php:75
+#: includes/gtbe-admin.php:34
 msgctxt "Translators: Plugin support links"
 msgid "Support"
 msgstr "Hilfe & Unterstützung (Support)"
 
 #@ genesis-toolbar-extras
-#: genesis-toolbar-extras.php:175
+#: genesis-toolbar-extras.php:232
 msgctxt "Translators: For the tooltip"
 msgid "Genesis"
 msgstr "Genesis"
 
 #@ genesis-toolbar-extras
-#: genesis-toolbar-extras.php:184
+#: genesis-toolbar-extras.php:242
 msgctxt "Translators: Genesis support forums"
 msgid "Support"
 msgstr "Support"
 
 #@ genesis-toolbar-extras
-#: genesis-toolbar-extras.php:186
+#: genesis-toolbar-extras.php:244
 msgctxt "Translators: For the tooltip"
 msgid "Support - official StudioPress Support Forum for Members"
 msgstr "Support - offizielles StudioPress-Forum für Mitglieder/ Kunden"
 
 #@ genesis-toolbar-extras
-#: genesis-toolbar-extras.php:228
+#: genesis-toolbar-extras.php:286
 msgid "Explained Series"
 msgstr "erklärt - Serie"
 
 #@ genesis-toolbar-extras
-#: genesis-toolbar-extras.php:230
+#: genesis-toolbar-extras.php:288
 msgctxt "Translators: For the tooltip"
 msgid "Explained Series by Nick Croft (Community Resource)"
 msgstr "erklärt - Serie von Nick Croft (Community-Quelle)"
 
 #@ genesis-toolbar-extras
-#: genesis-toolbar-extras.php:328
-#: genesis-toolbar-extras.php:330
+#: genesis-toolbar-extras.php:386
+#: genesis-toolbar-extras.php:388
 msgid "HQ"
 msgstr "Zentrale"
 
 #@ genesis-toolbar-extras
-#: genesis-toolbar-extras.php:406
+#: genesis-toolbar-extras.php:464
 msgid "News Planet"
 msgstr "Nachrichten Planet"
 
 #@ genesis-toolbar-extras
-#: genesis-toolbar-extras.php:408
+#: genesis-toolbar-extras.php:466
 msgid "News Planet (official and community news via FriendFeed service)"
 msgstr "Nachrichten Planet (offizielle und Community-Nachrichten via FriendFeed-Dienst)"
 
 #@ genesis-toolbar-extras
-#: genesis-toolbar-extras.php:454
+#: genesis-toolbar-extras.php:512
 #, php-format
 msgid "Help Translate %s"
 msgstr "%s mit übersetzen"
 
 #@ genesis-toolbar-extras
-#: genesis-toolbar-extras.php:456
+#: genesis-toolbar-extras.php:514
 #, php-format
 msgctxt "Translators: For the tooltip"
 msgid "%s Translation Project"
 msgstr "%s Übersetzungsprojekt"
 
 #@ genesis-toolbar-extras
-#: genesis-toolbar-extras.php:462
+#: genesis-toolbar-extras.php:520
 #, php-format
 msgctxt "Translators: For the tooltip"
 msgid "Register to Translate %s"
 msgstr "Anmelden, um beim %s Übersetzungsprojekt teilnehmen zu können"
 
 #@ genesis-toolbar-extras
-#: genesis-toolbar-extras.php:469
+#: genesis-toolbar-extras.php:527
 #, php-format
 msgctxt "Translators: For the tooltip"
 msgid "Translations Forum (%s Support Forum)"
 msgstr "Übersetzungen-Forum (%s Support-Forum)"
 
 #@ genesis-toolbar-extras
-#: genesis-toolbar-extras.php:487
-#: genesis-toolbar-extras.php:489
+#: genesis-toolbar-extras.php:545
+#: genesis-toolbar-extras.php:547
 msgid "Widgets"
 msgstr "Widgets"
 
 #@ genesis-toolbar-extras
-#: genesis-toolbar-extras.php:493
-#: genesis-toolbar-extras.php:495
+#: genesis-toolbar-extras.php:551
+#: genesis-toolbar-extras.php:553
 msgid "Menus"
 msgstr "Menüs"
 
 #@ genesis-toolbar-extras
-#: genesis-toolbar-extras.php:553
+#: genesis-toolbar-extras.php:619
 #, php-format
 msgctxt "Translators: For the tooltip"
 msgid "Active %s Extensions Plugins"
@@ -1173,14 +1144,292 @@ msgid "Responsive Slider Settings"
 msgstr "Responsiver Slider Einstellungen"
 
 #@ genesis-toolbar-extras
-#: includes/gtbe-plugins.php:174
-#: includes/gtbe-plugins.php:176
+#: includes/gtbe-plugins.php:189
+#: includes/gtbe-plugins.php:191
 msgid "Grid Settings"
 msgstr "Grid-Einstellungen"
 
 #@ genesis-toolbar-extras
-#: includes/gtbe-plugins.php:279
-#: includes/gtbe-plugins.php:281
+#: includes/gtbe-plugins.php:294
+#: includes/gtbe-plugins.php:296
 msgid "Comment Title"
 msgstr "Kommentar-Titel"
+
+#@ genesis-toolbar-extras
+#. translators: plugin header field 'Version'
+#: genesis-toolbar-extras.php:0
+msgid "1.1"
+msgstr "1.1"
+
+#@ genesis-toolbar-extras
+#: includes/gtbe-editfiles.php:59
+msgid "Edit style.css"
+msgstr "Bearbeiten: style.css"
+
+#@ genesis-toolbar-extras
+#: includes/gtbe-editfiles.php:61
+msgctxt "Translators: For the tooltip"
+msgid "Edit current child theme stylesheet: style.css"
+msgstr "Stylesheet-Datei des aktuellen Child Themes bearbeiten: style.css"
+
+#@ genesis-toolbar-extras
+#: includes/gtbe-editfiles.php:67
+msgid "Edit functions.php"
+msgstr "Bearbeiten: functions.php"
+
+#@ genesis-toolbar-extras
+#: includes/gtbe-editfiles.php:69
+msgctxt "Translators: For the tooltip"
+msgid "Edit current child theme functions: functions.php"
+msgstr "Funktions-Datei des aktuellen Child Themes bearbeiten: functions.php"
+
+#@ genesis-toolbar-extras
+#: includes/gtbe-plugins.php:174
+msgid "404 Page Content"
+msgstr "404-Seiteninhalt"
+
+#@ genesis-toolbar-extras
+#: includes/gtbe-plugins.php:176
+msgid "404 Error Page Content"
+msgstr "Inhalt der 404-Fehlerseite"
+
+#@ genesis-toolbar-extras
+#: includes/gtbe-seoplugins.php:98
+#: includes/gtbe-seoplugins.php:100
+msgid "SEO Monitor"
+msgstr "SEO-Monitor"
+
+#@ genesis-toolbar-extras
+#: includes/gtbe-seoplugins.php:104
+msgid "Helpdesk"
+msgstr "Hilfecenter"
+
+#@ genesis-toolbar-extras
+#: includes/gtbe-seoplugins.php:106
+msgid "Helpdesk - Support"
+msgstr "Hilfecenter - Support"
+
+#@ genesis-toolbar-extras
+#: includes/gtbe-seoplugins.php:24
+msgid "SEO Plugin"
+msgstr "SEO-Plugin"
+
+#@ genesis-toolbar-extras
+#: includes/gtbe-seoplugins.php:62
+msgid "AIO SEO Pack"
+msgstr "AIO SEO Pack"
+
+#@ genesis-toolbar-extras
+#: includes/gtbe-seoplugins.php:64
+msgctxt "Translators: For the tooltip"
+msgid "All In One SEO Pack"
+msgstr "All In One SEO Pack"
+
+#@ genesis-toolbar-extras
+#: includes/gtbe-seoplugins.php:92
+#: includes/gtbe-seoplugins.php:94
+msgid "wpSEO Settings"
+msgstr "wpSEO Einstellungen"
+
+#@ genesis-toolbar-extras
+#: includes/gtbe-seoplugins.php:121
+msgctxt "Translators: For the tooltip"
+msgid "SEO Ultimate Title Settings"
+msgstr "SEO Ultimate Titeleinstellungen"
+
+#@ genesis-toolbar-extras
+#: includes/gtbe-seoplugins.php:125
+#: includes/gtbe-seoplugins.php:127
+msgid "Meta Description Editor"
+msgstr "Meta-Beschreibung Editor"
+
+#@ genesis-toolbar-extras
+#: includes/gtbe-seoplugins.php:131
+#: includes/gtbe-seoplugins.php:133
+msgid "More Moduls &amp; Settings"
+msgstr "Mehr Module &amp; Einstellungen"
+
+#@ genesis-toolbar-extras
+#: includes/gtbe-seoplugins.php:152
+#: includes/gtbe-seoplugins.php:154
+msgid "Page Settings"
+msgstr "Seiten-Einstellungen"
+
+#@ genesis-toolbar-extras
+#: includes/gtbe-seoplugins.php:158
+#: includes/gtbe-seoplugins.php:160
+msgid "Page Modules"
+msgstr "Seiten-Module"
+
+#@ genesis-toolbar-extras
+#: includes/gtbe-seoplugins.php:175
+msgctxt "Translators: For the tooltip"
+msgid "HeadSpace2"
+msgstr "HeadSpace2"
+
+#@ genesis-toolbar-extras
+#: includes/gtbe-seoplugins.php:190
+msgctxt "Translators: For the tooltip"
+msgid "Platinum SEO Pack"
+msgstr "Platinum SEO Pack"
+
+#@ genesis-toolbar-extras
+#: includes/gtbe-seoplugins.php:148
+msgctxt "Translators: For the tooltip"
+msgid "gdHeadSpace4 - Meta Data"
+msgstr "gdHeadSpace4 - Meta-Daten"
+
+#@ genesis-toolbar-extras
+#: includes/gtbe-seoplugins.php:205
+msgctxt "Translators: For the tooltip"
+msgid "Greg's High Performance SEO"
+msgstr "Gregs High Performance SEO"
+
+#@ genesis-toolbar-extras
+#: includes/gtbe-seoplugins.php:209
+#: includes/gtbe-seoplugins.php:211
+msgid "Main Titles"
+msgstr "Titel, 1. Level"
+
+#@ genesis-toolbar-extras
+#: includes/gtbe-seoplugins.php:215
+#: includes/gtbe-seoplugins.php:217
+msgid "Secondary Titles"
+msgstr "Titel, 2. Level"
+
+#@ genesis-toolbar-extras
+#: includes/gtbe-seoplugins.php:221
+#: includes/gtbe-seoplugins.php:223
+msgid "Secondary Descriptions"
+msgstr "Beschreibungen, 2. Level"
+
+#@ genesis-toolbar-extras
+#: includes/gtbe-seoplugins.php:227
+#: includes/gtbe-seoplugins.php:229
+msgid "Head Meta"
+msgstr "Kopfzeilen-Metadaten"
+
+#@ genesis-toolbar-extras
+#: includes/gtbe-seoplugins.php:37
+msgctxt "Translators: For the tooltip"
+msgid "WordPress SEO by Yoast - Dashboard"
+msgstr "WordPress SEO von Yoast.com - Übersicht"
+
+#@ genesis-toolbar-extras
+#: includes/gtbe-seoplugins.php:41
+#: includes/gtbe-seoplugins.php:43
+msgid "Title Settings"
+msgstr "Titeleinstellungen"
+
+#@ genesis-toolbar-extras
+#: includes/gtbe-seoplugins.php:47
+#: includes/gtbe-seoplugins.php:49
+msgid "Indexation"
+msgstr "Indexierung"
+
+#@ genesis-toolbar-extras
+#: includes/gtbe-seoplugins.php:77
+msgid "AIO SEO Pack Pro"
+msgstr "AIO SEO Pack Pro"
+
+#@ genesis-toolbar-extras
+#: includes/gtbe-seoplugins.php:79
+msgctxt "Translators: For the tooltip"
+msgid "All In One SEO Pack Pro"
+msgstr "All In One SEO Pack Pro (Premium)"
+
+#@ genesis-toolbar-extras
+#: genesis-toolbar-extras.php:638
+msgid "Archives Settings"
+msgstr "Archiv-Einstellungen"
+
+#@ genesis-toolbar-extras
+#: includes/gtbe-plugins.php:493
+#: includes/gtbe-plugins.php:495
+msgid "Genesis Portfolio"
+msgstr "Genesis Portfolio"
+
+#@ genesis-toolbar-extras
+#: includes/gtbe-plugins.php:514
+#: includes/gtbe-plugins.php:516
+msgid "Register new Taxonomies"
+msgstr "Neue Taxonomien registrieren"
+
+#@ genesis-toolbar-extras
+#: includes/gtbe-plugins.php:520
+#: includes/gtbe-plugins.php:522
+msgid "Portfolio Settings"
+msgstr "Portfolio-Einstellungen"
+
+#@ genesis-toolbar-extras
+#: includes/gtbe-plugins.php:540
+#: includes/gtbe-plugins.php:542
+msgid "Genesis Portfolio: Settings"
+msgstr "Genesis Portfolio: Einstellungen"
+
+#@ genesis-toolbar-extras
+#: includes/gtbe-plugins.php:471
+#: includes/gtbe-plugins.php:473
+msgctxt "Translators: For GCPTA Plugin Archives"
+msgid "Listings"
+msgstr "Auflistungen:"
+
+#@ genesis-toolbar-extras
+#: includes/gtbe-plugins.php:505
+#: includes/gtbe-plugins.php:507
+msgctxt "Translators: Genesis Portfolio Taxonomy"
+msgid "Features"
+msgstr "Features:"
+
+#@ genesis-toolbar-extras
+#: includes/gtbe-plugins.php:530
+#: includes/gtbe-plugins.php:532
+msgctxt "Translators: For GCPTA Plugin Archives"
+msgid "Portfolio"
+msgstr "Portfolio:"
+
+#@ genesis-toolbar-extras
+#: includes/gtbe-plugins.php:611
+#: includes/gtbe-plugins.php:613
+msgctxt "Translators: For GCPTA Plugin Archives"
+msgid "Videos"
+msgstr "Videos:"
+
+#@ genesis-toolbar-extras
+#: includes/gtbe-plugins.php:676
+#: includes/gtbe-plugins.php:678
+msgctxt "Translators: For GCPTA Plugin Archives"
+msgid "Press"
+msgstr "Presse:"
+
+#@ genesis-toolbar-extras
+#: includes/gtbe-themedy.php:374
+#: includes/gtbe-themedy.php:376
+#: includes/gtbe-themedy.php:404
+#: includes/gtbe-themedy.php:406
+msgctxt "Translators: For GCPTA Plugin Archives"
+msgid "Products"
+msgstr "Produkte:"
+
+#@ genesis-toolbar-extras
+#: includes/gtbe-themedy.php:158
+msgid "Edit custom.css"
+msgstr "Bearbeiten custom.css"
+
+#@ genesis-toolbar-extras
+#: includes/gtbe-themedy.php:160
+msgctxt "Translators: For the tooltip"
+msgid "Edit current child theme custom stylesheet: custom.css"
+msgstr "Benutzerdefinierte Stile des aktuellen Child Themes bearbeiten: custom.css"
+
+#@ genesis-toolbar-extras
+#: includes/gtbe-themedy.php:166
+msgid "Edit custom_functions.php"
+msgstr "Bearbeiten custom_functions.php"
+
+#@ genesis-toolbar-extras
+#: includes/gtbe-themedy.php:168
+msgctxt "Translators: For the tooltip"
+msgid "Edit current child theme custom functions: custom_functions.php"
+msgstr "Benutzerdefinierte Funktionen des aktuellen Child Themes bearbeiten: custom_functions.php"
 

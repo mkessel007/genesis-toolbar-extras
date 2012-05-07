@@ -3,8 +3,10 @@ Contributors: daveshine, deckerweb
 Donate link: http://genesisthemes.de/en/donate/
 Tags: toolbar, tool bar, adminbar, admin bar, genesis, genesis framework, genesiswp, framework, administration, resources, links, theme, settings, manage, deckerweb, ddwtoolbar
 Requires at least: 3.3
-Tested up to: 3.3.1
-Stable tag: 1.0
+Tested up to: 3.4
+Stable tag: 1.1
+License: GPLv2 or later
+License URI: http://www.opensource.org/licenses/gpl-license.php
 
 This plugin adds useful admin settings links and massive resources for Genesis Framework and its ecosystem to the WordPress Toolbar / Admin Bar.
 
@@ -19,12 +21,14 @@ This plugin just adds **a lot Genesis Framework related resources** to your tool
 * Support for all official plugins by StudioPress, plus all third-party community extensions as well as plugins from the "ecosystem", for full list [see "Other Notes" here](http://wordpress.org/extend/plugins/genesis-toolbar-extras/other_notes/)
 * A massive list of resource & community links is included: support forums, tutorials, code snippets, translations etc.
 * A special "Manage Content" group where plugins like "AgentPress Listings", "Premise" or "Genesis Media Project" or other custom post types from some child themes hook in -- so you can very easily manage this framework/child theme related content stuff from your toolbar!
+* Support for the most popular SEO plugins: if one of this is active, Genesis SEO options are also hidden from the toolbar and the plugin's settings links are hooked in! (since v1.1)
+* Optional support for Theme Editor links for child themes (style.css + functions.php), for security reasons has to be activated via `add_theme_support( 'gtbe-theme-editor' );`. (since v1.1)
 * The added menu items by the plugin follow the same user cabalities as their original links - in other words: if a link to a settings page is not displayed without my plugin for a certain user role/capability it won't be when my plugin is active!
 * Support for user profile options regarding Genesis admin menus: So, if a user won't see the left-hand Genesis icon, the same user won't see any Genesis toolbar items!
 * 9 additional icon colors included :) (changeable via filters)
 * 4 filters included to change wording/tooltip and icon of the main item - for more info [see FAQ section here](http://wordpress.org/extend/plugins/genesis-toolbar-extras/faq/)
 * For custom "branding" or special needs a few sections like "Extensions" and "Resource links group" could be hidden from displaying via your active child theme - for more info [see FAQ section here](http://wordpress.org/extend/plugins/genesis-toolbar-extras/faq/)
-* Fully internationalized! Real-life tested and developed with international users in mind!
+* Fully internationalized! Real-life tested and developed with international users in mind!  Also supports update-secure custom language file (if you need special wording...)
 * Fully WPML compatible!
 
 = Special Features =
@@ -43,6 +47,7 @@ This plugin just adds **a lot Genesis Framework related resources** to your tool
 * English (default) - always included
 * German - always included
 * .pot file (`genesis-toolbar-extras.pot`) for translators is also always included :)
+* Easy plugin translation platform with GlotPress tool: [Translate "Genesis Toolbar Extras"...](http://translate.wpautobahn.com/projects/genesis-plugins-deckerweb/genesis-toolbar-extras)
 * *Your translation? - [Just send it in](http://genesisthemes.de/en/contact/)*
 
 [A plugin from deckerweb.de and GenesisThemes](http://genesisthemes.de/en/)
@@ -54,7 +59,7 @@ This plugin just adds **a lot Genesis Framework related resources** to your tool
 * Or follow me on [+David Decker](http://deckerweb.de/gplus) on Google Plus ;-)
 
 = More =
-* [Also see my other plugins](http://genesisthemes.de/en/wp-plugins/) or see [my WordPress.org profile page](http://profiles.wordpress.org/users/daveshine/)
+* [Also see my other plugins](http://genesisthemes.de/en/wp-plugins/) or see [my WordPress.org profile page](http://profiles.wordpress.org/daveshine/)
 * Tip: [*GenesisFinder* - Find then create. Your Genesis Framework Search Engine.](http://genesisfinder.com/)
 
 == Installation ==
@@ -64,7 +69,7 @@ This plugin just adds **a lot Genesis Framework related resources** to your tool
 3. Look at your toolbar / admin bar for "Genesis" and enjoy using the new links there :)
 4. Go and manage your framework, child theme and/or extensions settings :)
 
-**Please note, this plugin requires WordPress 3.3 or higher in order to work!**
+**Please note, this plugin requires WordPress 3.3 or higher in order to work! And yes, it is fully compatible with WordPress 3.4!**
 
 **Also note:** This plugin has NO settings page because I believe it's just not neccessarry. All customizing could be done via filters, constants and regular WordPress user roles & capabilities. As the plugin is indended for a shop manager/ admin/ webmaster use that's the way to go. This way we can save the overhaul of an options panel/settings page, additional database requests, uninstall routines and such. End result: a lightweight system that just works and saves clicks & time :-).
 
@@ -83,7 +88,7 @@ The main purpose of my plugin here is to have all things under one roof. So if y
 One plugin to rule them all :-)
 
 = Does this plugin work with latest WP version and also older versions? =
-Yes, this plugin works really fine with the latest WordPress 3.3+!
+Yes, this plugin works really fine with the latest WordPress 3.3+, of course also WordPress 3.4! :-)
 And sorry, it DOES NOT work with older WordPress versions so please update your install if you haven't done yet :).
 
 = How are new resources being added to the toolbar/admin bar? =
@@ -98,6 +103,36 @@ Yes, it is! :) Works really fine in Multisite invironment - it will ever ONLY di
 
 = In Multisite, could I "network activate" this plugin? =
 Yes, you could! It will ever ONLY display for admins or users who can see the left-hand "G" menu so you're on the safe side :). Of course it makes only sense if you have one or more sites running with Genesis in your Multisite environment. However, it's a lightweight plugin but activation on a per site basis is the recommended way from my point of view. Almost all admin links are intended for a per-site use and not for network-related stuff.
+
+= How can I access the style.css and functions.php files from the toolbar? =
+Via `add_theme_support( 'gtbe-theme-editor' );` you can easily add Theme Editor links for `style.css` and `functions.php` of your current child theme to the child theme section -- if enabled it will only display if the user has the proper cabalitities and if the Theme Editor is not disabled via wp-config!
+`
+/** Genesis Toolbar Extras: Add Theme Editor support */
+add_theme_support( 'gtbe-theme-editor' );
+`
+
+= Can custom menu items be hooked in via theme/child theme or other plugins? =
+Yes, this is possible since version 1.1 of the plugin! There are 4 action hooks available for hooking custom menu items in -- `gtbe_custom_main_items` for the main section, `gtbe_custom_theme_items` for the child theme section, `gtbe_custom_extend_items` for the extensions section plus `gtbe_custom_group_items` for the resource group section. Here's an example code:
+`
+add_action( 'gtbe_custom_group_items', 'gtbe_custom_additional_group_item' );
+/**
+ * Genesis Toolbar Extras: Custom Resource Group Items
+ *
+ * @global mixed $wp_admin_bar
+ */
+function gtbe_custom_additional_group_item() {
+
+	global $wp_admin_bar;
+
+	$wp_admin_bar->add_menu( array(
+		'parent' => 'ddw-genesis-genesisgroup',
+		'id'     => 'your-unique-item-id',
+		'title'  => __( 'Custom Menu Item Name', 'your-textdomain' ),
+		'href'   => 'http://deckerweb.de/',
+		'meta'   => array( 'title' => __( 'Custom Menu Item Name Tooltip', 'your-textdomain' ) )
+	) );
+}
+`
 
 = Can certain sections be removed? =
 Yes, this is possible! You can remove the following sections: "Child Theme" area (all items) / "Extensions" (main item + sub items!) / "Manage Content" group (all items) / "Resources link group" at the bottom (all items) / "German language stuff" (all items) / "Translations" (all items)
@@ -152,6 +187,13 @@ In general, use this constant do hide any "Genesis Toolbar Extras" items:
 `
 /** Genesis Toolbar Extras: Remove all items */
 define( 'GTBE_DISPLAY', FALSE );
+`
+
+= Can I remove the original Toolbar items for WordPress SEO by Yoast? =
+Yes, this is also possible! Since v1.1 of my plugin support for Yoast's great plugin is included so if you only want his stuff to appear within "Genesis Toolbar Extras" just add this constant to your active child theme's `functions.php file` or functionality plugin:
+`
+/** Genesis Toolbar Extras: Remove original Yoast SEO items */
+define( 'GTBE_REMOVE_WPSEO_YOAST_TOOLBAR', true );
 `
 
 
@@ -216,8 +258,12 @@ add_filter( 'gtbe_filter_main_icon', '__gtbe_red_icon' );
 add_filter( 'gtbe_filter_main_icon', '__gtbe_white_icon' );
 
 add_filter( 'gtbe_filter_main_icon', '__gtbe_yellow_icon' );
+
+add_filter( 'gtbe_filter_main_icon', '__gtbe_child_images_icon' );
 `
-* Another example:
+--> Where the last helper function returns the icon file (`icon-gtbe.png`) found in your current child theme's `/images/` subfolder
+
+* Example for using with current child theme:
 `
 add_filter( 'gtbe_filter_main_icon', 'custom_gtbe_main_icon' );
 /**
@@ -228,6 +274,7 @@ function custom_gtbe_main_icon() {
 }
 `
 --> Uses a custom image from your active child theme's `/images/` folder
+
 --> Recommended dimensions are 16px x 16px
 
 **gtbe_filter_main_icon_display**
@@ -239,8 +286,9 @@ function custom_gtbe_main_icon() {
 `
 add_filter( 'gtbe_filter_main_icon_display', '__gtbe_no_icon_display' );
 `
- * This way you can REMOVE the icon!
-* Another example:
+--> This way you can REMOVE the icon!
+
+ * Another example:
 `
 add_filter( 'gtbe_filter_main_icon_display', 'custom_gtbe_main_icon_display_class' );
 /**
@@ -251,6 +299,8 @@ function custom_gtbe_main_icon_display_class() {
 }
 `
 --> You then have to define CSS rules in your theme/child theme stylesheet for your own custom class `.your-custom-icon-class`
+
+--> Recommended dimensions are 16px x 16px
 
 **gtbe_filter_main_item**
 
@@ -304,6 +354,40 @@ All the custom & branding stuff code above can also be found as a Gist on Github
 
 == Changelog ==
 
+= 1.1 (2012-05-07) =
+* *New features:*
+ * NEW: Added support for third-party SEO plugins for which Genesis SEO options degrade gracefully - I even added 3 more plugins to the "degrade filter" for better and extended support :) (also see below, plugin section)
+ * NEW: Via `add_theme_support( 'gtbe-theme-editor' );` you can now add Theme Editor links for `style.css` and `functions.php` of your current child theme to the child theme section -- if enabled it will only display if the user has the proper cabalitities and if the Theme Editor is not disabled via wp-config!
+ * NEW: For "Themedy" brand added links to edit `custom.css` and `custom_functions.php` files via Theme Editor - only if the user has the proper cabalitities and if the Theme Editor is not disabled via wp-config!
+ * NEW: Added simple fallback for any Genesis Child Theme which has no added extended support here: displaying its name and if available the 'README' in the backend (Theme Editor links could also activated for these themes!).
+ * NEW: Added 4 action hooks for hooking custom menu items in -- for all main sections plus the resource group section (see FAQ section here for more info on that).
+* *Extended Theme support:*
+ * NEW: Added support for new official child themes "Decor" and "Mindstream" by StudioPress.
+ * NEW: Added support for "Adapt", "Skope", "Imagery" and "Classik" by appfinite/Wes Straham; improved support for now Community/Marketplace child theme "Optimal".
+ * NEW: Added support for "Derby" by Themedy Themes brand
+ * NEW: Added support for "Color Me Happy" and "Celebrate" by The Pixelista
+ * NEW: Added support for "Hans" by Web Savvy Marketing, LLC
+ * NEW: Added support for "Peppermint" by Sara Greenlaw - Swoon Media
+ * NEW: Added support for "Radio" (v1.1+) by Greg Rickaby
+ * NEW: Added support for "WP Presenter for Genesis" by Pat Ramsey
+ * NEW: Added support for "Photo Pro" by Creativity Included
+ * UPDATE: Improved child theme detection for the 4 other themes by Web Savvy Marketing, LLC
+* *Extended Plugin support:*
+ * NEW: Added support for "Genesis 404 Page" (free, by Bill Erickson)
+ * NEW: Added support for "Genesis Portfolio" (free, by Travis Smith) - note: plugin currently in beta status!
+ * NEW: Added support for SEO plugins supported by Genesis SEO plugin detection - so if one of these is active, the link to Genesis SEO options becomes disabled and instead of it the proper admin settings pages of the current SEO plugin is hooked in. *Yes, it's that awesome! :)* -- See under "Other Notes" here for supported SEO plugins...
+ * UPDATE: Improved "Premise" support - loading stuff only if plugin is in use.
+* *Other stuff:*
+ * UPDATE: Improved 'custom code/css' section detection for Prose 1.5 child theme - now showing custom links also in frontend.
+ * UPDATE: Added full compatibility with WordPress 3.4+ (tested since 3.4-beta1 up to latest trunk version).
+ * UPDATE: Moved plugin links from main file to extra admin file which only loads within 'wp-admin', this way it's performance-improved! :)
+ * CODE: Beside new features, code/documentation tweaks and improvements.
+ * CODE: Successfully tested against Genesis 1.8+ plus WordPress 3.3 branch and new 3.4 branch. Also successfully tested in WP_DEBUG mode (no notices or warnings).
+ * UPDATE: Updated readme.txt documentation/FAQ here plus on the GitHub Gist.
+ * UPDATE: Updated German translations and also the .pot file for all translators!
+ * UPDATE: Extended GPL License info in readme.txt as well as main plugin file.
+ * NEW: Easy plugin translation platform with GlotPress tool: [Translate "Genesis Toolbar Extras"...](http://translate.wpautobahn.com/projects/wordpress-plugins-deckerweb/genesis-toolbar-extras)
+
 = 1.0 (2012-03-26) =
 * Initial release
 * *Support for the most stuff available already built-in - just working out of the box:*
@@ -315,16 +399,28 @@ All the custom & branding stuff code above can also be found as a Gist on Github
 
 == Upgrade Notice ==
 
+= 1.1 =
+Major improvements + several changes: Extended theme & plugin support! Added SEO Plugin support! Also added theme editor links for custom styles & functions. Updated .pot file for translators plus German translations.
+
 = 1.0 =
 Just released into the wild.
+
+== Plugin Links ==
+* [Translations (GlotPress)](http://translate.wpautobahn.com/projects/genesis-plugins-deckerweb/genesis-toolbar-extras)
+* [User support forums](http://wordpress.org/tags/genesis-toolbar-extras?forum_id=10)
+
+== Donate ==
+Enjoy using *Genesis Toolbar Extras*? Please consider [making a small donation](http://genesisthemes.de/en/donate/) to support the project's continued development.
 
 == Translations ==
 
 * English - default, always included
 * German: Deutsch - immer dabei! [Download auch via deckerweb.de](http://deckerweb.de/material/sprachdateien/genesis-plugins/#genesis-toolbar-extras)
-* For custom and update-secure language files please upload them to `/wp-content/languages/genesis-toolbar-extras/` (just create this folder) - This enables you to use fully custom translations that won't be overridden on plugin updates. Also, complete custom English wording is possible with that as well, just use a language file like `genesis-toolbar-exrtas-en_US.mo/.po` to achieve that (for creating one see the following tools).
+* For custom and update-secure language files please upload them to `/wp-content/languages/genesis-toolbar-extras/` (just create this folder) - This enables you to use fully custom translations that won't be overridden on plugin updates. Also, complete custom English wording is possible with that as well, just use a language file like `genesis-toolbar-extras-en_US.mo/.po` to achieve that (for creating one see the following tools).
 
-*Note:* All my plugins are localized/ translateable by default. This is very important for all users worldwide. So please contribute your language to the plugin to make it even more useful. For translating I recommend the awesome ["Codestyling Localization" plugin](http://wordpress.org/extend/plugins/codestyling-localization/) and for validating the ["Poedit Editor"](http://www.poedit.net/), which works fine on Windows, Mac and Linux.
+**Easy plugin translation platform with GlotPress tool: [Translate "Genesis Toolbar Extras"...](http://translate.wpautobahn.com/projects/genesis-plugins-deckerweb/genesis-toolbar-extras)**
+
+*Note:* All my plugins are internationalized/ translateable by default. This is very important for all users worldwide. So please contribute your language to the plugin to make it even more useful. For translating I recommend the awesome ["Codestyling Localization" plugin](http://wordpress.org/extend/plugins/codestyling-localization/) and for validating the ["Poedit Editor"](http://www.poedit.net/), which works fine on Windows, Mac and Linux.
 
 == Additional Info ==
 **Idea Behind / Philosophy:** Just a little leightweight plugin for all the Genesis users out there to make their daily web admin life a bit easier. I'll try to add more plugin support if it makes some sense. So stay tuned :).
@@ -335,7 +431,7 @@ Just released into the wild.
 *Please note, only plugins with linkable settings pages and/or meta boxes (with ID anchor) can be supported.*
 
 = Official Child Themes by StudioPress =
-* All official *premium* themes, 49+ -- see under studiopress.com (including: AgentPress 2.0 and 1.0, Prose 1.0 and 1.5, discontinued Church theme)
+* All official *premium* themes, 51+ -- see under studiopress.com (including: AgentPress 2.0 and 1.0, Prose 1.0 and 1.5, discontinued Church theme)
 * All official *free* themes, 6+ -- see under studiopress.com
 * Including free "Sample Child Theme"
 * Including "Genesis Default" (no child theme, but it's always recommended to use a child theme...)
@@ -346,12 +442,13 @@ Just released into the wild.
 * Note: if available, all extra setting pages are fully supported, as well as their specific support link resources.
 
 = Child Themes from the "Themedy" Brand =
-* All Genesis child themes from the "Themedy" Brand, 12+
+* All Genesis child themes from the "Themedy" Brand, 13+
 * Note: the extra settings pages from all, plus the content types (if available) from some child themes are fully supported!
 * The specific Themedy support resource links are supported as well
 
 = Third-party Child Themes from the Community or Other Marketplaces =
 * All by GenesisThemes.de/DECKERWEB, 1+
+* All by Appfinite (Wes Straham), 7+
 * All by Marco Galasso - Teethgrinder, 6+
 * All by WPCanada (Len Kutchma), 11+
 * All by FlashingCursor, 2+
@@ -361,11 +458,12 @@ Just released into the wild.
 * All by Aaron Hartland, 2+
 * All by MediaCairn Design Studio, 2+
 * All by "Allure Themes" brand, 8+
-* "Legacy", "Optimal", "Agile" by Appfinite (Wes Straham)
-* "Carla Anna", "Elsa", "Rasmus", "Soren" by Web Savvy Marketing, LLC.
+* All by The Pixelista (Jessica Barnard), 2+
+* "Carla Anna", "Elsa", "Hans", "Rasmus", "Soren" by Web Savvy Marketing, LLC.
 * "Buster" by Bradley Potter
 * "Simply Sweet" by Auxano Creative
-* "Fluid" by Nick Croft
+* "Fluid" by Nick Croft - Designs by Nickthe_Geek
+* "Peppermint" by Sara Greenlaw - Swoon Media
 * "Charisma" by Cristian Antohe/Cozmoslabs
 * "Belvedere" by Ryan Holder
 * "Twenty Diez", "Matrimony" by Jared Atchison
@@ -373,7 +471,9 @@ Just released into the wild.
 * "Bones for Genesis" by Eddie Machado/Themble
 * "Code Chirps" by Daniel Shamburger/Code Chirps
 * "Speaker" by OC^2 & Pixelterra
-* "Fringe" by Greg Rickaby
+* "Photo Pro" by Creativity Included
+* "Fringe", "Radio" (v1.1+) by Greg Rickaby
+* "WP Presenter for Genesis" by Pat Ramsey
 * "Zirconium" by Mark Howe/Next Level Innovation
 * "myTunes" by Dee Teal - the Web Princess
 * "Tee Box" by Alan Smith/Media317
@@ -397,12 +497,14 @@ Just released into the wild.
 * Genesis Simple Breadcrumbs - free
 * Genesis Simple Comments - free
 * Genesis Media Project - free
+* Genesis Portfolio - free
 * Genesis Custom Post Type Archives - free
 * Genesis Promotion Box - free
 * Genesis Press Post Type - free
 * Genesis Favicon Uploader - free
 * Genesis Custom Backgrounds - free
 * Generate Box (only for Generate child theme) - free
+* Genesis 404 Page - free
 * Genesis Grid - free
 * Genesis Featured Images - free
 * Genesis Post Teasers - free
@@ -413,7 +515,7 @@ Just released into the wild.
 * Genesis Hooks - free
 * Genesis Simple Defaults - free
 * Genesis Comment Title - free
-* Genesis Accordion  - free -- Note: in alpha status, not officially released yet
+* Genesis Accordion  - free (see: http://slash25.com/genesis-accordion-plugin/ )
 
 = Plugins from the Genesis Ecosystem =
 * Simple URLs - free
@@ -422,3 +524,15 @@ Just released into the wild.
 * Scribe SEO - Note: free plugin but a premium service! (we only support the free plugin!)
 * Dynamic Content Gallery (DCG) - free -- Used/recommended by older child themes like "Church", "Lifestyle 1.0" ...
 * WP-Cycle - free -- Note: used by some child themes like "Enterprise" or "Buster" ...
+
+= SEO Plugins supported by Genesis SEO Plugin Detection =
+* *since v1.1 of the plugin*
+* wpSEO by Sergej Müller (premium, see: wpseo.de)
+* WordPress SEO by Yoast (free)
+* All In One SEO Pack by Michael Torbert (free version)
+* All In One SEO Pack Pro by Michael Torbert (premium version)
+* SEO Ultimate by SEO Design Solutions (free)
+* HeadSpace2 by John Godley (free)
+* gdHeadSpace4 by Milan Pretovic of Dev4Press (free, fork of HeadSpace2!)
+* Platinum SEO Pack by Rajesh (free)
+* Greg's High Performance SEO by Greg Mulhauser (free)

@@ -164,6 +164,21 @@ if ( function_exists( 'gsc_init' ) && current_user_can( 'manage_options' ) ) {
 
 
 /**
+ * Genesis 404 Page (free, by Bill Erickson)
+ *
+ * @since 1.1
+ */
+if ( class_exists( 'BE_Genesis_404' ) && current_user_can( 'edit_theme_options' ) ) {
+	$menu_items['ext-gsimplecomments'] = array(
+		'parent' => $extensions,
+		'title'  => __( '404 Page Content', 'genesis-toolbar-extras' ),
+		'href'   => admin_url( 'admin.php?page=genesis-404' ),
+		'meta'   => array( 'target' => '', 'title' => __( '404 Error Page Content', 'genesis-toolbar-extras' ) )
+	);
+}  // end-if 404 Page
+
+
+/**
  * Genesis Grid (free, by Travis Smith)
  *
  * @since 1.0
@@ -287,10 +302,9 @@ if ( function_exists( 'CT_HR_Activate' ) && current_user_can( 'edit_theme_option
  * Generate Box (free, by Hesham Zebida)
  *
  * @since 1.0
+ * @version 1.1
  */
-if ( ( get_current_theme() == 'Generate Child Theme' || CHILD_THEME_NAME == 'Generate Theme' ) && 
-	function_exists( 'generatebox_admin_init' ) && 
-	current_user_can( 'edit_theme_options' ) 
+if ( function_exists( 'generatebox_admin_init' ) && current_user_can( 'edit_theme_options' ) 
 ) {
 	// Entry at "Extensions" section
 	$menu_items['ext-generatebox'] = array(
@@ -356,7 +370,9 @@ if ( class_exists( 'Ecordia' ) && current_user_can( 'manage_options' ) ) {
 
 
 /**
- * Genesis Accordion (beta/free, by ???)
+ * Genesis Accordion (beta/free, by Pat Ramsey - slash25.com)
+ *
+ * @link http://slash25.com/genesis-accordion-plugin/
  *
  * @since 1.0
  */
@@ -374,8 +390,9 @@ if ( function_exists( 'GenesisAccordionInit' ) && current_user_can( 'manage_opti
  * Genesis Hooks (free, by Travis Smith)
  *
  * @since 1.0
+ * @version 1.1
  */
-if ( function_exists( 'gh_theme_settings_init' ) && current_user_can( 'edit_theme_options' ) ) {
+if ( function_exists( 'genesis_hooks_setup' ) && current_user_can( 'edit_theme_options' ) ) {
 	$menu_items['extsp-ghooks'] = array(
 		'parent' => $extensions,
 		'title'  => __( 'Genesis Hooks', 'genesis-toolbar-extras' ),
@@ -413,7 +430,11 @@ if ( function_exists( 'seodt_settings_init' ) && current_user_can( 'manage_optio
 	 * @since 1.0
 	 */
 	if ( function_exists( 'agentpress_listings_init' ) && current_user_can( 'edit_posts' ) ) {
+
+		/** Enable display */
 		$gtbe_is_mcgroup = 'mcgroup_yes';
+
+		/** Entries at "Manage Content" section */
 		$menu_items['mcgspapl'] = array(
 			'parent' => $mcgroupstart,
 			'title'  => __( 'AgentPress Listings', 'genesis-toolbar-extras' ),
@@ -433,7 +454,7 @@ if ( function_exists( 'seodt_settings_init' ) && current_user_can( 'manage_optio
 			'meta'   => array( 'target' => '', 'title' => __( 'Add/Edit Features', 'genesis-toolbar-extras' ) )
 		);
 
-		// Display only for WP capability "manage_options"
+		/** Display only for WordPress capability 'manage_options' */
 		if ( current_user_can( 'manage_options' ) ) {
 			$menu_items['mcgspapl-register'] = array(
 				'parent' => $mcgspapl,
@@ -443,17 +464,86 @@ if ( function_exists( 'seodt_settings_init' ) && current_user_can( 'manage_optio
 			);
 		}  // end-if cap check
 
-		// GCPTA Plugin
+		/** GCPTA Plugin */
 		if ( function_exists( 'gcpta_init' ) && current_user_can( 'manage_options' ) ) {
 			$menu_items['mcgspapl-gcpta'] = array(
 				'parent' => $mcgspapl,
-				'title'  => __( 'Listing Archives Settings', 'genesis-toolbar-extras' ),
+				'title'  => _x( 'Listings', 'Translators: For GCPTA Plugin Archives', 'genesis-toolbar-extras' ) . $gtbe_gcpta_archives_settings,
 				'href'   => admin_url( 'edit.php?post_type=listing&page=gcpta-listing' ),
-				'meta'   => array( 'target' => '', 'title' => __( 'Listing Archives Settings', 'genesis-toolbar-extras' ) )
+				'meta'   => array( 'target' => '', 'title' => _x( 'Listings', 'Translators: For GCPTA Plugin Archives', 'genesis-toolbar-extras' ) . $gtbe_gcpta_archives_settings )
 			);
 		}  // end-if GCPTA check
 
 	}  // end-if AgentPress Listings
+
+
+	/**
+	 * Genesis Portfolio (free, by Travis Smith)
+	 *
+	 * @since 1.1
+	 */
+	if ( defined( 'MFP_VERSION' ) && current_user_can( 'edit_posts' ) ) {
+
+		/** Enable display */
+		$gtbe_is_mcgroup = 'mcgroup_yes';
+
+		/** Entries at "Manage Content" section */
+		$menu_items['mcggportfolio'] = array(
+			'parent' => $mcgroupstart,
+			'title'  => __( 'Genesis Portfolio', 'genesis-toolbar-extras' ),
+			'href'   => admin_url( 'edit.php?post_type=minfolio_portfolio' ),
+			'meta'   => array( 'target' => '', 'title' => __( 'Genesis Portfolio', 'genesis-toolbar-extras' ) )
+		);
+		$menu_items['mcggportfolio-addportfolio'] = array(
+			'parent' => $mcggportfolio,
+			'title'  => __( 'Add new Portfolio', 'genesis-toolbar-extras' ),
+			'href'   => admin_url( 'post-new.php?post_type=minfolio_portfolio' ),
+			'meta'   => array( 'target' => '', 'title' => __( 'Add new Portfolio', 'genesis-toolbar-extras' ) )
+		);
+		$menu_items['mcggportfolio-features'] = array(
+			'parent' => $mcggportfolio,
+			'title'  => _x( 'Features', 'Translators: Genesis Portfolio Taxonomy', 'genesis-toolbar-extras' ),
+			'href'   => admin_url( 'edit-tags.php?taxonomy=minfolio_features&post_type=minfolio_portfolio' ),
+			'meta'   => array( 'target' => '', 'title' => _x( 'Features', 'Translators: Genesis Portfolio Taxonomy', 'genesis-toolbar-extras' ) )
+		);
+
+		/** Display only for WordPress capability 'manage_options' */
+		if ( current_user_can( 'manage_options' ) ) {
+			$menu_items['mcggportfolio-register'] = array(
+				'parent' => $mcggportfolio,
+				'title'  => __( 'Register new Taxonomies', 'genesis-toolbar-extras' ),
+				'href'   => admin_url( 'edit.php?post_type=minfolio_portfolio&page=minfolio-taxonomies' ),
+				'meta'   => array( 'target' => '', 'title' => __( 'Register new Taxonomies', 'genesis-toolbar-extras' ) )
+			);
+			$menu_items['mcggportfolio-settings'] = array(
+				'parent' => $mcggportfolio,
+				'title'  => __( 'Portfolio Settings', 'genesis-toolbar-extras' ),
+				'href'   => admin_url( 'edit.php?post_type=minfolio_portfolio&page=minfolio-portfolio-settings' ),
+				'meta'   => array( 'target' => '', 'title' => __( 'Portfolio Settings', 'genesis-toolbar-extras' ) )
+			);
+		}  // end-if cap check
+
+		/** GCPTA Plugin */
+		if ( function_exists( 'gcpta_init' ) && current_user_can( 'manage_options' ) ) {
+			$menu_items['mcggportfolio-gcpta'] = array(
+				'parent' => $mcggportfolio,
+				'title'  => _x( 'Portfolio', 'Translators: For GCPTA Plugin Archives', 'genesis-toolbar-extras' ) . $gtbe_gcpta_archives_settings,
+				'href'   => admin_url( 'edit.php?post_type=minfolio_portfolio&page=gcpta-minfolio_portfolio' ),
+				'meta'   => array( 'target' => '', 'title' => _x( 'Portfolio', 'Translators: For GCPTA Plugin Archives', 'genesis-toolbar-extras' ) . $gtbe_gcpta_archives_settings )
+			);
+		}  // end-if GCPTA check
+
+		/** Entries at "Extensions" section - display only for WordPress capability 'manage_options' */
+		if ( current_user_can( 'manage_options' ) ) {
+			$menu_items['ext-gportfolio'] = array(
+				'parent' => $extensions,
+				'title'  => __( 'Genesis Portfolio: Settings', 'genesis-toolbar-extras' ),
+				'href'   => admin_url( 'edit.php?post_type=minfolio_portfolio&page=minfolio-portfolio-settings' ),
+				'meta'   => array( 'target' => '', 'title' => __( 'Genesis Portfolio: Settings', 'genesis-toolbar-extras' ) )
+			);
+		}  // end-if cap check
+
+	}  // end-if Genesis Portfolio
 
 
 	/**
@@ -462,8 +552,11 @@ if ( function_exists( 'seodt_settings_init' ) && current_user_can( 'manage_optio
 	 * @since 1.0
 	 */
 	if ( defined( 'GMP_SETTINGS_FIELD' ) && current_user_can( 'edit_posts' ) ) {
+
+		/** Enable display */
 		$gtbe_is_mcgroup = 'mcgroup_yes';
-		// Entries at "Manage Content" section
+
+		/** Entries at "Manage Content" section */
 		$menu_items['mcggmp'] = array(
 			'parent' => $mcgroupstart,
 			'title'  => __( 'Genesis Media Project', 'genesis-toolbar-extras' ),
@@ -501,7 +594,7 @@ if ( function_exists( 'seodt_settings_init' ) && current_user_can( 'manage_optio
 			'meta'   => array( 'target' => '', 'title' => __( 'Video Tags', 'genesis-toolbar-extras' ) )
 		);
 
-		// Display only for WP capability "manage_options"
+		/** Display only for WordPress capability 'manage_options' */
 		if ( current_user_can( 'manage_options' ) ) {
 			$menu_items['mcggmp-tabslider'] = array(
 				'parent' => $mcggmp,
@@ -511,25 +604,25 @@ if ( function_exists( 'seodt_settings_init' ) && current_user_can( 'manage_optio
 			);
 		}  // end-if cap check
 
-		// GCPTA Plugin
+		/** GCPTA Plugin */
 		if ( function_exists( 'gcpta_init' ) && current_user_can( 'manage_options' ) ) {
 			$menu_items['mcggmp-gcpta'] = array(
 				'parent' => $mcggmp,
-				'title'  => __( 'Video Archives Settings', 'genesis-toolbar-extras' ),
+				'title'  => _x( 'Videos', 'Translators: For GCPTA Plugin Archives', 'genesis-toolbar-extras' ) . $gtbe_gcpta_archives_settings,
 				'href'   => admin_url( 'edit.php?post_type=video&page=gcpta-video' ),
-				'meta'   => array( 'target' => '', 'title' => __( 'Video Archives Settings', 'genesis-toolbar-extras' ) )
+				'meta'   => array( 'target' => '', 'title' => _x( 'Videos', 'Translators: For GCPTA Plugin Archives', 'genesis-toolbar-extras' ) . $gtbe_gcpta_archives_settings )
 			);
 		}  // end-if GCPTA check
 
-		// Entries at "Extensions" section - display only for WP capability "manage_options"
+		/** Entries at "Extensions" section - display only for WordPress capability 'manage_options' */
 		if ( current_user_can( 'manage_options' ) ) {
-			$menu_items['extsp-gmp'] = array(
+			$menu_items['ext-gmp'] = array(
 				'parent' => $extensions,
 				'title'  => __( 'Media Project Settings', 'genesis-toolbar-extras' ),
 				'href'   => admin_url( 'admin.php?page=ntg_module_loader' ),
 				'meta'   => array( 'target' => '', 'title' => __( 'Media Project Settings', 'genesis-toolbar-extras' ) )
 			);
-			$menu_items['extsp-gmp-tabslider'] = array(
+			$menu_items['ext-gmp-tabslider'] = array(
 				'parent' => $extensions,
 				'title'  => __( 'Media Project: Tab Slider Settings', 'genesis-toolbar-extras' ),
 				'href'   => admin_url( 'edit.php?post_type=video&page=gmp-tab-slider-settings' ),
@@ -546,7 +639,11 @@ if ( function_exists( 'seodt_settings_init' ) && current_user_can( 'manage_optio
 	 * @since 1.0
 	 */
 	if ( function_exists( 'gpp_activation_check' ) && current_user_can( 'edit_posts' ) ) {
+
+		/** Enable display */
 		$gtbe_is_mcgroup = 'mcgroup_yes';
+
+		/** Entries at "Manage Content" section */
 		$menu_items['mcggppt'] = array(
 			'parent' => $mcgroupstart,
 			'title'  => __( 'Press Post Type', 'genesis-toolbar-extras' ),
@@ -572,13 +669,13 @@ if ( function_exists( 'seodt_settings_init' ) && current_user_can( 'manage_optio
 			'meta'   => array( 'target' => '', 'title' => __( 'Press/News Tags', 'genesis-toolbar-extras' ) )
 		);
 
-		// GCPTA Plugin
+		/** GCPTA Plugin */
 		if ( function_exists( 'gcpta_init' ) && current_user_can( 'manage_options' ) ) {
 			$menu_items['mcggppt-gcpta'] = array(
 				'parent' => $mcggppt,
-				'title'  => __( 'Press Archives Settings', 'genesis-toolbar-extras' ),
+				'title'  => _x( 'Press', 'Translators: For GCPTA Plugin Archives', 'genesis-toolbar-extras' ) . $gtbe_gcpta_archives_settings,
 				'href'   => admin_url( 'edit.php?post_type=news&page=gcpta-news' ),
-				'meta'   => array( 'target' => '', 'title' => __( 'Press Archives Settings', 'genesis-toolbar-extras' ) )
+				'meta'   => array( 'target' => '', 'title' => _x( 'Press', 'Translators: For GCPTA Plugin Archives', 'genesis-toolbar-extras' ) . $gtbe_gcpta_archives_settings )
 			);
 		}  // end-if GCPTA check
 
@@ -591,7 +688,11 @@ if ( function_exists( 'seodt_settings_init' ) && current_user_can( 'manage_optio
 	 * @since 1.0
 	 */
 	if ( class_exists( 'Genesis_Promo_Box_Post_Type' ) && current_user_can( 'edit_posts' ) ) {
+
+		/** Enable display */
 		$gtbe_is_mcgroup = 'mcgroup_yes';
+
+		/** Entries at "Manage Content" section */
 		$menu_items['mcggpbox'] = array(
 			'parent' => $mcgroupstart,
 			'title'  => __( 'Promotions', 'genesis-toolbar-extras' ),
@@ -614,7 +715,11 @@ if ( function_exists( 'seodt_settings_init' ) && current_user_can( 'manage_optio
 	 * @since 1.0
 	 */
 	if ( class_exists( 'SimpleURLs' ) && current_user_can( 'manage_links' ) ) {
+
+		/** Enable display */
 		$gtbe_is_mcgroup = 'mcgroup_yes';
+
+		/** Entries at "Manage Content" section */
 		$menu_items['mcgspsurls'] = array(
 			'parent' => $mcgroupstart,
 			'title'  => __( 'Simple URLs', 'genesis-toolbar-extras' ),
@@ -636,15 +741,19 @@ if ( function_exists( 'seodt_settings_init' ) && current_user_can( 'manage_optio
 	 * @since 1.0
 	 */
 	if ( function_exists( 'add_wp_cycle_menu' ) && current_user_can( 'upload_files' ) ) {
+
+		/** Enable display */
 		$gtbe_is_mcgroup = 'mcgroup_yes';
-		// Entries at "Manage Content" section
+
+		/** Entries at "Manage Content" section */
 		$menu_items['mcg-wpcycle'] = array(
 			'parent' => $mcgroupstart,
 			'title'  => __( 'WP-Cycle', 'genesis-toolbar-extras' ),
 			'href'   => admin_url( 'upload.php?page=wp-cycle' ),
 			'meta'   => array( 'target' => '', 'title' => __( 'WP-Cycle', 'genesis-toolbar-extras' ) )
 		);
-		// Entries at "Extensions" section
+
+		/** Entries at "Extensions" section */
 		$menu_items['ext-wpcycle'] = array(
 			'parent' => $extensions,
 			'title'  => __( 'WP-Cycle', 'genesis-toolbar-extras' ),
@@ -660,15 +769,19 @@ if ( function_exists( 'seodt_settings_init' ) && current_user_can( 'manage_optio
 	 * @since 1.0
 	 */
 	if ( ( function_exists( 'dfcg_init' ) || function_exists( 'dfcg_options_init' ) ) && current_user_can( 'manage_options' ) ) {
+
+		/** Enable display */
 		$gtbe_is_mcgroup = 'mcgroup_yes';
-		// Entries at "Manage Content" section
+
+		/** Entries at "Manage Content" section */
 		$menu_items['mcg-dcg'] = array(
 			'parent' => $mcgroupstart,
 			'title'  => __( 'Dynamic Content Gallery', 'genesis-toolbar-extras' ),
 			'href'   => admin_url( 'options-general.php?page=dynamic_content_gallery' ),
 			'meta'   => array( 'target' => '', 'title' => __( 'Dynamic Content Gallery', 'genesis-toolbar-extras' ) )
 		);
-		// Entries at "Extensions" section
+
+		/** Entries at "Extensions" section */
 		$menu_items['ext-dcg'] = array(
 			'parent' => $extensions,
 			'title'  => __( 'Dynamic Content Gallery', 'genesis-toolbar-extras' ),
@@ -683,106 +796,23 @@ if ( function_exists( 'seodt_settings_init' ) && current_user_can( 'manage_optio
 		$menu_items['mcgroupstart'] = array(
 			'parent' => $mcgroup,
 			'title'  => __( 'Manage Content', 'genesis-toolbar-extras' ),
-			'href'   => '#',
-			'meta'   => array( 'target' => '', 'title' => __( 'Manage Content', 'genesis-toolbar-extras' ) )
+			'href'   => false,
+			'meta'   => array( 'target' => '', 'title' => __( 'Manage Content', 'genesis-toolbar-extras' ) . ' &raquo;' )
 		);
 	}  // end-if manage content display
 
 
 	/**
-	 * Premise (free, by Copyblogger Media LLC)
+	 * Premise (premium, by Copyblogger Media LLC)
 	 *
 	 * @since 1.0
+	 * @version 1.1
 	 */
 	if ( class_exists( 'Premise_Base' ) ) {
-		// Premise Landing Pages Module
-		$menu_items['premise'] = array(
-			'parent' => $mcgroup,
-			'title'  => __( 'Premise', 'genesis-toolbar-extras' ),
-			'href'   => admin_url( 'admin.php?page=premise-main' ),
-			'meta'   => array( 'target' => '', 'title' => __( 'Premise Landing Pages &amp; Membership Content', 'genesis-toolbar-extras' ) )
-		);
-		$menu_items['premiselanding'] = array(
-			'parent' => $premise,
-			'title'  => __( 'Landing Pages', 'genesis-toolbar-extras' ),
-			'href'   => admin_url( 'edit.php?post_type=landing_page' ),
-			'meta'   => array( 'target' => '', 'title' => __( 'Landing Pages', 'genesis-toolbar-extras' ) )
-		);
-		$menu_items['premiselanding-add'] = array(
-			'parent' => $premiselanding,
-			'title'  => __( 'Add new Landing Page', 'genesis-toolbar-extras' ),
-			'href'   => admin_url( 'post-new.php?post_type=landing_page' ),
-			'meta'   => array( 'target' => '', 'title' => __( 'Add new Landing Page', 'genesis-toolbar-extras' ) )
-		);
-		// Display only for WP capability "manage_options"
-		if ( current_user_can( 'manage_options' ) ) {
-			$menu_items['premisesettings'] = array(
-				'parent' => $premise,
-				'title'  => __( 'Main Settings', 'genesis-toolbar-extras' ),
-				'href'   => admin_url( 'admin.php?page=premise-main' ),
-				'meta'   => array( 'target' => '', 'title' => __( 'Main Settings', 'genesis-toolbar-extras' ) )
-			);
-			$menu_items['premisesettings-styles'] = array(
-				'parent' => $premisesettings,
-				'title'  => __( 'Style Settings', 'genesis-toolbar-extras' ),
-				'href'   => admin_url( 'admin.php?page=premise-styles' ),
-				'meta'   => array( 'target' => '', 'title' => __( 'Style Settings', 'genesis-toolbar-extras' ) )
-			);
-			$menu_items['premisesettings-addstyle'] = array(
-				'parent' => $premisesettings,
-				'title'  => __( 'Add new Style', 'genesis-toolbar-extras' ),
-				'href'   => admin_url( 'admin.php?page=premise-style-settings' ),
-				'meta'   => array( 'target' => '', 'title' => __( 'Add new Style', 'genesis-toolbar-extras' ) )
-			);
-			$menu_items['premisesettings-help'] = array(
-				'parent' => $premisesettings,
-				'title'  => __( 'Premise Help', 'genesis-toolbar-extras' ),
-				'href'   => admin_url( 'admin.php?page=premise-help' ),
-				'meta'   => array( 'title' => __( 'Premise Help', 'genesis-toolbar-extras' ) )
-			);
-		}  // end-if cap check
 
-		// Premise Membership Module
-		if ( defined( 'PREMISE_MEMBER_DIR' ) && current_user_can( 'manage_options' ) ) {
-			$menu_items['premisemember'] = array(
-				'parent' => $mcgroup,
-				'title'  => __( 'Premise Member Access', 'genesis-toolbar-extras' ),
-				'href'   => admin_url( 'admin.php?page=premise-member' ),
-				'meta'   => array( 'target' => '', 'title' => __( 'Premise Member Access', 'genesis-toolbar-extras' ) )
-			);
-			$menu_items['premisemember-products'] = array(
-				'parent' => $premisemember,
-				'title'  => __( 'Products', 'genesis-toolbar-extras' ),
-				'href'   => admin_url( 'edit.php?post_type=acp-products' ),
-				'meta'   => array( 'target' => '', 'title' => __( 'Products', 'genesis-toolbar-extras' ) )
-			);
-			$menu_items['premisemember-orders'] = array(
-				'parent' => $premisemember,
-				'title'  => __( 'Orders', 'genesis-toolbar-extras' ),
-				'href'   => admin_url( 'edit.php?post_type=acp-orders' ),
-				'meta'   => array( 'target' => '', 'title' => __( 'Orders', 'genesis-toolbar-extras' ) )
-			);
-			$menu_items['premisemember-linkmanager'] = array(
-				'parent' => $premisemember,
-				'title'  => __( 'Link Manager', 'genesis-toolbar-extras' ),
-				'href'   => admin_url( 'admin.php?page=member-access-links' ),
-				'meta'   => array( 'target' => '', 'title' => __( 'Link Manager', 'genesis-toolbar-extras' ) )
-			);
-			$menu_items['premisemember-reports'] = array(
-				'parent' => $premisemember,
-				'title'  => __( 'Reports', 'genesis-toolbar-extras' ),
-				'href'   => admin_url( 'admin.php?page=premise-reports' ),
-				'meta'   => array( 'target' => '', 'title' => __( 'Reports', 'genesis-toolbar-extras' ) )
-			);
-			$menu_items['premisemember-settings'] = array(
-				'parent' => $premisemember,
-				'title'  => __( 'Settings', 'genesis-toolbar-extras' ),
-				'href'   => admin_url( 'admin.php?page=premise-member' ),
-				'meta'   => array( 'target' => '', 'title' => __( 'Settings', 'genesis-toolbar-extras' ) )
-			);
-		}  // end-if premise member module
+		/** Include plugin file with neccessary code parts */
+		require_once( GTBE_PLUGIN_DIR . '/includes/gtbe-premise.php' );
 
-	}  // end-if premise
-
+	}  // end-if premise check
 
 /** End of Manage Content Group */

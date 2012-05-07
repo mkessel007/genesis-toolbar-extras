@@ -41,6 +41,7 @@ $gtbe_themesettings = '&nbsp;' . __( 'Theme Settings', 'genesis-toolbar-extras' 
  * Display link to active Themedy Child theme settings page (premium, by Themedy)
  *
  * @since 1.0
+ * @version 1.1
  *
  * @param $themedy_child_name
  * @param $themedy_child_forum
@@ -48,73 +49,81 @@ $gtbe_themesettings = '&nbsp;' . __( 'Theme Settings', 'genesis-toolbar-extras' 
  * @param $gtbe_is_themedy_product
  * @param $gtbe_is_themedy_portfolio
  * @param $gtbe_is_themedy_photo
+ * @param $gtbe_stylesheet_name
  */
 	/** Check for Themedy Child Theme name */
 		// Themedy: Cinchpress (premium)
-	if ( CHILD_THEME_NAME == 'Cinchpress' || get_current_theme() == 'Cinchpress Child Theme' ) {
+	if ( CHILD_THEME_NAME == 'Cinchpress' || $gtbe_stylesheet_name == 'Cinchpress Child Theme' ) {
 		$themedy_child_name = 'Cinchpress' . $gtbe_themesettings;
 		$themedy_child_forum = 'http://themedy.com/forum/categories/cinchpress';
 
 		// Themedy: Clip Cart (premium)
-	} elseif ( CHILD_THEME_NAME == 'Clip Cart' || get_current_theme() == 'Clip Cart Child Theme' ) {
+	} elseif ( CHILD_THEME_NAME == 'Clip Cart' || $gtbe_stylesheet_name == 'Clip Cart Child Theme' ) {
 		$themedy_child_name = 'Clip Cart' . $gtbe_themesettings;
 		$themedy_child_forum = 'http://themedy.com/forum/categories/clip-cart';
 		$gtbe_is_themedy_slide = 'themedy_slide_yes';
 		$gtbe_is_themedy_product = 'themedy_product_yes';
 
+		// Themedy: Derby (premium)
+	} elseif ( CHILD_THEME_NAME == 'Derby' || $gtbe_stylesheet_name == 'Derby Child Theme' ) {
+		$themedy_child_name = 'Derby' . $gtbe_themesettings;
+		$themedy_child_forum = 'http://themedy.com/forum/categories/derby';
+		$gtbe_is_themedy_portfolio = 'themedy_portfolio_yes';
+		$gtbe_is_themedy_slide = 'themedy_slide_yes';
+
 		// Themedy: Feedpop (premium)
-	} elseif ( CHILD_THEME_NAME == 'Feedpop' || get_current_theme() == 'Feedpop Child Theme' ) {
+	} elseif ( CHILD_THEME_NAME == 'Feedpop' || $gtbe_stylesheet_name == 'Feedpop Child Theme' ) {
 		$themedy_child_name = 'Feedpop' . $gtbe_themesettings;
 		$themedy_child_forum = 'http://themedy.com/forum/categories/feedpop';
 
 		// Themedy: Foxy News (premium)
-	} elseif ( CHILD_THEME_NAME == 'Foxy News' || get_current_theme() == 'Foxy News Child Theme' ) {
+	} elseif ( CHILD_THEME_NAME == 'Foxy News' || $gtbe_stylesheet_name == 'Foxy News Child Theme' ) {
 		$themedy_child_name = 'Foxy News' . $gtbe_themesettings;
 		$themedy_child_forum = 'http://themedy.com/forum/categories/foxynews';
 
 		// Themedy: Fremedy (free)
-	} elseif ( CHILD_THEME_NAME == 'Fremedy' || get_current_theme() == 'Fremedy Child Theme' ) {
+	} elseif ( CHILD_THEME_NAME == 'Fremedy' || $gtbe_stylesheet_name == 'Fremedy Child Theme' ) {
 		$themedy_child_name = 'Fremedy' . $gtbe_themesettings;
 		$themedy_child_forum = 'http://themedy.com/forum/categories/fremedy';
 		$gtbe_is_themedy_portfolio = 'themedy_portfolio_yes';
 
 		// Themedy: Line It Up (premium)
-	} elseif ( CHILD_THEME_NAME == 'Line It Up' || get_current_theme() == 'Line It Up Child Theme' ) {
+	} elseif ( CHILD_THEME_NAME == 'Line It Up' || $gtbe_stylesheet_name == 'Line It Up Child Theme' ) {
 		$themedy_child_name = 'Line It Up' . $gtbe_themesettings;
 		$themedy_child_forum = 'http://themedy.com/forum/categories/line-it-up';
 		$gtbe_is_themedy_portfolio = 'themedy_portfolio_yes';
 		$gtbe_is_themedy_slide = 'themedy_slide_yes';
 
 		// Themedy: MockFive (premium)
-	} elseif ( CHILD_THEME_NAME == 'MockFive' || get_current_theme() == 'MockFive Child Theme' ) {
+	} elseif ( CHILD_THEME_NAME == 'MockFive' || $gtbe_stylesheet_name == 'MockFive Child Theme' ) {
 		$themedy_child_name = 'MockFive' . $gtbe_themesettings;
 		$themedy_child_forum = 'http://themedy.com/forum/categories/mockfive';
 		$gtbe_is_themedy_portfolio = 'themedy_portfolio_yes';
 
 		// Themedy: Reactiv (premium)
-	} elseif ( CHILD_THEME_NAME == 'Reactiv' || get_current_theme() == 'Reactiv Child Theme' ) {
+	} elseif ( CHILD_THEME_NAME == 'Reactiv' || $gtbe_stylesheet_name == 'Reactiv Child Theme' ) {
 		$themedy_child_name = 'Reactiv' . $gtbe_themesettings;
 		$themedy_child_forum = 'http://themedy.com/forum/categories/reactiv';
 		$gtbe_is_themedy_portfolio = 'themedy_portfolio_yes';
 
 		// Themedy: Readyfolio (premium)
-	} elseif ( CHILD_THEME_NAME == 'Readyfolio' || get_current_theme() == 'Readyfolio Child Theme' ) {
+	} elseif ( CHILD_THEME_NAME == 'Readyfolio' || $gtbe_stylesheet_name == 'Readyfolio Child Theme' ) {
 		$themedy_child_name = 'Readyfolio' . $gtbe_themesettings;
 		$themedy_child_forum = 'http://themedy.com/forum/categories/readyfolio';
 
 		// Themedy: Rough Print (premium)
-	} elseif ( CHILD_THEME_NAME == 'Rough Print' || get_current_theme() == 'Rough Print Child Theme' ) {
+	} elseif ( CHILD_THEME_NAME == 'Rough Print' || $gtbe_stylesheet_name == 'Rough Print Child Theme' ) {
 		$themedy_child_name = 'Rough Print' . $gtbe_themesettings;
 		$themedy_child_forum = 'http://themedy.com/forum/categories/rough-print';
 		$gtbe_is_themedy_portfolio = 'themedy_portfolio_yes';
 
 		// Themedy: Smooth Post (premium)
-	} elseif ( CHILD_THEME_NAME == 'Smooth Post' || get_current_theme() == 'Smooth Post Child Theme' ) {
+	} elseif ( CHILD_THEME_NAME == 'Smooth Post' || $gtbe_stylesheet_name == 'Smooth Post Child Theme' ) {
 		$themedy_child_name = 'Smooth Post' . $gtbe_themesettings;
 		$themedy_child_forum = 'http://themedy.com/forum/categories/smooth-post';
 
 		// Themedy: Stage (premium)
-	} elseif ( CHILD_THEME_NAME == 'Stage' || get_current_theme() == 'Stage Child Theme' ) {
+	} elseif ( CHILD_THEME_NAME == 'Stage' || $gtbe_stylesheet_name == 'Stage Child Theme' ) {
 		$themedy_child_name = 'Stage' . $gtbe_themesettings;
 		$themedy_child_forum = 'http://themedy.com/forum/categories/stage';
 		$gtbe_is_themedy_photo = 'themedy_photo_yes';
@@ -130,6 +139,36 @@ $gtbe_themesettings = '&nbsp;' . __( 'Theme Settings', 'genesis-toolbar-extras' 
 			'meta'   => array( 'target' => '', 'title' => $themedy_child_name )
 		);
 	}  // end-if cap check
+
+	/** Display Themedy custom theme editor links for proper caps */
+	if ( !( defined( 'DISALLOW_FILE_EDIT' ) && DISALLOW_FILE_EDIT ) && current_user_can( 'edit_themes' ) ) {
+
+		/** WordPress 3.4+ check */
+		if ( function_exists( 'wp_get_theme' ) ) {
+			$gtbe_edit_themedy_style = network_admin_url( 'theme-editor.php?file=custom/custom.css&amp;theme=' . get_stylesheet() );
+			$gtbe_edit_themedy_functions = network_admin_url( 'theme-editor.php?file=custom/custom_functions.php&amp;theme=' . get_stylesheet() );
+		} else {
+			$gtbe_edit_themedy_style = network_admin_url( 'theme-editor.php?file=' . get_stylesheet_directory() . '/custom/custom.css&amp;theme=' . urlencode( $gtbe_stylesheet_name ) );
+			$gtbe_edit_themedy_functions = network_admin_url( 'theme-editor.php?file=' . get_stylesheet_directory() . '/custom/custom_functions.php&amp;theme=' . urlencode( $gtbe_stylesheet_name ) );
+		}  // end-if WP 3.4+ check
+
+		/** Edit child theme's custom stylesheet (custom/custom.css) */
+		$menu_items['themedy-editcustomcss'] = array(
+			'parent' => $themedysettings,
+			'title'  => __( 'Edit custom.css', 'genesis-toolbar-extras' ),
+			'href'   => $gtbe_edit_themedy_style,
+			'meta'   => array( 'target' => '', 'title' => _x( 'Edit current child theme custom stylesheet: custom.css', 'Translators: For the tooltip', 'genesis-toolbar-extras' ) )
+		);
+
+		/** Edit child theme's custom functions (custom/custom_functions.php) */
+		$menu_items['themedy-editcustomfunctions'] = array(
+			'parent' => $themedysettings,
+			'title'  => __( 'Edit custom_functions.php', 'genesis-toolbar-extras' ),
+			'href'   => $gtbe_edit_themedy_functions,
+			'meta'   => array( 'target' => '', 'title' => _x( 'Edit current child theme custom functions: custom_functions.php', 'Translators: For the tooltip', 'genesis-toolbar-extras' ) )
+		);
+
+	}  // end-if Themedy theme editor check
 
 	/** Display Readme.txt Child Theme Info */
 	if ( class_exists( 'Genesis_Admin_Readme' ) && file_exists( get_stylesheet_directory() . '/README.txt' ) ) {
@@ -172,8 +211,11 @@ $gtbe_themesettings = '&nbsp;' . __( 'Theme Settings', 'genesis-toolbar-extras' 
 
 /** Portfolio CPT entries - only if available */
 if ( ( $gtbe_is_themedy_portfolio == 'themedy_portfolio_yes' ) && current_user_can( 'edit_posts' ) ) {
+
+	/** Enable display */
 	$gtbe_is_mcgroup = 'mcgroup_yes';
-	// Entries at "Child Theme" section
+
+	/** Entries at "Child Theme" section */
 	$menu_items['themedyportfolio'] = array(
 		'parent' => $themedysettings,
 		'title'  => CHILD_THEME_NAME . ' ' . __( 'Portfolio Items', 'genesis-toolbar-extras' ),
@@ -192,7 +234,8 @@ if ( ( $gtbe_is_themedy_portfolio == 'themedy_portfolio_yes' ) && current_user_c
 		'href'   => admin_url( 'edit-tags.php?taxonomy=portfolio-category&post_type=portfolio' ),
 		'meta'   => array( 'target' => '', 'title' => __( 'Portfolio Categories', 'genesis-toolbar-extras' ) )
 	);
-	// Entries at "Manage Content" section
+
+	/** Entries at "Manage Content" section */
 	$menu_items['mcgthemedyportfolio'] = array(
 		'parent' => $mcgroupstart,
 		'title'  => CHILD_THEME_NAME . ' ' . __( 'Portfolio Items', 'genesis-toolbar-extras' ),
@@ -216,8 +259,11 @@ if ( ( $gtbe_is_themedy_portfolio == 'themedy_portfolio_yes' ) && current_user_c
 
 /** Slide CPT entries - only if available */
 if ( ( $gtbe_is_themedy_slide == 'themedy_slide_yes' ) && current_user_can( 'edit_posts' ) ) {
+
+	/** Enable display */
 	$gtbe_is_mcgroup = 'mcgroup_yes';
-	// Entries at "Child Theme" section
+
+	/** Entries at "Child Theme" section */
 	$menu_items['themedyslide'] = array(
 		'parent' => $themedysettings,
 		'title'  => CHILD_THEME_NAME . ' ' . __( 'Slides', 'genesis-toolbar-extras' ),
@@ -230,7 +276,8 @@ if ( ( $gtbe_is_themedy_slide == 'themedy_slide_yes' ) && current_user_can( 'edi
 		'href'   => admin_url( 'post-new.php?post_type=slide' ),
 		'meta'   => array( 'target' => '', 'title' => __( 'Add new Slide', 'genesis-toolbar-extras' ) )
 	);
-	// Entries at "Manage Content" section
+
+	/** Entries at "Manage Content" section */
 	$menu_items['mcgthemedyslide'] = array(
 		'parent' => $mcgroupstart,
 		'title'  => CHILD_THEME_NAME . ' ' . __( 'Slides', 'genesis-toolbar-extras' ),
@@ -248,8 +295,11 @@ if ( ( $gtbe_is_themedy_slide == 'themedy_slide_yes' ) && current_user_can( 'edi
 
 /** Photo CPT entries - only if available */
 if ( ( $gtbe_is_themedy_photo == 'themedy_photo_yes' ) && current_user_can( 'edit_posts' ) ) {
+
+	/** Enable display */
 	$gtbe_is_mcgroup = 'mcgroup_yes';
-	// Entries at "Child Theme" section
+
+	/** Entries at "Child Theme" section */
 	$menu_items['themedyphoto'] = array(
 		'parent' => $themedysettings,
 		'title'  => CHILD_THEME_NAME . ' ' . __( 'Photos', 'genesis-toolbar-extras' ),
@@ -268,7 +318,8 @@ if ( ( $gtbe_is_themedy_photo == 'themedy_photo_yes' ) && current_user_can( 'edi
 		'href'   => admin_url( 'edit-tags.php?taxonomy=galleries&post_type=photo' ),
 		'meta'   => array( 'target' => '', 'title' => __( 'Photo Galleries', 'genesis-toolbar-extras' ) )
 	);
-	// Entries at "Manage Content" section
+
+	/** Entries at "Manage Content" section */
 	$menu_items['mcgthemedyphoto'] = array(
 		'parent' => $mcgroupstart,
 		'title'  => CHILD_THEME_NAME . ' ' . __( 'Photos', 'genesis-toolbar-extras' ),
@@ -292,8 +343,11 @@ if ( ( $gtbe_is_themedy_photo == 'themedy_photo_yes' ) && current_user_can( 'edi
 
 /** Product CPT entries - only if available */
 if ( ( $gtbe_is_themedy_product == 'themedy_product_yes' ) && current_user_can( 'edit_posts' ) ) {
+
+	/** Enable display */
 	$gtbe_is_mcgroup = 'mcgroup_yes';
-	// Entries at "Child Theme" section
+
+	/** Entries at "Child Theme" section */
 	$menu_items['themedyproduct'] = array(
 		'parent' => $themedysettings,
 		'title'  => CHILD_THEME_NAME . ' ' . __( 'Products', 'genesis-toolbar-extras' ),
@@ -312,17 +366,18 @@ if ( ( $gtbe_is_themedy_product == 'themedy_product_yes' ) && current_user_can( 
 		'href'   => admin_url( 'edit-tags.php?taxonomy=product-category&post_type=products' ),
 		'meta'   => array( 'target' => '', 'title' => __( 'Product Categories', 'genesis-toolbar-extras' ) )
 	);
-	// GCPTA Plugin
+
+	/** GCPTA Plugin */
 	if ( function_exists( 'gcpta_init' ) ) {
 		$menu_items['themedyproduct-gcpta'] = array(
 			'parent' => $themedyproduct,
-			'title'  => __( 'Product Archives Settings', 'genesis-toolbar-extras' ),
+			'title'  => _x( 'Products', 'Translators: For GCPTA Plugin Archives', 'genesis-toolbar-extras' ) . $gtbe_gcpta_archives_settings,
 			'href'   => admin_url( 'edit.php?post_type=products&page=gcpta-products' ),
-			'meta'   => array( 'target' => '', 'title' => __( 'Product Archives Settings', 'genesis-toolbar-extras' ) )
+			'meta'   => array( 'target' => '', 'title' => _x( 'Products', 'Translators: For GCPTA Plugin Archives', 'genesis-toolbar-extras' ) . $gtbe_gcpta_archives_settings )
 		);
 	}  // end-if GCPTA check
 
-	// Entries at "Manage Content" section
+	/** Entries at "Manage Content" section */
 	$menu_items['mcgthemedyproduct'] = array(
 		'parent' => $mcgroupstart,
 		'title'  => CHILD_THEME_NAME . ' ' . __( 'Products', 'genesis-toolbar-extras' ),
@@ -341,13 +396,14 @@ if ( ( $gtbe_is_themedy_product == 'themedy_product_yes' ) && current_user_can( 
 		'href'   => admin_url( 'edit-tags.php?taxonomy=product-category&post_type=products' ),
 		'meta'   => array( 'target' => '', 'title' => __( 'Product Categories', 'genesis-toolbar-extras' ) )
 	);
-	// GCPTA Plugin
+
+	/** GCPTA Plugin */
 	if ( function_exists( 'gcpta_init' ) && current_user_can( 'manage_options' ) ) {
 		$menu_items['mcgthemedyproduct-gcpta'] = array(
 			'parent' => $mcgthemedyproduct,
-			'title'  => __( 'Product Archives Settings', 'genesis-toolbar-extras' ),
+			'title'  => _x( 'Products', 'Translators: For GCPTA Plugin Archives', 'genesis-toolbar-extras' ) . $gtbe_gcpta_archives_settings,
 			'href'   => admin_url( 'edit.php?post_type=products&page=gcpta-products' ),
-			'meta'   => array( 'target' => '', 'title' => __( 'Product Archives Settings', 'genesis-toolbar-extras' ) )
+			'meta'   => array( 'target' => '', 'title' => _x( 'Products', 'Translators: For GCPTA Plugin Archives', 'genesis-toolbar-extras' ) . $gtbe_gcpta_archives_settings )
 		);
 	}  // end-if GCPTA check
 

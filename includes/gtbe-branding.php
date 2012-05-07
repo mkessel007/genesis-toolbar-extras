@@ -11,6 +11,7 @@
  * @link       http://twitter.com/#!/deckerweb
  *
  * @since 1.0
+ * @version 1.1
  */
 
 /**
@@ -95,7 +96,7 @@
 	 *
 	 * @since 1.0
 	 *
-	 * @return blue icon
+	 * @return brown icon
 	 */
 	function __gtbe_brown_icon() {
 
@@ -198,6 +199,18 @@
 		return plugins_url( 'images/icon-genesistbe-yellow.png', dirname( __FILE__ ) );
 	}
 
+	/**
+	 * Helper function for returning a custom icon (icon-gtbe.png) from stylesheet/child theme "images" folder.
+	 *
+	 * @since 1.1
+	 *
+	 * @return gtbe custom icon
+	 */
+	function __gtbe_child_images_icon() {
+
+		return get_stylesheet_directory_uri() . '/images/icon-gtbe.png';
+	}
+
 /** End of icon helper functions */
 
 
@@ -221,3 +234,28 @@
 	}
 
 /** End of icon class helper functions */
+
+
+/**
+ * Misc. helper functions
+ *
+ * @since 1.1
+ */
+	add_action( 'wp_before_admin_bar_render', 'ddw_gtbe_remove_wpseo_yoast_toolbar', 5 );
+	/**
+	 * Disable original toolbar items of "WordPress SEO by Yoast"
+	 *
+	 * @since 1.1
+	 */
+	function ddw_gtbe_remove_wpseo_yoast_toolbar() {
+
+		if ( defined( 'GTBE_REMOVE_WPSEO_YOAST_TOOLBAR' ) ) {
+
+			global $wp_admin_bar;
+
+			$wp_admin_bar->remove_menu( 'wpseo-menu' );
+		}
+
+	}  // end of function
+
+/** End of misc. helper functions */
