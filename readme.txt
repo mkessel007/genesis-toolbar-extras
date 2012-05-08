@@ -386,7 +386,7 @@ All the custom & branding stuff code above can also be found as a Gist on Github
  * UPDATE: Updated readme.txt documentation/FAQ here plus on the GitHub Gist.
  * UPDATE: Updated German translations and also the .pot file for all translators!
  * UPDATE: Extended GPL License info in readme.txt as well as main plugin file.
- * NEW: Easy plugin translation platform with GlotPress tool: [Translate "Genesis Toolbar Extras"...](http://translate.wpautobahn.com/projects/wordpress-plugins-deckerweb/genesis-toolbar-extras)
+ * NEW: Easy plugin translation platform with GlotPress tool: [Translate "Genesis Toolbar Extras"...](http://translate.wpautobahn.com/projects/genesis-plugins-deckerweb/genesis-toolbar-extras)
 
 = 1.0 (2012-03-26) =
 * Initial release
@@ -408,6 +408,7 @@ Just released into the wild.
 == Plugin Links ==
 * [Translations (GlotPress)](http://translate.wpautobahn.com/projects/genesis-plugins-deckerweb/genesis-toolbar-extras)
 * [User support forums](http://wordpress.org/tags/genesis-toolbar-extras?forum_id=10)
+* [Code snippets archive for customizing, GitHub Gist](https://gist.github.com/2198788)
 
 == Donate ==
 Enjoy using *Genesis Toolbar Extras*? Please consider [making a small donation](http://genesisthemes.de/en/donate/) to support the project's continued development.
