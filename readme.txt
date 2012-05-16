@@ -4,7 +4,7 @@ Donate link: http://genesisthemes.de/en/donate/
 Tags: toolbar, tool bar, adminbar, admin bar, genesis, genesis framework, genesiswp, framework, administration, resources, links, theme, settings, manage, deckerweb, ddwtoolbar
 Requires at least: 3.3
 Tested up to: 3.4
-Stable tag: 1.1
+Stable tag: 1.2
 License: GPLv2 or later
 License URI: http://www.opensource.org/licenses/gpl-license.php
 
@@ -178,7 +178,7 @@ if ( 2 == get_current_user_id() ) {
 To hide items only in frontend use this code:
 `
 /** Genesis Toolbar Extras: Remove all items from frontend */
-if ( !is_admin() ) {
+if ( ! is_admin() ) {
 	define( 'GTBE_DISPLAY', FALSE );
 }
 `
@@ -298,7 +298,7 @@ function custom_gtbe_main_icon_display_class() {
 	return 'your-custom-icon-class';
 }
 `
---> You then have to define CSS rules in your theme/child theme stylesheet for your own custom class `.your-custom-icon-class`
+--> You then have to define CSS rules in your child theme stylesheet for your own custom class `.your-custom-icon-class`
 
 --> Recommended dimensions are 16px x 16px
 
@@ -354,6 +354,14 @@ All the custom & branding stuff code above can also be found as a Gist on Github
 
 == Changelog ==
 
+= 1.2 (2012-05-16) =
+* NEW: Added support for community translation project.
+* NEW: Added support for new Community/Marketplace child theme "Adorable" by Lindsey Riel of Pretty Darn Cute Design.
+* NEW: Added support for new Community/Marketplace child theme "RealPro" by Chris Ford of Creativity Included.
+* NEW: Added support & integration for "Genesis Design Palette" (free, Andrew Norcross)
+* UPDATE: Changed behavior of constants for removing sections (or all), so that setting to "FALSE" removes stuff, and setting to "TRUE" displays stuff. (This does not affect existing behavior as explained in the FAQ but introduces ability to use the boolean "TRUE" to bring stuff back in favor of removing the code lines - great for testing purposes etc.)
+* UPDATE: Updated German translations and also the .pot file for all translators!
+
 = 1.1 (2012-05-07) =
 * *New features:*
  * NEW: Added support for third-party SEO plugins for which Genesis SEO options degrade gracefully - I even added 3 more plugins to the "degrade filter" for better and extended support :) (also see below, plugin section)
@@ -361,7 +369,7 @@ All the custom & branding stuff code above can also be found as a Gist on Github
  * NEW: For "Themedy" brand added links to edit `custom.css` and `custom_functions.php` files via Theme Editor - only if the user has the proper cabalitities and if the Theme Editor is not disabled via wp-config!
  * NEW: Added simple fallback for any Genesis Child Theme which has no added extended support here: displaying its name and if available the 'README' in the backend (Theme Editor links could also activated for these themes!).
  * NEW: Added 4 action hooks for hooking custom menu items in -- for all main sections plus the resource group section (see FAQ section here for more info on that).
-* *Extended Theme support:*
+* *Extended Child Theme support:*
  * NEW: Added support for new official child themes "Decor" and "Mindstream" by StudioPress.
  * NEW: Added support for "Adapt", "Skope", "Imagery" and "Classik" by appfinite/Wes Straham; improved support for now Community/Marketplace child theme "Optimal".
  * NEW: Added support for "Derby" by Themedy Themes brand
@@ -386,7 +394,7 @@ All the custom & branding stuff code above can also be found as a Gist on Github
  * UPDATE: Updated readme.txt documentation/FAQ here plus on the GitHub Gist.
  * UPDATE: Updated German translations and also the .pot file for all translators!
  * UPDATE: Extended GPL License info in readme.txt as well as main plugin file.
- * NEW: Easy plugin translation platform with GlotPress tool: [Translate "Genesis Toolbar Extras"...](http://translate.wpautobahn.com/projects/genesis-plugins-deckerweb/genesis-toolbar-extras)
+ * NEW: Easy plugin translation platform with GlotPress tool: [Translate "Genesis Toolbar Extras"...](http://translate.wpautobahn.com/projects/wordpress-plugins-deckerweb/genesis-toolbar-extras)
 
 = 1.0 (2012-03-26) =
 * Initial release
@@ -398,6 +406,9 @@ All the custom & branding stuff code above can also be found as a Gist on Github
  * Including support for 6 plugins from the "ecosystem" around Genesis - Simple URLs, SEO Data Transporter, Premise 1.x & 2.0+, Scribe SEO, Dynamic Content Gallery (DCG), WP-Cycle
 
 == Upgrade Notice ==
+
+= 1.2 =
+Several additions & improvements: Extended theme & plugin support! Added community translations project. Improved constants behavior. Updated .pot file for translators plus German translations.
 
 = 1.1 =
 Major improvements + several changes: Extended theme & plugin support! Added SEO Plugin support! Also added theme editor links for custom styles & functions. Updated .pot file for translators plus German translations.
@@ -438,7 +449,7 @@ Enjoy using *Genesis Toolbar Extras*? Please consider [making a small donation](
 * Including "Genesis Default" (no child theme, but it's always recommended to use a child theme...)
 
 = Community/Marketplace Child Themes from studiopress.com =
-* All community/marketplace child themes sold via studiopress.com platform, 15+
+* All community/marketplace child themes sold via studiopress.com platform, 18+
 * See under studiopress.com for full and growing list...
 * Note: if available, all extra setting pages are fully supported, as well as their specific support link resources.
 
@@ -504,6 +515,7 @@ Enjoy using *Genesis Toolbar Extras*? Please consider [making a small donation](
 * Genesis Press Post Type - free
 * Genesis Favicon Uploader - free
 * Genesis Custom Backgrounds - free
+* Genesis Design Palette - free
 * Generate Box (only for Generate child theme) - free
 * Genesis 404 Page - free
 * Genesis Grid - free

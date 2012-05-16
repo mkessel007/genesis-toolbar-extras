@@ -14,6 +14,34 @@
  */
 
 /**
+ * Genesis Palette (free, by Andrew Norcross)
+ *
+ * @since 1.2
+ */
+if ( ( ( function_exists( 'is_plugin_active' ) && is_plugin_active( 'genesis-palette/plugin.php' ) ) || defined( 'GS_SETTINGS_FIELD' ) ) && current_user_can( 'manage_options' ) ) {
+
+	/** Entry at "Extensions" section */
+	$menu_items['ext-gdesignpalette'] = array(
+		'parent' => $extensions,
+		'title'  => __( 'Design Palette', 'genesis-toolbar-extras' ),
+		'href'   => admin_url( 'admin.php?page=gsd_design' ),
+		'meta'   => array( 'target' => '', 'title' => __( 'Design Palette', 'genesis-toolbar-extras' ) )
+	);
+
+	/** Entry at "Child Theme"/Theme Group section */
+	if ( basename( get_template_directory() ) == 'genesis' ) {
+		$menu_items['child-gdesignpalette'] = array(
+			'parent' => $tgroup,
+			'title'  => __( 'Design Palette', 'genesis-toolbar-extras' ),
+			'href'   => admin_url( 'admin.php?page=gsd_design' ),
+			'meta'   => array( 'target' => '', 'title' => _x( 'Design Palette - Plugin Extension', 'Translators: For the tooltip', 'genesis-toolbar-extras' ) )
+		);
+	}  // end-if Genesis check
+
+}  // end-if Palette
+
+
+/**
  * Genesis Simple Edits (free, by StudioPress)
  *
  * @since 1.0
@@ -376,7 +404,7 @@ if ( class_exists( 'Ecordia' ) && current_user_can( 'manage_options' ) ) {
  *
  * @since 1.0
  */
-if ( function_exists( 'GenesisAccordionInit' ) && current_user_can( 'manage_options' ) ) {
+if ( ( defined( 'GENESIS_ACCORDION_SETTINGS_FIELD' ) || function_exists( 'GenesisAccordionInit' ) ) && current_user_can( 'manage_options' ) ) {
 	$menu_items['extsp-gaccordion'] = array(
 		'parent' => $extensions,
 		'title'  => __( 'Accordion Settings', 'genesis-toolbar-extras' ),

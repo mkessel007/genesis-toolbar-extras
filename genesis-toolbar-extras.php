@@ -1,6 +1,8 @@
 <?php 
 /**
- * Main plugin file. This plugin adds useful admin settings links and massive resources for Genesis Framework and its ecosystem to the WordPress Toolbar / Admin Bar.
+ * Main plugin file.
+ * This plugin adds useful admin settings links and massive resources
+ * for Genesis Framework and its ecosystem to the WordPress Toolbar / Admin Bar.
  *
  * @package   Genesis Toolbar Extras
  * @author    David Decker
@@ -14,7 +16,7 @@
  * Plugin Name: Genesis Toolbar Extras
  * Plugin URI: http://genesisthemes.de/en/wp-plugins/genesis-toolbar-extras/
  * Description: This plugin adds useful admin settings links and massive resources for Genesis Framework and its ecosystem to the WordPress Toolbar / Admin Bar.
- * Version: 1.1
+ * Version: 1.2
  * Author: David Decker - DECKERWEB
  * Author URI: http://deckerweb.de/
  * License: GPLv2 or later
@@ -78,7 +80,37 @@ function ddw_gtbe_init() {
 	if ( is_admin() ) {
 		require_once( GTBE_PLUGIN_DIR . '/includes/gtbe-admin.php' );
 	}
-}
+
+	/** Define constants and set defaults for removing all or certain sections */
+	if ( ! defined( 'GTBE_DISPLAY' ) ) {
+		define( 'GTBE_DISPLAY', TRUE );
+	}
+
+	if ( ! defined( 'GTBE_RESOURCES_DISPLAY' ) ) {
+		define( 'GTBE_RESOURCES_DISPLAY', TRUE );
+	}
+
+	if ( ! defined( 'GTBE_CHILD_THEME_DISPLAY' ) ) {
+		define( 'GTBE_CHILD_THEME_DISPLAY', TRUE );
+	}
+
+	if ( ! defined( 'GTBE_EXTENSIONS_DISPLAY' ) ) {
+		define( 'GTBE_EXTENSIONS_DISPLAY', TRUE );
+	}
+
+	if ( ! defined( 'GTBE_MANAGE_CONTENT_DISPLAY' ) ) {
+		define( 'GTBE_MANAGE_CONTENT_DISPLAY', TRUE );
+	}
+
+	if ( ! defined( 'GTBE_DE_DISPLAY' ) ) {
+		define( 'GTBE_DE_DISPLAY', TRUE );
+	}
+
+	if ( ! defined( 'GTBE_TRANSLATIONS_DISPLAY' ) ) {
+		define( 'GTBE_TRANSLATIONS_DISPLAY', TRUE );
+	}
+
+}  // end of function ddw_gtbe_init
 
 
 /**
@@ -98,12 +130,12 @@ if ( class_exists( 'All_in_One_SEO_Pack_p' ) || defined( 'GDHEADSPACE4_PATH' ) |
 	function ddw_gtbe_add_seo_plugins( $gtbe_seo_plugins ) {
 
 		$gtbe_seo_plugins = array(
-					// Classes to detect
+					/** Classes to detect */
 					'classes' => array(
 						'All_in_One_SEO_Pack_p',	// All In One SEO Pack Pro
 						'gregsHighPerformanceSEO',	// Greg's High Performance SEO
 					),
-					// Constants to detect
+					/** Constants to detect */
 					'constants' => array(
 						'GDHEADSPACE4_PATH',		// gdHeadSpace4
 						'SU_VERSION',			// SEO Ultimate
@@ -111,7 +143,8 @@ if ( class_exists( 'All_in_One_SEO_Pack_p' ) || defined( 'GDHEADSPACE4_PATH' ) |
 				);
 
 		return $gtbe_seo_plugins;
-	}  // end of function
+
+	}  // end of function ddw_gtbe_add_seo_plugins
 
 }  // end-if seo plugins prepare additions
 
@@ -151,7 +184,7 @@ function ddw_gtbe_admin_bar_menu() {
 		! is_admin_bar_showing() || 
 		! current_user_can( $gtbe_filter_capability ) ||  // allows for custom filtering the required capability
 		! get_the_author_meta( 'genesis_admin_menu', $gtbe_user->ID ) ||  // users who can't see left G icon won't see toolbar items!
-		defined( 'GTBE_DISPLAY' )  // allows for custom disabling
+		! GTBE_DISPLAY  // allows for custom disabling
 	)
 		return;
 
@@ -231,9 +264,9 @@ function ddw_gtbe_admin_bar_menu() {
 	/** Make the "Genesis" name's tooltip filterable within menu items */
 	$gtbe_genesis_name_tooltip = apply_filters( 'gtbe_filter_genesis_name_tooltip', _x( 'Genesis', 'Translators: For the tooltip', 'genesis-toolbar-extras' ) );
 
-
 	/** Display these items also when Genesis Framework is not installed */
-	if ( ! defined( 'GTBE_RESOURCES_DISPLAY' ) ) {
+	if ( GTBE_RESOURCES_DISPLAY ) {
+
 		$genesisgroup_menu_items = array(
 
 			/** Support menu items */
@@ -479,7 +512,7 @@ function ddw_gtbe_admin_bar_menu() {
 
 
 	/** Display language specific links only for these locales: de_DE, de_AT, de_CH, de_LU */
-	if ( ! defined( 'GTBE_DE_DISPLAY' ) && ( get_locale() == 'de_DE' || get_locale() == 'de_AT' || get_locale() == 'de_CH' || get_locale() == 'de_LU' ) ) {
+	if ( GTBE_DE_DISPLAY && ( get_locale() == 'de_DE' || get_locale() == 'de_AT' || get_locale() == 'de_CH' || get_locale() == 'de_LU' ) ) {
 		/** German Genesis Framework language packs */
 		$genesisgroup_menu_items['languagesde'] = array(
 			'parent' => $genesisgroup,
@@ -505,7 +538,7 @@ function ddw_gtbe_admin_bar_menu() {
 
 
 	/** Translate Genesis section - only display for non-English locales */
-	if ( ! defined( 'GTBE_TRANSLATIONS_DISPLAY' ) && ( empty( $locale ) || !( get_locale() == 'en_US' || get_locale() == 'en_GB' || get_locale() == 'en_NZ' || get_locale() == 'en' ) ) ) {
+	if ( GTBE_TRANSLATIONS_DISPLAY && ( empty( $locale ) || !( get_locale() == 'en_US' || get_locale() == 'en_GB' || get_locale() == 'en_NZ' || get_locale() == 'en' ) ) ) {
 		/** Translate Genesis section */
 		$genesisgroup_menu_items['translate'] = array(
 			'parent' => $genesisgroup,
@@ -525,6 +558,19 @@ function ddw_gtbe_admin_bar_menu() {
 			'title'  => __( 'Translations Forum', 'genesis-toolbar-extras' ),
 			'href'   => 'http://www.studiopress.com/support/forumdisplay.php?f=168',
 			'meta'   => array( 'title' => sprintf( _x( 'Translations Forum (%s Support Forum)', 'Translators: For the tooltip', 'genesis-toolbar-extras' ), esc_attr__( $gtbe_genesis_name ) ) )
+		);
+		/** Community Translations */
+		$genesisgroup_menu_items['translate-community'] = array(
+			'parent' => $translate,
+			'title'  => sprintf( __( '%s Community Translations', 'genesis-toolbar-extras' ), esc_attr__( $gtbe_genesis_name ) ),
+			'href'   => 'http://translate.wpautobahn.com/projects',
+			'meta'   => array( 'title' => sprintf( _x( '%s Community Translations Project', 'Translators: For the tooltip', 'genesis-toolbar-extras' ), esc_attr__( $gtbe_genesis_name ) ) )
+		);
+		$genesisgroup_menu_items['translate-community-register'] = array(
+			'parent' => $translate,
+			'title'  => __( 'Register for Community Translations', 'genesis-toolbar-extras' ),
+			'href'   => 'http://translate.wpautobahn.com/home/',
+			'meta'   => array( 'title' => _x( 'Register for Community Translations', 'Translators: For the tooltip', 'genesis-toolbar-extras' ) )
 		);
 	}  // end-if translate genesis
 
@@ -609,7 +655,7 @@ function ddw_gtbe_admin_bar_menu() {
 		 *
 		 * @since 1.0
 		 */
-		if ( ! defined( 'GTBE_EXTENSIONS_DISPLAY' ) && 
+		if ( GTBE_EXTENSIONS_DISPLAY && 
 			( current_theme_supports( 'genesis-admin-menu' ) && get_the_author_meta( 'genesis_admin_menu', $gtbe_user->ID ) ) 
 		) {
 			$menu_items['extensions'] = array(
@@ -735,7 +781,7 @@ function ddw_gtbe_admin_bar_menu() {
 			$menu_item['meta']['class'] .= $prefix . 'gtbe-new-tab';
 		}
 
-		// Add item
+		/** Add menu items */
 		$wp_admin_bar->add_menu( $menu_item );
 
 	}  // end foreach menu items
@@ -757,7 +803,7 @@ function ddw_gtbe_admin_bar_menu() {
 	) );
 
 		/** Theme Group: Main Entry */
-		if ( ! defined( 'GTBE_CHILD_THEME_DISPLAY' ) ) {
+		if ( GTBE_CHILD_THEME_DISPLAY ) {
 			$wp_admin_bar->add_group( array(
 				'parent' => $extgroup,
 				'id'     => $tgroup,
@@ -779,7 +825,7 @@ function ddw_gtbe_admin_bar_menu() {
 		) );
 
 		/** Manage Content Group: Main Entry */
-		if ( ! defined( 'GTBE_MANAGE_CONTENT_DISPLAY' ) && current_user_can( 'edit_posts' ) ) {
+		if ( GTBE_MANAGE_CONTENT_DISPLAY && current_user_can( 'edit_posts' ) ) {
 			$wp_admin_bar->add_group( array(
 				'parent' => $extgroup,
 				'id'     => $mcgroup,
@@ -820,7 +866,7 @@ function ddw_gtbe_admin_bar_menu() {
 			$genesisgroup_menu_item['meta']['class'] .= $prefix . 'gtbe-new-tab';
 		}
 
-		/** Genesis Group: Add item */
+		/** Genesis Group: Add menu items */
 		$wp_admin_bar->add_menu( $genesisgroup_menu_item );
 
 	}  // end foreach Genesis Group
@@ -855,8 +901,8 @@ add_action( 'admin_head', 'ddw_gtbe_admin_style' );
  */
 function ddw_gtbe_admin_style() {
 
-	/** No styles if admin bar is disabled or user is not logged in */
-	if ( !is_admin_bar_showing() || !is_user_logged_in() )
+	/** No styles if admin bar is disabled or user is not logged in or items are disabled via constant */
+	if ( ! is_admin_bar_showing() || ! is_user_logged_in() || ! GTBE_DISPLAY )
 		return;
 
 	/** Add CSS styles to wp_head/admin_head */

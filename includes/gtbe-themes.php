@@ -72,6 +72,12 @@ $gtbe_theme_fallback = __( 'Theme', 'genesis-toolbar-extras' ) . ':&nbsp;';
 		$spmarket_child_name = 'Blingless' . $gtbe_theme;
 		$spmarket_child_forum = 'http://www.studiopress.com/support/forumdisplay.php?f=181';
 
+		// Adorable
+	} elseif ( CHILD_THEME_NAME == 'Adorable Child Theme' || $gtbe_stylesheet_name == 'Adorable' ) {
+		$gtbe_is_spmarket = 'spmarket_yes';
+		$spmarket_child_name = 'Adorable' . $gtbe_theme;
+		$spmarket_child_forum = 'http://www.studiopress.com/support/forumdisplay.php?f=208';
+
 		// Cre8tive Burst
 	} elseif ( CHILD_THEME_NAME == 'Cre8tive Burst Child Theme' || $gtbe_stylesheet_name == 'Cre8tive Burst Child Theme' ) {
 		$gtbe_is_spmarket = 'spmarket_yes';
@@ -151,6 +157,12 @@ $gtbe_theme_fallback = __( 'Theme', 'genesis-toolbar-extras' ) . ':&nbsp;';
 		$gtbe_is_spmarket = 'spmarket_yes';
 		$spmarket_child_name = 'Pure Elegance' . $gtbe_theme;
 		$spmarket_child_forum = 'http://www.studiopress.com/support/forumdisplay.php?f=198';
+
+		// RealPro
+	} elseif ( CHILD_THEME_NAME == 'RealPro Theme' || $gtbe_stylesheet_name == 'RealPro' ) {
+		$gtbe_is_spmarket = 'spmarket_yes';
+		$spmarket_child_name = 'RealPro' . $gtbe_theme;
+		$spmarket_child_forum = 'http://www.studiopress.com/support/forumdisplay.php?f=209';
 
 		// Vintage
 	} elseif ( CHILD_THEME_NAME == 'Vintage Theme' || $gtbe_stylesheet_name == 'Vintage Child Theme' ) {
