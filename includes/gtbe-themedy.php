@@ -9,7 +9,7 @@
  * @copyright  Copyright 2012, David Decker - DECKERWEB
  * @license    http://www.opensource.org/licenses/gpl-license.php GPL v2.0 (or later)
  * @link       http://genesisthemes.de/en/wp-plugins/genesis-toolbar-extras/
- * @link       http://twitter.com/#!/deckerweb
+ * @link       http://twitter.com/deckerweb
  *
  * @since 1.0
  */
@@ -56,6 +56,12 @@ $gtbe_themesettings = '&nbsp;' . __( 'Theme Settings', 'genesis-toolbar-extras' 
 	if ( CHILD_THEME_NAME == 'Cinchpress' || $gtbe_stylesheet_name == 'Cinchpress Child Theme' ) {
 		$themedy_child_name = 'Cinchpress' . $gtbe_themesettings;
 		$themedy_child_forum = 'http://themedy.com/forum/categories/cinchpress';
+
+		// Themedy: Blink (premium)
+	} elseif ( CHILD_THEME_NAME == 'Blink' || $gtbe_stylesheet_name == 'Blink Child Theme' ) {
+		$themedy_child_name = 'Blink' . $gtbe_themesettings;
+		$themedy_child_forum = 'http://themedy.com/forum/categories/blink';
+		$gtbe_is_themedy_portfolio = 'themedy_portfolio_yes';
 
 		// Themedy: Clip Cart (premium)
 	} elseif ( CHILD_THEME_NAME == 'Clip Cart' || $gtbe_stylesheet_name == 'Clip Cart Child Theme' ) {
@@ -127,6 +133,12 @@ $gtbe_themesettings = '&nbsp;' . __( 'Theme Settings', 'genesis-toolbar-extras' 
 		$themedy_child_name = 'Stage' . $gtbe_themesettings;
 		$themedy_child_forum = 'http://themedy.com/forum/categories/stage';
 		$gtbe_is_themedy_photo = 'themedy_photo_yes';
+
+		// Themedy: Tote (free)
+	} elseif ( CHILD_THEME_NAME == 'Tote' || $gtbe_stylesheet_name == 'Tote Child Theme' ) {
+		$themedy_child_name = 'Tote' . $gtbe_themesettings;
+		$themedy_child_forum = 'http://themedy.com/forum/categories/tote';
+
 	}  // end-if Themedy Child name check
 
 

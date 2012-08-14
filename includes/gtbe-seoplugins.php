@@ -9,7 +9,7 @@
  * @copyright  Copyright 2012, David Decker - DECKERWEB
  * @license    http://www.opensource.org/licenses/gpl-license.php GPL v2.0 (or later)
  * @link       http://genesisthemes.de/en/wp-plugins/genesis-toolbar-extras/
- * @link       http://twitter.com/#!/deckerweb
+ * @link       http://twitter.com/deckerweb
  *
  * @since 1.1
  */
@@ -38,15 +38,21 @@ if ( defined( 'WPSEO_VERSION' ) && current_user_can( 'manage_options' ) ) {
 	);
 	$menu_items['extgseoyoastseo-titles'] = array(
 		'parent' => $extgseoyoastseo,
-		'title'  => __( 'Title Settings', 'genesis-toolbar-extras' ),
+		'title'  => __( 'Titles &amp; Metas', 'genesis-toolbar-extras' ),
 		'href'   => admin_url( 'admin.php?page=wpseo_titles' ),
-		'meta'   => array( 'target' => '', 'title' => $gtbe_seoplugin . __( 'Title Settings', 'genesis-toolbar-extras' ) )
+		'meta'   => array( 'target' => '', 'title' => $gtbe_seoplugin . __( 'Titles &amp; Metas', 'genesis-toolbar-extras' ) )
 	);
-	$menu_items['extgseoyoastseo-index'] = array(
+	$menu_items['extgseoyoastseo-permalinks'] = array(
 		'parent' => $extgseoyoastseo,
-		'title'  => __( 'Indexation', 'genesis-toolbar-extras' ),
-		'href'   => admin_url( 'admin.php?page=wpseo_indexation' ),
-		'meta'   => array( 'target' => '', 'title' => __( 'Indexation', 'genesis-toolbar-extras' ) )
+		'title'  => __( 'Permalinks', 'genesis-toolbar-extras' ),
+		'href'   => admin_url( 'admin.php?page=wpseo_permalinks' ),
+		'meta'   => array( 'target' => '', 'title' => __( 'Permalinks', 'genesis-toolbar-extras' ) )
+	);
+	$menu_items['extgseoyoastseo-internal'] = array(
+		'parent' => $extgseoyoastseo,
+		'title'  => __( 'Internal Links', 'genesis-toolbar-extras' ),
+		'href'   => admin_url( 'admin.php?page=wpseo_internal-links' ),
+		'meta'   => array( 'target' => '', 'title' => __( 'Internal Links', 'genesis-toolbar-extras' ) )
 	);
 }  // end-if WordPress SEO by Yoast
 

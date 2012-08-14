@@ -8,7 +8,7 @@
  * @copyright  Copyright 2012, David Decker - DECKERWEB
  * @license    http://www.opensource.org/licenses/gpl-license.php GPL v2.0 (or later)
  * @link       http://genesisthemes.de/en/wp-plugins/genesis-toolbar-extras/
- * @link       http://twitter.com/#!/deckerweb
+ * @link       http://twitter.com/deckerweb
  *
  * @since 1.0
  */
@@ -492,6 +492,21 @@ if ( function_exists( 'seodt_settings_init' ) && current_user_can( 'manage_optio
 			);
 		}  // end-if cap check
 
+		/**
+		 * AgentPress Listings Taxonomy Reorder (free, by Robert Iseley)
+		 * Add plugin support only here where it makes sense.
+		 *
+		 * @since 1.3
+		 */
+		if ( function_exists( 'ap_tax_reorder_init' ) && current_user_can( 'manage_options' ) ) {
+			$menu_items['mcgspapl-taxreorder'] = array(
+				'parent' => $mcgspapl,
+				'title'  => __( 'Reorder Taxonomies', 'genesis-toolbar-extras' ),
+				'href'   => admin_url( 'edit.php?post_type=listing&page=ap-tax-reorder' ),
+				'meta'   => array( 'target' => '', 'title' => __( 'Reorder Taxonomies', 'genesis-toolbar-extras' ) )
+			);
+		}  // end-if plugin & cap check
+
 		/** GCPTA Plugin */
 		if ( function_exists( 'gcpta_init' ) && current_user_can( 'manage_options' ) ) {
 			$menu_items['mcgspapl-gcpta'] = array(
@@ -818,6 +833,49 @@ if ( function_exists( 'seodt_settings_init' ) && current_user_can( 'manage_optio
 		);
 	}  // end-if DCG
 
+
+	/**
+	 * Soliloquy for WordPress (premium, by Thomas Griffin Media)
+	 * plus: Soliloquy Lite (free, by Thomas Griffin Media)
+	 *
+	 * @since 1.3
+	 */
+	if ( class_exists( 'Tgmsp' ) || class_exists( 'Tgmsp_Lite' ) ) {
+
+		/** Enable display */
+		$gtbe_is_mcgroup = 'mcgroup_yes';
+
+		/** Entries at "Manage Content" section */
+		$menu_items['mcgsoliloquy'] = array(
+			'parent' => $mcgroupstart,
+			'title'  => __( 'Soliloquy Sliders', 'genesis-toolbar-extras' ),
+			'href'   => admin_url( 'edit.php?post_type=soliloquy' ),
+			'meta'   => array( 'target' => '', 'title' => __( 'Soliloquy Sliders', 'genesis-toolbar-extras' ) )
+		);
+		$menu_items['mcgsoliloquy-add'] = array(
+			'parent' => $mcgsoliloquy,
+			'title'  => __( 'Add new Slider', 'genesis-toolbar-extras' ),
+			'href'   => admin_url( 'post-new.php?post_type=soliloquy' ),
+			'meta'   => array( 'target' => '', 'title' => __( 'Add new Slider', 'genesis-toolbar-extras' ) )
+		);
+
+		/** Premium version only features */
+		if ( class_exists( 'Tgmsp' ) ) {
+			$menu_items['mcgsoliloquy-settings'] = array(
+				'parent' => $mcgsoliloquy,
+				'title'  => __( 'Settings', 'genesis-toolbar-extras' ),
+				'href'   => admin_url( 'edit.php?post_type=soliloquy&page=soliloquy-settings' ),
+				'meta'   => array( 'target' => '', 'title' => __( 'Settings', 'genesis-toolbar-extras' ) )
+			);
+			$menu_items['mcgsoliloquy-addons'] = array(
+				'parent' => $mcgsoliloquy,
+				'title'  => __( 'Add Ons', 'genesis-toolbar-extras' ),
+				'href'   => admin_url( 'edit.php?post_type=soliloquy&page=soliloquy-addons' ),
+				'meta'   => array( 'target' => '', 'title' => __( 'Add Ons', 'genesis-toolbar-extras' ) )
+			);
+		}  // end-if Soliloquy premium features
+
+	}  // end-if Soliloquy
 
 	/** Manage Content Group - Display items */
 	if ( $gtbe_is_mcgroup == 'mcgroup_yes' ) {

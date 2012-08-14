@@ -9,7 +9,7 @@
  * @copyright  Copyright 2012, David Decker - DECKERWEB
  * @license    http://www.opensource.org/licenses/gpl-license.php GPL v2.0 (or later)
  * @link       http://genesisthemes.de/en/wp-plugins/genesis-toolbar-extras/
- * @link       http://twitter.com/#!/deckerweb
+ * @link       http://twitter.com/deckerweb
  *
  * @since 1.0
  */
@@ -154,7 +154,7 @@ $spgenesis_child_aurl = admin_url( 'admin.php?page=genesis#genesis-theme-setting
 		$spgenesis_child_name = 'Delicious' . $gtbe_theme;
 		$spgenesis_child_forum = 'http://www.studiopress.com/support/forumdisplay.php?f=130';
 
-		// Education
+		// Education 1.x - 2.0
 	} elseif ( CHILD_THEME_NAME == 'Education Theme' || $gtbe_stylesheet_name == 'Education Child Theme' ) {
 		$gtbe_is_spchild = 'spchild_yes';
 		$spgenesis_child_name = 'Education' . $gtbe_theme;
@@ -250,7 +250,7 @@ $spgenesis_child_aurl = admin_url( 'admin.php?page=genesis#genesis-theme-setting
 		$spgenesis_child_name = 'Luscious' . $gtbe_theme;
 		$spgenesis_child_forum = 'http://www.studiopress.com/support/forumdisplay.php?f=190';
 
-		// Magazine 1.x - 2.0
+		// Magazine 1.x - 2.x
 	} elseif ( CHILD_THEME_NAME == 'Magazine Theme' || $gtbe_stylesheet_name == 'Magazine Child Theme' ) {
 		$gtbe_is_spchild = 'spchild_yes';
 		$spgenesis_child_name = 'Magazine' . $gtbe_theme;
@@ -334,6 +334,12 @@ $spgenesis_child_aurl = admin_url( 'admin.php?page=genesis#genesis-theme-setting
 		$spgenesis_child_name = 'Prose' . $gtbe_theme;
 		$spgenesis_child_aurl = admin_url( 'admin.php?page=design-settings' );
 		$spgenesis_child_forum = 'http://www.studiopress.com/support/forumdisplay.php?f=147';
+
+		// Quattro
+	} elseif ( CHILD_THEME_NAME == 'Quattro Theme' || $gtbe_stylesheet_name == 'Quattro Child Theme' ) {
+		$gtbe_is_spchild = 'spchild_yes';
+		$spgenesis_child_name = 'Quattro' . $gtbe_theme;
+		$spgenesis_child_forum = 'http://www.studiopress.com/support/forumdisplay.php?f=213';
 
 		// Scribble
 	} elseif ( CHILD_THEME_NAME == 'Scribble Theme' || $gtbe_stylesheet_name == 'Scribble Child Theme' ) {
@@ -437,7 +443,7 @@ $spgenesis_child_aurl = admin_url( 'admin.php?page=genesis#genesis-theme-setting
 		);
 
 		/** Display theme editor links for proper caps */
-		if ( !( defined( 'DISALLOW_FILE_EDIT' ) && DISALLOW_FILE_EDIT ) && !defined( 'PROSE_DOMAIN' ) && current_user_can( 'edit_themes' ) && current_theme_supports( 'gtbe-theme-editor' ) ) {
+		if ( !( defined( 'DISALLOW_FILE_EDIT' ) && DISALLOW_FILE_EDIT ) && ! defined( 'PROSE_DOMAIN' ) && current_user_can( 'edit_themes' ) && current_theme_supports( 'gtbe-theme-editor' ) ) {
 
 			/** Include plugin file with seo plugin support links */
 			require_once( GTBE_PLUGIN_DIR . '/includes/gtbe-editfiles.php' );

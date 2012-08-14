@@ -8,17 +8,17 @@
  * @copyright  Copyright 2012, David Decker - DECKERWEB
  * @license    http://www.opensource.org/licenses/gpl-license.php GPL v2.0 (or later)
  * @link       http://genesisthemes.de/en/wp-plugins/genesis-toolbar-extras/
- * @link       http://twitter.com/#!/deckerweb
+ * @link       http://twitter.com/deckerweb
  *
  * @since 1.0
- * @version 1.1
+ * @version 1.2
  */
 
 /**
  * Premise (premium, by Copyblogger Media LLC)
  *
  * @since 1.0
- * @version 1.1
+ * @version 1.2
  */
 /** Premise Landing Pages Module */
 $menu_items['premise'] = array(
@@ -41,7 +41,7 @@ $menu_items['premiselanding-add'] = array(
 );
 
 
-/** Display only for WP capability 'manage_options' */
+/** Display only for WordPress capability 'manage_options' */
 if ( current_user_can( 'manage_options' ) ) {
 
 	$menu_items['premisesettings'] = array(
@@ -62,6 +62,24 @@ if ( current_user_can( 'manage_options' ) ) {
 		'href'   => admin_url( 'admin.php?page=premise-style-settings' ),
 		'meta'   => array( 'target' => '', 'title' => __( 'Add new Style', 'genesis-toolbar-extras' ) )
 	);
+	$menu_items['premisesettings-buttons'] = array(
+		'parent' => $premisesettings,
+		'title'  => __( 'Button Settings', 'genesis-toolbar-extras' ),
+		'href'   => admin_url( 'admin.php?page=premise-buttons' ),
+		'meta'   => array( 'target' => '', 'title' => __( 'Button Settings', 'genesis-toolbar-extras' ) )
+	);
+	$menu_items['premisesettings-addbutton'] = array(
+		'parent' => $premisesettings,
+		'title'  => __( 'Add new Button', 'genesis-toolbar-extras' ),
+		'href'   => admin_url( 'media-upload.php?post_id=0&type=premise-button-create&TB_iframe=1&height=700' ),
+		'meta'   => array( 'target' => '', 'title' => __( 'Add new Button', 'genesis-toolbar-extras' ) )
+	);
+	$menu_items['premisesettings-custom'] = array(
+		'parent' => $premisesettings,
+		'title'  => __( 'Custom Code &amp; CSS', 'genesis-toolbar-extras' ),
+		'href'   => admin_url( 'admin.php?page=premise-custom' ),
+		'meta'   => array( 'title' => __( 'Custom Code &amp; CSS', 'genesis-toolbar-extras' ) )
+	);
 	$menu_items['premisesettings-help'] = array(
 		'parent' => $premisesettings,
 		'title'  => __( 'Premise Help', 'genesis-toolbar-extras' ),
@@ -73,7 +91,10 @@ if ( current_user_can( 'manage_options' ) ) {
 
 
 /** Premise Membership Module */
-if ( defined( 'PREMISE_MEMBER_DIR' ) && current_user_can( 'manage_options' ) ) {
+if ( function_exists( 'memberaccess_init' ) &&		// Member module activated in Premise settings
+	defined( 'PREMISE_MEMBER_DIR' ) &&		// Correct path
+	current_user_can( 'manage_options' )		// Proper capability for admins
+) {
 
 	$menu_items['premisemember'] = array(
 		'parent' => $mcgroup,
@@ -98,6 +119,12 @@ if ( defined( 'PREMISE_MEMBER_DIR' ) && current_user_can( 'manage_options' ) ) {
 		'title'  => __( 'Link Manager', 'genesis-toolbar-extras' ),
 		'href'   => admin_url( 'admin.php?page=member-access-links' ),
 		'meta'   => array( 'target' => '', 'title' => __( 'Link Manager', 'genesis-toolbar-extras' ) )
+	);
+	$menu_items['premisemember-accesslevels'] = array(
+		'parent' => $premisemember,
+		'title'  => __( 'Access Levels', 'genesis-toolbar-extras' ),
+		'href'   => admin_url( 'edit-tags.php?taxonomy=acp-access-level&post_type=acp-products' ),
+		'meta'   => array( 'target' => '', 'title' => __( 'Access Levels', 'genesis-toolbar-extras' ) )
 	);
 	$menu_items['premisemember-reports'] = array(
 		'parent' => $premisemember,
