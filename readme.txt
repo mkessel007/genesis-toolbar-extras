@@ -4,7 +4,7 @@ Donate link: http://genesisthemes.de/en/donate/
 Tags: toolbar, tool bar, adminbar, admin bar, genesis, genesis framework, genesiswp, framework, administration, resources, links, theme, settings, manage, deckerweb, ddwtoolbar
 Requires at least: 3.3
 Tested up to: 3.4.1
-Stable tag: 1.3
+Stable tag: 1.4
 License: GPLv2 or later
 License URI: http://www.opensource.org/licenses/gpl-license.php
 
@@ -343,6 +343,73 @@ function custom_gtbe_main_item_tooltip() {
 * Used for some items within toolbar links to enable proper branding
 * Change things like in the other examples/principles shown above
 
+
+**gtbe_filter_theme_support_url**
+
+* Default value for both: if applicable, support URL accordingly to the used child theme
+* Important: Has to be an URL!
+* Note: automatically opens in a new window/tab.
+* Only used for supported third party child themes.
+* Example code for your child theme's `functions.php` file:
+`
+add_filter( 'gtbe_filter_theme_support_url', 'custom_theme_support_url' );
+/**
+ * Genesis Toolbar Extras: Custom Support URL
+ */
+function custom_theme_support_url() {
+	return 'http://genesisfinder.com/';
+}
+`
+
+**gtbe_filter_theme_docs_url**
+
+* Default value for both: if applicable, docs/knowledge base URL accordingly to the used child theme
+* Important: Has to be an URL!
+* Note: automatically opens in a new window/tab.
+* Only used for supported third party child themes.
+* Example code for your child theme's `functions.php` file:
+`
+add_filter( 'gtbe_filter_theme_docs_url', 'custom_theme_docs_url' );
+/**
+ * Genesis Toolbar Extras: Custom Docs URL
+ */
+function custom_theme_docs_url() {
+	return 'http://genesisfinder.com/';
+}
+`
+
+**gtbe_filter_url_child_readme**
+
+* Default value for both: get_stylesheet_directory() . '/README.txt'
+* Important: Has to be an existing/ readable .txt file.
+* Note: Could only be used if an original 'README.txt' file is there in the child theme's root folder.
+* Example code for your child theme's `functions.php` file:
+`
+add_filter( 'gtbe_filter_url_child_readme', 'custom_url_child_readme' );
+/**
+ * Genesis Toolbar Extras: Custom README URL
+ */
+function custom_url_child_readme() {
+	return 'http://your-support-site.com/customers/readme.txt';
+}
+`
+
+**gtbe_filter_url_child_changelog**
+
+* Default value for both: get_stylesheet_directory() . '/changelog.txt'
+* Important: Has to be an existing/ readable .txt file.
+* Note: Could only be used if an original 'changelog.txt' file is there in the child theme's root folder.
+* Example code for your child theme's `functions.php` file:
+`
+add_filter( 'gtbe_filter_url_child_changelog', 'custom_url_child_changelog' );
+/**
+ * Genesis Toolbar Extras: Custom Changelog URL
+ */
+function custom_url_child_changelog() {
+	return 'http://your-theme-shop-site.com/theme-xy/changelog.txt';
+}
+`
+
 **Final note:** If you don't like to add your customizations to your child theme's `functions.php` file you can also add them to a functionality plugin or an mu-plugin. This way you can also use this better for Multisite environments. In general you are then more independent from child theme changes etc.
 
 All the custom & branding stuff code above can also be found as a Gist on Github: https://gist.github.com/2198788 (you can also add your questions/ feedback there :)
@@ -360,6 +427,27 @@ All the custom & branding stuff code above can also be found as a Gist on Github
 9. Genesis Toolbar Extras in action - language and translation specific links at the bottom - example here: German locales - only displaying for non-English locales! (both sections could be removed via constant!)
 
 == Changelog ==
+
+= 1.4 (2012-08-22) =
+* *Maintenance release*
+* *Extended Child Theme support:*
+ * NEW: Added support for new Community/Marketplace child theme "Craftiness" by Lauren Gaige of Restored 316 Designs.
+ * NEW: Added support for "Linky Loo" by Len Kutchma of WPCanada.ca.
+ * NEW: Added support for "Dizain 01" by themedizain at ThemeForest.
+ * UPDATE: Fixed and improved support for "Optimal" child theme by appfinite.
+ * BUGFIX: Fixed "Portfolio" and "Slides" support for child themes of Themedy brand.
+ * UPDATE: Fixed support for "custom.css" file for child themes of Themedy brand (now corresponding with Themedy settings).
+ * BUGFIX: Fixed support for "README.txt" files for child themes of Themedy brand.
+ * UPDATE: Added support for "changelog.txt" files also for Marketplace/Community themes (via StudioPress).
+* *Extended plugin support:"
+ * NEW: Added support for "Widget Settings Importer/Exporter" (free, by Kevin Langley & smccafferty) - in general a great tool for backing up and importing current widget settings.
+ * NEW: Added support for "(SPYR) Network Bar" (free, by Spyr Media) - in general a great additional tool for every (networking) site.
+ * NEW: Added support for great "RoyalSlider" responsive slider plugin (premium, by Semenov) -- note: only for 'Manage Content' section.
+ * NEW: Added support for great "TouchCarousel" responsive content carousel plugin (premium, by Semenov) -- note: only for 'Manage Content' section.
+* *Other stuff:*
+ * CODE: Minor code/documentation updates & improvements.
+ * UPDATE: Added new filters introduced in v1.3 to documentation in FAQ here and also to the [GitHub Gist snippets for this plugin](https://gist.github.com/2198788).
+ * UPDATE: Updated German translations and also the .pot file for all translators!
 
 = 1.3 (2012-08-14) =
 * *New features:*
@@ -442,6 +530,9 @@ All the custom & branding stuff code above can also be found as a Gist on Github
 
 == Upgrade Notice ==
 
+= 1.4 =
+Several additions & improvements: Extended theme & plugin support. Some code updates, fixes and improvements. Updated .pot file for translators plus German translations.
+
 = 1.3 =
 Several additions & improvements: GenesisFinder search box; README and Changelog support; extended theme & plugin support. Updated .pot file for translators plus German translations.
 
@@ -481,13 +572,13 @@ Enjoy using *Genesis Toolbar Extras*? Please consider [making a small donation](
 *Please note, only plugins with linkable settings pages and/or meta boxes (with an ID anchor) can be supported.*
 
 = Official Child Themes by StudioPress =
-* All official *premium* themes, 52+ -- see under studiopress.com (including: AgentPress 2.0 and 1.0, Prose 1.0 and 1.5, discontinued Church theme)
+* All official *premium* themes, 52+ -- see under studiopress.com (including: AgentPress 2.0 and 1.0, Prose 1.0 and 1.5.x, discontinued Church theme)
 * All official *free* themes, 6+ -- see under studiopress.com
 * Including free "Sample Child Theme"
 * Including "Genesis Default" (no child theme, but it's always recommended to use a child theme...)
 
 = Community/Marketplace Child Themes from studiopress.com =
-* All community/marketplace child themes sold via studiopress.com platform, 21+
+* All community/marketplace child themes sold via studiopress.com platform, 22+
 * See under studiopress.com for full and growing list...
 * Note: if available, all extra setting pages are fully supported, as well as their specific support link resources.
 
@@ -500,7 +591,7 @@ Enjoy using *Genesis Toolbar Extras*? Please consider [making a small donation](
 * All by GenesisThemes.de/DECKERWEB, 2+
 * All by Appfinite (Wes Straham), 7+
 * All by Marco Galasso - Teethgrinder, 6+
-* All by WPCanada (Len Kutchma), 11+
+* All by WPCanada (Len Kutchma), 12+
 * All by FlashingCursor, 2+
 * All by Travis Smith, 2+
 * All by Josh Stauffer, 2+
@@ -530,7 +621,7 @@ Enjoy using *Genesis Toolbar Extras*? Please consider [making a small donation](
 * "Tee Box" by Alan Smith/Media317
 * "Weight Loss" by Selena - PLR Diva
 * "DocPress" (Genesis Version) by Okay Themes (Mike McAlister)
-* from "ThemeForest" marketplace: "Improvement" by Kuba Sto / "Nzig" by haikbvn / "Avett" by KidThemes / "Hightech" by Lauren Mancke & Northbound Design
+* from "ThemeForest" marketplace: "Improvement" by Kuba Sto / "Nzig" by haikbvn / "Avett" by KidThemes / "Hightech" by Lauren Mancke & Northbound Design / "Dizain 01" by themedizain
 * "On Demand" (Genesis Version) by Press75.com (not longer available...)
 * "Extended Magazine" by WPChildThemes (not longer available, though...)
 
@@ -581,6 +672,10 @@ Enjoy using *Genesis Toolbar Extras*? Please consider [making a small donation](
 = Other Supported Plugins =
 * Soliloquy for WordPress (premium!) - one of the best slider plugins around
 * Soliloquy Lite (free version!)
+* Widget Settings Importer/Exporter (free)
+* (SPYR) Network Bar (free)
+* RoyalSlider (premium)
+* TouchCarousel (premium)
 
 = SEO Plugins supported by Genesis SEO Plugin Detection =
 * *since v1.1 of the plugin*

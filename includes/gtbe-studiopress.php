@@ -328,7 +328,7 @@ $spgenesis_child_aurl = admin_url( 'admin.php?page=genesis#genesis-theme-setting
 		$spgenesis_child_name = 'Pretty Young Thing' . $gtbe_theme;
 		$spgenesis_child_forum = 'http://www.studiopress.com/support/forumdisplay.php?f=166';
 
-		// Prose 1.0 + 1.5
+		// Prose 1.0 + 1.5.x
 	} elseif ( defined( 'PROSE_DOMAIN' ) || CHILD_THEME_NAME == 'Prose Theme' ) {
 		$gtbe_is_spchild = 'spchild_yes';
 		$spgenesis_child_name = 'Prose' . $gtbe_theme;
@@ -443,7 +443,7 @@ $spgenesis_child_aurl = admin_url( 'admin.php?page=genesis#genesis-theme-setting
 		);
 
 		/** Display theme editor links for proper caps */
-		if ( !( defined( 'DISALLOW_FILE_EDIT' ) && DISALLOW_FILE_EDIT ) && ! defined( 'PROSE_DOMAIN' ) && current_user_can( 'edit_themes' ) && current_theme_supports( 'gtbe-theme-editor' ) ) {
+		if ( !( defined( 'DISALLOW_FILE_EDIT' ) && DISALLOW_FILE_EDIT ) && current_user_can( 'edit_themes' ) && ( current_theme_supports( 'gtbe-theme-editor' ) || current_theme_supports( 'gtbe-theme-editor-prose' ) ) ) {
 
 			/** Include plugin file with seo plugin support links */
 			require_once( GTBE_PLUGIN_DIR . '/includes/gtbe-editfiles.php' );
@@ -451,11 +451,19 @@ $spgenesis_child_aurl = admin_url( 'admin.php?page=genesis#genesis-theme-setting
 		}  // end-if theme editor check
 
 		/** Display Readme.txt Child Theme Info */
-		if ( class_exists( 'Genesis_Admin_Readme' ) && file_exists( get_stylesheet_directory() . '/README.txt' ) ) {
+		if ( class_exists( 'Genesis_Admin_Readme' ) && file_exists( ddw_gtbe_filter_url_child_readme() ) ) {
 			$menu_items['spgenesischild-readme'] = array(
 				'parent' => $spgenesischild,
 				'title'  => __( 'README Info', 'genesis-toolbar-extras' ),
 				'href'   => admin_url( 'admin.php?page=genesis-readme' ),
+				'meta'   => array( 'target' => '', 'title' => __( 'README Info', 'genesis-toolbar-extras' ) )
+			);
+		}  /** If Genesis class not exists use own class */
+		elseif ( class_exists( 'DDW_GTBE_Admin_Readme' ) && file_exists( ddw_gtbe_filter_url_child_readme() ) ) {
+			$menu_items['spgenesischild-readme'] = array(
+				'parent' => $spgenesischild,
+				'title'  => __( 'README Info', 'genesis-toolbar-extras' ),
+				'href'   => admin_url( 'admin.php?page=gtbe-readme' ),
 				'meta'   => array( 'target' => '', 'title' => __( 'README Info', 'genesis-toolbar-extras' ) )
 			);
 		}  // end-if readme check

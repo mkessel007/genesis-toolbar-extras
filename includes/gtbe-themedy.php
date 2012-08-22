@@ -75,7 +75,6 @@ $gtbe_themesettings = '&nbsp;' . __( 'Theme Settings', 'genesis-toolbar-extras' 
 		$themedy_child_name = 'Derby' . $gtbe_themesettings;
 		$themedy_child_forum = 'http://themedy.com/forum/categories/derby';
 		$gtbe_is_themedy_portfolio = 'themedy_portfolio_yes';
-		$gtbe_is_themedy_slide = 'themedy_slide_yes';
 
 		// Themedy: Feedpop (premium)
 	} elseif ( CHILD_THEME_NAME == 'Feedpop' || $gtbe_stylesheet_name == 'Feedpop Child Theme' ) {
@@ -116,12 +115,12 @@ $gtbe_themesettings = '&nbsp;' . __( 'Theme Settings', 'genesis-toolbar-extras' 
 	} elseif ( CHILD_THEME_NAME == 'Readyfolio' || $gtbe_stylesheet_name == 'Readyfolio Child Theme' ) {
 		$themedy_child_name = 'Readyfolio' . $gtbe_themesettings;
 		$themedy_child_forum = 'http://themedy.com/forum/categories/readyfolio';
+		$gtbe_is_themedy_portfolio = 'themedy_portfolio_yes';
 
 		// Themedy: Rough Print (premium)
 	} elseif ( CHILD_THEME_NAME == 'Rough Print' || $gtbe_stylesheet_name == 'Rough Print Child Theme' ) {
 		$themedy_child_name = 'Rough Print' . $gtbe_themesettings;
 		$themedy_child_forum = 'http://themedy.com/forum/categories/rough-print';
-		$gtbe_is_themedy_portfolio = 'themedy_portfolio_yes';
 
 		// Themedy: Smooth Post (premium)
 	} elseif ( CHILD_THEME_NAME == 'Smooth Post' || $gtbe_stylesheet_name == 'Smooth Post Child Theme' ) {
@@ -165,12 +164,14 @@ $gtbe_themesettings = '&nbsp;' . __( 'Theme Settings', 'genesis-toolbar-extras' 
 		}  // end-if WP 3.4+ check
 
 		/** Edit child theme's custom stylesheet (custom/custom.css) */
-		$menu_items['themedy-editcustomcss'] = array(
-			'parent' => $themedysettings,
-			'title'  => __( 'Edit custom.css', 'genesis-toolbar-extras' ),
-			'href'   => $gtbe_edit_themedy_style,
-			'meta'   => array( 'target' => '', 'title' => _x( 'Edit current child theme custom stylesheet: custom.css', 'Translators: For the tooltip', 'genesis-toolbar-extras' ) )
-		);
+		if ( function_exists( 'themedy_get_option' ) && themedy_get_option( 'custom' ) ) {
+			$menu_items['themedy-editcustomcss'] = array(
+				'parent' => $themedysettings,
+				'title'  => __( 'Edit custom.css', 'genesis-toolbar-extras' ),
+				'href'   => $gtbe_edit_themedy_style,
+				'meta'   => array( 'target' => '', 'title' => _x( 'Edit current child theme custom stylesheet: custom.css', 'Translators: For the tooltip', 'genesis-toolbar-extras' ) )
+			);
+		}  // end-if themedy options check
 
 		/** Edit child theme's custom functions (custom/custom_functions.php) */
 		$menu_items['themedy-editcustomfunctions'] = array(
@@ -183,11 +184,19 @@ $gtbe_themesettings = '&nbsp;' . __( 'Theme Settings', 'genesis-toolbar-extras' 
 	}  // end-if Themedy theme editor check
 
 	/** Display Readme.txt Child Theme Info */
-	if ( class_exists( 'Genesis_Admin_Readme' ) && file_exists( get_stylesheet_directory() . '/README.txt' ) ) {
+	if ( class_exists( 'Genesis_Admin_Readme' ) && file_exists( ddw_gtbe_filter_url_child_readme() ) ) {
 		$menu_items['themedy-readme'] = array(
 			'parent' => $themedysettings,
 			'title'  => __( 'README Info', 'genesis-toolbar-extras' ),
-			'href'   => admin_url( 'themes.php?page=genesis-readme' ),
+			'href'   => admin_url( 'admin.php?page=genesis-readme' ),
+			'meta'   => array( 'target' => '', 'title' => __( 'README Info', 'genesis-toolbar-extras' ) )
+		);
+	}  /** If Genesis class not exists use own class */
+	elseif ( class_exists( 'DDW_GTBE_Admin_Readme' ) && file_exists( ddw_gtbe_filter_url_child_readme() ) ) {
+		$menu_items['themedy-readme'] = array(
+			'parent' => $themedysettings,
+			'title'  => __( 'README Info', 'genesis-toolbar-extras' ),
+			'href'   => admin_url( 'admin.php?page=gtbe-readme' ),
 			'meta'   => array( 'target' => '', 'title' => __( 'README Info', 'genesis-toolbar-extras' ) )
 		);
 	}  // end-if readme check
@@ -282,7 +291,7 @@ if ( ( $gtbe_is_themedy_slide == 'themedy_slide_yes' ) && current_user_can( 'edi
 		'href'   => admin_url( 'edit.php?post_type=slide' ),
 		'meta'   => array( 'target' => '', 'title' => CHILD_THEME_NAME . ' ' . __( 'Slides', 'genesis-toolbar-extras' ) )
 	);
-	$menu_items['themedyportfolio-add'] = array(
+	$menu_items['themedyslide-add'] = array(
 		'parent' => $themedyslide,
 		'title'  => __( 'Add new Slide', 'genesis-toolbar-extras' ),
 		'href'   => admin_url( 'post-new.php?post_type=slide' ),

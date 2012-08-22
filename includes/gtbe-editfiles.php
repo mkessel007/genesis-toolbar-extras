@@ -20,6 +20,7 @@
  * Except: Themedy Brand! (see gtbe-themedy.php)
  *
  * @since 1.1
+ * @version 1.1
  *
  * @param $gtbe_edit_themes_style
  * @param $gtbe_edit_themes_functions
@@ -53,18 +54,33 @@ if ( $gtbe_is_spchild == 'spchild_yes' ) {
 	$gtbe_child_type_check = $tpchild;
 }  // end-if child type check
 
-/** Edit child theme stylesheet (style.css) */
-$menu_items['child-editstyle'] = array(
-	'parent' => $gtbe_child_type_check,
-	'title'  => __( 'Edit style.css', 'genesis-toolbar-extras' ),
-	'href'   => $gtbe_edit_themes_style,
-	'meta'   => array( 'target' => '', 'title' => _x( 'Edit current child theme stylesheet: style.css', 'Translators: For the tooltip', 'genesis-toolbar-extras' ) )
-);
+/** Display Theme Editor links, depending on Prose child theme check */
+if ( ! defined( 'PROSE_DOMAIN' ) ) {
 
-/** Edit child theme functions (functions.php) */
-$menu_items['child-editfunctions'] = array(
-	'parent' => $gtbe_child_type_check,
-	'title'  => __( 'Edit functions.php', 'genesis-toolbar-extras' ),
-	'href'   => $gtbe_edit_themes_functions,
-	'meta'   => array( 'target' => '', 'title' => _x( 'Edit current child theme functions: functions.php', 'Translators: For the tooltip', 'genesis-toolbar-extras' ) )
-);
+	/** Edit child theme stylesheet (style.css) */
+	$menu_items['child-editstyle'] = array(
+		'parent' => $gtbe_child_type_check,
+		'title'  => __( 'Edit style.css', 'genesis-toolbar-extras' ),
+		'href'   => $gtbe_edit_themes_style,
+		'meta'   => array( 'target' => '', 'title' => _x( 'Edit current child theme stylesheet: style.css', 'Translators: For the tooltip', 'genesis-toolbar-extras' ) )
+	);
+
+	/** Edit child theme functions (functions.php) */
+	$menu_items['child-editfunctions'] = array(
+		'parent' => $gtbe_child_type_check,
+		'title'  => __( 'Edit functions.php', 'genesis-toolbar-extras' ),
+		'href'   => $gtbe_edit_themes_functions,
+		'meta'   => array( 'target' => '', 'title' => _x( 'Edit current child theme functions: functions.php', 'Translators: For the tooltip', 'genesis-toolbar-extras' ) )
+	);
+
+} elseif ( defined( 'PROSE_DOMAIN' ) && current_theme_supports( 'gtbe-theme-editor-prose' ) ) {
+
+	/** Edit Prose 1.0/1.5.x child theme functions (functions.php) */
+	$menu_items['child-editfunctions'] = array(
+		'parent' => $gtbe_child_type_check,
+		'title'  => __( 'Edit functions.php', 'genesis-toolbar-extras' ),
+		'href'   => $gtbe_edit_themes_functions,
+		'meta'   => array( 'target' => '', 'title' => _x( 'Edit current child theme functions: functions.php', 'Translators: For the tooltip', 'genesis-toolbar-extras' ) )
+	);
+
+}  // end-if theme editor & prose check

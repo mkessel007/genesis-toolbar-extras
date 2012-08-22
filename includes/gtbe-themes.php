@@ -67,111 +67,117 @@ $gtbe_theme_fallback = __( 'Theme', 'genesis-toolbar-extras' ) . ':&nbsp;';
 	$spmarket_child_aurl = admin_url( 'admin.php?page=genesis#genesis-theme-settings-style-selector' );
 
 	/** StudioPress Community/Marketplace child Theme check */
-		// Blingless
+		// Blingless 1.0+
 	if ( CHILD_THEME_NAME == 'Blingless Theme' || $gtbe_stylesheet_name == 'Blingless Child Theme' ) {
 		$gtbe_is_spmarket = 'spmarket_yes';
 		$spmarket_child_name = 'Blingless' . $gtbe_theme;
 		$spmarket_child_forum = 'http://www.studiopress.com/support/forumdisplay.php?f=181';
 
-		// Adorable
+		// Adorable 1.0+
 	} elseif ( CHILD_THEME_NAME == 'Adorable Child Theme' || $gtbe_stylesheet_name == 'Adorable' ) {
 		$gtbe_is_spmarket = 'spmarket_yes';
 		$spmarket_child_name = 'Adorable' . $gtbe_theme;
 		$spmarket_child_forum = 'http://www.studiopress.com/support/forumdisplay.php?f=208';
 
-		// Cre8tive Burst
+		// Craftiness 1.0+
+	} elseif ( CHILD_THEME_NAME == 'Craftiness Theme' || $gtbe_stylesheet_name == 'Craftiness Child Theme' ) {
+		$gtbe_is_spmarket = 'spmarket_yes';
+		$spmarket_child_name = 'Craftiness' . $gtbe_theme;
+		$spmarket_child_forum = 'http://www.studiopress.com/support/forumdisplay.php?f=215';
+
+		// Cre8tive Burst 1.0+
 	} elseif ( CHILD_THEME_NAME == 'Cre8tive Burst Child Theme' || $gtbe_stylesheet_name == 'Cre8tive Burst Child Theme' ) {
 		$gtbe_is_spmarket = 'spmarket_yes';
 		$spmarket_child_name = 'Cre8tive Burst' . $gtbe_theme;
 		$spmarket_child_forum = 'http://www.studiopress.com/support/forumdisplay.php?f=200';
 
-		// Curtail
+		// Curtail 1.0/2.0
 	} elseif ( defined( 'CURTAIL_SETTINGS_FIELD' ) ) {
 		$gtbe_is_spmarket = 'spmarket_yes';
 		$spmarket_child_name = 'Curtail' . $gtbe_theme;
 		$spmarket_child_aurl = admin_url( 'admin.php?page=curtail-settings' );
 		$spmarket_child_forum = 'http://www.studiopress.com/support/forumdisplay.php?f=191';
 
-		// Driskill
+		// Driskill 1.0+
 	} elseif ( CHILD_THEME_NAME == 'Driskill Theme' || $gtbe_stylesheet_name == 'Driskill Child Theme' ) {
 		$gtbe_is_spmarket = 'spmarket_yes';
 		$spmarket_child_name = 'Diskill' . $gtbe_theme;
 		$spmarket_child_forum = 'http://www.studiopress.com/support/forumdisplay.php?f=189';
 
-		// Elle 1.0/2.0
+		// Elle 1.0/2.0/2.0.1+
 	} elseif ( CHILD_THEME_NAME == 'Elle Theme' || CHILD_THEME_NAME == 'Elle Theme by Northbound Design' || $gtbe_stylesheet_name == 'Elle Child Theme' ) {
 		$gtbe_is_spmarket = 'spmarket_yes';
 		$spmarket_child_name = 'Elle' . $gtbe_theme;
 		$spmarket_child_forum = 'http://www.studiopress.com/support/forumdisplay.php?f=176';
 
-		// Fashionista
+		// Fashionista 1.0+
 	} elseif ( CHILD_THEME_NAME == 'Fashionista Theme' || $gtbe_stylesheet_name == 'Fashionista Child Theme' ) {
 		$gtbe_is_spmarket = 'spmarket_yes';
 		$spmarket_child_name = 'Church' . $gtbe_theme;
 		$spmarket_child_forum = 'http://www.studiopress.com/support/forumdisplay.php?f=185';
 
-		// Glitter and Lace
+		// Glitter and Lace 1.0+
 	} elseif ( CHILD_THEME_NAME == 'Glitter Theme' || $gtbe_stylesheet_name == 'Glitter' ) {
 		$gtbe_is_spmarket = 'spmarket_yes';
 		$spmarket_child_name = 'Glitter &amp; Lace' . $gtbe_theme;
 		$spmarket_child_forum = 'http://www.studiopress.com/support/forumdisplay.php?f=214';
 
-		// (in)SPYR
+		// (in)SPYR 1.0/1.0.1+
 	} elseif ( class_exists( 'inspyr_theme' ) ) {
 		$gtbe_is_spmarket = 'spmarket_yes';
 		$spmarket_child_name = '(in)SPYR' . $gtbe_theme;
 		$spmarket_child_aurl = admin_url( 'admin.php?page=spyr_options' );
 		$spmarket_child_forum = 'http://www.studiopress.com/support/forumdisplay.php?f=204';
 
-		// Innov8tive
+		// Innov8tive 1.0 - 1.0.2+
 	} elseif ( CHILD_THEME_NAME == 'innov8tive' || $gtbe_stylesheet_name == 'Innov8tive Child Theme' ) {
 		$gtbe_is_spmarket = 'spmarket_yes';
 		$spmarket_child_name = 'Innov8tive' . $gtbe_theme;
 		$spmarket_child_forum = 'http://www.studiopress.com/support/forumdisplay.php?f=212';
 
-		// Inspired
+		// Inspired 1.0+
 	} elseif ( CHILD_THEME_NAME == 'Inspired Theme' || $gtbe_stylesheet_name == 'Inspired Child Theme' ) {
 		$gtbe_is_spmarket = 'spmarket_yes';
 		$spmarket_child_name = 'Inspired' . $gtbe_theme;
 		$spmarket_child_forum = 'http://www.studiopress.com/support/forumdisplay.php?f=211';
 
-		// Legacy
+		// Legacy 1.0 - 1.2.1+
 	} elseif ( CHILD_THEME_NAME == 'Legacy Theme' || $gtbe_stylesheet_name == 'Legacy Child Theme' ) {
 		$gtbe_is_spmarket = 'spmarket_yes';
 		$spmarket_child_name = 'Legacy' . $gtbe_theme;
 		$spmarket_child_forum = 'http://www.studiopress.com/support/forumdisplay.php?f=184';
 
-		// Maximum
+		// Maximum 1.0+
 	} elseif ( CHILD_THEME_NAME == 'Maximum Theme' || $gtbe_stylesheet_name == 'Maximum Child Theme' ) {
 		$gtbe_is_spmarket = 'spmarket_yes';
 		$spmarket_child_name = 'Maximum' . $gtbe_theme;
 		$spmarket_child_forum = 'http://www.studiopress.com/support/forumdisplay.php?f=177';
 
-		// Modern Blogger
+		// Modern Blogger 1.0+
 	} elseif ( CHILD_THEME_NAME == 'Modern Blogger Theme' || $gtbe_stylesheet_name == 'Modern Blogger Child Theme' ) {
 		$gtbe_is_spmarket = 'spmarket_yes';
 		$spmarket_child_name = 'Modern Blogger' . $gtbe_theme;
 		$spmarket_child_forum = 'http://www.studiopress.com/support/forumdisplay.php?f=187';
 
-		// Optimal
-	} elseif ( CHILD_THEME_NAME == 'Optimal Theme' || $gtbe_stylesheet_name == 'Optimal Child Theme' ) {
+		// Optimal 1.0 - 1.2.1+
+	} elseif ( CHILD_THEME_URL == 'http://www.studiopress.com/themes/optimal' && ( CHILD_THEME_NAME == 'Optimal Theme' || $gtbe_stylesheet_name == 'Optimal Child Theme' ) ) {
 		$gtbe_is_spmarket = 'spmarket_yes';
 		$spmarket_child_name = 'Optimal' . $gtbe_theme;
 		$spmarket_child_forum = 'http://www.studiopress.com/support/forumdisplay.php?f=205';
 
-		// Politica
+		// Politica 1.0+
 	} elseif ( CHILD_THEME_NAME == 'Politica Theme' || $gtbe_stylesheet_name == 'Politica Child Theme' ) {
 		$gtbe_is_spmarket = 'spmarket_yes';
 		$spmarket_child_name = 'Politica' . $gtbe_theme;
 		$spmarket_child_forum = 'http://www.studiopress.com/support/forumdisplay.php?f=192';
 
-		// Production
+		// Production 1.0+
 	} elseif ( CHILD_THEME_NAME == 'Production Child Theme' || $gtbe_stylesheet_name == 'Production' ) {
 		$gtbe_is_spmarket = 'spmarket_yes';
 		$spmarket_child_name = 'Production' . $gtbe_theme;
 		$spmarket_child_forum = 'http://www.studiopress.com/support/forumdisplay.php?f=202';
 
-		// Pure Elegance
+		// Pure Elegance 1.0 - 1.1+
 	} elseif ( CHILD_THEME_NAME == 'Pure Elegance Theme' || $gtbe_stylesheet_name == 'Pure Elegance' ) {
 		$gtbe_is_spmarket = 'spmarket_yes';
 		$spmarket_child_name = 'Pure Elegance' . $gtbe_theme;
@@ -204,20 +210,38 @@ $gtbe_theme_fallback = __( 'Theme', 'genesis-toolbar-extras' ) . ':&nbsp;';
 		/** Display theme editor links for proper caps */
 		if ( !( defined( 'DISALLOW_FILE_EDIT' ) && DISALLOW_FILE_EDIT ) && current_user_can( 'edit_themes' ) && current_theme_supports( 'gtbe-theme-editor' ) ) {
 
-			/** Include plugin file with seo plugin support links */
+			/** Include plugin file with edit files plugin support links */
 			require_once( GTBE_PLUGIN_DIR . '/includes/gtbe-editfiles.php' );
 
 		}  // end-if theme editor check
 
 		/** Display Readme.txt Child Theme Info */
-		if ( class_exists( 'Genesis_Admin_Readme' ) && file_exists( get_stylesheet_directory() . '/README.txt' ) ) {
+		if ( class_exists( 'Genesis_Admin_Readme' ) && file_exists( ddw_gtbe_filter_url_child_readme() ) ) {
 			$menu_items['spmarket-readme'] = array(
 				'parent' => $spmarket,
 				'title'  => __( 'README Info', 'genesis-toolbar-extras' ),
 				'href'   => admin_url( 'admin.php?page=genesis-readme' ),
 				'meta'   => array( 'target' => '', 'title' => __( 'README Info', 'genesis-toolbar-extras' ) )
 			);
+		}  /** If Genesis class not exists use own class */
+		elseif ( class_exists( 'DDW_GTBE_Admin_Readme' ) && file_exists( ddw_gtbe_filter_url_child_readme() ) ) {
+			$menu_items['spmarket-readme'] = array(
+				'parent' => $spmarket,
+				'title'  => __( 'README Info', 'genesis-toolbar-extras' ),
+				'href'   => admin_url( 'admin.php?page=gtbe-readme' ),
+				'meta'   => array( 'target' => '', 'title' => __( 'README Info', 'genesis-toolbar-extras' ) )
+			);
 		}  // end-if readme check
+
+		/** Display changelog.txt Child Theme Info */
+		if ( class_exists( 'DDW_GTBE_Admin_Changelog' ) && file_exists( ddw_gtbe_filter_url_child_changelog() ) ) {
+			$menu_items['spmarket-changelog'] = array(
+				'parent' => $spmarket,
+				'title'  => __( 'Changelog Info', 'genesis-toolbar-extras' ),
+				'href'   => admin_url( 'admin.php?page=gtbe-changelog' ),
+				'meta'   => array( 'target' => '', 'title' => __( 'Changelog Info', 'genesis-toolbar-extras' ) )
+			);
+		}  // end-if changelog check
 
 		/** Child Theme Support Forum */
 		$menu_items['spmarket-support'] = array(
@@ -229,40 +253,10 @@ $gtbe_theme_fallback = __( 'Theme', 'genesis-toolbar-extras' ) . ':&nbsp;';
 
 		/** (in)SPYR Theme Specials: */
 		if ( class_exists( 'inspyr_theme' ) ) {
-			/** Theme How To */
-			$menu_items['spmarket-inspyr-howto'] = array(
-				'parent' => $spmarket,
-				'title'  => __( 'Theme How To', 'genesis-toolbar-extras' ),
-				'href'   => admin_url( 'admin.php?page=inspyr_howto' ),
-				'meta'   => array( 'target' => '', 'title' => _x( 'Theme How To', 'Translators: For the tooltip', 'genesis-toolbar-extras' ) )
-			);
-			/** Slides at Child Theme section: */
-			$menu_items['spmarket-inspyr-slides'] = array(
-				'parent' => $spmarket,
-				'title'  => __( '(in)SPYR Slides', 'genesis-toolbar-extras' ),
-				'href'   => admin_url( 'edit.php?post_type=inspyr-slide' ),
-				'meta'   => array( 'target' => '', 'title' => _x( '(in)SPYR Slides', 'Translators: For the tooltip', 'genesis-toolbar-extras' ) )
-			);
-			$menu_items['spmarket-inspyr-slidesadd'] = array(
-				'parent' => $spmarket,
-				'title'  => __( '(in)SPYR Add new Slide', 'genesis-toolbar-extras' ),
-				'href'   => admin_url( 'post-new.php?post_type=inspyr-slide' ),
-				'meta'   => array( 'target' => '', 'title' => _x( '(in)SPYR Add new Slide', 'Translators: For the tooltip', 'genesis-toolbar-extras' ) )
-			);
-			/** Slides at "Manage Content" section: */
-			$gtbe_is_mcgroup = 'mcgroup_yes';
-			$menu_items['mcginspyr'] = array(
-				'parent' => $mcgroupstart,
-				'title'  => __( '(in)SPYR Slides', 'genesis-toolbar-extras' ),
-				'href'   => admin_url( 'edit.php?post_type=inspyr-slide' ),
-				'meta'   => array( 'target' => '', 'title' => _x( '(in)SPYR Slides', 'Translators: For the tooltip', 'genesis-toolbar-extras' ) )
-			);
-			$menu_items['mcginspyr-add'] = array(
-				'parent' => $mcginspyr,
-				'title'  => __( '(in)SPYR Add new Slide', 'genesis-toolbar-extras' ),
-				'href'   => admin_url( 'post-new.php?post_type=inspyr-slide' ),
-				'meta'   => array( 'target' => '', 'title' => _x( '(in)SPYR Add new Slide', 'Translators: For the tooltip', 'genesis-toolbar-extras' ) )
-			);
+
+			/** Include plugin file with theme specials */
+			require_once( GTBE_PLUGIN_DIR . '/includes/gtbe-themes-specials-inspyr.php' );
+
 		}  // end-if (in)SPYR Theme specials
 
 	}  // end-if SP community/marketplace themes display
@@ -311,7 +305,7 @@ $gtbe_theme_fallback = __( 'Theme', 'genesis-toolbar-extras' ) . ':&nbsp;';
 			$tpchild_codex = 'http://genesisthemes.de/en/genesis-child-themes/easy-downloads/documentation/';
 
 		// by Appfinite (Wes Straham): Optimal, Agile, Adapt, Skope, Imagery, Classik
-	} elseif ( CHILD_THEME_URL == 'http://appfinite.com/themes/optimal' ) {
+	} elseif ( CHILD_THEME_URL == 'http://appfinite.com/themes/optimal' && CHILD_THEME_NAME == 'Optimal Theme' ) {
 		$gtbe_is_tpchild = 'tpchild_yes';
 		$tpchild_name = 'Optimal' . $gtbe_theme;
 		$tpchild_is_support = 'tpsupport_yes';
@@ -403,6 +397,14 @@ $gtbe_theme_fallback = __( 'Theme', 'genesis-toolbar-extras' ) . ':&nbsp;';
 		$tpchild_name = 'Avett' . $gtbe_theme;
 		$tpchild_is_support = 'tpsupport_yes';
 			$tpchild_support = 'http://ddwb.me/support-avett';
+
+		// by themedizain at ThemeForest: Nzig
+	} elseif ( class_exists( 'Dizain' ) || CHILD_THEME_NAME == 'Dizain 01' || $gtbe_stylesheet_name == 'Dizain 01' ) {
+		$gtbe_is_tpchild = 'tpchild_yes';
+		$tpchild_name = 'Dizain 01' . $gtbe_theme;
+		$tpchild_aurl = admin_url( 'themes.php?page=ot-theme-options' );
+		$tpchild_is_support = 'tpsupport_yes';
+			$tpchild_support = 'http://ddwb.me/support-dizain01';
 
 		// by haikbvn at ThemeForest: Nzig
 	} elseif ( CHILD_THEME_NAME == 'Nzig' || $gtbe_stylesheet_name == 'Nzig' ) {
@@ -497,7 +499,7 @@ $gtbe_theme_fallback = __( 'Theme', 'genesis-toolbar-extras' ) . ':&nbsp;';
 
 		/**
 		 * by WPCanada - Len Kutchma:
-		 * BlogNews, Conrad, Conrad Full, GoGreen, Humphrey, Manifest, NewsBeat, Simple, Theodore, Winfield, Winfield Dark
+		 * BlogNews, Conrad, Conrad Full, GoGreen, Humphrey, Linky Loo, Manifest, NewsBeat, Simple, Theodore, Winfield, Winfield Dark
 		 */
 	} elseif ( CHILD_THEME_NAME == 'BlogNews' || $gtbe_stylesheet_name == 'BlogNews Child Theme' ) {
 		$gtbe_is_tpchild = 'tpchild_yes';
@@ -526,6 +528,12 @@ $gtbe_theme_fallback = __( 'Theme', 'genesis-toolbar-extras' ) . ':&nbsp;';
 	} elseif ( CHILD_THEME_NAME == 'Humphrey Theme' || $gtbe_stylesheet_name == 'Humphrey Child Theme' ) {
 		$gtbe_is_tpchild = 'tpchild_yes';
 		$tpchild_name = 'Humphrey' . $gtbe_theme;
+		$tpchild_is_support = 'tpsupport_yes';
+			$tpchild_support = 'http://wpcanada.ca/contact/';
+
+	} elseif ( CHILD_THEME_NAME == 'Linky Loo Child Theme' || $gtbe_stylesheet_name == 'Linky Loo Child Theme' ) {
+		$gtbe_is_tpchild = 'tpchild_yes';
+		$tpchild_name = 'Linky Loo' . $gtbe_theme;
 		$tpchild_is_support = 'tpsupport_yes';
 			$tpchild_support = 'http://wpcanada.ca/contact/';
 
@@ -991,6 +999,12 @@ $gtbe_theme_fallback = __( 'Theme', 'genesis-toolbar-extras' ) . ':&nbsp;';
 			/** Include plugin file with special Dynamik stuff */
 			require_once( GTBE_PLUGIN_DIR . '/includes/gtbe-themes-dynamik.php' );
 		}  // end-if child file check
+
+		/** Dizain 01 Theme Specials: */
+		if ( class_exists( 'Dizain' ) ) {
+			/** Include plugin file with theme specials */
+			require_once( GTBE_PLUGIN_DIR . '/includes/gtbe-themes-specials-dizain01.php' );
+		}  // end-if Dizain 01 Theme specials
 
 	}  // end-if third-party themes display
 

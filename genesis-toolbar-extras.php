@@ -16,7 +16,7 @@
  * Plugin Name: Genesis Toolbar Extras
  * Plugin URI: http://genesisthemes.de/en/wp-plugins/genesis-toolbar-extras/
  * Description: This plugin adds useful admin settings links and massive resources for Genesis Framework and its ecosystem to the WordPress Toolbar / Admin Bar.
- * Version: 1.3
+ * Version: 1.4
  * Author: David Decker - DECKERWEB
  * Author URI: http://deckerweb.de/
  * License: GPLv2 or later
@@ -258,6 +258,7 @@ function ddw_gtbe_admin_bar_menu() {
 				$dynamikdesigncontent = $prefix . 'dynamikdesigncontent';	// third level theme: dynamik genesis design
 				$dynamikdesignextras = $prefix . 'dynamikdesignextras';	// third level theme: dynamik genesis design
 				$dynamikcustom = $prefix . 'dynamikcustom';		// third level theme: dynamik genesis custom
+				$dizain01portfolio = $prefix . 'dizain01portfolio';	// third level theme: dizain 01 portfolio
 			$pgroup = $prefix . 'pgroup';				// sub level: plugins group ("hook" place)
 				$extensions = $prefix . 'extensions';		// sub level: extensions
 			$mcgroup = $prefix . 'mcgroup';				// sub level: manage content group ("hook" place)
@@ -267,6 +268,7 @@ function ddw_gtbe_admin_bar_menu() {
 					$mcgthemedyphoto = $prefix . 'mcgthemedyphoto';	// third level theme: themedy photo cpt
 					$mcgthemedyproduct = $prefix . 'mcgthemedyproduct';	// third level theme: themedy product cpt
 					$mcginspyr = $prefix . 'mcginspyr';		// third level theme: (in)spyr
+					$mcgdizain01 = $prefix . 'mcgdizain01';		// third level theme: dizain 01 portfolio
 					$mcgspapl = $prefix . 'mcgspapl';		// third level plugin: agentpress listings
 					$mcggportfolio = $prefix . 'mcggportfolio';	// third level plugin: genesis portfolio
 					$mcggmp = $prefix . 'mcggmp';			// third level plugin: genesis media project
@@ -274,6 +276,8 @@ function ddw_gtbe_admin_bar_menu() {
 					$mcggpbox = $prefix . 'mcggpbox';		// third level plugin: genesis promotion box
 					$mcgspsurls = $prefix . 'mcgspsurls';		// third level plugin: simple urls
 					$mcgsoliloquy = $prefix . 'mcgsoliloquy';	// third level plugin: soliloquy
+					$mcgroyalslider = $prefix . 'mcgroyalslider';	// third level plugin: royal slider
+					$mcgtouchcarousel = $prefix . 'mcgtouchcarousel';	// third level plugin: touch carousel
 				$premise = $prefix . 'premise';				// third level: premise
 					$premiselanding = $prefix . 'premiselanding';	// third level: premise landing pages
 					$premisesettings = $prefix . 'premisesettings';	// third level: premise settings
@@ -477,23 +481,69 @@ function ddw_gtbe_admin_bar_menu() {
 
 
 	/** Allow menu items to be filtered, but pass in parent menu item IDs */
-	$menu_items = (array) apply_filters( 'ddw_gtbe_menu_items', $menu_items, $genesisgroup_menu_items, $prefix, $genesisbar, 
-						$genesissupport, $genesisguide, $genesistutorials, $genesissites, $genesisaffiliates, 
-							$gfindersearchform, 
-							$genesisblog, $genesisresources, $genesissettings, $genesiscustom, 
-							$genesisimportexport, $extgseoyoastseo, $extgseowpseo, $extgseoultimate, 
-							$extgseogdhs, $extgseoghpseo, 
-						$extensions, $extgroup, 
-						$spgenesischild, $spmarket, $themedysettings, $themedyportfolio, $themedyslide, 
-							$themedyphoto, $themedyproduct, $tpchild, $tpchild_dynamik, $dynamikdesign, 
-							$dynamikcustom, $dynamikdesignstructure, $dynamikdesigncontent, 
-							$dynamikdesignextras, $mcgroup, $mcgroupstart, 
-							$mcgthemedyportfolio, $mcgthemedyslide, $mcgthemedyphoto, $mcgthemedyproduct, 
-							$mcginspyr, $mcgspapl, $mcggportfolio, $mcggmp, $mcggppt, $mcggpbox, $mcgspsurls, 
-							$mcgsoliloquy, 
-							$premise, $premiselanding, $premisesettings, $premisemember, 
-							$tgroup, $pgroup, 
-						$genesisgroup, $tpsgroup, $languagesde
+	$menu_items = (array) apply_filters( 'ddw_gtbe_menu_items', $menu_items,
+									$genesisgroup_menu_items,
+									$prefix,
+									$genesisbar, 
+									$genesissupport,
+									$genesisguide,
+									$genesistutorials,
+									$genesissites,
+									$genesisaffiliates, 
+									$gfindersearchform, 
+									$genesisblog,
+									$genesisresources,
+									$genesissettings,
+									$genesiscustom, 
+									$genesisimportexport,
+										$extgseoyoastseo,
+										$extgseowpseo,
+										$extgseoultimate, 
+										$extgseogdhs,
+										$extgseoghpseo, 
+										$extensions,
+										$extgroup, 
+									$spgenesischild,
+									$spmarket,
+										$themedysettings,
+										$themedyportfolio,
+										$themedyslide, 
+										$themedyphoto,
+										$themedyproduct,
+									$tpchild,
+									$tpchild_dynamik,
+									$dynamikdesign, 
+									$dynamikcustom,
+									$dynamikdesignstructure,
+									$dynamikdesigncontent, 
+									$dynamikdesignextras,
+									$dizain01portfolio,
+										$mcgroup,
+										$mcgroupstart, 
+										$mcgthemedyportfolio,
+										$mcgthemedyslide,
+										$mcgthemedyphoto,
+										$mcgthemedyproduct, 
+										$mcginspyr,
+										$mcgdizain01,
+										$mcgspapl,
+										$mcggportfolio,
+										$mcggmp,
+										$mcggppt,
+										$mcggpbox,
+										$mcgspsurls, 
+										$mcgsoliloquy,
+										$mcgroyalslider,
+										$mcgtouchcarousel, 
+									$premise,
+									$premiselanding,
+									$premisesettings,
+									$premisemember, 
+										$tgroup,
+										$pgroup, 
+									$genesisgroup,
+									$tpsgroup,
+									$languagesde
 	);  // end of array
 
 

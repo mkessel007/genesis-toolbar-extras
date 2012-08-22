@@ -334,14 +334,14 @@ if ( function_exists( 'CT_HR_Activate' ) && current_user_can( 'edit_theme_option
  */
 if ( function_exists( 'generatebox_admin_init' ) && current_user_can( 'edit_theme_options' ) 
 ) {
-	// Entry at "Extensions" section
+	/** Entry at "Extensions" section */
 	$menu_items['ext-generatebox'] = array(
 		'parent' => $extensions,
 		'title'  => __( 'Generate Box', 'genesis-toolbar-extras' ),
 		'href'   => admin_url( 'admin.php?page=ct-settings' ),
 		'meta'   => array( 'target' => '', 'title' => _x( 'Generate Box (for Generate Child Theme)', 'Translators: For the tooltip', 'genesis-toolbar-extras' ) )
 	);
-	// Entry at "Child Theme" section
+	/** Entry at "Child Theme" section */
 	$menu_items['spgenesischild-generatebox'] = array(
 		'parent' => $spgenesischild,
 		'title'  => __( 'Generate Box', 'genesis-toolbar-extras' ),
@@ -443,6 +443,71 @@ if ( function_exists( 'seodt_settings_init' ) && current_user_can( 'manage_optio
 		'meta'   => array( 'target' => '', 'title' => __( 'SEO Data Transporter', 'genesis-toolbar-extras' ) )
 	);
 }  // end-if SEO Data Transporter
+
+
+/**
+ * (SPYR) Network Bar (free, by Spyr Media)
+ *
+ * @since 1.4
+ */
+if ( class_exists( 'spyr_bar' ) && current_user_can( 'manage_options' ) ) {
+
+	/** Entries at "Extensions" section */
+	$menu_items['ext-spyrnetworkbar'] = array(
+		'parent' => $extensions,
+		'title'  => __( 'Network Bar', 'genesis-toolbar-extras' ),
+		'href'   => admin_url( 'admin.php?page=spyr_options' ),
+		'meta'   => array( 'target' => '', 'title' => __( 'Network Bar', 'genesis-toolbar-extras' ) )
+	);
+
+	/** Entries at "(in)SPYR" child theme section */
+	if ( class_exists( 'inspyr_theme' ) ) {
+		$menu_items['spmarket-inspyr-networkbar'] = array(
+			'parent' => $spmarket,
+			'title'  => '(SPYR) ' . __( 'Network Bar', 'genesis-toolbar-extras' ),
+			'href'   => admin_url( 'admin.php?page=spyr_options' ),
+			'meta'   => array( 'target' => '', 'title' => '(SPYR) ' . __( 'Network Bar', 'genesis-toolbar-extras' ) )
+		);
+	}  // end-if (in)SPYR child theme check
+
+}  // end-if (SPYR) Network Bar
+
+
+/**
+ * Widget Settings Importer/Exporter (free, by Kevin Langley & smccafferty)
+ *
+ * @since 1.4
+ */
+if ( class_exists( 'Widget_Data' ) && ( current_user_can( 'manage_options' ) || current_user_can( 'administrator' ) ) ) {
+
+	/** Entries at "Import/ Export" section */
+	$menu_items['genesisimportexport-wsettingsexport'] = array(
+		'parent' => $genesisimportexport,
+		'title'  => __( 'Widget Settings Export', 'genesis-toolbar-extras' ),
+		'href'   => admin_url( 'tools.php?page=widget-settings-export' ),
+		'meta'   => array( 'target' => '', 'title' => _x( 'Widget Settings Export (Plugin Tool)', 'Translators: For the tooltip', 'genesis-toolbar-extras' ) )
+	);
+	$menu_items['genesisimportexport-wsettingsimport'] = array(
+		'parent' => $genesisimportexport,
+		'title'  => __( 'Widget Settings Import', 'genesis-toolbar-extras' ),
+		'href'   => admin_url( 'tools.php?page=widget-settings-import' ),
+		'meta'   => array( 'target' => '', 'title' => _x( 'Widget Settings Import (Plugin Tool)', 'Translators: For the tooltip', 'genesis-toolbar-extras' ) )
+	);
+
+	/** Entries at "Extensions" section */
+	$menu_items['ext-wsettingsexport'] = array(
+		'parent' => $extensions,
+		'title'  => __( 'Widget Settings Export', 'genesis-toolbar-extras' ),
+		'href'   => admin_url( 'tools.php?page=widget-settings-export' ),
+		'meta'   => array( 'target' => '', 'title' => _x( 'Widget Settings Export (Plugin Tool)', 'Translators: For the tooltip', 'genesis-toolbar-extras' ) )
+	);
+	$menu_items['ext-wsettingsimport'] = array(
+		'parent' => $extensions,
+		'title'  => __( 'Widget Settings Import', 'genesis-toolbar-extras' ),
+		'href'   => admin_url( 'tools.php?page=widget-settings-import' ),
+		'meta'   => array( 'target' => '', 'title' => _x( 'Widget Settings Import (Plugin Tool)', 'Translators: For the tooltip', 'genesis-toolbar-extras' ) )
+	);
+}  // end-if Widget Settings Importer/Exporter
 
 
 /**
@@ -876,6 +941,58 @@ if ( function_exists( 'seodt_settings_init' ) && current_user_can( 'manage_optio
 		}  // end-if Soliloquy premium features
 
 	}  // end-if Soliloquy
+
+	/**
+	 * RoyalSlider (premium, by Semenov)
+	 *
+	 * @since 1.4
+	 */
+	if ( class_exists( 'RoyalSliderAdmin' ) && current_user_can( 'manage_options' ) ) {
+
+		/** Enable display */
+		$gtbe_is_mcgroup = 'mcgroup_yes';
+
+		/** Entries at "Manage Content" section */
+		$menu_items['mcgroyalslider'] = array(
+			'parent' => $mcgroupstart,
+			'title'  => __( 'Royal Slider', 'genesis-toolbar-extras' ),
+			'href'   => admin_url( 'admin.php?page=royalslider' ),
+			'meta'   => array( 'target' => '', 'title' => __( 'Royal Slider', 'genesis-toolbar-extras' ) )
+		);
+		$menu_items['mcgroyalslider-add'] = array(
+			'parent' => $mcgroyalslider,
+			'title'  => __( 'Add new Slider', 'genesis-toolbar-extras' ),
+			'href'   => admin_url( 'admin.php?page=royalslider&action=add_new' ),
+			'meta'   => array( 'target' => '', 'title' => __( 'Add new Slider', 'genesis-toolbar-extras' ) )
+		);
+
+	}  // end-if RoyalSlider
+
+	/**
+	 * TouchCarousel (premium, by Semenov)
+	 *
+	 * @since 1.4
+	 */
+	if ( class_exists( 'TouchCarouselAdmin' ) && current_user_can( 'manage_options' ) ) {
+
+		/** Enable display */
+		$gtbe_is_mcgroup = 'mcgroup_yes';
+
+		/** Entries at "Manage Content" section */
+		$menu_items['mcgtouchcarousel'] = array(
+			'parent' => $mcgroupstart,
+			'title'  => __( 'Touch Carousel', 'genesis-toolbar-extras' ),
+			'href'   => admin_url( 'admin.php?page=touchcarousel' ),
+			'meta'   => array( 'target' => '', 'title' => __( 'Touch Carousel', 'genesis-toolbar-extras' ) )
+		);
+		$menu_items['mcgtouchcarousel-add'] = array(
+			'parent' => $mcgtouchcarousel,
+			'title'  => __( 'Add new Carousel', 'genesis-toolbar-extras' ),
+			'href'   => admin_url( 'admin.php?page=touchcarousel&action=add_new' ),
+			'meta'   => array( 'target' => '', 'title' => __( 'Add new Carousel', 'genesis-toolbar-extras' ) )
+		);
+
+	}  // end-if TouchCarousel
 
 	/** Manage Content Group - Display items */
 	if ( $gtbe_is_mcgroup == 'mcgroup_yes' ) {

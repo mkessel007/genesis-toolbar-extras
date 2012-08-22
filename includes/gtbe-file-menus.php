@@ -23,9 +23,17 @@ function ddw_gtbe_filter_url_child_readme() {
 
 	$gtbe_url_child_readme = false;
 
-	if ( is_readable( get_stylesheet_directory() . '/README.txt' ) ) {
+	if ( ( get_locale() == 'de_DE' || get_locale() == 'de_AT' || get_locale() == 'de_CH' || get_locale() == 'de_LU' ) &&
+		is_readable( get_stylesheet_directory() . '/LIESMICH.txt' )
+	) {
+
+		$gtbe_url_child_readme = apply_filters( 'gtbe_filter_url_child_readme', get_stylesheet_directory() . '/LIESMICH.txt' );
+
+	} elseif ( is_readable( get_stylesheet_directory() . '/README.txt' ) ) {
+
 		$gtbe_url_child_readme = apply_filters( 'gtbe_filter_url_child_readme', get_stylesheet_directory() . '/README.txt' );
-	}
+
+	}  // end-if file check
 
 	return esc_url_raw( $gtbe_url_child_readme );
 
@@ -42,8 +50,14 @@ function ddw_gtbe_filter_url_child_changelog() {
 	$gtbe_url_child_changelog = false;
 
 	if ( is_readable( get_stylesheet_directory() . '/changelog.txt' ) ) {
+
 		$gtbe_url_child_changelog = apply_filters( 'gtbe_filter_url_child_changelog', get_stylesheet_directory() . '/changelog.txt' );
-	}
+
+	} elseif ( is_readable( get_stylesheet_directory() . '/Changelog_Versionshistorie.txt' ) ) {
+
+		$gtbe_url_child_changelog = apply_filters( 'gtbe_filter_url_child_changelog', get_stylesheet_directory() . '/Changelog_Versionshistorie.txt' );
+
+	}  // end-if file check
 
 	return esc_url_raw( $gtbe_url_child_changelog );
 
@@ -173,7 +187,7 @@ class DDW_GTBE_Admin_Changelog extends Genesis_Admin_Basic {
 		<div id="genesis-changelog-file" class="wrap">
 			<?php screen_icon( 'edit-pages' ); ?>
 			<h2><?php echo esc_html( get_admin_page_title() ); ?></h2>
-			<pre><?php echo wpautop( $changelog_file ); ?></pre>
+			<code><?php echo wpautop( $changelog_file ); ?></code>
 		</div>
 		<?php
 
