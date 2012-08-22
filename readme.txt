@@ -439,7 +439,7 @@ All the custom & branding stuff code above can also be found as a Gist on Github
  * UPDATE: Fixed support for "custom.css" file for child themes of Themedy brand (now corresponding with Themedy settings).
  * BUGFIX: Fixed support for "README.txt" files for child themes of Themedy brand.
  * UPDATE: Added support for "changelog.txt" files also for Marketplace/Community themes (via StudioPress).
-* *Extended plugin support:"
+* *Extended plugin support:*
  * NEW: Added support for "Widget Settings Importer/Exporter" (free, by Kevin Langley & smccafferty) - in general a great tool for backing up and importing current widget settings.
  * NEW: Added support for "(SPYR) Network Bar" (free, by Spyr Media) - in general a great additional tool for every (networking) site.
  * NEW: Added support for great "RoyalSlider" responsive slider plugin (premium, by Semenov) -- note: only for 'Manage Content' section.
@@ -572,13 +572,13 @@ Enjoy using *Genesis Toolbar Extras*? Please consider [making a small donation](
 *Please note, only plugins with linkable settings pages and/or meta boxes (with an ID anchor) can be supported.*
 
 = Official Child Themes by StudioPress =
-* All official *premium* themes, 52+ -- see under studiopress.com (including: AgentPress 2.0 and 1.0, Prose 1.0 and 1.5.x, discontinued Church theme)
+* All official *premium* themes, 52+ to date -- see under studiopress.com (including: AgentPress 2.0 and 1.0, Prose 1.0 and 1.5.x, discontinued Church theme)
 * All official *free* themes, 6+ -- see under studiopress.com
 * Including free "Sample Child Theme"
 * Including "Genesis Default" (no child theme, but it's always recommended to use a child theme...)
 
 = Community/Marketplace Child Themes from studiopress.com =
-* All community/marketplace child themes sold via studiopress.com platform, 22+
+* All community/marketplace child themes sold via studiopress.com platform, 22+ to date
 * See under studiopress.com for full and growing list...
 * Note: if available, all extra setting pages are fully supported, as well as their specific support link resources.
 
@@ -664,7 +664,7 @@ Enjoy using *Genesis Toolbar Extras*? Please consider [making a small donation](
 = Plugins from the Genesis Ecosystem =
 * Simple URLs - free
 * SEO Data Transporter - free
-* Premise 1.x & 2.0+ - premium plugin! -- Note: also includes support for "Membership Module" introduced with Premise 2.0+!
+* Premise v1.x & v2.x - premium plugin! -- Note: also includes support for "Membership Module" introduced with Premise v2.x!
 * Scribe SEO - Note: free plugin but a premium service! (we only support the free plugin!)
 * Dynamic Content Gallery (DCG) - free -- Used/recommended by older child themes like "Church", "Lifestyle 1.0" ...
 * WP-Cycle - free -- Note: used by some child themes like "Enterprise" or "Buster" ...
