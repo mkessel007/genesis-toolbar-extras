@@ -428,7 +428,7 @@ All the custom & branding stuff code above can also be found as a Gist on Github
 
 == Changelog ==
 
-= 1.5.0 (2012-10-??) =
+= 1.5.0 (2012-10-30) =
 * *Extended Child Theme support:*
  * UPDATE: Updated support for official "Minimum" & "Executive" child theme by StudioPress, now both in version 2.0 - including support for 'portfolio' post type section!
  * NEW: Added support for new official child theme "Apparition" by StudioPress.
@@ -443,7 +443,6 @@ All the custom & branding stuff code above can also be found as a Gist on Github
  * NEW: Added support for "Pin It" by Loren Nason (Your Local Tech).
  * UPDATE: Improved support for "BlogNews" and "Winfield" child themes by WPCanada.ca.
  * UPDATE: Updated and enhanced theme support for all child themes by Web Savvy Marketing, LLC.
-
 * *Extended plugin support:*
  * NEW: Added support for my own (all free) plugins "Genesis Social Profiles Menu", "Genesis Printstyle Plus" and "Genesis Single Post Navigation" for the theme file editor section: you can now additionally edit your own CSS files if you added one to your child theme folder (enabled all via: `add_theme_support( 'gtbe-theme-editor' );` ) -- see the FAQ sections of the mentioned plugins for more info on the styles.
  * NEW: Added support for "Genesis Extender" (premium, by Cobalt Apps/ CatalystThemes.com).
@@ -452,7 +451,6 @@ All the custom & branding stuff code above can also be found as a Gist on Github
  * NEW: Added support for "AgentPress Broker Listings (Agents)" (free, by iZone Technology).
  * NEW: Added support for "Jetpack" plugin (free, by Automattic, Inc.) and its "Custom CSS" module (of course, fully respects user capabilities plus module enabled/disabled!).
  * UPDATE: Updated & improved support for "Premise" 2.x premium plugin - you should update the plugin to the latest version to experience the full support here :-).
-
 * *Other stuff:*
  * CODE: Some code/documentation updates & improvements.
  * UPDATE: Updated German translations and also the .pot file for all translators!
