@@ -16,7 +16,7 @@
  * Plugin Name: Genesis Toolbar Extras
  * Plugin URI: http://genesisthemes.de/en/wp-plugins/genesis-toolbar-extras/
  * Description: This plugin adds useful admin settings links and massive resources for Genesis Framework and its ecosystem to the WordPress Toolbar / Admin Bar.
- * Version: 1.4
+ * Version: 1.5.0
  * Author: David Decker - DECKERWEB
  * Author URI: http://deckerweb.de/
  * License: GPLv2 or later
@@ -47,7 +47,7 @@
 /**
  * Setting constants
  *
- * @since 1.0
+ * @since 1.0.0
  */
 /** Plugin directory */
 define( 'GTBE_PLUGIN_DIR', dirname( __FILE__ ) );
@@ -65,16 +65,27 @@ add_action( 'init', 'ddw_gtbe_init' );
  * Load the text domain for translation of the plugin.
  * Load admin helper functions - only within 'wp-admin'.
  * 
- * @since 1.0
- * @version 1.2
+ * @since 1.0.0
+ * @version 1.3
+ *
+ * @param string $gtbe_wp_lang_dir
+ * @param string $gtbe_lang_dir
  */
 function ddw_gtbe_init() {
 
+	/** Set filter for WordPress languages directory */
+	$gtbe_wp_lang_dir = GTBE_PLUGIN_BASEDIR . '/../../languages/genesis-toolbar-extras/';
+	$gtbe_wp_lang_dir = apply_filters( 'gtbe_filter_wp_lang_dir', $gtbe_wp_lang_dir );
+
+	/** Set filter for plugin's languages directory */
+	$gtbe_lang_dir = GTBE_PLUGIN_BASEDIR . '/languages/';
+	$gtbe_lang_dir = apply_filters( 'gtbe_filter_lang_dir', $gtbe_lang_dir );
+
 	/** First look in WordPress' "languages" folder = custom & update-secure! */
-	load_plugin_textdomain( 'genesis-toolbar-extras', false, GTBE_PLUGIN_BASEDIR . '/../../languages/genesis-toolbar-extras/' );
+	load_plugin_textdomain( 'genesis-toolbar-extras', false, $gtbe_wp_lang_dir );
 
 	/** Then look in plugin's "languages" folder = default */
-	load_plugin_textdomain( 'genesis-toolbar-extras', false, GTBE_PLUGIN_BASEDIR . '/languages/' );
+	load_plugin_textdomain( 'genesis-toolbar-extras', false, $gtbe_lang_dir );
 
 	/** Include admin helper functions */
 	if ( is_admin() ) {
@@ -134,12 +145,16 @@ function ddw_gtbe_init() {
 /**
  * Prepare for SEO plugin detection add to Genesis detection filter
  * 
- * @since 1.1
+ * @since 1.1.0
  *
  * @uses filter 'genesis_detect_seo_plugins'
  * @param $gtbe_seo_plugins
  */
-if ( class_exists( 'All_in_One_SEO_Pack_p' ) || defined( 'GDHEADSPACE4_PATH' ) || defined( 'SU_VERSION' ) || ( in_array( 'gregs-high-performance-seo/ghpseo.php', apply_filters( 'active_plugins', get_option( 'active_plugins' ) ) ) ) ) {
+if ( class_exists( 'All_in_One_SEO_Pack_p' ) ||
+	defined( 'GDHEADSPACE4_PATH' ) ||
+	defined( 'SU_VERSION' ) ||
+	( in_array( 'gregs-high-performance-seo/ghpseo.php', apply_filters( 'active_plugins', get_option( 'active_plugins' ) ) ) )
+) {
 
 	add_filter( 'genesis_detect_seo_plugins', 'ddw_gtbe_add_seo_plugins' );
 	/**
@@ -171,14 +186,14 @@ add_action( 'admin_bar_menu', 'ddw_gtbe_admin_bar_menu', 98 );
 /**
  * Add new menu items to the WordPress Toolbar / Admin Bar.
  * 
- * @since 1.0
+ * @since 1.0.0
  *
- * @global mixed $wp_admin_bar, $locale, $gtbe_is_mcgroup, $theme, $stylesheet
+ * @global mixed $wp_admin_bar, $locale, $gtbe_child_type_check, $spchild, $spmarket, $tpchild, $gtbe_is_mcgroup, $theme, $stylesheet
  * @param $gtbe_user
  */
 function ddw_gtbe_admin_bar_menu() {
 
-	global $wp_admin_bar, $locale, $gtbe_is_mcgroup, $theme, $stylesheet;
+	global $wp_admin_bar, $locale, $gtbe_child_type_check, $gtbe_is_mcgroup, $theme, $stylesheet;
 
 	/** Get current user - we need this for checking Genesis admin menu display options */
 	$gtbe_user = wp_get_current_user();
@@ -188,7 +203,7 @@ function ddw_gtbe_admin_bar_menu() {
 	 *
 	 * Default capability: 'edit_posts' (needed for the "manage content" stuff...)
 	 *
-	 * @since 1.0
+	 * @since 1.0.0
 	 */
 	$gtbe_filter_capability = apply_filters( 'gtbe_filter_capability_all', 'edit_posts' );
 
@@ -196,7 +211,7 @@ function ddw_gtbe_admin_bar_menu() {
 	 * Required WordPress cabability to display new admin bar entry
 	 * Only showing items if toolbar / admin bar is activated and user is logged in!
 	 *
-	 * @since 1.0
+	 * @since 1.0.0
 	 */
 	if ( ! is_user_logged_in() || 
 		! is_admin_bar_showing() || 
@@ -210,7 +225,7 @@ function ddw_gtbe_admin_bar_menu() {
 	/**
 	 * Get current stylesheet name logic - compatible up to WordPress 3.4+!
 	 *
-	 * @since 1.1
+	 * @since 1.1.0
 	 *
 	 * @param $gtbe_stylesheet_name
 	 */
@@ -245,6 +260,8 @@ function ddw_gtbe_admin_bar_menu() {
 		$extgroup = $prefix . 'extgroup';				// sub level: extend group ("hook" place)
 			$tgroup = $prefix . 'tgroup';				// sub level: theme group ("hook" place)
 				$spgenesischild = $prefix . 'spgenesischild';		// third level theme: sp genesis child themes
+					$spgminimum2x = $prefix . 'spgminimum2x';	// third level theme: minimum 2.x portfolio
+					$spgexecutive2x = $prefix . 'spgexecutive2x';	// third level theme: executive 2.x portfolio
 				$spmarket = $prefix . 'spmarket';			// third level theme: sp marketplace child themes
 				$themedysettings = $prefix . 'themedysettings';		// third level theme: themedy child themes
 					$themedyportfolio = $prefix . 'themedyportfolio';	// third level theme: themedy portfolio cpt
@@ -252,6 +269,9 @@ function ddw_gtbe_admin_bar_menu() {
 					$themedyphoto = $prefix . 'themedyphoto';	// third level theme: themedy photo cpt
 					$themedyproduct = $prefix . 'themedyproduct';	// third level theme: themedy product cpt
 				$tpchild = $prefix . 'tpchild';				// third level theme: third-party child themes
+				$tpplugin_extender = $prefix . 'tpplugin_extender';	// third level theme: genesis extender (plugin)
+				$gextendersettings = $prefix . 'gextendersettings';		// fourth level theme: g.extender settings
+				$gextendercustom = $prefix . 'gextendercustom';			// fourth level theme: g.extender custom
 				$tpchild_dynamik = $prefix . 'tpchild_dynamik';		// third level theme: dynamik genesis
 				$dynamikdesign = $prefix . 'dynamikdesign';		// third level theme: dynamik genesis design
 				$dynamikdesignstructure = $prefix . 'dynamikdesignstructure';	// third level theme: dynamik genesis design
@@ -259,6 +279,8 @@ function ddw_gtbe_admin_bar_menu() {
 				$dynamikdesignextras = $prefix . 'dynamikdesignextras';	// third level theme: dynamik genesis design
 				$dynamikcustom = $prefix . 'dynamikcustom';		// third level theme: dynamik genesis custom
 				$dizain01portfolio = $prefix . 'dizain01portfolio';	// third level theme: dizain 01 portfolio
+				$zzpportfolio = $prefix . 'zzpportfolio';		// third level theme: zigzagpress portfolio
+				$zzpslides = $prefix . 'zzpslides';			// third level theme: zigzagpress slides
 			$pgroup = $prefix . 'pgroup';				// sub level: plugins group ("hook" place)
 				$extensions = $prefix . 'extensions';		// sub level: extensions
 			$mcgroup = $prefix . 'mcgroup';				// sub level: manage content group ("hook" place)
@@ -269,6 +291,10 @@ function ddw_gtbe_admin_bar_menu() {
 					$mcgthemedyproduct = $prefix . 'mcgthemedyproduct';	// third level theme: themedy product cpt
 					$mcginspyr = $prefix . 'mcginspyr';		// third level theme: (in)spyr
 					$mcgdizain01 = $prefix . 'mcgdizain01';		// third level theme: dizain 01 portfolio
+					$mcgzzpportfolio = $prefix . 'mcgzzpportfolio';	// third level theme: zigzagpress portfolio
+					$mcgzzpslides = $prefix . 'mcgzzpslides';	// third level theme: zigzagpress slides
+					$mcgspgminimum2x = $prefix . 'mcgspgminimum2x';	// third level theme: minimum 2.x portfolio
+					$mcgspgexecutive2x = $prefix . 'mcgspgexecutive2x';	// third level theme: executive 2.x portfolio
 					$mcgspapl = $prefix . 'mcgspapl';		// third level plugin: agentpress listings
 					$mcggportfolio = $prefix . 'mcggportfolio';	// third level plugin: genesis portfolio
 					$mcggmp = $prefix . 'mcggmp';			// third level plugin: genesis media project
@@ -282,6 +308,10 @@ function ddw_gtbe_admin_bar_menu() {
 					$premiselanding = $prefix . 'premiselanding';	// third level: premise landing pages
 					$premisesettings = $prefix . 'premisesettings';	// third level: premise settings
 				$premisemember = $prefix . 'premisemember';		// third level: premise member access
+				$premisemember_products = $prefix . 'premisemember_products';	// fourth level: premise products
+				$premisemember_coupons = $prefix . 'premisemember_coupons';	// fourth level: premise coupons
+				$premisemember_links = $prefix . 'premisemember_links';		// fourth level: premise links
+				$premisemember_members = $prefix . 'premisemember_members';	// fourth level: premise members
 		$genesisgroup = $prefix . 'genesisgroup';			// sub level: genesis group (resources)
 			$tpsgroup = $prefix . 'tpsgroup';				// third level: tps group (third-party support)
 			$languagesde = $prefix . 'languagesde';				// third level: german language packs
@@ -408,7 +438,7 @@ function ddw_gtbe_admin_bar_menu() {
 		 * Display last main item in the menu for active extensions/plugins
 		 * ATTENTION: This is where plugins/extensions hook in on the sub-level hierarchy
 		 *
-		 * @since 1.0
+		 * @since 1.0.0
 		 */
 		if ( GTBE_EXTENSIONS_DISPLAY && 
 			( current_theme_supports( 'genesis-admin-menu' ) && get_the_author_meta( 'genesis_admin_menu', $gtbe_user->ID ) ) 
@@ -435,7 +465,7 @@ function ddw_gtbe_admin_bar_menu() {
 	/**
 	 * "Archives Settings" String for all 'GCPTA Plugin Archive Settings'
 	 *
-	 * @since 1.1
+	 * @since 1.1.0
 	 *
 	 * @param $gtbe_gcpta_archives_settings
 	 */
@@ -445,7 +475,7 @@ function ddw_gtbe_admin_bar_menu() {
 	/**
 	 * Display links to active StudioPress Genesis Child Themes settings' pages
 	 *
-	 * @since 1.0
+	 * @since 1.0.0
 	 */
 		/** Include plugin file with theme support links */
 		require_once( GTBE_PLUGIN_DIR . '/includes/gtbe-studiopress.php' );
@@ -454,7 +484,7 @@ function ddw_gtbe_admin_bar_menu() {
 	/**
 	 * Display links to active Themedy Genesis Child Themes settings' pages
 	 *
-	 * @since 1.0
+	 * @since 1.0.0
 	 */
 	if ( function_exists( 'themedy_load_styles' ) ) {
 		/** Include plugin file with theme support links */
@@ -465,16 +495,15 @@ function ddw_gtbe_admin_bar_menu() {
 	/**
 	 * Display links to active (non-StudioPress/Themedy) Genesis Child Themes settings' pages
 	 *
-	 * @since 1.0
+	 * @since 1.0.0
 	 */
 		/** Include plugin file with theme support links */
 		require_once( GTBE_PLUGIN_DIR . '/includes/gtbe-themes.php' );
 
-
 	/**
 	 * Display links to active Genesis plugins/extensions settings' pages
 	 *
-	 * @since 1.0
+	 * @since 1.0.0
 	 */
 		/** Include plugin file with plugin support links */
 		require_once( GTBE_PLUGIN_DIR . '/includes/gtbe-plugins.php' );
@@ -504,6 +533,7 @@ function ddw_gtbe_admin_bar_menu() {
 										$extensions,
 										$extgroup, 
 									$spgenesischild,
+										$spgminimum2x,
 									$spmarket,
 										$themedysettings,
 										$themedyportfolio,
@@ -511,6 +541,9 @@ function ddw_gtbe_admin_bar_menu() {
 										$themedyphoto,
 										$themedyproduct,
 									$tpchild,
+									$tpplugin_extender,
+									$gextendersettings,
+									$gextendercustom,
 									$tpchild_dynamik,
 									$dynamikdesign, 
 									$dynamikcustom,
@@ -518,6 +551,8 @@ function ddw_gtbe_admin_bar_menu() {
 									$dynamikdesigncontent, 
 									$dynamikdesignextras,
 									$dizain01portfolio,
+									$zzpportfolio,
+									$zzpslides,
 										$mcgroup,
 										$mcgroupstart, 
 										$mcgthemedyportfolio,
@@ -526,6 +561,9 @@ function ddw_gtbe_admin_bar_menu() {
 										$mcgthemedyproduct, 
 										$mcginspyr,
 										$mcgdizain01,
+										$mcgzzpportfolio,
+										$mcgzzpslides,
+										$mcgspgminimum2x,
 										$mcgspapl,
 										$mcggportfolio,
 										$mcggmp,
@@ -538,7 +576,11 @@ function ddw_gtbe_admin_bar_menu() {
 									$premise,
 									$premiselanding,
 									$premisesettings,
-									$premisemember, 
+									$premisemember,
+									$premisemember_products,
+									$premisemember_coupons,
+									$premisemember_links,
+									$premisemember_members,
 										$tgroup,
 										$pgroup, 
 									$genesisgroup,
@@ -550,7 +592,7 @@ function ddw_gtbe_admin_bar_menu() {
 	/**
 	 * Add the Genesis top-level menu item
 	 *
-	 * @since 1.0
+	 * @since 1.0.0
 	 *
 	 * @param $gtbe_main_item_title
 	 * @param $gtbe_main_item_title_tooltip
@@ -600,7 +642,7 @@ function ddw_gtbe_admin_bar_menu() {
 	 * Action Hook 'gtbe_custom_main_items'
 	 * allows for hooking other main items in
 	 *
-	 * @since 1.1
+	 * @since 1.1.0
 	 */
 	do_action( 'gtbe_custom_main_items' );
 
@@ -619,11 +661,26 @@ function ddw_gtbe_admin_bar_menu() {
 			) );
 		}  // end-if constant check for displaying theme group
 
+
+			/** Add extra group for 'Genesis Extender' plugin */
+			if ( CHILD_THEME_NAME != 'Dynamik Website Builder'	// do not activate for Dynamik Genesis version!
+				&& current_user_can( 'manage_options' )
+				&& defined( 'GENEXT_VERSION' )
+			) {
+
+				/** Add special group for the items within child theme area */
+				$wp_admin_bar->add_group( array(
+					'parent' => $tgroup,
+					'id'     => $tpplugin_extender,
+				) );
+
+			}  // end-if Genesis Extender check
+
 		/**
 		 * Action Hook 'gtbe_custom_theme_items'
 		 * allows for hooking other theme-related items in
 		 *
-		 * @since 1.1
+		 * @since 1.1.0
 		 */
 		do_action( 'gtbe_custom_theme_items' );
 
@@ -645,7 +702,7 @@ function ddw_gtbe_admin_bar_menu() {
 		 * Action Hook 'gtbe_custom_extend_items'
 		 * allows for hooking other extend items in
 		 *
-		 * @since 1.1
+		 * @since 1.1.0
 		 */
 		do_action( 'gtbe_custom_extend_items' );
 
@@ -692,7 +749,7 @@ function ddw_gtbe_admin_bar_menu() {
 	 * Action Hook 'gtbe_custom_group_items'
 	 * allows for hooking other Genesis Group items in
 	 *
-	 * @since 1.1
+	 * @since 1.1.0
 	 */
 	do_action( 'gtbe_custom_group_items' );
 
@@ -704,7 +761,7 @@ add_action( 'admin_head', 'ddw_gtbe_admin_style' );
 /**
  * Add the styles for new WordPress Toolbar / Admin Bar entry
  * 
- * @since 1.0
+ * @since 1.0.0
  *
  * @param $gtbe_main_icon
  */
@@ -761,6 +818,10 @@ function ddw_gtbe_admin_style() {
 			font-size: 0.67em;
 			margin: 0 0 0 2px;
 		}
+		#wpadminbar #wp-admin-bar-ddw-genesis-tpplugin_extender.ab-submenu {
+			border-top: 0 none !important;
+			margin-top: -10px !important;
+		}
 	</style>
 	<?php
 
@@ -768,9 +829,44 @@ function ddw_gtbe_admin_style() {
 
 
 /**
- * Helper functions for custom branding of the plugin
+ * Helper functions with special theme support stuff.
  *
- * @since 1.0
+ * @since 1.5.0
+ */
+	/** Include plugin file with extra theme support links */
+	require_once( GTBE_PLUGIN_DIR . '/includes/gtbe-themes-extra.php' );
+
+
+/**
+ * Helper functions for custom branding of the plugin.
+ *
+ * @since 1.0.0
  */
 	/** Include plugin file with special custom stuff */
 	require_once( GTBE_PLUGIN_DIR . '/includes/gtbe-branding.php' );
+
+
+/**
+ * Returns current plugin's header data in a flexible way.
+ *
+ * @since 1.5.0
+ *
+ * @uses get_plugins()
+ *
+ * @param $gtbe_plugin_value
+ * @param $gtbe_plugin_folder
+ * @param $gtbe_plugin_file
+ *
+ * @return string Plugin version
+ */
+function ddw_gtbe_plugin_get_data( $gtbe_plugin_value ) {
+
+	if ( ! function_exists( 'get_plugins' ) )
+		require_once( ABSPATH . 'wp-admin/includes/plugin.php' );
+
+	$gtbe_plugin_folder = get_plugins( '/' . plugin_basename( dirname( __FILE__ ) ) );
+	$gtbe_plugin_file = basename( ( __FILE__ ) );
+
+	return $gtbe_plugin_folder[ $gtbe_plugin_file ][ $gtbe_plugin_value ];
+
+}  // end of function ddw_gtbe_plugin_get_data

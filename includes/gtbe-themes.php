@@ -10,13 +10,13 @@
  * @link       http://genesisthemes.de/en/wp-plugins/genesis-toolbar-extras/
  * @link       http://twitter.com/deckerweb
  *
- * @since 1.0
+ * @since 1.0.0
  */
 
 /**
  * Setting default values for some variables & constants
  *
- * @since 1.0
+ * @since 1.0.0
  * @version 1.1
  */
 $gtbe_is_spmarket = 'default';
@@ -41,7 +41,7 @@ if ( ! defined( 'CHILD_THEME_URL' ) ) {
 /**
  * "Theme" Strings for all Child Themes
  *
- * @since 1.0
+ * @since 1.0.0
  * @version 1.1
  *
  * @param $gtbe_theme
@@ -54,7 +54,7 @@ $gtbe_theme_fallback = __( 'Theme', 'genesis-toolbar-extras' ) . ':&nbsp;';
 /**
  * StudioPress Community/Marketplace - Genesis Child Themes
  *
- * @since 1.0
+ * @since 1.0.0
  * @version 1.1
  *
  * @param $gtbe_is_spmarket
@@ -64,7 +64,7 @@ $gtbe_theme_fallback = __( 'Theme', 'genesis-toolbar-extras' ) . ':&nbsp;';
  * @param $gtbe_stylesheet_name
  */
 	/** Default Admin URL for Community/Marketplace Child Theme Settings */
-	$spmarket_child_aurl = admin_url( 'admin.php?page=genesis#genesis-theme-settings-style-selector' );
+	$spmarket_child_aurl = current_theme_supports( 'genesis-style-selector' ) ? admin_url( 'admin.php?page=genesis#genesis-theme-settings-style-selector' ) : admin_url( 'admin.php?page=genesis' );
 
 	/** StudioPress Community/Marketplace child Theme check */
 		// Blingless 1.0+
@@ -199,6 +199,10 @@ $gtbe_theme_fallback = __( 'Theme', 'genesis-toolbar-extras' ) . ':&nbsp;';
 
 	/** Community/Marketplace Themes Display */
 	if ( ( $gtbe_is_spmarket == 'spmarket_yes' ) && current_user_can( 'edit_theme_options' ) ) {
+
+		/** Child type check */
+		$gtbe_child_type_check = $spmarket;
+
 		/** "Theme Group" menu items */
 		$menu_items['spmarket'] = array(
 			'parent' => $tgroup,
@@ -206,6 +210,9 @@ $gtbe_theme_fallback = __( 'Theme', 'genesis-toolbar-extras' ) . ':&nbsp;';
 			'href'   => $spmarket_child_aurl,
 			'meta'   => array( 'target' => '', 'title' => $spmarket_child_name )
 		);
+
+		/** Hook: spmarket_theme_after_title */
+		do_action( 'gtbe_spmarket_after_title' );
 
 		/** Display theme editor links for proper caps */
 		if ( !( defined( 'DISALLOW_FILE_EDIT' ) && DISALLOW_FILE_EDIT ) && current_user_can( 'edit_themes' ) && current_theme_supports( 'gtbe-theme-editor' ) ) {
@@ -267,7 +274,7 @@ $gtbe_theme_fallback = __( 'Theme', 'genesis-toolbar-extras' ) . ':&nbsp;';
 /**
  * Third-Party Genesis Child Themes
  *
- * @since 1.0
+ * @since 1.0.0
  * @version 1.2
  *
  * @param $gtbe_is_tpchild
@@ -280,12 +287,7 @@ $gtbe_theme_fallback = __( 'Theme', 'genesis-toolbar-extras' ) . ':&nbsp;';
  * @param $gtbe_stylesheet_name
  */
 	/** Default Admin URL for Third-Party Child Theme Settings */
-	$tpchild_aurl = admin_url( 'admin.php?page=genesis#genesis-theme-settings-style-selector' );
-
-	/** Default Admin URL for Child Theme Settings by "Web Savvy Marketing LLC" */
-	if ( class_exists( 'WSM_Settings' ) && ! ( $gtbe_stylesheet_name == 'Carla Anna' || $gtbe_stylesheet_name == 'Carla Anna Theme' ) ) {
-		$tpchild_aurl = admin_url( 'admin.php?page=' . strtolower( urlencode( $gtbe_stylesheet_name ) ) . '' );
-	}
+	$tpchild_aurl = current_theme_supports( 'genesis-style-selector' ) ? admin_url( 'admin.php?page=genesis#genesis-theme-settings-style-selector' ) : admin_url( 'admin.php?page=genesis' );
 
 	/** Third-Party Child Theme check */
 		// by DECKERWEB: Autobahn, Easy Downloads
@@ -304,46 +306,63 @@ $gtbe_theme_fallback = __( 'Theme', 'genesis-toolbar-extras' ) . ':&nbsp;';
 		$tpchild_is_codex = 'tpcodex_yes';
 			$tpchild_codex = 'http://genesisthemes.de/en/genesis-child-themes/easy-downloads/documentation/';
 
-		// by Appfinite (Wes Straham): Optimal, Agile, Adapt, Skope, Imagery, Classik
+		/**
+		 * by Appfinite (Wes Straham):
+		 *   Optimal, Agile, Adapt, Ally, Skope, Imagery, Classik, Follow Me
+		 */
 	} elseif ( CHILD_THEME_URL == 'http://appfinite.com/themes/optimal' && CHILD_THEME_NAME == 'Optimal Theme' ) {
 		$gtbe_is_tpchild = 'tpchild_yes';
-		$tpchild_name = 'Optimal' . $gtbe_theme;
+		$tpchild_name = 'Optimal' . $gtbe_theme;	// Optimal
 		$tpchild_is_support = 'tpsupport_yes';
 			$tpchild_support = 'http://appfinite.com/forum/optimal-theme-support/';
 
 	} elseif ( CHILD_THEME_NAME == 'Agile Theme' || $gtbe_stylesheet_name == 'Agile' ) {
 		$gtbe_is_tpchild = 'tpchild_yes';
-		$tpchild_name = 'Agile' . $gtbe_theme;
+		$tpchild_name = 'Agile' . $gtbe_theme;		// Agile
 		$tpchild_is_support = 'tpsupport_yes';
 			$tpchild_support = 'http://appfinite.com/forum/agile-theme-support/';
 
 	} elseif ( CHILD_THEME_NAME == 'Adapt Theme' || $gtbe_stylesheet_name == 'Adapt' ) {
 		$gtbe_is_tpchild = 'tpchild_yes';
-		$tpchild_name = 'Adapt' . $gtbe_theme;
+		$tpchild_name = 'Adapt' . $gtbe_theme;		// Adapt
 		$tpchild_aurl = admin_url( 'admin.php?page=genesis#genesis-theme-settings-adapt-portfolio' );
 		$tpchild_is_support = 'tpsupport_yes';
 			$tpchild_support = 'http://appfinite.com/forum/adapt-theme-support/';
 
 	} elseif ( CHILD_THEME_NAME == 'Skope Theme' || $gtbe_stylesheet_name == 'Skope' ) {
 		$gtbe_is_tpchild = 'tpchild_yes';
-		$tpchild_name = 'Skope' . $gtbe_theme;
+		$tpchild_name = 'Skope' . $gtbe_theme;		// Skope
 		$tpchild_aurl = admin_url( 'admin.php?page=genesis#genesis-theme-settings-skope-portfolio' );
 		$tpchild_is_support = 'tpsupport_yes';
 			$tpchild_support = 'http://appfinite.com/forum/skope-theme-support/';
 
 	} elseif ( CHILD_THEME_NAME == 'Imagery Theme' || $gtbe_stylesheet_name == 'Imagery' ) {
 		$gtbe_is_tpchild = 'tpchild_yes';
-		$tpchild_name = 'Imagery' . $gtbe_theme;
+		$tpchild_name = 'Imagery' . $gtbe_theme;	// Imagery
 		$tpchild_aurl = admin_url( 'admin.php?page=genesis#genesis-theme-settings-imagery-portfolio' );
 		$tpchild_is_support = 'tpsupport_yes';
 			$tpchild_support = 'http://appfinite.com/forum/imagery-theme-support/';
 
 	} elseif ( CHILD_THEME_NAME == 'Classik Theme' || $gtbe_stylesheet_name == 'Classik' ) {
 		$gtbe_is_tpchild = 'tpchild_yes';
-		$tpchild_name = 'Classik' . $gtbe_theme;
+		$tpchild_name = 'Classik' . $gtbe_theme;	// Classik
 		$tpchild_aurl = admin_url( 'admin.php?page=genesis#genesis-theme-settings-classik-portfolio' );
 		$tpchild_is_support = 'tpsupport_yes';
 			$tpchild_support = 'http://appfinite.com/forum/classik-theme-support/';
+
+	} elseif ( CHILD_THEME_NAME == 'Follow Me Theme' || $gtbe_stylesheet_name == 'Follow Me' ) {
+		$gtbe_is_tpchild = 'tpchild_yes';
+		$tpchild_name = 'Follow Me' . $gtbe_theme;	// Follow Me
+		$tpchild_aurl = admin_url( 'admin.php?page=genesis#genesis-theme-settings-followme-portfolio' );
+		$tpchild_is_support = 'tpsupport_yes';
+			$tpchild_support = 'http://appfinite.com/forum/follow-me/';
+
+	} elseif ( CHILD_THEME_NAME == 'Ally Theme' || $gtbe_stylesheet_name == 'Ally' ) {
+		$gtbe_is_tpchild = 'tpchild_yes';
+		$tpchild_name = 'Ally' . $gtbe_theme;		// Ally
+		$tpchild_aurl = admin_url( 'admin.php?page=genesis#genesis-theme-settings-ally-portfolio' );
+		$tpchild_is_support = 'tpsupport_yes';
+			$tpchild_support = 'http://appfinite.com/forum/ally/';
 
 		// by Catalyst Themes: Dynamik Website Builder (Dynamik Genesis)
 	} elseif ( CHILD_THEME_NAME == 'Dynamik Website Builder' || $gtbe_stylesheet_name == 'Dynamik-Gen' ) {
@@ -398,13 +417,21 @@ $gtbe_theme_fallback = __( 'Theme', 'genesis-toolbar-extras' ) . ':&nbsp;';
 		$tpchild_is_support = 'tpsupport_yes';
 			$tpchild_support = 'http://ddwb.me/support-avett';
 
-		// by themedizain at ThemeForest: Nzig
+		// by themedizain at ThemeForest: Dizain 01
 	} elseif ( class_exists( 'Dizain' ) || CHILD_THEME_NAME == 'Dizain 01' || $gtbe_stylesheet_name == 'Dizain 01' ) {
 		$gtbe_is_tpchild = 'tpchild_yes';
 		$tpchild_name = 'Dizain 01' . $gtbe_theme;
 		$tpchild_aurl = admin_url( 'themes.php?page=ot-theme-options' );
 		$tpchild_is_support = 'tpsupport_yes';
 			$tpchild_support = 'http://ddwb.me/support-dizain01';
+		$tpchild_file = 'dizain_file_yes';
+
+		// by jtwerdy at ThemeForest: Caffeinated
+	} elseif ( function_exists( 'caffeinated_add_viewport_meta_tag' ) || CHILD_THEME_NAME == 'Caffeinated Child Theme' || $gtbe_stylesheet_name == 'Caffeinated Child Theme' ) {
+		$gtbe_is_tpchild = 'tpchild_yes';
+		$tpchild_name = 'Caffeinated' . $gtbe_theme;
+		$tpchild_is_support = 'tpsupport_yes';
+			$tpchild_support = 'http://ddwb.me/support-caffeinated';
 
 		// by haikbvn at ThemeForest: Nzig
 	} elseif ( CHILD_THEME_NAME == 'Nzig' || $gtbe_stylesheet_name == 'Nzig' ) {
@@ -460,7 +487,10 @@ $gtbe_theme_fallback = __( 'Theme', 'genesis-toolbar-extras' ) . ':&nbsp;';
 		$tpchild_is_support = 'tpsupport_yes';
 			$tpchild_support = 'http://flashingcursor.com/contact-me';
 
-		// by Marco Galasso aka teethgrinder: Allegro, Birow, Inzornade, Okeko, Saetta, Stargazer
+		/**
+		 * by Marco Galasso aka teethgrinder:
+		 *   Allegro, Birow, Inzornade, Okeko, Saetta, Stargazer
+		 */
 	} elseif ( CHILD_THEME_NAME == 'Allegro' || $gtbe_stylesheet_name == 'Allegro' ) {
 		$gtbe_is_tpchild = 'tpchild_yes';
 		$tpchild_name = 'Allegro' . $gtbe_theme;
@@ -499,202 +529,397 @@ $gtbe_theme_fallback = __( 'Theme', 'genesis-toolbar-extras' ) . ':&nbsp;';
 
 		/**
 		 * by WPCanada - Len Kutchma:
-		 * BlogNews, Conrad, Conrad Full, GoGreen, Humphrey, Linky Loo, Manifest, NewsBeat, Simple, Theodore, Winfield, Winfield Dark
+		 *   BlogNews, Conrad, Conrad Full, GoGreen, Herman, Humphrey, Linky Loo, Manifest, Morgan, NewsBeat, Simple,
+		 *   Theodore, Winfield, Winfield Dark
 		 */
-	} elseif ( CHILD_THEME_NAME == 'BlogNews' || $gtbe_stylesheet_name == 'BlogNews Child Theme' ) {
+	} elseif ( CHILD_THEME_NAME == 'BlogNews' || CHILD_THEME_NAME == 'BlogNews Child Theme' || $gtbe_stylesheet_name == 'BlogNews Child Theme' ) {
 		$gtbe_is_tpchild = 'tpchild_yes';
-		$tpchild_name = 'BlogNews' . $gtbe_theme;
+		$tpchild_name = 'BlogNews' . $gtbe_theme;	// BlogNews
 		$tpchild_is_support = 'tpsupport_yes';
-			$tpchild_support = 'http://wpcanada.ca/contact/';
+			$tpchild_support = 'https://github.com/lenkutchma/BlogNews/issues';
 
 	} elseif ( CHILD_THEME_NAME == 'Conrad Theme' || $gtbe_stylesheet_name == 'Conrad Child Theme' ) {
 		$gtbe_is_tpchild = 'tpchild_yes';
-		$tpchild_name = 'Conrad' . $gtbe_theme;
+		$tpchild_name = 'Conrad' . $gtbe_theme;		// Conrad
 		$tpchild_is_support = 'tpsupport_yes';
 			$tpchild_support = 'http://wpcanada.ca/contact/';
 
 	} elseif ( CHILD_THEME_NAME == 'Conrad Full Theme' || $gtbe_stylesheet_name == 'Conrad Full Child Theme' ) {
 		$gtbe_is_tpchild = 'tpchild_yes';
-		$tpchild_name = 'Conrad Full' . $gtbe_theme;
+		$tpchild_name = 'Conrad Full' . $gtbe_theme;	// Conrad Full
 		$tpchild_is_support = 'tpsupport_yes';
 			$tpchild_support = 'http://wpcanada.ca/contact/';
 
 	} elseif ( CHILD_THEME_NAME == 'GoGreen Theme' || $gtbe_stylesheet_name == 'GoGreen Child Theme' ) {
 		$gtbe_is_tpchild = 'tpchild_yes';
-		$tpchild_name = 'GoGreen' . $gtbe_theme;
+		$tpchild_name = 'GoGreen' . $gtbe_theme;	// GoGreen
 		$tpchild_is_support = 'tpsupport_yes';
 			$tpchild_support = 'http://wpcanada.ca/contact/';
 
+	} elseif ( CHILD_THEME_NAME == 'Herman Theme' || $gtbe_stylesheet_name == 'Herman Child Theme' ) {
+		$gtbe_is_tpchild = 'tpchild_yes';
+		$tpchild_name = 'Herman' . $gtbe_theme;		// Herman
+		$tpchild_is_support = 'tpsupport_yes';
+			$tpchild_support = 'https://github.com/lenkutchma/Herman/issues';
+
 	} elseif ( CHILD_THEME_NAME == 'Humphrey Theme' || $gtbe_stylesheet_name == 'Humphrey Child Theme' ) {
 		$gtbe_is_tpchild = 'tpchild_yes';
-		$tpchild_name = 'Humphrey' . $gtbe_theme;
+		$tpchild_name = 'Humphrey' . $gtbe_theme;	// Humphrey
 		$tpchild_is_support = 'tpsupport_yes';
 			$tpchild_support = 'http://wpcanada.ca/contact/';
 
 	} elseif ( CHILD_THEME_NAME == 'Linky Loo Child Theme' || $gtbe_stylesheet_name == 'Linky Loo Child Theme' ) {
 		$gtbe_is_tpchild = 'tpchild_yes';
-		$tpchild_name = 'Linky Loo' . $gtbe_theme;
+		$tpchild_name = 'Linky Loo' . $gtbe_theme;	// Linky Loo
 		$tpchild_is_support = 'tpsupport_yes';
-			$tpchild_support = 'http://wpcanada.ca/contact/';
+			$tpchild_support = 'https://github.com/lenkutchma/LinkyLoo/issues';
 
 	} elseif ( CHILD_THEME_NAME == 'Manifest Theme' || $gtbe_stylesheet_name == 'Manifest Child Theme' ) {
 		$gtbe_is_tpchild = 'tpchild_yes';
-		$tpchild_name = 'Manifest' . $gtbe_theme;
+		$tpchild_name = 'Manifest' . $gtbe_theme;	// Manifest
 		$tpchild_is_support = 'tpsupport_yes';
 			$tpchild_support = 'http://wpcanada.ca/contact/';
 
+	} elseif ( CHILD_THEME_NAME == 'Morgan Theme' || $gtbe_stylesheet_name == 'Morgan morgan Theme' ) {
+		$gtbe_is_tpchild = 'tpchild_yes';
+		$tpchild_name = 'Morgan' . $gtbe_theme;		// Morgan
+		$tpchild_is_support = 'tpsupport_yes';
+			$tpchild_support = 'https://github.com/lenkutchma/Morgan/issues';
+
 	} elseif ( CHILD_THEME_NAME == 'NewsBeat Child Theme' || $gtbe_stylesheet_name == 'NewsBeat Child Theme' ) {
 		$gtbe_is_tpchild = 'tpchild_yes';
-		$tpchild_name = 'NewsBeat' . $gtbe_theme;
+		$tpchild_name = 'NewsBeat' . $gtbe_theme;	// NewsBeat
 		$tpchild_is_support = 'tpsupport_yes';
 			$tpchild_support = 'http://wpcanada.ca/contact/';
 
 	} elseif ( CHILD_THEME_NAME == 'Simple Theme' || $gtbe_stylesheet_name == 'Simple Child Theme' ) {
 		$gtbe_is_tpchild = 'tpchild_yes';
-		$tpchild_name = 'Simple' . $gtbe_theme;
+		$tpchild_name = 'Simple' . $gtbe_theme;		// Simple
 		$tpchild_is_support = 'tpsupport_yes';
 			$tpchild_support = 'http://wpcanada.ca/contact/';
 
 	} elseif ( CHILD_THEME_NAME == 'Theodore Theme' || $gtbe_stylesheet_name == 'Theodore Child Theme' ) {
 		$gtbe_is_tpchild = 'tpchild_yes';
-		$tpchild_name = 'Theodore' . $gtbe_theme;
+		$tpchild_name = 'Theodore' . $gtbe_theme;	// Theodore
 		$tpchild_is_support = 'tpsupport_yes';
 			$tpchild_support = 'http://wpcanada.ca/contact/';
 
-	} elseif ( CHILD_THEME_NAME == 'Winfield Theme' || $gtbe_stylesheet_name == 'Winfield Child Theme' ) {
+	} elseif ( CHILD_THEME_NAME == 'Winfield Theme' || CHILD_THEME_NAME == 'Winfield Child Theme' || $gtbe_stylesheet_name == 'Winfield Child Theme' ) {
 		$gtbe_is_tpchild = 'tpchild_yes';
-		$tpchild_name = 'Winfield' . $gtbe_theme;
+		$tpchild_name = 'Winfield' . $gtbe_theme;	// Winfield
 		$tpchild_is_support = 'tpsupport_yes';
-			$tpchild_support = 'http://wpcanada.ca/contact/';
+			$tpchild_support = 'https://github.com/lenkutchma/Winfield/issues';
 
 	} elseif ( CHILD_THEME_NAME == 'Winfield Dark Theme' || $gtbe_stylesheet_name == 'Winfield Dark Child Theme' ) {
 		$gtbe_is_tpchild = 'tpchild_yes';
-		$tpchild_name = 'Winfield Dark' . $gtbe_theme;
+		$tpchild_name = 'Winfield Dark' . $gtbe_theme;	// Winfield Dark
 		$tpchild_is_support = 'tpsupport_yes';
 			$tpchild_support = 'http://wpcanada.ca/contact/';
 
-		// by Web Savvy Marketing, LLC.: Carla Anna, Alexandra, Elsa, Frederik, Hans, Mariah, Rasmus, Robert, Soren
-	} elseif ( $gtbe_stylesheet_name == 'Carla Anna' || $gtbe_stylesheet_name == 'Carla Anna Theme' ) {
+		/**
+		 * by Web Savvy Marketing, LLC.:
+		 *   Carla Anna, Alexandra, Anneliese, Dagmar, Elsa, Erik, Frederik, Hans, Kathryn, Lillian, Mariah,
+		 *   Rasmus, Robert, Soren
+		 */
+	} elseif ( function_exists( 'carla_anna_do_footer' )
+			|| $gtbe_stylesheet_name == 'Carla Anna'
+			|| $gtbe_stylesheet_name == 'Carla Anna Theme'
+	) {
 		$gtbe_is_tpchild = 'tpchild_yes';
-		$tpchild_name = 'Carla Anna' . $gtbe_theme;
+		$tpchild_name = 'Carla Anna' . $gtbe_theme;	// Carla Anna
+		$tpchild_aurl = admin_url( 'admin.php?page=child' );
 		$tpchild_is_support = 'tpsupport_yes';
 			$tpchild_support = 'http://www.web-savvy-marketing.com/forum/carla-anna/';
 		$tpchild_is_codex = 'tpcodex_yes';
 			$tpchild_codex = 'http://www.web-savvy-marketing.com/forum/carla-anna-instructions/';
 
-	} elseif ( function_exists( 'alexandra_add_settings' ) || $gtbe_stylesheet_name == 'Alexandra' ) {
+	} elseif ( function_exists( 'alexandra_add_settings' )
+			|| CHILD_THEME_NAME == 'Alexandra'
+			|| $gtbe_stylesheet_name == 'Alexandra'
+	) {
 		$gtbe_is_tpchild = 'tpchild_yes';
-		$tpchild_name = 'Alexandra' . $gtbe_theme;
+		$tpchild_name = 'Alexandra' . $gtbe_theme;	// Alexandra
+		$tpchild_aurl = admin_url( 'admin.php?page=alexandra' );
 		$tpchild_is_support = 'tpsupport_yes';
 			$tpchild_support = 'http://www.web-savvy-marketing.com/forum/alexandra/';
 		$tpchild_is_codex = 'tpcodex_yes';
 			$tpchild_codex = 'http://www.web-savvy-marketing.com/forum/alexandra-instructions/';
 
-	} elseif ( function_exists( 'elsa_add_settings' ) || $gtbe_stylesheet_name == 'Elsa' || $gtbe_stylesheet_name == 'Elsa Theme' ) {
+	} elseif ( function_exists( 'anneliese_load_scripts' )
+			|| CHILD_THEME_NAME == ' anneliese Child Theme'
+			|| $gtbe_stylesheet_name == 'Anneliese'
+			|| $gtbe_stylesheet_name == 'Anneliese Custom Theme'
+	) {
 		$gtbe_is_tpchild = 'tpchild_yes';
-		$tpchild_name = 'Elsa' . $gtbe_theme;
+		$tpchild_name = 'Anneliese' . $gtbe_theme;	// Anneliese
+		$tpchild_aurl = admin_url( 'admin.php?page=anneliese' );
+		$tpchild_is_support = 'tpsupport_yes';
+			$tpchild_support = 'http://www.web-savvy-marketing.com/forum/anneliese/';
+		$tpchild_is_codex = 'tpcodex_yes';
+			$tpchild_codex = 'http://www.web-savvy-marketing.com/forum/anneliese-instructions/';
+
+	} elseif ( function_exists( 'dagmar_wrap_bg' )
+			|| CHILD_THEME_NAME == 'Dagmar'
+			|| $gtbe_stylesheet_name == 'Dagmar'
+	) {
+		$gtbe_is_tpchild = 'tpchild_yes';
+		$tpchild_name = 'Dagmar' . $gtbe_theme;		// Dagmar
+		$tpchild_aurl = admin_url( 'admin.php?page=dagmar' );
+		$tpchild_is_support = 'tpsupport_yes';
+			$tpchild_support = 'http://www.web-savvy-marketing.com/forum/dagmar/';
+		$tpchild_is_codex = 'tpcodex_yes';
+			$tpchild_codex = 'http://www.web-savvy-marketing.com/forum/dagmar-instructions/';
+
+	} elseif ( function_exists( 'elsa_add_settings' )
+			|| CHILD_THEME_NAME == 'Elsa Theme'
+			|| $gtbe_stylesheet_name == 'Elsa'
+			|| $gtbe_stylesheet_name == 'Elsa Theme'
+	) {
+		$gtbe_is_tpchild = 'tpchild_yes';
+		$tpchild_name = 'Elsa' . $gtbe_theme;		// Elsa
+		$tpchild_aurl = admin_url( 'admin.php?page=asettings' );
 		$tpchild_is_support = 'tpsupport_yes';
 			$tpchild_support = 'http://www.web-savvy-marketing.com/forum/elsa/';
 		$tpchild_is_codex = 'tpcodex_yes';
 			$tpchild_codex = 'http://www.web-savvy-marketing.com/forum/elsa-instructions/';
 
-	} elseif ( ( function_exists( 'frederik_phone' ) || function_exists( 'frederik_add_settings' ) ) || $gtbe_stylesheet_name == 'Frederik' ) {
+	} elseif ( function_exists( 'erik_init' )
+			|| CHILD_THEME_NAME == 'Erik'
+			|| $gtbe_stylesheet_name == 'Erik'
+	) {
 		$gtbe_is_tpchild = 'tpchild_yes';
-		$tpchild_name = 'Frederik' . $gtbe_theme;
+		$tpchild_name = 'Erik' . $gtbe_theme;		// Erik
+		$tpchild_aurl = admin_url( 'admin.php?page=erik' );
+		$tpchild_is_support = 'tpsupport_yes';
+			$tpchild_support = 'http://www.web-savvy-marketing.com/forum/erik/';
+		$tpchild_is_codex = 'tpcodex_yes';
+			$tpchild_codex = 'http://www.web-savvy-marketing.com/forum/erik-instructions/';
+
+	} elseif ( ( function_exists( 'frederik_phone' ) || function_exists( 'frederik_add_settings' ) )
+			|| $gtbe_stylesheet_name == 'Frederik'
+	) {
+		$gtbe_is_tpchild = 'tpchild_yes';
+		$tpchild_name = 'Frederik' . $gtbe_theme;	// Frederik
+		$tpchild_aurl = admin_url( 'admin.php?page=frederik' );
 		$tpchild_is_support = 'tpsupport_yes';
 			$tpchild_support = 'http://www.web-savvy-marketing.com/forum/frederik/';
 		$tpchild_is_codex = 'tpcodex_yes';
 			$tpchild_codex = 'http://www.web-savvy-marketing.com/forum/frederik-instructions/';
 
-	} elseif ( function_exists( 'hans_add_settings' ) || $gtbe_stylesheet_name == 'Hans' ) {
+	} elseif ( function_exists( 'hans_add_settings' )
+			|| CHILD_THEME_NAME == 'Hans Child Theme'
+			|| $gtbe_stylesheet_name == 'Hans'
+	) {
 		$gtbe_is_tpchild = 'tpchild_yes';
-		$tpchild_name = 'Hans' . $gtbe_theme;
+		$tpchild_name = 'Hans' . $gtbe_theme;		// Hans
+		$tpchild_aurl = admin_url( 'admin.php?page=hans' );
 		$tpchild_is_support = 'tpsupport_yes';
 			$tpchild_support = 'http://www.web-savvy-marketing.com/forum/hans/';
 		$tpchild_is_codex = 'tpcodex_yes';
 			$tpchild_codex = 'http://www.web-savvy-marketing.com/forum/hans-instructions/';
 
-	} elseif ( function_exists( 'mariah_add_settings' ) || $gtbe_stylesheet_name == 'Mariah' ) {
+	} elseif ( defined( 'KATHRYN_SETTINGS_FIELD' )
+			|| CHILD_THEME_NAME == 'Kathryn Child Theme'
+			|| $gtbe_stylesheet_name == 'Kathryn'
+	) {
 		$gtbe_is_tpchild = 'tpchild_yes';
-		$tpchild_name = 'Mariah' . $gtbe_theme;
+		$tpchild_name = 'Kathryn' . $gtbe_theme;	// Kathryn
+		$tpchild_aurl = admin_url( 'admin.php?page=kathryn' );
+		$tpchild_is_support = 'tpsupport_yes';
+			$tpchild_support = 'http://www.web-savvy-marketing.com/forum/kathryn/';
+		$tpchild_is_codex = 'tpcodex_yes';
+			$tpchild_codex = 'http://www.web-savvy-marketing.com/forum/kathryn-instructions/';
+
+	} elseif ( function_exists( 'lillian_init' )
+			|| CHILD_THEME_NAME == 'Lillian'
+			|| $gtbe_stylesheet_name == 'Lillian'
+	) {
+		$gtbe_is_tpchild = 'tpchild_yes';
+		$tpchild_name = 'Lillian' . $gtbe_theme;	// Lillian
+		$tpchild_aurl = admin_url( 'admin.php?page=lillian' );
+		$tpchild_is_support = 'tpsupport_yes';
+			$tpchild_support = 'http://www.web-savvy-marketing.com/forum/lillian/';
+		$tpchild_is_codex = 'tpcodex_yes';
+			$tpchild_codex = 'http://www.web-savvy-marketing.com/forum/lillian-instructions/';
+
+	} elseif ( function_exists( 'mariah_init' )
+			|| CHILD_THEME_NAME == 'Mariah'
+			|| $gtbe_stylesheet_name == 'Mariah'
+	) {
+		$gtbe_is_tpchild = 'tpchild_yes';
+		$tpchild_name = 'Mariah' . $gtbe_theme;		// Mariah
+		$tpchild_aurl = admin_url( 'admin.php?page=mariah' );
 		$tpchild_is_support = 'tpsupport_yes';
 			$tpchild_support = 'http://www.web-savvy-marketing.com/forum/mariah/';
 		$tpchild_is_codex = 'tpcodex_yes';
 			$tpchild_codex = 'http://www.web-savvy-marketing.com/forum/mariah-instructions/';
 
-	} elseif ( function_exists( 'rasmus_add_settings' ) || $gtbe_stylesheet_name == 'Rasmus' || $gtbe_stylesheet_name == 'Rasmus Child Theme' ) {
+	} elseif ( defined( 'RASMUS_SETTINGS_FIELD' )
+			|| CHILD_THEME_NAME == 'Ramsus Theme'
+			|| $gtbe_stylesheet_name == 'Rasmus'
+			|| $gtbe_stylesheet_name == 'Rasmus Child Theme'
+	) {
 		$gtbe_is_tpchild = 'tpchild_yes';
-		$tpchild_name = 'Rasmus' . $gtbe_theme;
+		$tpchild_name = 'Rasmus' . $gtbe_theme;		// Rasmus
+		$tpchild_aurl = admin_url( 'admin.php?page=rasmus' );
 		$tpchild_is_support = 'tpsupport_yes';
 			$tpchild_support = 'http://www.web-savvy-marketing.com/forum/rasmus/';
 		$tpchild_is_codex = 'tpcodex_yes';
 			$tpchild_codex = 'http://www.web-savvy-marketing.com/forum/rasmus-instructions/';
 
-	} elseif ( function_exists( 'robert_add_settings' ) || $gtbe_stylesheet_name == 'Robert' ) {
+	} elseif ( function_exists( 'robert_init' )
+			|| CHILD_THEME_NAME == 'Robert'
+			|| $gtbe_stylesheet_name == 'Robert'
+	) {
 		$gtbe_is_tpchild = 'tpchild_yes';
-		$tpchild_name = 'Robert' . $gtbe_theme;
+		$tpchild_name = 'Robert' . $gtbe_theme;		// Robert
+		$tpchild_aurl = admin_url( 'admin.php?page=robert' );
 		$tpchild_is_support = 'tpsupport_yes';
 			$tpchild_support = 'http://www.web-savvy-marketing.com/forum/robert/';
 		$tpchild_is_codex = 'tpcodex_yes';
 			$tpchild_codex = 'http://www.web-savvy-marketing.com/forum/robert-instructions/';
 
-	} elseif ( function_exists( 'soren_add_settings' ) || $gtbe_stylesheet_name == 'Soren' || $gtbe_stylesheet_name == 'Soren Child Theme' ) {
+	} elseif ( function_exists( 'soren_author_box_gravatar_size' )
+			|| $gtbe_stylesheet_name == 'Soren'
+			|| $gtbe_stylesheet_name == 'Soren Child Theme'
+	) {
 		$gtbe_is_tpchild = 'tpchild_yes';
-		$tpchild_name = 'Soren' . $gtbe_theme;
+		$tpchild_name = 'Soren' . $gtbe_theme;		// Soren
+		$tpchild_aurl = admin_url( 'admin.php?page=wsm' );
 		$tpchild_is_support = 'tpsupport_yes';
 			$tpchild_support = 'http://www.web-savvy-marketing.com/forum/soren/';
 		$tpchild_is_codex = 'tpcodex_yes';
 			$tpchild_codex = 'http://www.web-savvy-marketing.com/forum/soren-instructions/';
 
-		// by Aaron Hartland: Adaption, Latitude
+		/**
+		 * by ZIGZAGPRESS.com:
+		 *   Engrave, Showroom, Simplicity, Vanilla
+		 */
+	} elseif ( /* CHILD_THEME_NAME == 'Engrave Theme' || */
+			function_exists( 'codes_admin_init' )
+			&& $gtbe_stylesheet_name == 'Engrave'
+	) {
+		$gtbe_is_tpchild = 'tpchild_yes';
+		$tpchild_name = 'Engrave' . $gtbe_theme;	// Engrave
+		$tpchild_aurl = admin_url( 'admin.php?page=optionsframework' );
+		$tpchild_is_support = 'tpsupport_yes';
+			$tpchild_support = 'http://zigzagpress.com/support/';
+		$tpchild_file = 'zigzagpress_file_yes';
+
+	} elseif ( /* CHILD_THEME_NAME == 'Showroom Theme' || */
+			function_exists( 'codes_admin_init' )
+			&& $gtbe_stylesheet_name == 'Showroom'
+	) {
+		$gtbe_is_tpchild = 'tpchild_yes';
+		$tpchild_name = 'Showroom' . $gtbe_theme;	// Showroom
+		$tpchild_aurl = admin_url( 'admin.php?page=optionsframework' );
+		$tpchild_is_support = 'tpsupport_yes';
+			$tpchild_support = 'http://zigzagpress.com/support/';
+		$tpchild_file = 'zigzagpress_file_yes';
+
+	} elseif ( CHILD_THEME_NAME == 'Simplicity Theme' || $gtbe_stylesheet_name == 'Simplicity Child Theme' ) {
+		$gtbe_is_tpchild = 'tpchild_yes';
+		$tpchild_name = 'Simplicity' . $gtbe_theme;	// Simplicity
+		$tpchild_is_support = 'tpsupport_yes';
+			$tpchild_support = 'http://zigzagpress.com/support/';
+
+	} elseif ( CHILD_THEME_NAME == 'Vanilla' || $gtbe_stylesheet_name == 'Vanilla' ) {
+		$gtbe_is_tpchild = 'tpchild_yes';
+		$tpchild_name = 'Vanilla' . $gtbe_theme;	// Vanilla
+		$tpchild_aurl = admin_url( 'admin.php?page=optionsframework' );
+		$tpchild_is_support = 'tpsupport_yes';
+			$tpchild_support = 'http://zigzagpress.com/support/';
+		$tpchild_file = 'zigzagpress_file_yes';
+
+		/**
+		 * by Aaron Hartland:
+		 *   Adaption, Jemma Theme, Latitude, Structure, Full Width Child
+		 */
 	} elseif ( CHILD_THEME_NAME == 'Adaptation Theme' || $gtbe_stylesheet_name == 'Adaptation' ) {
 		$gtbe_is_tpchild = 'tpchild_yes';
-		$tpchild_name = 'Adaptation' . $gtbe_theme;
+		$tpchild_name = 'Adaptation' . $gtbe_theme;	// Adaptation
+		$tpchild_is_support = 'tpsupport_yes';
+			$tpchild_support = 'http://www.aaronhartland.com/contact/';
+
+	} elseif ( CHILD_THEME_NAME == 'Jemma Theme' || $gtbe_stylesheet_name == 'Jemma Theme' ) {
+		$gtbe_is_tpchild = 'tpchild_yes';
+		$tpchild_name = 'Jemma' . $gtbe_theme;		// Jemma
 		$tpchild_is_support = 'tpsupport_yes';
 			$tpchild_support = 'http://www.aaronhartland.com/contact/';
 
 	} elseif ( CHILD_THEME_NAME == 'Latitude Theme' || $gtbe_stylesheet_name == 'Latitude' ) {
 		$gtbe_is_tpchild = 'tpchild_yes';
-		$tpchild_name = 'Latitude' . $gtbe_theme;
+		$tpchild_name = 'Latitude' . $gtbe_theme;	// Latitude
 		$tpchild_is_support = 'tpsupport_yes';
 			$tpchild_support = 'http://www.aaronhartland.com/contact/';
+
+	} elseif ( CHILD_THEME_NAME == 'Structure Child Theme' || $gtbe_stylesheet_name == 'Structure Child Theme' ) {
+		$gtbe_is_tpchild = 'tpchild_yes';
+		$tpchild_name = 'Structure' . $gtbe_theme;	// Structure
+		$tpchild_is_support = 'tpsupport_yes';
+			$tpchild_support = 'https://github.com/aaronhartland/structure/issues';
+
+	} elseif ( CHILD_THEME_NAME == 'Full Width Child Theme' || $gtbe_stylesheet_name == 'Full Width Child Theme' ) {
+		$gtbe_is_tpchild = 'tpchild_yes';
+		$tpchild_name = 'Full Width Child' . $gtbe_theme;	// Full Width Child
+		$tpchild_is_support = 'tpsupport_yes';
+			$tpchild_support = 'https://github.com/aaronhartland/Full-Width-Child/issues';
+
+		// by SomoThemes: Pinsomo, SomoSocial
+	} elseif ( CHILD_THEME_NAME == 'Pinsomo Theme' || $gtbe_stylesheet_name == 'Pinsomo Theme' ) {
+		$gtbe_is_tpchild = 'tpchild_yes';
+		$tpchild_name = 'Pinsomo' . $gtbe_theme;	// Pinsomo
+		$tpchild_aurl = admin_url( 'admin.php?page=genesis#genesis-theme-settings-social-settings' );
+		$tpchild_is_support = 'tpsupport_yes';
+			$tpchild_support = 'http://somothemes.com/support/';
+		$tpchild_is_codex = 'tpcodex_yes';
+			$tpchild_codex = 'http://somothemes.com/tutorials/category/tutorials/';
+
+	} elseif ( CHILD_THEME_NAME == 'SomoSocial Theme' || $gtbe_stylesheet_name == 'SomoSocial Theme' ) {
+		$gtbe_is_tpchild = 'tpchild_yes';
+		$tpchild_name = 'SomoSocial' . $gtbe_theme;	// SomoSocial
+		$tpchild_aurl = admin_url( 'admin.php?page=genesis#genesis-theme-settings-social-settingsss' );
+		$tpchild_is_support = 'tpsupport_yes';
+			$tpchild_support = 'http://somothemes.com/support/';
+		$tpchild_is_codex = 'tpcodex_yes';
+			$tpchild_codex = 'http://somothemes.com/tutorials/category/tutorials/';
 
 		// by Josh Stauffer: Transchild, Sinatra
 	} elseif ( CHILD_THEME_NAME == 'Transchild Theme' || $gtbe_stylesheet_name == 'Transchild Child Theme' ) {
 		$gtbe_is_tpchild = 'tpchild_yes';
-		$tpchild_name = 'Transchild' . $gtbe_theme;
+		$tpchild_name = 'Transchild' . $gtbe_theme;	// Transchild
 		$tpchild_is_support = 'tpsupport_yes';
 			$tpchild_support = 'http://www.joshstauffer.com/contact/';
 
 	} elseif ( CHILD_THEME_NAME == 'Sinatra Theme' || $gtbe_stylesheet_name == 'Sinatra Child Theme' ) {
 		$gtbe_is_tpchild = 'tpchild_yes';
-		$tpchild_name = 'Sinatra' . $gtbe_theme;
+		$tpchild_name = 'Sinatra' . $gtbe_theme;	// Sinatra
 		$tpchild_is_support = 'tpsupport_yes';
 			$tpchild_support = 'http://www.joshstauffer.com/contact/';
 
 		// by MediaCairn Design Studio: Terragon, Photomode
 	} elseif ( CHILD_THEME_NAME == 'Terragon' || $gtbe_stylesheet_name == 'Terragon' ) {
 		$gtbe_is_tpchild = 'tpchild_yes';
-		$tpchild_name = 'Terragon' . $gtbe_theme;
+		$tpchild_name = 'Terragon' . $gtbe_theme;	// Terragon
 		$tpchild_is_support = 'tpsupport_yes';
 			$tpchild_support = 'http://www.media-cairn.com/forum/terragon-child-theme/';
 
 	} elseif ( CHILD_THEME_NAME == 'Photomode Child Theme' || $gtbe_stylesheet_name == 'Photomode' ) {
 		$gtbe_is_tpchild = 'tpchild_yes';
-		$tpchild_name = 'Photomode' . $gtbe_theme;
+		$tpchild_name = 'Photomode' . $gtbe_theme;	// Photomode
 		$tpchild_is_support = 'tpsupport_yes';
 			$tpchild_support = 'http://www.media-cairn.com/forum/photomode-child-theme/';
 
 		// by Rafal Tomal: Gridspiration, Mini Press
 	} elseif ( $gtbe_stylesheet_name == 'Gridspiration' ) {
 		$gtbe_is_tpchild = 'tpchild_yes';
-		$tpchild_name = 'Gridspiration' . $gtbe_theme;
+		$tpchild_name = 'Gridspiration' . $gtbe_theme;	// Gridspiration
 		$tpchild_is_support = 'tpsupport_yes';
 			$tpchild_support = 'http://www.rafaltomal.com/contact/';
 
 	} elseif ( $gtbe_stylesheet_name == 'Mini Press' ) {
 		$gtbe_is_tpchild = 'tpchild_yes';
-		$tpchild_name = 'Mini Press' . $gtbe_theme;
+		$tpchild_name = 'Mini Press' . $gtbe_theme;	// Mini Press
 		$tpchild_is_support = 'tpsupport_yes';
 			$tpchild_support = 'http://www.rafaltomal.com/contact/';
 
@@ -731,6 +956,13 @@ $gtbe_theme_fallback = __( 'Theme', 'genesis-toolbar-extras' ) . ':&nbsp;';
 		$tpchild_is_support = 'tpsupport_yes';
 			$tpchild_support = 'http://www.jaredatchison.com/';
 
+		// by EightCrazy Designs: Domestic8ted LifeStyle Theme
+	} elseif ( CHILD_THEME_NAME == 'Domestic8ted Style Theme' || $gtbe_stylesheet_name == 'Domestic8ted Theme' ) {
+		$gtbe_is_tpchild = 'tpchild_yes';
+		$tpchild_name = 'Domestic8ted' . $gtbe_theme;
+		$tpchild_is_support = 'tpsupport_yes';
+			$tpchild_support = 'http://www.eightcrazydesigns.net/forums/forum/domestic8ted-theme/';
+
 		// by Jessica Barnard - The Pixelista: Color, Celebrate
 	} elseif ( CHILD_THEME_NAME == 'Color Me Happy theme' || $gtbe_stylesheet_name == 'Color Me Happy Child Theme' ) {
 		$gtbe_is_tpchild = 'tpchild_yes';
@@ -765,6 +997,13 @@ $gtbe_theme_fallback = __( 'Theme', 'genesis-toolbar-extras' ) . ':&nbsp;';
 		$tpchild_name = 'Speaker' . $gtbe_theme;
 		$tpchild_is_support = 'tpsupport_yes';
 			$tpchild_support = 'http://wpthe.com/support/';
+
+		// by Loren Nason (Your Local Tech): Pin It
+	} elseif ( function_exists( 'ylt_full_width' ) || $gtbe_stylesheet_name == 'Pin It' ) {
+		$gtbe_is_tpchild = 'tpchild_yes';
+		$tpchild_name = 'Pin It' . $gtbe_theme;
+		$tpchild_is_support = 'tpsupport_yes';
+			$tpchild_support = 'http://www.yourlocaltech.com/contact-us/';
 
 		// by Press75: On Demand [Genesis Version]
 	} elseif ( function_exists( 'on_demand_custom_styles' ) || $gtbe_stylesheet_name == 'On Demand' ) {
@@ -930,6 +1169,10 @@ $gtbe_theme_fallback = __( 'Theme', 'genesis-toolbar-extras' ) . ':&nbsp;';
 
 	/** Third-Party Themes Display */
 	if ( ( $gtbe_is_tpchild == 'tpchild_yes' ) && current_user_can( 'edit_theme_options' ) ) {
+
+		/** Child type check */
+		$gtbe_child_type_check = $tpchild;
+
 		/** "Theme Group" menu items */
 		$menu_items['tpchild'] = array(
 			'parent' => $tgroup,
@@ -938,6 +1181,9 @@ $gtbe_theme_fallback = __( 'Theme', 'genesis-toolbar-extras' ) . ':&nbsp;';
 			'meta'   => array( 'target' => '', 'title' => $tpchild_name )
 		);
 
+		/** Hook: tpchild_theme_after_title */
+		do_action( 'gtbe_tpchild_after_title' );
+
 		/** Display theme editor links for proper caps */
 		if ( !( defined( 'DISALLOW_FILE_EDIT' ) && DISALLOW_FILE_EDIT ) && ! function_exists( 'dynamik_theme_settings' ) && current_user_can( 'edit_themes' ) && current_theme_supports( 'gtbe-theme-editor' ) ) {
 
@@ -945,6 +1191,9 @@ $gtbe_theme_fallback = __( 'Theme', 'genesis-toolbar-extras' ) . ':&nbsp;';
 			require_once( GTBE_PLUGIN_DIR . '/includes/gtbe-editfiles.php' );
 
 		}  // end-if theme editor check
+
+		/** Hook: tpchild_theme_before_readme */
+		do_action( 'gtbe_tpchild_before_readme' );
 
 		/** Display Readme.txt Child Theme Info */
 		if ( class_exists( 'Genesis_Admin_Readme' ) && file_exists( ddw_gtbe_filter_url_child_readme() ) ) {
@@ -974,6 +1223,9 @@ $gtbe_theme_fallback = __( 'Theme', 'genesis-toolbar-extras' ) . ':&nbsp;';
 			);
 		}  // end-if changelog check
 
+		/** Hook: tpchild_theme_before_support */
+		do_action( 'gtbe_tpchild_before_support' );
+
 		/** Child Theme Support */
 		if ( $tpchild_is_support == 'tpsupport_yes' ) {
 			$menu_items['tpchild-support'] = array(
@@ -983,6 +1235,9 @@ $gtbe_theme_fallback = __( 'Theme', 'genesis-toolbar-extras' ) . ':&nbsp;';
 				'meta'   => array( 'title' => _x( 'Support Site/Info for Child Theme', 'Translators: For the tooltip', 'genesis-toolbar-extras' ) )
 			);
 		}  // end-if child support check
+
+		/** Hook: tpchild_theme_before_codex */
+		do_action( 'gtbe_tpchild_before_codex' );
 
 		/** Child Theme Codex */
 		if ( $tpchild_is_codex == 'tpcodex_yes' ) {
@@ -1001,10 +1256,19 @@ $gtbe_theme_fallback = __( 'Theme', 'genesis-toolbar-extras' ) . ':&nbsp;';
 		}  // end-if child file check
 
 		/** Dizain 01 Theme Specials: */
-		if ( class_exists( 'Dizain' ) ) {
+		if ( $tpchild_file == 'dizain_file_yes' /* || class_exists( 'Dizain' ) */ ) {
 			/** Include plugin file with theme specials */
 			require_once( GTBE_PLUGIN_DIR . '/includes/gtbe-themes-specials-dizain01.php' );
 		}  // end-if Dizain 01 Theme specials
+
+		/** ZIGZAGPRESS Theme Specials: */
+		if ( $tpchild_file == 'zigzagpress_file_yes' ) {
+			/** Include plugin file with theme specials */
+			require_once( GTBE_PLUGIN_DIR . '/includes/gtbe-themes-specials-zigzagpress.php' );
+		}  // end-if ZigZagPress Theme specials
+
+		/** Hook: tpchild_theme_after_all */
+		do_action( 'gtbe_tpchild_after_all' );
 
 	}  // end-if third-party themes display
 

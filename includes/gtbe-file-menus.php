@@ -11,13 +11,13 @@
  * @link       http://genesisthemes.de/en/wp-plugins/genesis-toolbar-extras/
  * @link       http://twitter.com/deckerweb
  *
- * @since 1.3
+ * @since 1.3.0
  */
 
 /**
  * Helper function for retrieving and filter README.txt file or similar file.
  *
- * @since 1.3
+ * @since 1.3.0
  */
 function ddw_gtbe_filter_url_child_readme() {
 
@@ -43,7 +43,7 @@ function ddw_gtbe_filter_url_child_readme() {
 /**
  * Helper function for retrieving and filter changelog.txt file or similar file.
  *
- * @since 1.3
+ * @since 1.3.0
  */
 function ddw_gtbe_filter_url_child_changelog() {
 
@@ -68,7 +68,7 @@ function ddw_gtbe_filter_url_child_changelog() {
  * Registers a new admin page, providing content and corresponding menu item
  * for the (available) Readme page of the current child theme.
  *
- * @since 1.3
+ * @since 1.3.0
  */
 class DDW_GTBE_Admin_Readme extends Genesis_Admin_Basic {
 
@@ -77,7 +77,7 @@ class DDW_GTBE_Admin_Readme extends Genesis_Admin_Basic {
 	 *
 	 * @uses Genesis_Admin::create() Register the admin page
 	 *
-	 * @since 1.3
+	 * @since 1.3.0
 	 */
 	function __construct() {
 
@@ -102,7 +102,7 @@ class DDW_GTBE_Admin_Readme extends Genesis_Admin_Basic {
 	 *
 	 * Checks if the file contents are readable, and echoes out HTML.
 	 *
-	 * @since 1.3
+	 * @since 1.3.0
 	 */
 	public function admin() {
 
@@ -134,7 +134,7 @@ class DDW_GTBE_Admin_Readme extends Genesis_Admin_Basic {
  * Registers a new admin page, providing content and corresponding menu item
  * for the (available) Changelog page of the current child theme.
  *
- * @since 1.3
+ * @since 1.3.0
  */
 class DDW_GTBE_Admin_Changelog extends Genesis_Admin_Basic {
 
@@ -143,7 +143,7 @@ class DDW_GTBE_Admin_Changelog extends Genesis_Admin_Basic {
 	 *
 	 * @uses Genesis_Admin::create() Register the admin page
 	 *
-	 * @since 1.3
+	 * @since 1.3.0
 	 */
 	function __construct() {
 
@@ -168,7 +168,7 @@ class DDW_GTBE_Admin_Changelog extends Genesis_Admin_Basic {
 	 *
 	 * Checks if the file contents are readable, and echoes out HTML.
 	 *
-	 * @since 1.3
+	 * @since 1.3.0
 	 */
 	public function admin() {
 

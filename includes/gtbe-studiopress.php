@@ -11,19 +11,20 @@
  * @link       http://genesisthemes.de/en/wp-plugins/genesis-toolbar-extras/
  * @link       http://twitter.com/deckerweb
  *
- * @since 1.0
+ * @since 1.0.0
  */
 
 /**
  * Setting default values for some variables & constants
  *
- * @since 1.0
+ * @since 1.0.0
  */
 $gtbe_is_spchild = 'default';
 $spgenesis_child_name = 'default';
 $spgenesis_child_forum = 'default';
+$spgenesis_file = 'default';
 /** Only in case... to avoid ugly PHP notices */
-if ( !defined( 'CHILD_THEME_NAME' ) ) {
+if ( ! defined( 'CHILD_THEME_NAME' ) ) {
 	define( 'CHILD_THEME_NAME', 'default' );
 }
 
@@ -31,7 +32,7 @@ if ( !defined( 'CHILD_THEME_NAME' ) ) {
 /**
  * "Theme" String for all Child Themes
  *
- * @since 1.0
+ * @since 1.0.0
  *
  * @param $gtbe_theme
  */
@@ -41,17 +42,17 @@ $gtbe_theme = '&nbsp;' . __( 'Theme', 'genesis-toolbar-extras' );
 /**
  * Default Admin URL for StudioPress Child Theme Settings
  *
- * @since 1.0
+ * @since 1.0.0
  *
  * @param $spgenesis_child_aurl
  */
-$spgenesis_child_aurl = admin_url( 'admin.php?page=genesis#genesis-theme-settings-style-selector' );
+$spgenesis_child_aurl = current_theme_supports( 'genesis-style-selector' ) ? admin_url( 'admin.php?page=genesis#genesis-theme-settings-style-selector' ) : admin_url( 'admin.php?page=genesis' );
 
 
 /**
  * Official StudioPress Genesis Child Themes
  *
- * @since 1.0
+ * @since 1.0.0
  * @version 1.1
  *
  * @param $gtbe_is_spchild
@@ -79,48 +80,54 @@ $spgenesis_child_aurl = admin_url( 'admin.php?page=genesis#genesis-theme-setting
 		$spgenesis_child_name = 'Agency' . $gtbe_theme;
 		$spgenesis_child_forum = 'http://www.studiopress.com/support/forumdisplay.php?f=119';
 
-		// Amped
+		// Amped 1.x
 	} elseif ( CHILD_THEME_NAME == 'Amped Theme' || $gtbe_stylesheet_name == 'Amped Child Theme' ) {
 		$gtbe_is_spchild = 'spchild_yes';
 		$spgenesis_child_name = 'Amped' . $gtbe_theme;
 		$spgenesis_child_forum = 'http://www.studiopress.com/support/forumdisplay.php?f=93';
 
-		// Associate
+		// Apparition 1.0
+	} elseif ( CHILD_THEME_NAME == 'Apparition Theme' || $gtbe_stylesheet_name == 'Apparition Child Theme' ) {
+		$gtbe_is_spchild = 'spchild_yes';
+		$spgenesis_child_name = 'Apparition' . $gtbe_theme;
+		$spgenesis_child_forum = 'http://www.studiopress.com/support/forumdisplay.php?f=216';
+
+		// Associate 1.x
 	} elseif ( CHILD_THEME_NAME == 'Associate Theme' || $gtbe_stylesheet_name == 'Associate Child Theme' ) {
 		$gtbe_is_spchild = 'spchild_yes';
 		$spgenesis_child_name = 'Associate' . $gtbe_theme;
 		$spgenesis_child_forum = 'http://www.studiopress.com/support/forumdisplay.php?f=174';
 
-		// Backcountry
+		// Backcountry 1.x
 	} elseif ( CHILD_THEME_NAME == 'Backcountry Theme' || $gtbe_stylesheet_name == 'Backcountry Child Theme' ) {
 		$gtbe_is_spchild = 'spchild_yes';
 		$spgenesis_child_name = 'Backcountry' . $gtbe_theme;
 		$spgenesis_child_forum = 'http://www.studiopress.com/support/forumdisplay.php?f=195';
 
-		// Balance
+		// Balance 1.0+
 	} elseif ( CHILD_THEME_NAME == 'Balance Theme' || $gtbe_stylesheet_name == 'Balance Child Theme' ) {
 		$gtbe_is_spchild = 'spchild_yes';
 		$spgenesis_child_name = 'Balance' . $gtbe_theme;
 		$spgenesis_child_forum = 'http://www.studiopress.com/support/forumdisplay.php?f=201';
 
-		// Bee Crafty
+		// Bee Crafty 1.x
 	} elseif ( CHILD_THEME_NAME == 'Bee Crafty Theme' || $gtbe_stylesheet_name == 'Bee Crafty Child Theme' ) {
 		$gtbe_is_spchild = 'spchild_yes';
 		$spgenesis_child_name = 'Bee Crafty' . $gtbe_theme;
 		$spgenesis_child_forum = 'http://www.studiopress.com/support/forumdisplay.php?f=138';
 
-		// Blissful
+		// Blissful 1.x
 	} elseif ( CHILD_THEME_NAME == 'Blissful Theme' || $gtbe_stylesheet_name == 'Blissful Child Theme' ) {
 		$gtbe_is_spchild = 'spchild_yes';
 		$spgenesis_child_name = 'Blissful' . $gtbe_theme;
 		$spgenesis_child_forum = 'http://www.studiopress.com/support/forumdisplay.php?f=169';
 
 		// Church 1.x
-	} elseif ( CHILD_THEME_NAME == 'Church Theme' || 
-			( $gtbe_stylesheet_name == 'Church Child Theme' || 
-				$gtbe_stylesheet_name == 'Church Blue Child Theme' || 
-				$gtbe_stylesheet_name == 'Church Brown Child Theme' || 
-				$gtbe_stylesheet_name == 'Church Gray Child Theme' ) 
+	} elseif ( CHILD_THEME_NAME == 'Church Theme'
+			|| ( $gtbe_stylesheet_name == 'Church Child Theme'
+				|| $gtbe_stylesheet_name == 'Church Blue Child Theme'
+				|| $gtbe_stylesheet_name == 'Church Brown Child Theme'
+				|| $gtbe_stylesheet_name == 'Church Gray Child Theme' ) 
 		) {
 		$gtbe_is_spchild = 'spchild_yes';
 		$spgenesis_child_name = 'Church' . $gtbe_theme;
@@ -132,23 +139,23 @@ $spgenesis_child_aurl = admin_url( 'admin.php?page=genesis#genesis-theme-setting
 		$spgenesis_child_name = 'Corporate' . $gtbe_theme;
 		$spgenesis_child_forum = 'http://www.studiopress.com/support/forumdisplay.php?f=109';
 
-		// Crystal
+		// Crystal 1.x
 	} elseif ( CHILD_THEME_NAME == 'Crystal Theme' || $gtbe_stylesheet_name == 'Crystal Child Theme' ) {
 		$gtbe_is_spchild = 'spchild_yes';
 		$spgenesis_child_name = 'Crystal' . $gtbe_theme;
 		$spgenesis_child_forum = 'http://www.studiopress.com/support/forumdisplay.php?f=160';
 
-		// Decor
+		// Decor 1.0+
 	} elseif ( CHILD_THEME_NAME == 'Decor Theme' || $gtbe_stylesheet_name == 'Decor Child Theme' ) {
 		$gtbe_is_spchild = 'spchild_yes';
 		$spgenesis_child_name = 'Decor' . $gtbe_theme;
 		$spgenesis_child_forum = 'http://www.studiopress.com/support/forumdisplay.php?f=206';
 
 		// Delicious
-	} elseif ( CHILD_THEME_NAME == 'Delicious Theme' || 
-			( $gtbe_stylesheet_name == 'Delicious Child Theme' || 
-				$gtbe_stylesheet_name == 'Delicious Blue Child Theme' || 
-				$gtbe_stylesheet_name == 'Delicious Brown Child Theme' ) 
+	} elseif ( CHILD_THEME_NAME == 'Delicious Theme'
+			|| ( $gtbe_stylesheet_name == 'Delicious Child Theme'
+				|| $gtbe_stylesheet_name == 'Delicious Blue Child Theme'
+				|| $gtbe_stylesheet_name == 'Delicious Brown Child Theme' ) 
 		) {
 		$gtbe_is_spchild = 'spchild_yes';
 		$spgenesis_child_name = 'Delicious' . $gtbe_theme;
@@ -160,7 +167,7 @@ $spgenesis_child_aurl = admin_url( 'admin.php?page=genesis#genesis-theme-setting
 		$spgenesis_child_name = 'Education' . $gtbe_theme;
 		$spgenesis_child_forum = 'http://www.studiopress.com/support/forumdisplay.php?f=126';
 
-		// eleven40
+		// eleven40 1.0+
 	} elseif ( CHILD_THEME_NAME == 'eleven40 Theme' || $gtbe_stylesheet_name == 'eleven40 Child Theme' ) {
 		$gtbe_is_spchild = 'spchild_yes';
 		$spgenesis_child_name = 'eleven40' . $gtbe_theme;
@@ -172,25 +179,29 @@ $spgenesis_child_aurl = admin_url( 'admin.php?page=genesis#genesis-theme-setting
 		$spgenesis_child_name = 'Enterprise' . $gtbe_theme;
 		$spgenesis_child_forum = 'http://www.studiopress.com/support/forumdisplay.php?f=102';
 
-		// Executive
+		// Executive 1.x - 2.0
 	} elseif ( CHILD_THEME_NAME == 'Executive Theme' || $gtbe_stylesheet_name == 'Executive Child Theme' ) {
 		$gtbe_is_spchild = 'spchild_yes';
 		$spgenesis_child_name = 'Executive' . $gtbe_theme;
 		$spgenesis_child_forum = 'http://www.studiopress.com/support/forumdisplay.php?f=79';
 
-		// Expose
+		if ( function_exists( 'executive_portfolio_post_type' ) && post_type_exists( 'portfolio' ) ) {
+			$spgenesis_file = 'executive2x_file_yes';
+		}
+
+		// Expose 1.x
 	} elseif ( CHILD_THEME_NAME == 'Expose Theme' || $gtbe_stylesheet_name == 'Expose Child Theme' ) {
 		$gtbe_is_spchild = 'spchild_yes';
 		$spgenesis_child_name = 'Expose' . $gtbe_theme;
 		$spgenesis_child_forum = 'http://www.studiopress.com/support/forumdisplay.php?f=136';
 
-		// Fabric
+		// Fabric 1.x
 	} elseif ( CHILD_THEME_NAME == 'Fabric Theme' || $gtbe_stylesheet_name == 'Fabric Child Theme' ) {
 		$gtbe_is_spchild = 'spchild_yes';
 		$spgenesis_child_name = 'Fabric' . $gtbe_theme;
 		$spgenesis_child_forum = 'http://www.studiopress.com/support/forumdisplay.php?f=173';
 
-		// Family Tree
+		// Family Tree 1.x
 	} elseif ( CHILD_THEME_NAME == 'Family Tree Theme' || $gtbe_stylesheet_name == 'Family Tree Child Theme' ) {
 		$gtbe_is_spchild = 'spchild_yes';
 		$spgenesis_child_name = 'Family Tree' . $gtbe_theme;
@@ -202,49 +213,49 @@ $spgenesis_child_aurl = admin_url( 'admin.php?page=genesis#genesis-theme-setting
 		$spgenesis_child_name = 'Focus' . $gtbe_theme;
 		$spgenesis_child_forum = 'http://www.studiopress.com/support/forumdisplay.php?f=167';
 
-		// Freelance
+		// Freelance 1.x
 	} elseif ( CHILD_THEME_NAME == 'Freelance Theme' || $gtbe_stylesheet_name == 'Freelance Child Theme' ) {
 		$gtbe_is_spchild = 'spchild_yes';
 		$spgenesis_child_name = 'Freelance' . $gtbe_theme;
 		$spgenesis_child_forum = 'http://www.studiopress.com/support/forumdisplay.php?f=121';
 
-		// Generate
+		// Generate 1.x
 	} elseif ( CHILD_THEME_NAME == 'Generate Theme' || $gtbe_stylesheet_name == 'Generate Child Theme' ) {
 		$gtbe_is_spchild = 'spchild_yes';
 		$spgenesis_child_name = 'Generate' . $gtbe_theme;
 		$spgenesis_child_forum = 'http://www.studiopress.com/support/forumdisplay.php?f=197';
 
-		// Going Green
+		// Going Green 1.x - 2.0
 	} elseif ( CHILD_THEME_NAME == 'Going Green Theme' || $gtbe_stylesheet_name == 'Going Green Child Theme' ) {
 		$gtbe_is_spchild = 'spchild_yes';
 		$spgenesis_child_name = 'Going Green' . $gtbe_theme;
 		$spgenesis_child_forum = 'http://www.studiopress.com/support/forumdisplay.php?f=116';
 
-		// Landscape
+		// Landscape 1.x
 	} elseif ( CHILD_THEME_NAME == 'Landscape Theme' || $gtbe_stylesheet_name == 'Landscape Child Theme' ) {
 		$gtbe_is_spchild = 'spchild_yes';
 		$spgenesis_child_name = 'Landscape' . $gtbe_theme;
 		$spgenesis_child_forum = 'http://www.studiopress.com/support/forumdisplay.php?f=108';
 
-		// Lexicon
+		// Lexicon 1.x
 	} elseif ( CHILD_THEME_NAME == 'Lexicon Theme' || $gtbe_stylesheet_name == 'Lexicon Child Theme' ) {
 		$gtbe_is_spchild = 'spchild_yes';
 		$spgenesis_child_name = 'Lexicon' . $gtbe_theme;
 		$spgenesis_child_forum = 'http://www.studiopress.com/support/forumdisplay.php?f=142';
 
 		// Lifestyle 1.x - 2.x
-	} elseif ( CHILD_THEME_NAME == 'Lifestyle Theme' || 
-			( $gtbe_stylesheet_name == 'Lifestyle Child Theme' || 
-				$gtbe_stylesheet_name == 'Lifestyle Green Child Theme' || 
-				$gtbe_stylesheet_name == 'Lifestyle Peach Child Theme' || 
-				$gtbe_stylesheet_name == 'Lifestyle Pink Child Theme' || 
-				$gtbe_stylesheet_name == 'Lifestyle Purple Child Theme' ) 
+	} elseif ( CHILD_THEME_NAME == 'Lifestyle Theme'
+			|| ( $gtbe_stylesheet_name == 'Lifestyle Child Theme'
+				|| $gtbe_stylesheet_name == 'Lifestyle Green Child Theme'
+				|| $gtbe_stylesheet_name == 'Lifestyle Peach Child Theme'
+				|| $gtbe_stylesheet_name == 'Lifestyle Pink Child Theme'
+				|| $gtbe_stylesheet_name == 'Lifestyle Purple Child Theme' ) 
 		) {
 		$gtbe_is_spchild = 'spchild_yes';
 		$spgenesis_child_name = 'Lifestyle' . $gtbe_theme;
 		$spgenesis_child_forum = 'http://www.studiopress.com/support/forumdisplay.php?f=92';
 
-		// Luscious
+		// Luscious 1.x
 	} elseif ( CHILD_THEME_NAME == 'Luscious Theme' || $gtbe_stylesheet_name == 'Luscious Child Theme' ) {
 		$gtbe_is_spchild = 'spchild_yes';
 		$spgenesis_child_name = 'Luscious' . $gtbe_theme;
@@ -256,19 +267,19 @@ $spgenesis_child_aurl = admin_url( 'admin.php?page=genesis#genesis-theme-setting
 		$spgenesis_child_name = 'Magazine' . $gtbe_theme;
 		$spgenesis_child_forum = 'http://www.studiopress.com/support/forumdisplay.php?f=128';
 
-		// Manhattan
+		// Manhattan 1.x
 	} elseif ( CHILD_THEME_NAME == 'Manhattan Theme' || $gtbe_stylesheet_name == 'Manhattan Child Theme' ) {
 		$gtbe_is_spchild = 'spchild_yes';
 		$spgenesis_child_name = 'Manhattan' . $gtbe_theme;
 		$spgenesis_child_forum = 'http://www.studiopress.com/support/forumdisplay.php?f=152';
 
-		// Metric
+		// Metric 1.x
 	} elseif ( CHILD_THEME_NAME == 'Metric Theme' || $gtbe_stylesheet_name == 'Metric Child Theme' ) {
 		$gtbe_is_spchild = 'spchild_yes';
 		$spgenesis_child_name = 'Metric' . $gtbe_theme;
 		$spgenesis_child_forum = 'http://www.studiopress.com/support/forumdisplay.php?f=114';
 
-		// Midnight
+		// Midnight 1.x
 	} elseif ( CHILD_THEME_NAME == 'Midnight Theme' || $gtbe_stylesheet_name == 'Midnight Child Theme' ) {
 		$gtbe_is_spchild = 'spchild_yes';
 		$spgenesis_child_name = 'Midnight' . $gtbe_theme;
@@ -280,11 +291,15 @@ $spgenesis_child_aurl = admin_url( 'admin.php?page=genesis#genesis-theme-setting
 		$spgenesis_child_name = 'Mindstream' . $gtbe_theme;
 		$spgenesis_child_forum = 'http://www.studiopress.com/support/forumdisplay.php?f=207';
 
-		// Minimum
+		// Minimum 1.x - 2.0
 	} elseif ( CHILD_THEME_NAME == 'Minimum Theme' || $gtbe_stylesheet_name == 'Minimum Child Theme' ) {
 		$gtbe_is_spchild = 'spchild_yes';
 		$spgenesis_child_name = 'Minimum' . $gtbe_theme;
 		$spgenesis_child_forum = 'http://www.studiopress.com/support/forumdisplay.php?f=172';
+
+		if ( function_exists( 'minimum_portfolio_post_type' ) && post_type_exists( 'portfolio' ) ) {
+			$spgenesis_file = 'minimum2x_file_yes';
+		}
 
 		// Mocha 1.x - 2.0
 	} elseif ( CHILD_THEME_NAME == 'Mocha Theme' || $gtbe_stylesheet_name == 'Mocha Child Theme' ) {
@@ -298,13 +313,13 @@ $spgenesis_child_aurl = admin_url( 'admin.php?page=genesis#genesis-theme-setting
 		$spgenesis_child_name = 'News' . $gtbe_theme;
 		$spgenesis_child_forum = 'http://www.studiopress.com/support/forumdisplay.php?f=118';
 
-		// Nitrous
+		// Nitrous 1.x
 	} elseif ( CHILD_THEME_NAME == 'Nitrous Theme' || $gtbe_stylesheet_name == 'Nitrous Child Theme' ) {
 		$gtbe_is_spchild = 'spchild_yes';
 		$spgenesis_child_name = 'Nitrous' . $gtbe_theme;
 		$spgenesis_child_forum = 'http://www.studiopress.com/support/forumdisplay.php?f=183';
 
-		// Outreach
+		// Outreach 1.x - 2.0
 	} elseif ( CHILD_THEME_NAME == 'Outreach Theme' || $gtbe_stylesheet_name == 'Outreach Child Theme' ) {
 		$gtbe_is_spchild = 'spchild_yes';
 		$spgenesis_child_name = 'Outreach' . $gtbe_theme;
@@ -322,7 +337,7 @@ $spgenesis_child_aurl = admin_url( 'admin.php?page=genesis#genesis-theme-setting
 		$spgenesis_child_name = 'Platinum' . $gtbe_theme;
 		$spgenesis_child_forum = 'http://www.studiopress.com/support/forumdisplay.php?f=73';
 
-		// Pretty Young Thing
+		// Pretty Young Thing 1.0.x - 1.1+
 	} elseif ( CHILD_THEME_NAME == 'Pretty Young Thing Theme' || $gtbe_stylesheet_name == 'Pretty Young Thing Child Theme' ) {
 		$gtbe_is_spchild = 'spchild_yes';
 		$spgenesis_child_name = 'Pretty Young Thing' . $gtbe_theme;
@@ -335,34 +350,34 @@ $spgenesis_child_aurl = admin_url( 'admin.php?page=genesis#genesis-theme-setting
 		$spgenesis_child_aurl = admin_url( 'admin.php?page=design-settings' );
 		$spgenesis_child_forum = 'http://www.studiopress.com/support/forumdisplay.php?f=147';
 
-		// Quattro
+		// Quattro 1.0+
 	} elseif ( CHILD_THEME_NAME == 'Quattro Theme' || $gtbe_stylesheet_name == 'Quattro Child Theme' ) {
 		$gtbe_is_spchild = 'spchild_yes';
 		$spgenesis_child_name = 'Quattro' . $gtbe_theme;
 		$spgenesis_child_forum = 'http://www.studiopress.com/support/forumdisplay.php?f=213';
 
-		// Scribble
+		// Scribble 1.0+
 	} elseif ( CHILD_THEME_NAME == 'Scribble Theme' || $gtbe_stylesheet_name == 'Scribble Child Theme' ) {
 		$gtbe_is_spchild = 'spchild_yes';
 		$spgenesis_child_name = 'Scribble' . $gtbe_theme;
 		$spgenesis_child_forum = 'http://www.studiopress.com/support/forumdisplay.php?f=186';
 
-		// Serenity
+		// Serenity 1.0 - 1.0.1
 	} elseif ( CHILD_THEME_NAME == 'Serenity Theme' || $gtbe_stylesheet_name == 'Serenity Child Theme' ) {
 		$gtbe_is_spchild = 'spchild_yes';
 		$spgenesis_child_name = 'Serenity' . $gtbe_theme;
 		$spgenesis_child_forum = 'http://www.studiopress.com/support/forumdisplay.php?f=84';
 
-		// Sleek
-	} elseif ( CHILD_THEME_NAME == 'Sleek Theme' || 
-			( $gtbe_stylesheet_name == 'Sleek Child Theme' || 
-				$gtbe_stylesheet_name == 'Sleek Dark Child Theme' ) 
+		// Sleek 1.x
+	} elseif ( CHILD_THEME_NAME == 'Sleek Theme'
+			|| ( $gtbe_stylesheet_name == 'Sleek Child Theme'
+				|| $gtbe_stylesheet_name == 'Sleek Dark Child Theme' ) 
 		) {
 		$gtbe_is_spchild = 'spchild_yes';
 		$spgenesis_child_name = 'Sleek' . $gtbe_theme;
 		$spgenesis_child_forum = 'http://www.studiopress.com/support/forumdisplay.php?f=132';
 
-		// Social Eyes
+		// Social Eyes 1.x
 	} elseif ( CHILD_THEME_NAME == 'Social Eyes Theme' || $gtbe_stylesheet_name == 'Social Eyes Child Theme' ) {
 		$gtbe_is_spchild = 'spchild_yes';
 		$spgenesis_child_name = 'Social Eyes' . $gtbe_theme;
@@ -374,13 +389,13 @@ $spgenesis_child_aurl = admin_url( 'admin.php?page=genesis#genesis-theme-setting
 		$spgenesis_child_name = 'Streamline' . $gtbe_theme;
 		$spgenesis_child_forum = 'http://www.studiopress.com/support/forumdisplay.php?f=81';
 
-		// Tapestry
+		// Tapestry 1.x
 	} elseif ( CHILD_THEME_NAME == 'Tapestry Theme' || $gtbe_stylesheet_name == 'Tapestry Child Theme' ) {
 		$gtbe_is_spchild = 'spchild_yes';
 		$spgenesis_child_name = 'Tapestry' . $gtbe_theme;
 		$spgenesis_child_forum = 'http://www.studiopress.com/support/forumdisplay.php?f=195';
 
-		// Venture
+		// Venture 1.x
 	} elseif ( CHILD_THEME_NAME == 'Venture Theme' || $gtbe_stylesheet_name == 'Venture Child Theme' ) {
 		$gtbe_is_spchild = 'spchild_yes';
 		$spgenesis_child_name = 'Venture' . $gtbe_theme;
@@ -430,9 +445,11 @@ $spgenesis_child_aurl = admin_url( 'admin.php?page=genesis#genesis-theme-setting
 
 	}  // end if Genesis child theme check
 
-
 	/** Official Child Themes - display links */
 	if ( $gtbe_is_spchild == 'spchild_yes' && current_user_can( 'edit_theme_options' ) ) {
+
+		/** Child type check */
+		$gtbe_child_type_check = $spgenesischild;
 
 		/** "Theme Group" menu items */
 		$menu_items['spgenesischild'] = array(
@@ -441,6 +458,9 @@ $spgenesis_child_aurl = admin_url( 'admin.php?page=genesis#genesis-theme-setting
 			'href'   => $spgenesis_child_aurl,
 			'meta'   => array( 'target' => '', 'title' => $spgenesis_child_name )
 		);
+
+		/** Hook: spchild_theme_after_title */
+		do_action( 'gtbe_spchild_after_title' );
 
 		/** Display theme editor links for proper caps */
 		if ( !( defined( 'DISALLOW_FILE_EDIT' ) && DISALLOW_FILE_EDIT ) && current_user_can( 'edit_themes' ) && ( current_theme_supports( 'gtbe-theme-editor' ) || current_theme_supports( 'gtbe-theme-editor-prose' ) ) ) {
@@ -476,6 +496,18 @@ $spgenesis_child_aurl = admin_url( 'admin.php?page=genesis#genesis-theme-setting
 			'meta'   => array( 'title' => _x( 'Support Forum for Child Theme', 'Translators: For the tooltip', 'genesis-toolbar-extras' ) )
 		);
 
+		/** Executive 2.x Theme Specials: */
+		if ( 'executive2x_file_yes' == $spgenesis_file ) {
+			/** Include plugin file with theme specials */
+			require_once( GTBE_PLUGIN_DIR . '/includes/gtbe-themes-specials-executive2x.php' );
+		}  // end-if Executive 2.x Theme specials
+
+		/** Minimum 2.x Theme Specials: */
+		if ( 'minimum2x_file_yes' == $spgenesis_file ) {
+			/** Include plugin file with theme specials */
+			require_once( GTBE_PLUGIN_DIR . '/includes/gtbe-themes-specials-minimum2x.php' );
+		}  // end-if Minimum 2.x Theme specials
+
 	}  // end-if official child themes display
 
 
@@ -484,7 +516,7 @@ $spgenesis_child_aurl = admin_url( 'admin.php?page=genesis#genesis-theme-setting
  * Official child theme: Prose 1.0 and 1.5+
  * Third-party child theme: Extended Magazine
  *
- * @since 1.0
+ * @since 1.0.0
  * @version 1.1
  */
 	/** Design settings section - only if "Prose" or "Extended Magazine" (third-party child theme ) is active */

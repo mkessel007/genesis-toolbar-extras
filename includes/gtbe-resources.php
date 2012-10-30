@@ -10,14 +10,14 @@
  * @link       http://genesisthemes.de/en/wp-plugins/genesis-toolbar-extras/
  * @link       http://twitter.com/deckerweb
  *
- * @since 1.0
+ * @since 1.0.0
  * @version 1.1
  */
 
 /**
  * Resource links collection
  *
- * @since 1.0
+ * @since 1.0.0
  */
 /** List the menu items - array */
 $genesisgroup_menu_items = array(

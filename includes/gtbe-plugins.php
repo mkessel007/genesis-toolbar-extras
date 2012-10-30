@@ -10,13 +10,13 @@
  * @link       http://genesisthemes.de/en/wp-plugins/genesis-toolbar-extras/
  * @link       http://twitter.com/deckerweb
  *
- * @since 1.0
+ * @since 1.0.0
  */
 
 /**
  * Genesis Palette (free, by Andrew Norcross)
  *
- * @since 1.2
+ * @since 1.2.0
  */
 if ( ( ( function_exists( 'is_plugin_active' ) && is_plugin_active( 'genesis-palette/plugin.php' ) ) || defined( 'GS_SETTINGS_FIELD' ) ) && current_user_can( 'manage_options' ) ) {
 
@@ -42,9 +42,25 @@ if ( ( ( function_exists( 'is_plugin_active' ) && is_plugin_active( 'genesis-pal
 
 
 /**
+ * Genesis Extender (premium, by Cobalt Apps, Inc./ CatalystTheme.com)
+ *
+ * @since 1.5.0
+ */
+if ( CHILD_THEME_NAME != 'Dynamik Website Builder'	// do not activate for Dynamik Genesis version!
+	&& current_user_can( 'manage_options' )
+	&& defined( 'GENEXT_VERSION' )
+) {
+
+	/** Include plugin file with neccessary code parts */
+	require_once( GTBE_PLUGIN_DIR . '/includes/gtbe-plugins-genesisextender.php' );
+
+}  // end-if Extender check
+
+
+/**
  * Genesis Simple Edits (free, by StudioPress)
  *
- * @since 1.0
+ * @since 1.0.0
  */
 if ( class_exists( 'Genesis_Simple_Edits' ) && current_user_can( 'manage_options' ) ) {
 	$menu_items['extsp-simpleedits'] = array(
@@ -59,7 +75,7 @@ if ( class_exists( 'Genesis_Simple_Edits' ) && current_user_can( 'manage_options
 /**
  * Genesis Simple Sidebars (free, by StudioPress)
  *
- * @since 1.0
+ * @since 1.0.0
  */
 if ( function_exists( 'ss_genesis_init' ) && current_user_can( 'manage_options' ) ) {
 	$menu_items['extsp-simplesidebars'] = array(
@@ -74,7 +90,7 @@ if ( function_exists( 'ss_genesis_init' ) && current_user_can( 'manage_options' 
 /**
  * Genesis Simple Hooks (free, by StudioPress)
  *
- * @since 1.0
+ * @since 1.0.0
  */
 if ( defined( 'SIMPLEHOOKS_SETTINGS_FIELD' ) && current_user_can( 'manage_options' ) ) {
 	$menu_items['extsp-simplehooks'] = array(
@@ -89,7 +105,7 @@ if ( defined( 'SIMPLEHOOKS_SETTINGS_FIELD' ) && current_user_can( 'manage_option
 /**
  * Genesis Slider (free, by StudioPress)
  *
- * @since 1.0
+ * @since 1.0.0
  */
 if ( defined( 'GENESIS_SLIDER_SETTINGS_FIELD' ) && current_user_can( 'manage_options' ) ) {
 	$menu_items['extsp-gslider'] = array(
@@ -104,7 +120,7 @@ if ( defined( 'GENESIS_SLIDER_SETTINGS_FIELD' ) && current_user_can( 'manage_opt
 /**
  * Genesis Responsive Slider (free, by StudioPress)
  *
- * @since 1.0
+ * @since 1.0.0
  */
 if ( defined( 'GENESIS_RESPONSIVE_SLIDER_SETTINGS_FIELD' ) && current_user_can( 'manage_options' ) ) {
 	$menu_items['extsp-gresponsiveslider'] = array(
@@ -117,9 +133,24 @@ if ( defined( 'GENESIS_RESPONSIVE_SLIDER_SETTINGS_FIELD' ) && current_user_can( 
 
 
 /**
+ * Genesis Bootstrap Carousel (free, by Justin Tallant)
+ *
+ * @since 1.5.0
+ */
+if ( defined( 'GENESIS_BOOTSTRAP_CAROUSEL_SETTINGS_FIELD' ) && current_user_can( 'manage_options' ) ) {
+	$menu_items['extsp-gbootstrapcarousel'] = array(
+		'parent' => $extensions,
+		'title'  => __( 'Bootstrap Carousel Settings', 'genesis-toolbar-extras' ),
+		'href'   => admin_url( 'admin.php?page=genesis_bootstrap_carousel' ),
+		'meta'   => array( 'target' => '', 'title' => __( 'Bootstrap Carousel Settings', 'genesis-toolbar-extras' ) )
+	);
+}  // end-if Bootstrap Carousel
+
+
+/**
  * Genesis Layout Extras (free, by David Decker - DECKERWEB)
  *
- * @since 1.0
+ * @since 1.0.0
  */
 if ( function_exists( 'ddw_genesis_layout_extras_theme_settings_init' ) && current_user_can( 'manage_options' ) ) {
 	$menu_items['ext-glayoutextras'] = array(
@@ -132,9 +163,24 @@ if ( function_exists( 'ddw_genesis_layout_extras_theme_settings_init' ) && curre
 
 
 /**
+ * Genesis Grid (Loop) (free, by Bill Erickson)
+ *
+ * @since 1.5.0
+ */
+if ( class_exists( 'BE_Genesis_Grid' ) && current_user_can( 'edit_theme_options' ) ) {
+	$menu_items['ext-ggridloopbe'] = array(
+		'parent' => $extensions,
+		'title'  => __( 'Grid Loop Settings', 'genesis-toolbar-extras' ),
+		'href'   => admin_url( 'admin.php?page=genesis-grid' ),
+		'meta'   => array( 'target' => '', 'title' => __( 'Grid Loop Settings', 'genesis-toolbar-extras' ) )
+	);
+}  // end-if Genesis Grid (Loop)
+
+
+/**
  * Genesis Custom Backgrounds (free, by Travis Smith)
  *
- * @since 1.0
+ * @since 1.0.0
  */
 if ( current_theme_supports( 'custom-background' ) && defined( 'GCB_SETTINGS_FIELD' ) && current_user_can( 'manage_options' ) ) {
 	$menu_items['ext-gcustombg'] = array(
@@ -149,7 +195,7 @@ if ( current_theme_supports( 'custom-background' ) && defined( 'GCB_SETTINGS_FIE
 /**
  * Genesis Favicon Uploader (free, by Christopher Cochran)
  *
- * @since 1.0
+ * @since 1.0.0
  */
 if ( function_exists( 'favicon_up_settings_init' ) && current_user_can( 'manage_options' ) ) {
 	$menu_items['ext-gfaviconup'] = array(
@@ -164,7 +210,7 @@ if ( function_exists( 'favicon_up_settings_init' ) && current_user_can( 'manage_
 /**
  * Genesis Simple Breadcrumbs (free, by Nick Croft)
  *
- * @since 1.0
+ * @since 1.0.0
  */
 if ( function_exists( 'gsb_init' ) && current_user_can( 'manage_options' ) ) {
 	$menu_items['ext-gsimplebreadcrumbs'] = array(
@@ -179,7 +225,7 @@ if ( function_exists( 'gsb_init' ) && current_user_can( 'manage_options' ) ) {
 /**
  * Genesis Simple Comments (free, by Nick Croft)
  *
- * @since 1.0
+ * @since 1.0.0
  */
 if ( function_exists( 'gsc_init' ) && current_user_can( 'manage_options' ) ) {
 	$menu_items['ext-gsimplecomments'] = array(
@@ -194,7 +240,7 @@ if ( function_exists( 'gsc_init' ) && current_user_can( 'manage_options' ) ) {
 /**
  * Genesis 404 Page (free, by Bill Erickson)
  *
- * @since 1.1
+ * @since 1.1.0
  */
 if ( class_exists( 'BE_Genesis_404' ) && current_user_can( 'edit_theme_options' ) ) {
 	$menu_items['ext-gsimplecomments'] = array(
@@ -209,7 +255,7 @@ if ( class_exists( 'BE_Genesis_404' ) && current_user_can( 'edit_theme_options' 
 /**
  * Genesis Grid (free, by Travis Smith)
  *
- * @since 1.0
+ * @since 1.0.0
  */
 if ( function_exists( 'gg_init' ) && current_user_can( 'edit_theme_options' ) ) {
 	$menu_items['ext-ggrid'] = array(
@@ -224,7 +270,7 @@ if ( function_exists( 'gg_init' ) && current_user_can( 'edit_theme_options' ) ) 
 /**
  * Genesis Post Teasers (free, by Christopher Cochran)
  *
- * @since 1.0
+ * @since 1.0.0
  */
 if ( function_exists( 'genesis_post_info_teaser_logic' ) && current_user_can( 'edit_theme_options' ) ) {
 	$menu_items['ext-gpostteasers'] = array(
@@ -239,7 +285,7 @@ if ( function_exists( 'genesis_post_info_teaser_logic' ) && current_user_can( 'e
 /**
  * Genesis Style Select (free, by Nick Croft)
  *
- * @since 1.0
+ * @since 1.0.0
  */
 if ( function_exists( 'gsselect_init' ) && current_user_can( 'edit_theme_options' ) ) {
 	$menu_items['ext-gstyleselect'] = array(
@@ -254,7 +300,7 @@ if ( function_exists( 'gsselect_init' ) && current_user_can( 'edit_theme_options
 /**
  * Genesis Title Toggle (free, by Bill Erickson)
  *
- * @since 1.0
+ * @since 1.0.0
  */
 if ( class_exists( 'BE_Title_Toggle' ) && current_user_can( 'edit_theme_options' ) ) {
 	$menu_items['ext-gtitletoggle'] = array(
@@ -269,7 +315,7 @@ if ( class_exists( 'BE_Title_Toggle' ) && current_user_can( 'edit_theme_options'
 /**
  * Genesis Featured Images (free, by Travis Smith)
  *
- * @since 1.0
+ * @since 1.0.0
  */
 if ( function_exists( 'gfi_init' ) && current_user_can( 'edit_theme_options' ) ) {
 	$menu_items['ext-gfeaturedimages'] = array(
@@ -284,7 +330,7 @@ if ( function_exists( 'gfi_init' ) && current_user_can( 'edit_theme_options' ) )
 /**
  * Genesis Footer Widgets (free, by Ramoonus)
  *
- * @since 1.0
+ * @since 1.0.0
  */
 if ( function_exists( 'gfw_init' ) && current_user_can( 'manage_options' ) ) {
 	$menu_items['ext-gfooterwidgets'] = array(
@@ -299,7 +345,7 @@ if ( function_exists( 'gfw_init' ) && current_user_can( 'manage_options' ) ) {
 /**
  * Genesis Simple Defaults (free, by Hit Reach)
  *
- * @since 1.0
+ * @since 1.0.0
  */
 if ( function_exists( 'SD_HR_Activate' ) && current_user_can( 'manage_options' ) ) {
 	$menu_items['ext-gsimpledefaults'] = array(
@@ -314,7 +360,7 @@ if ( function_exists( 'SD_HR_Activate' ) && current_user_can( 'manage_options' )
 /**
  * Genesis Comment Title (free, by Hit Reach)
  *
- * @since 1.0
+ * @since 1.0.0
  */
 if ( function_exists( 'CT_HR_Activate' ) && current_user_can( 'edit_theme_options' ) ) {
 	$menu_items['ext-gcommenttitle'] = array(
@@ -329,7 +375,7 @@ if ( function_exists( 'CT_HR_Activate' ) && current_user_can( 'edit_theme_option
 /**
  * Generate Box (free, by Hesham Zebida)
  *
- * @since 1.0
+ * @since 1.0.0
  * @version 1.1
  */
 if ( function_exists( 'generatebox_admin_init' ) && current_user_can( 'edit_theme_options' ) 
@@ -354,7 +400,7 @@ if ( function_exists( 'generatebox_admin_init' ) && current_user_can( 'edit_them
 /**
  * bbPress Genesis Extend (free, by Jared Atchison)
  *
- * @since 1.0
+ * @since 1.0.0
  */
 if ( class_exists( 'bbpge_settings' ) && current_user_can( 'edit_theme_options' ) ) {
 	$menu_items['ext-gbbpextend'] = array(
@@ -369,7 +415,7 @@ if ( class_exists( 'bbpge_settings' ) && current_user_can( 'edit_theme_options' 
 /**
  * Genesis Connect [for BuddyPress] (free, by StudioPress)
  *
- * @since 1.0
+ * @since 1.0.0
  */
 $gtbe_gconnect_cap = ( is_multisite() ? 'manage_network_options' : 'manage_options' );
 if ( class_exists( 'GConnect_Theme' ) && ( class_exists( 'BuddyPress' ) || class_exists( 'BP_Core_User' ) ) && $gtbe_gconnect_cap ) {
@@ -385,7 +431,7 @@ if ( class_exists( 'GConnect_Theme' ) && ( class_exists( 'BuddyPress' ) || class
 /**
  * Scribe SEO (free, by Copbyblogger Media LLC)
  *
- * @since 1.0
+ * @since 1.0.0
  */
 if ( class_exists( 'Ecordia' ) && current_user_can( 'manage_options' ) ) {
 	$menu_items['extcb-scribeseo'] = array(
@@ -402,7 +448,7 @@ if ( class_exists( 'Ecordia' ) && current_user_can( 'manage_options' ) ) {
  *
  * @link http://slash25.com/genesis-accordion-plugin/
  *
- * @since 1.0
+ * @since 1.0.0
  */
 if ( ( defined( 'GENESIS_ACCORDION_SETTINGS_FIELD' ) || function_exists( 'GenesisAccordionInit' ) ) && current_user_can( 'manage_options' ) ) {
 	$menu_items['extsp-gaccordion'] = array(
@@ -417,7 +463,7 @@ if ( ( defined( 'GENESIS_ACCORDION_SETTINGS_FIELD' ) || function_exists( 'Genesi
 /**
  * Genesis Hooks (free, by Travis Smith)
  *
- * @since 1.0
+ * @since 1.0.0
  * @version 1.1
  */
 if ( function_exists( 'genesis_hooks_setup' ) && current_user_can( 'edit_theme_options' ) ) {
@@ -433,7 +479,7 @@ if ( function_exists( 'genesis_hooks_setup' ) && current_user_can( 'edit_theme_o
 /**
  * SEO Data Transporter (free, by StudioPress)
  *
- * @since 1.0
+ * @since 1.0.0
  */
 if ( function_exists( 'seodt_settings_init' ) && current_user_can( 'manage_options' ) ) {
 	$menu_items['extsp-seodatatransporter'] = array(
@@ -448,7 +494,7 @@ if ( function_exists( 'seodt_settings_init' ) && current_user_can( 'manage_optio
 /**
  * (SPYR) Network Bar (free, by Spyr Media)
  *
- * @since 1.4
+ * @since 1.4.0
  */
 if ( class_exists( 'spyr_bar' ) && current_user_can( 'manage_options' ) ) {
 
@@ -476,7 +522,7 @@ if ( class_exists( 'spyr_bar' ) && current_user_can( 'manage_options' ) ) {
 /**
  * Widget Settings Importer/Exporter (free, by Kevin Langley & smccafferty)
  *
- * @since 1.4
+ * @since 1.4.0
  */
 if ( class_exists( 'Widget_Data' ) && ( current_user_can( 'manage_options' ) || current_user_can( 'administrator' ) ) ) {
 
@@ -514,13 +560,13 @@ if ( class_exists( 'Widget_Data' ) && ( current_user_can( 'manage_options' ) || 
  * Manage Content Group
  * For displaying more extensions in a more relevant and accessable way
  *
- * @since 1.0
+ * @since 1.0.0
  */
 
 	/**
 	 * AgentPress Listings (free, by StudioPress)
 	 *
-	 * @since 1.0
+	 * @since 1.0.0
 	 */
 	if ( function_exists( 'agentpress_listings_init' ) && current_user_can( 'edit_posts' ) ) {
 
@@ -561,7 +607,7 @@ if ( class_exists( 'Widget_Data' ) && ( current_user_can( 'manage_options' ) || 
 		 * AgentPress Listings Taxonomy Reorder (free, by Robert Iseley)
 		 * Add plugin support only here where it makes sense.
 		 *
-		 * @since 1.3
+		 * @since 1.3.0
 		 */
 		if ( function_exists( 'ap_tax_reorder_init' ) && current_user_can( 'manage_options' ) ) {
 			$menu_items['mcgspapl-taxreorder'] = array(
@@ -569,6 +615,27 @@ if ( class_exists( 'Widget_Data' ) && ( current_user_can( 'manage_options' ) || 
 				'title'  => __( 'Reorder Taxonomies', 'genesis-toolbar-extras' ),
 				'href'   => admin_url( 'edit.php?post_type=listing&page=ap-tax-reorder' ),
 				'meta'   => array( 'target' => '', 'title' => __( 'Reorder Taxonomies', 'genesis-toolbar-extras' ) )
+			);
+		}  // end-if plugin & cap check
+
+		/**
+		 * AgentPress Broker Listings (Agents) (free, by iZone Technology)
+		 * Add plugin support only here where it makes sense.
+		 *
+		 * @since 1.5.0
+		 */
+		if ( function_exists( 'create_real_estate_agents' ) && ( current_user_can( 'manage_options' ) || current_user_can( 'administrator' ) ) ) {
+			$menu_items['mcgspapl-agents'] = array(
+				'parent' => $mcgspapl,
+				'title'  => __( 'Agents/ Broker Listings', 'genesis-toolbar-extras' ),
+				'href'   => admin_url( 'admin.php?page=agent_display_details&sub=agents_list' ),
+				'meta'   => array( 'target' => '', 'title' => __( 'Agents/ Broker Listings', 'genesis-toolbar-extras' ) )
+			);
+			$menu_items['mcgspapl-agents-addedit'] = array(
+				'parent' => $mcgspapl,
+				'title'  => __( 'Add/ Create Agent', 'genesis-toolbar-extras' ),
+				'href'   => admin_url( 'admin.php?page=agent_display_details&sub=create_agent' ),
+				'meta'   => array( 'target' => '', 'title' => __( 'Add/ Create Agent', 'genesis-toolbar-extras' ) )
 			);
 		}  // end-if plugin & cap check
 
@@ -588,7 +655,7 @@ if ( class_exists( 'Widget_Data' ) && ( current_user_can( 'manage_options' ) || 
 	/**
 	 * Genesis Portfolio (free, by Travis Smith)
 	 *
-	 * @since 1.1
+	 * @since 1.1.0
 	 */
 	if ( defined( 'MFP_VERSION' ) && current_user_can( 'edit_posts' ) ) {
 
@@ -657,7 +724,7 @@ if ( class_exists( 'Widget_Data' ) && ( current_user_can( 'manage_options' ) || 
 	/**
 	 * Genesis Media Project (free, by Nick Croft)
 	 *
-	 * @since 1.0
+	 * @since 1.0.0
 	 */
 	if ( defined( 'GMP_SETTINGS_FIELD' ) && current_user_can( 'edit_posts' ) ) {
 
@@ -744,7 +811,7 @@ if ( class_exists( 'Widget_Data' ) && ( current_user_can( 'manage_options' ) || 
 	/**
 	 * Genesis Press Post Type (free, by Will Anderson, Derick Schaefer, Matt Lawrence)
 	 *
-	 * @since 1.0
+	 * @since 1.0.0
 	 */
 	if ( function_exists( 'gpp_activation_check' ) && current_user_can( 'edit_posts' ) ) {
 
@@ -793,7 +860,7 @@ if ( class_exists( 'Widget_Data' ) && ( current_user_can( 'manage_options' ) || 
 	/**
 	 * Genesis Promotion Box (free, by Ron Rennick)
 	 *
-	 * @since 1.0
+	 * @since 1.0.0
 	 */
 	if ( class_exists( 'Genesis_Promo_Box_Post_Type' ) && current_user_can( 'edit_posts' ) ) {
 
@@ -820,7 +887,7 @@ if ( class_exists( 'Widget_Data' ) && ( current_user_can( 'manage_options' ) || 
 	/**
 	 * Simple URLs (free, by StudioPress)
 	 *
-	 * @since 1.0
+	 * @since 1.0.0
 	 */
 	if ( class_exists( 'SimpleURLs' ) && current_user_can( 'manage_links' ) ) {
 
@@ -846,7 +913,7 @@ if ( class_exists( 'Widget_Data' ) && ( current_user_can( 'manage_options' ) || 
 	/**
 	 * WP-Cycle (free, by Nathan Rice)
 	 *
-	 * @since 1.0
+	 * @since 1.0.0
 	 */
 	if ( function_exists( 'add_wp_cycle_menu' ) && current_user_can( 'upload_files' ) ) {
 
@@ -874,7 +941,7 @@ if ( class_exists( 'Widget_Data' ) && ( current_user_can( 'manage_options' ) || 
 	/**
 	 * Dynamic Content Gallery - DCG (free, by Ade Walker - Studiograsshopper)
 	 *
-	 * @since 1.0
+	 * @since 1.0.0
 	 */
 	if ( ( function_exists( 'dfcg_init' ) || function_exists( 'dfcg_options_init' ) ) && current_user_can( 'manage_options' ) ) {
 
@@ -903,7 +970,7 @@ if ( class_exists( 'Widget_Data' ) && ( current_user_can( 'manage_options' ) || 
 	 * Soliloquy for WordPress (premium, by Thomas Griffin Media)
 	 * plus: Soliloquy Lite (free, by Thomas Griffin Media)
 	 *
-	 * @since 1.3
+	 * @since 1.3.0
 	 */
 	if ( class_exists( 'Tgmsp' ) || class_exists( 'Tgmsp_Lite' ) ) {
 
@@ -945,7 +1012,7 @@ if ( class_exists( 'Widget_Data' ) && ( current_user_can( 'manage_options' ) || 
 	/**
 	 * RoyalSlider (premium, by Semenov)
 	 *
-	 * @since 1.4
+	 * @since 1.4.0
 	 */
 	if ( class_exists( 'RoyalSliderAdmin' ) && current_user_can( 'manage_options' ) ) {
 
@@ -971,7 +1038,7 @@ if ( class_exists( 'Widget_Data' ) && ( current_user_can( 'manage_options' ) || 
 	/**
 	 * TouchCarousel (premium, by Semenov)
 	 *
-	 * @since 1.4
+	 * @since 1.4.0
 	 */
 	if ( class_exists( 'TouchCarouselAdmin' ) && current_user_can( 'manage_options' ) ) {
 
@@ -1008,7 +1075,7 @@ if ( class_exists( 'Widget_Data' ) && ( current_user_can( 'manage_options' ) || 
 	/**
 	 * Premise (premium, by Copyblogger Media LLC)
 	 *
-	 * @since 1.0
+	 * @since 1.0.0
 	 * @version 1.1
 	 */
 	if ( class_exists( 'Premise_Base' ) ) {

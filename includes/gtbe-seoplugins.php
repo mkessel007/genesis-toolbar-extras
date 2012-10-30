@@ -11,13 +11,13 @@
  * @link       http://genesisthemes.de/en/wp-plugins/genesis-toolbar-extras/
  * @link       http://twitter.com/deckerweb
  *
- * @since 1.1
+ * @since 1.1.0
  */
 
 /**
  * "SEO Plugin" String for all supported SEO Plugins
  *
- * @since 1.1
+ * @since 1.1.0
  *
  * @param $gtbe_seoplugin
  */
@@ -27,7 +27,7 @@ $gtbe_seoplugin = __( 'SEO Plugin', 'genesis-toolbar-extras' ) . ': ';
 /**
  * WordPress SEO by Yoast (free, by Joost de Valk)
  *
- * @since 1.1
+ * @since 1.1.0
  */
 if ( defined( 'WPSEO_VERSION' ) && current_user_can( 'manage_options' ) ) {
 	$menu_items['extgseoyoastseo'] = array(
@@ -60,7 +60,7 @@ if ( defined( 'WPSEO_VERSION' ) && current_user_can( 'manage_options' ) ) {
 /**
  * All In One SEO Pack (free, by Michael Torbert)
  *
- * @since 1.1
+ * @since 1.1.0
  */
 if ( ( defined( 'AIOSEOP_VERSION' ) || ( function_exists( 'is_plugin_active' ) && is_plugin_active( 'all-in-one-seo-pack/all_in_one_seo_pack.php' ) ) ) && current_user_can( 'manage_options' ) ) {
 	$menu_items['extgseo-aiosp'] = array(
@@ -75,7 +75,7 @@ if ( ( defined( 'AIOSEOP_VERSION' ) || ( function_exists( 'is_plugin_active' ) &
 /**
  * All In One SEO Pack Pro (premium, by Michael Torbert)
  *
- * @since 1.1
+ * @since 1.1.0
  */
 if ( ( class_exists( 'All_in_One_SEO_Pack_p' ) || ( function_exists( 'is_plugin_active' ) && is_plugin_active( 'all-in-one-seo-pack-pro/all_in_one_seo_pack.php' ) ) ) && current_user_can( 'manage_options' ) ) {
 	$menu_items['extgseo-aiosppro'] = array(
@@ -90,7 +90,7 @@ if ( ( class_exists( 'All_in_One_SEO_Pack_p' ) || ( function_exists( 'is_plugin_
 /**
  * wpSEO (premium, by Sergej Müller)
  *
- * @since 1.1
+ * @since 1.1.0
  */
 if ( class_exists( 'wpSEO' ) && current_user_can( 'manage_options' ) ) {
 	$menu_items['extgseowpseo'] = array(
@@ -117,7 +117,7 @@ if ( class_exists( 'wpSEO' ) && current_user_can( 'manage_options' ) ) {
 /**
  * SEO Ultimate (free, by SEO Design Solutions)
  *
- * @since 1.1
+ * @since 1.1.0
  */
 if ( defined( 'SU_PLUGIN_NAME' ) && current_user_can( 'manage_options' ) ) {
 	$menu_items['extgseoultimate'] = array(
@@ -144,7 +144,7 @@ if ( defined( 'SU_PLUGIN_NAME' ) && current_user_can( 'manage_options' ) ) {
 /**
  * gdHeadSpace4 (free, by Milan Petrovic at Dev4Press)
  *
- * @since 1.1
+ * @since 1.1.0
  */
 if ( defined( 'GDHEADSPACE4_PATH' ) && current_user_can( 'manage_options' ) ) {
 	$menu_items['extgseogdhs'] = array(
@@ -171,7 +171,7 @@ if ( defined( 'GDHEADSPACE4_PATH' ) && current_user_can( 'manage_options' ) ) {
 /**
  * HeadSpace2 (free, by John Godley)
  *
- * @since 1.1
+ * @since 1.1.0
  */
 if ( class_exists( 'HeadSpace2_Admin' ) && current_user_can( 'manage_options' ) ) {
 	$menu_items['extgseoheadspace'] = array(
@@ -186,7 +186,7 @@ if ( class_exists( 'HeadSpace2_Admin' ) && current_user_can( 'manage_options' ) 
 /**
  * Platinum SEO Pack (free, by Rajesh)
  *
- * @since 1.1
+ * @since 1.1.0
  */
 if ( class_exists( 'Platinum_SEO_Pack' ) && current_user_can( 'manage_options' ) ) {
 	$menu_items['extgseoheadspace'] = array(
@@ -201,7 +201,7 @@ if ( class_exists( 'Platinum_SEO_Pack' ) && current_user_can( 'manage_options' )
 /**
  * Greg's High Performance SEO (free, by Greg Mulhauser)
  *
- * @since 1.1
+ * @since 1.1.0
  */
 if ( class_exists( 'gregsHighPerformanceSEO' ) && current_user_can( 'manage_options' ) ) {
 	$menu_items['extgseoghpseo'] = array(

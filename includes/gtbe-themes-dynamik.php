@@ -10,17 +10,21 @@
  * @link       http://genesisthemes.de/en/wp-plugins/genesis-toolbar-extras/
  * @link       http://twitter.com/deckerweb
  *
- * @since 1.3
+ * @since 1.3.0
  */
 
 /**
  * Special child theme stuff
  * Third-party child theme: Dynamik Genesis (aka Dynamik Website Builder)
  *
- * @since 1.3
+ * @since 1.3.0
  */
 /** Child Theme settings section - only if "Dynamik Genesis" 1.0+ is active */
-if ( ( function_exists( 'dynamik_theme_settings' ) && ! get_the_author_meta( 'disable_dynamik_gen_settings_menu', $gtbe_user->ID ) ) && current_user_can( 'manage_options' ) ) {
+if ( ( function_exists( 'dynamik_theme_settings' )
+	&& ! get_the_author_meta( 'disable_dynamik_gen_settings_menu', $gtbe_user->ID ) )
+	&& current_user_can( 'manage_options' )
+) {
+
 	$menu_items['tpchild-generalsettings'] = array(
 		'parent' => $tpchild_dynamik,
 		'title'  => __( 'General Settings', 'genesis-toolbar-extras' ),
@@ -39,10 +43,16 @@ if ( ( function_exists( 'dynamik_theme_settings' ) && ! get_the_author_meta( 'di
 		'href'   => admin_url( 'admin.php?page=dynamik-settings&activetab=dynamik-theme-settings-nav-info' ),
 		'meta'   => array( 'target' => '', 'title' => __( 'Child Theme Info', 'genesis-toolbar-extras' ) )
 	);
-}
+
+}  // end-if Dynamik settings check
+
 
 /** Design settings section - only if "Dynamik Genesis" 1.0+ is active */
-if ( ( function_exists( 'dynamik_design_options' ) && ! get_the_author_meta( 'disable_dynamik_gen_design_menu', $gtbe_user->ID ) ) && current_user_can( 'manage_options' ) ) {
+if ( ( function_exists( 'dynamik_design_options' )
+	&& ! get_the_author_meta( 'disable_dynamik_gen_design_menu', $gtbe_user->ID ) )
+	&& current_user_can( 'manage_options' )
+) {
+
 	$menu_items['dynamikdesign'] = array(
 		'parent' => $tgroup,
 		'title'  => __( 'Design Settings', 'genesis-toolbar-extras' ),
@@ -193,10 +203,16 @@ if ( ( function_exists( 'dynamik_design_options' ) && ! get_the_author_meta( 'di
 			'href'   => admin_url( 'admin.php?page=dynamik-design&activetab=dynamik-design-options-nav-import-export' ),
 			'meta'   => array( 'target' => '', 'title' => __( 'Import/ Export Settings', 'genesis-toolbar-extras' ) )
 		);
-}  // end-if Design Settings check
+
+}  // end-if Dynamik Design Settings check
+
 
 /** Dynamik Custom section - only for "Dynamik Genesis" 1.0+ */
-if ( ( function_exists( 'dynamik_custom_options' ) && ! get_the_author_meta( 'disable_dynamik_gen_custom_menu', $gtbe_user->ID ) ) && current_user_can( 'manage_options' ) ) {
+if ( ( function_exists( 'dynamik_custom_options' )
+	&& ! get_the_author_meta( 'disable_dynamik_gen_custom_menu', $gtbe_user->ID ) )
+	&& current_user_can( 'manage_options' )
+) {
+
 	$menu_items['dynamikcustom'] = array(
 		'parent' => $tgroup,
 		'title'  => __( 'Custom CSS &amp; Code', 'genesis-toolbar-extras' ),
@@ -233,4 +249,14 @@ if ( ( function_exists( 'dynamik_custom_options' ) && ! get_the_author_meta( 'di
 			'href'   => admin_url( 'admin.php?page=dynamik-custom&activetab=dynamik-custom-options-nav-hook-boxes' ),
 			'meta'   => array( 'target' => '', 'title' => __( 'Custom Hook Boxes', 'genesis-toolbar-extras' ) )
 		);
+
 }  // end-if Dynamik Custom check
+
+
+/** Add 'Genesis Dynamik' support link to general support section */
+$menu_items['genesisdynamik-suppurtforum'] = array(
+	'parent' => $tpsgroup,
+	'title'  => __( 'Genesis Dynamik Support', 'genesis-toolbar-extras' ),
+	'href'   => 'http://ddwb.me/84',
+	'meta'   => array( 'title' => __( 'Genesis Dynamik Support', 'genesis-toolbar-extras' ) )
+);

@@ -11,13 +11,13 @@
  * @link       http://genesisthemes.de/en/wp-plugins/genesis-toolbar-extras/
  * @link       http://twitter.com/deckerweb
  *
- * @since 1.0
+ * @since 1.0.0
  */
 
 /**
  * Setting default values for some variables
  *
- * @since 1.0
+ * @since 1.0.0
  */
 $themedy_child_name = 'default';
 $themedy_child_forum = 'default';
@@ -30,7 +30,7 @@ $gtbe_is_themedy_photo = 'default';
 /**
  * "Theme Settings" String for all Child Themes
  *
- * @since 1.0
+ * @since 1.0.0
  *
  * @param $gtbe_themesettings
  */
@@ -40,7 +40,7 @@ $gtbe_themesettings = '&nbsp;' . __( 'Theme Settings', 'genesis-toolbar-extras' 
 /**
  * Display link to active Themedy Child theme settings page (premium, by Themedy)
  *
- * @since 1.0
+ * @since 1.0.0
  * @version 1.1
  *
  * @param $themedy_child_name
@@ -90,6 +90,12 @@ $gtbe_themesettings = '&nbsp;' . __( 'Theme Settings', 'genesis-toolbar-extras' 
 	} elseif ( CHILD_THEME_NAME == 'Fremedy' || $gtbe_stylesheet_name == 'Fremedy Child Theme' ) {
 		$themedy_child_name = 'Fremedy' . $gtbe_themesettings;
 		$themedy_child_forum = 'http://themedy.com/forum/categories/fremedy';
+		$gtbe_is_themedy_portfolio = 'themedy_portfolio_yes';
+
+		// Themedy: Grind (premium)
+	} elseif ( CHILD_THEME_NAME == 'Grind' || $gtbe_stylesheet_name == 'FremeGrinddy Child Theme' ) {
+		$themedy_child_name = 'Grind' . $gtbe_themesettings;
+		$themedy_child_forum = 'http://themedy.com/forum/categories/grind';
 		$gtbe_is_themedy_portfolio = 'themedy_portfolio_yes';
 
 		// Themedy: Line It Up (premium)
@@ -143,6 +149,11 @@ $gtbe_themesettings = '&nbsp;' . __( 'Theme Settings', 'genesis-toolbar-extras' 
 
 	/** "Theme Group" menu items */
 	if ( current_user_can( 'edit_theme_options' ) ) {
+
+		/** Child type check */
+		$gtbe_child_type_check = $themedysettings;
+
+		/** "Theme Group" menu items */
 		$menu_items['themedysettings'] = array(
 			'parent' => $tgroup,
 			'title'  => $themedy_child_name,
@@ -150,6 +161,11 @@ $gtbe_themesettings = '&nbsp;' . __( 'Theme Settings', 'genesis-toolbar-extras' 
 			'meta'   => array( 'target' => '', 'title' => $themedy_child_name )
 		);
 	}  // end-if cap check
+
+
+	/** Hook: themedy_theme_after_title */
+	do_action( 'gtbe_themedy_after_title' );
+
 
 	/** Display Themedy custom theme editor links for proper caps */
 	if ( !( defined( 'DISALLOW_FILE_EDIT' ) && DISALLOW_FILE_EDIT ) && current_user_can( 'edit_themes' ) ) {

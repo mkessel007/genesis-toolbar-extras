@@ -10,14 +10,14 @@
  * @link       http://genesisthemes.de/en/wp-plugins/genesis-toolbar-extras/
  * @link       http://twitter.com/deckerweb
  *
- * @since 1.0
+ * @since 1.0.0
  * @version 1.1
  */
 
 /**
  * German language resources links collection
  *
- * @since 1.0
+ * @since 1.0.0
  */
 /** German Genesis Framework language packs */
 $genesisgroup_menu_items['languagesde'] = array(

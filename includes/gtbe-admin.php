@@ -10,14 +10,14 @@
  * @link       http://genesisthemes.de/en/wp-plugins/genesis-toolbar-extras/
  * @link       http://twitter.com/deckerweb
  *
- * @since 1.0
+ * @since 1.0.0
  * @version 1.1
  */
 
 /**
- * Setting internal plugin helper links constants
+ * Setting internal plugin helper links constants.
  *
- * @since 1.3
+ * @since 1.3.0
  */
 define( 'GTBE_URL_TRANSLATE',		'http://translate.wpautobahn.com/projects/genesis-plugins-deckerweb/genesis-toolbar-extras' );
 define( 'GTBE_URL_WPORG_FAQ',		'http://wordpress.org/extend/plugins/genesis-toolbar-extras/faq/' );
@@ -25,12 +25,13 @@ define( 'GTBE_URL_WPORG_FORUM',		'http://wordpress.org/support/plugin/genesis-to
 define( 'GTBE_URL_WPORG_PROFILE',	'http://profiles.wordpress.org/daveshine/' );
 define( 'GTBE_URL_SUGGESTIONS',		'http://twitter.com/deckerweb' );
 define( 'GTBE_URL_SNIPPETS',		'https://gist.github.com/2198788' );
+define( 'GTBE_PLUGIN_LICENSE', 		'GPLv2+' );
 if ( get_locale() == 'de_DE' || get_locale() == 'de_AT' || get_locale() == 'de_CH' || get_locale() == 'de_LU' ) {
 	define( 'GTBE_URL_DONATE', 	'http://genesisthemes.de/spenden/' );
 	define( 'GTBE_URL_PLUGIN',	'http://genesisthemes.de/plugins/genesis-toolbar-extras/' );
 } else {
 	define( 'GTBE_URL_DONATE', 	'http://genesisthemes.de/en/donate/' );
-	define( 'GTBE_URL_PLUGIN',	'http://genesisthemes.de/en-/wp-plugins/genesis-toolbar-extras/' );
+	define( 'GTBE_URL_PLUGIN',	'http://genesisthemes.de/en/wp-plugins/genesis-toolbar-extras/' );
 }
 
 
@@ -38,7 +39,7 @@ add_filter( 'plugin_row_meta', 'ddw_gtbe_plugin_links', 10, 2 );
 /**
  * Add various support links to plugin page
  *
- * @since 1.0
+ * @since 1.0.0
  *
  * @param  $gtbe_links
  * @param  $gtbe_file
@@ -72,7 +73,7 @@ add_action( 'load-genesis_page_dynamik-custom', 'ddw_gtbe_genesis_help_tab', 15 
 /**
  * Create and display plugin help tab.
  *
- * @since 1.3
+ * @since 1.3.0
  *
  * @global mixed $gtbe_genesis_screen
  */
@@ -96,7 +97,7 @@ function ddw_gtbe_genesis_help_tab() {
 	/** Add help sidebar */
 	$gtbe_genesis_screen->set_help_sidebar(
 		'<p><strong>' . __( 'More about the plugin author', 'genesis-toolbar-extras' ) . '</strong></p>' .
-		'<p>' . __( 'Social:', 'genesis-toolbar-extras' ) . '<br /><a href="http://twitter.com/deckerweb" target="_blank" title="@ Twitter">Twitter</a> | <a href="http://www.facebook.com/deckerweb.service" target="_blank" title="@ Facebook">Facebook</a> | <a href="http://deckerweb.de/gplus" target="_blank" title="@ Google+">Google+</a></p>' .
+		'<p>' . __( 'Social:', 'genesis-toolbar-extras' ) . '<br /><a href="http://twitter.com/deckerweb" target="_blank" title="@ Twitter">Twitter</a> | <a href="http://www.facebook.com/deckerweb.service" target="_blank" title="@ Facebook">Facebook</a> | <a href="http://deckerweb.de/gplus" target="_blank" title="@ Google+">Google+</a> | <a href="' . esc_url_raw( ddw_gtbe_plugin_get_data( 'AuthorURI' ) ) . '" target="_blank" title="@ deckerweb.de">deckerweb</a></p>' .
 		'<p><a href="' . esc_url_raw( GTBE_URL_WPORG_PROFILE ) . '" target="_blank" title="@ WordPress.org">@ WordPress.org</a></p>'
 	);
 
@@ -106,11 +107,12 @@ function ddw_gtbe_genesis_help_tab() {
 /**
  * Create and display plugin help tab content
  *
- * @since 1.3
+ * @since 1.3.0
+ * @version 1.1
  */
 function ddw_gtbe_genesis_help_tab_content() {
 
-	echo '<h3>' . __( 'Plugin', 'genesis-toolbar-extras' ) . ': ' . __( 'Genesis Toolbar Extras', 'genesis-toolbar-extras' ) . '</h3>' .		
+	echo '<h3>' . __( 'Plugin', 'genesis-toolbar-extras' ) . ': ' . __( 'Genesis Toolbar Extras', 'genesis-toolbar-extras' ) . ' <small>v' . esc_attr( ddw_gtbe_plugin_get_data( 'Version' ) ) . '</small></h3>' .		
 		'<ul>' . 
 			'<li><a href="' . esc_url_raw( GTBE_URL_SUGGESTIONS ) . '" target="_new" title="' . __( 'Suggest new resource items, child themes or plugins for support', 'genesis-toolbar-extras' ) . '">' . __( 'Suggest new resource items, child themes or plugins for support', 'genesis-toolbar-extras' ) . '</a></li>' .
 			'<li><a href="' . esc_url_raw( GTBE_URL_SNIPPETS ) . '" target="_new" title="' . __( 'Code snippets for customizing &amp; branding', 'genesis-toolbar-extras' ) . '">' . __( 'Code snippets for customizing &amp; branding', 'genesis-toolbar-extras' ) . '</a></li>';
@@ -158,6 +160,7 @@ function ddw_gtbe_genesis_help_tab_content() {
 
 	echo '</ul>' .
 		'<p><strong>' . __( 'Important plugin links:', 'genesis-toolbar-extras' ) . '</strong>' . 
-		'<br /><a href="' . esc_url_raw( GTBE_URL_PLUGIN ) . '" target="_new" title="' . __( 'Plugin website', 'genesis-toolbar-extras' ) . '">' . __( 'Plugin website', 'genesis-toolbar-extras' ) . '</a> | <a href="' . esc_url_raw( GTBE_URL_WPORG_FAQ ) . '" target="_new" title="' . __( 'FAQ', 'genesis-toolbar-extras' ) . '">' . __( 'FAQ', 'genesis-toolbar-extras' ) . '</a> | <a href="' . esc_url_raw( GTBE_URL_WPORG_FORUM ) . '" target="_new" title="' . _x( 'Support', 'Translators: Plugin support links', 'genesis-toolbar-extras' ) . '">' . _x( 'Support', 'Translators: Plugin support links', 'genesis-toolbar-extras' ) . '</a> | <a href="' . esc_url_raw( GTBE_URL_TRANSLATE ) . '" target="_new" title="' . __( 'Translations', 'genesis-toolbar-extras' ) . '">' . __( 'Translations', 'genesis-toolbar-extras' ) . '</a> | <a href="' . esc_url_raw( GTBE_URL_DONATE ) . '" target="_new" title="' . __( 'Donate', 'genesis-toolbar-extras' ) . '">' . __( 'Donate', 'genesis-toolbar-extras' ) . '</a></p>';
+		'<br /><a href="' . esc_url_raw( GTBE_URL_PLUGIN ) . '" target="_new" title="' . __( 'Plugin website', 'genesis-toolbar-extras' ) . '">' . __( 'Plugin website', 'genesis-toolbar-extras' ) . '</a> | <a href="' . esc_url_raw( GTBE_URL_WPORG_FAQ ) . '" target="_new" title="' . __( 'FAQ', 'genesis-toolbar-extras' ) . '">' . __( 'FAQ', 'genesis-toolbar-extras' ) . '</a> | <a href="' . esc_url_raw( GTBE_URL_WPORG_FORUM ) . '" target="_new" title="' . _x( 'Support', 'Translators: Plugin support links', 'genesis-toolbar-extras' ) . '">' . _x( 'Support', 'Translators: Plugin support links', 'genesis-toolbar-extras' ) . '</a> | <a href="' . esc_url_raw( GTBE_URL_TRANSLATE ) . '" target="_new" title="' . __( 'Translations', 'genesis-toolbar-extras' ) . '">' . __( 'Translations', 'genesis-toolbar-extras' ) . '</a> | <a href="' . esc_url_raw( GTBE_URL_DONATE ) . '" target="_new" title="' . __( 'Donate', 'genesis-toolbar-extras' ) . '">' . __( 'Donate', 'genesis-toolbar-extras' ) . '</a></p>' .
+		'<p><a href="http://www.opensource.org/licenses/gpl-license.php" target="_new" title="' . esc_attr( GTBE_PLUGIN_LICENSE ). '">' . esc_attr( GTBE_PLUGIN_LICENSE ). '</a> &copy; ' . date( 'Y' ) . ' <a href="' . esc_url_raw( ddw_gtbe_plugin_get_data( 'AuthorURI' ) ) . '" target="_new" title="' . esc_attr__( ddw_gtbe_plugin_get_data( 'Author' ) ) . '">' . esc_attr__( ddw_gtbe_plugin_get_data( 'Author' ) ) . '</a></p>';
 
 }  // end of function ddw_gtbe_genesis_help_tab_content
