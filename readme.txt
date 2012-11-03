@@ -4,7 +4,7 @@ Donate link: http://genesisthemes.de/en/donate/
 Tags: toolbar, tool bar, adminbar, admin bar, genesis, genesis framework, genesiswp, framework, administration, resources, links, theme, settings, manage, deckerweb, ddwtoolbar
 Requires at least: 3.3
 Tested up to: 3.5 Beta 2
-Stable tag: 1.5.0
+Stable tag: 1.5.1
 License: GPLv2 or later
 License URI: http://www.opensource.org/licenses/gpl-license.php
 
@@ -47,6 +47,7 @@ This plugin just adds **a lot Genesis Framework related resources** to your tool
 * Customizing, Branding and Capability support -- give your clients or staff members the menu items and the access THEY need.
 
 = Plugin/ Child Theme Support =
+* Currently more than **260 child themes** plus more than **63 plugins** are supported. How cool is that? :)
 * For the full list plus additional info please [**see "Other Notes" here**](http://wordpress.org/extend/plugins/genesis-toolbar-extras/other_notes/)
 * *Your child theme/ plugin? - [Just contact me with specific data](http://genesisthemes.de/en/contact/)*
 
@@ -428,6 +429,19 @@ All the custom & branding stuff code above can also be found as a Gist on Github
 
 == Changelog ==
 
+= 1.5.1 (2012-11-03) =
+* *Extended Child Theme support:*
+ * NEW: Added support for new Community/Marketplace child theme "Megalithe" by ZigZagPress.
+ * NEW: Added support for "Ellen Mae" by Web Savvy Marketing, LLC.
+ * NEW: Added support for "Absolute" by ZigZagPress.
+* *Extended plugin support:*
+ * NEW: Added support for "Genesis Simple Headers" (free, by 9seeds, LLC).
+ * NEW: Added support for "Genesis Responsive Header" (free, by Nick_theGeek).
+ * UPDATE: Improved support for premium version of "Soliloquy Sliders".
+* *Other stuff:*
+ * UPDATE: Corrected and updated readme.txt file here.
+ * UPDATE: Updated German translations and also the .pot file for all translators!
+
 = 1.5.0 (2012-10-30) =
 * *Extended Child Theme support:*
  * UPDATE: Updated support for official "Minimum" & "Executive" child theme by StudioPress, now both in version 2.0 - including support for 'portfolio' post type section!
@@ -558,6 +572,9 @@ All the custom & branding stuff code above can also be found as a Gist on Github
 
 == Upgrade Notice ==
 
+= 1.5.1 =
+Several additions & improvements: Extended theme & plugin support. Updated .pot file for translators plus German translations.
+
 = 1.5.0 =
 Several additions & improvements: Extended theme & plugin support. Some code updates, fixes and improvements. Updated .pot file for translators plus German translations.
 
@@ -609,7 +626,7 @@ Enjoy using *Genesis Toolbar Extras*? Please consider [making a small donation](
 * Including "Genesis Default" (no child theme, but it's always recommended to use a child theme...)
 
 = Community/Marketplace Child Themes from studiopress.com =
-* All community/marketplace child themes sold via studiopress.com platform, 22+ to date (including: Fashionista and Politica which seem to be discontinued...)
+* All community/marketplace child themes sold via studiopress.com platform, 23+ to date (including: Fashionista and Politica which seem to be discontinued...)
 * See under studiopress.com for full and growing list...
 * Note: if available, all extra setting pages are fully supported, as well as their specific support link resources.
 
@@ -621,11 +638,11 @@ Enjoy using *Genesis Toolbar Extras*? Please consider [making a small donation](
 = Third-party Child Themes from the Community or Other Marketplaces =
 * All by GenesisThemes.de/DECKERWEB, 2+ (free & premium)
 * All by Appfinite (Wes Straham), 9+ (all premium)
-* All by Web Savvy Marketing, LLC, 14+ (all premium)
+* All by Web Savvy Marketing, LLC, 15+ (all premium)
 * All by WPCanada (Len Kutchma), 14+ (all free)
 * All by Marco Galasso - Teethgrinder, 6+ (free & premium)
 * All by SomoThemes, 2+ (all premium)
-* All by ZIGZAGPRESS, 3+ (all premium) - includes support for Portfolio & Slides post types!
+* All by ZIGZAGPRESS, 6+ (all premium) - includes support for Portfolio & Slides post types!
 * All by FlashingCursor, 2+ (all premium)
 * All by Travis Smith, 2+ (all premium)
 * All by Josh Stauffer, 2+ (all free)
@@ -678,6 +695,8 @@ Enjoy using *Genesis Toolbar Extras*? Please consider [making a small donation](
 * Genesis Promotion Box - free
 * Genesis Press Post Type - free
 * Genesis Favicon Uploader - free
+* Genesis Responsive Header - free
+* Genesis Simple Headers - free
 * Genesis Custom Backgrounds - free
 * Genesis Design Palette - free
 * Genesis Bootstrap Carousel - free

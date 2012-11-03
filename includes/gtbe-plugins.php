@@ -46,7 +46,7 @@ if ( ( ( function_exists( 'is_plugin_active' ) && is_plugin_active( 'genesis-pal
  *
  * @since 1.5.0
  */
-if ( CHILD_THEME_NAME != 'Dynamik Website Builder'	// do not activate for Dynamik Genesis version!
+if ( ( defined( 'CHILD_THEME_NAME' ) && CHILD_THEME_NAME != 'Dynamik Website Builder' )	// do not activate for Dynamik Genesis version!
 	&& current_user_can( 'manage_options' )
 	&& defined( 'GENEXT_VERSION' )
 ) {
@@ -175,6 +175,36 @@ if ( class_exists( 'BE_Genesis_Grid' ) && current_user_can( 'edit_theme_options'
 		'meta'   => array( 'target' => '', 'title' => __( 'Grid Loop Settings', 'genesis-toolbar-extras' ) )
 	);
 }  // end-if Genesis Grid (Loop)
+
+
+/**
+ * Genesis Responsive Header (free, by Nick Croft)
+ *
+ * @since 1.5.1
+ */
+if ( defined( 'GRH_SETTINGS_FIELD' ) && current_user_can( 'manage_options' ) ) {
+	$menu_items['ext-gresponsiveheader'] = array(
+		'parent' => $extensions,
+		'title'  => __( 'Responsive Header', 'genesis-toolbar-extras' ),
+		'href'   => admin_url( 'admin.php?page=grh-settings' ),
+		'meta'   => array( 'target' => '', 'title' => __( 'Responsive Header', 'genesis-toolbar-extras' ) )
+	);
+}  // end-if Responsive Header
+
+
+/**
+ * Genesis Simple Headers (free, by 9seeds, LLC)
+ *
+ * @since 1.5.1
+ */
+if ( function_exists( 'gsh_custom_header_options' ) && current_user_can( 'edit_theme_options' ) ) {
+	$menu_items['ext-gsimpleheaders'] = array(
+		'parent' => $extensions,
+		'title'  => __( 'Simple Headers', 'genesis-toolbar-extras' ),
+		'href'   => admin_url( 'themes.php?page=custom-header#footer' ),
+		'meta'   => array( 'target' => '', 'title' => __( 'Simple Headers', 'genesis-toolbar-extras' ) )
+	);
+}  // end-if Simple Headers
 
 
 /**
@@ -1005,6 +1035,16 @@ if ( class_exists( 'Widget_Data' ) && ( current_user_can( 'manage_options' ) || 
 				'href'   => admin_url( 'edit.php?post_type=soliloquy&page=soliloquy-addons' ),
 				'meta'   => array( 'target' => '', 'title' => __( 'Add Ons', 'genesis-toolbar-extras' ) )
 			);
+
+			if ( class_exists( 'Tgmsp_Updates' ) ) {
+				$menu_items['mcgsoliloquy-updates'] = array(
+					'parent' => $mcgsoliloquy,
+					'title'  => __( 'Updates', 'genesis-toolbar-extras' ),
+					'href'   => admin_url( 'edit.php?post_type=soliloquy&page=soliloquy-updates' ),
+					'meta'   => array( 'target' => '', 'title' => __( 'Updates', 'genesis-toolbar-extras' ) )
+				);
+			}  // end-if class check
+
 		}  // end-if Soliloquy premium features
 
 	}  // end-if Soliloquy

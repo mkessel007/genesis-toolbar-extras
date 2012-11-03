@@ -141,17 +141,19 @@ $gtbe_theme_fallback = __( 'Theme', 'genesis-toolbar-extras' ) . ':&nbsp;';
 		$spmarket_child_name = 'Inspired' . $gtbe_theme;
 		$spmarket_child_forum = 'http://www.studiopress.com/support/forumdisplay.php?f=211';
 
-		// Legacy 1.0 - 1.2.1+
+		// Legacy 1.0 - 1.2.1+ (appfinite)
 	} elseif ( CHILD_THEME_NAME == 'Legacy Theme' || $gtbe_stylesheet_name == 'Legacy Child Theme' ) {
 		$gtbe_is_spmarket = 'spmarket_yes';
 		$spmarket_child_name = 'Legacy' . $gtbe_theme;
 		$spmarket_child_forum = 'http://www.studiopress.com/support/forumdisplay.php?f=184';
 
-		// Maximum 1.0+
+		// Maximum 1.0+ (Brad Potter)
 	} elseif ( CHILD_THEME_NAME == 'Maximum Theme' || $gtbe_stylesheet_name == 'Maximum Child Theme' ) {
 		$gtbe_is_spmarket = 'spmarket_yes';
 		$spmarket_child_name = 'Maximum' . $gtbe_theme;
 		$spmarket_child_forum = 'http://www.studiopress.com/support/forumdisplay.php?f=177';
+
+		// Megalithe 1.1+ (ZigZagPress) --> see below under third-party child themes!
 
 		// Modern Blogger 1.0+
 	} elseif ( CHILD_THEME_NAME == 'Modern Blogger Theme' || $gtbe_stylesheet_name == 'Modern Blogger Child Theme' ) {
@@ -159,7 +161,7 @@ $gtbe_theme_fallback = __( 'Theme', 'genesis-toolbar-extras' ) . ':&nbsp;';
 		$spmarket_child_name = 'Modern Blogger' . $gtbe_theme;
 		$spmarket_child_forum = 'http://www.studiopress.com/support/forumdisplay.php?f=187';
 
-		// Optimal 1.0 - 1.2.1+
+		// Optimal 1.0 - 1.2.1+ (appfinite)
 	} elseif ( CHILD_THEME_URL == 'http://www.studiopress.com/themes/optimal' && ( CHILD_THEME_NAME == 'Optimal Theme' || $gtbe_stylesheet_name == 'Optimal Child Theme' ) ) {
 		$gtbe_is_spmarket = 'spmarket_yes';
 		$spmarket_child_name = 'Optimal' . $gtbe_theme;
@@ -618,8 +620,8 @@ $gtbe_theme_fallback = __( 'Theme', 'genesis-toolbar-extras' ) . ':&nbsp;';
 
 		/**
 		 * by Web Savvy Marketing, LLC.:
-		 *   Carla Anna, Alexandra, Anneliese, Dagmar, Elsa, Erik, Frederik, Hans, Kathryn, Lillian, Mariah,
-		 *   Rasmus, Robert, Soren
+		 *   Carla Anna, Alexandra, Anneliese, Dagmar, Ellen Mae, Elsa, Erik, Frederik, Hans, Kathryn, Lillian,
+		 *   Mariah, Rasmus, Robert, Soren
 		 */
 	} elseif ( function_exists( 'carla_anna_do_footer' )
 			|| $gtbe_stylesheet_name == 'Carla Anna'
@@ -669,6 +671,19 @@ $gtbe_theme_fallback = __( 'Theme', 'genesis-toolbar-extras' ) . ':&nbsp;';
 			$tpchild_support = 'http://www.web-savvy-marketing.com/forum/dagmar/';
 		$tpchild_is_codex = 'tpcodex_yes';
 			$tpchild_codex = 'http://www.web-savvy-marketing.com/forum/dagmar-instructions/';
+
+	} elseif ( function_exists( 'ellen_sidebar_logic' )
+			|| CHILD_THEME_NAME == 'Ellen Mae Child Theme'
+			|| CHILD_THEME_NAME == 'Ellen'
+			|| $gtbe_stylesheet_name == 'Ellen Mae'
+	) {
+		$gtbe_is_tpchild = 'tpchild_yes';
+		$tpchild_name = 'Ellen Mae' . $gtbe_theme;		// Ellen Mae
+		$tpchild_aurl = admin_url( 'admin.php?page=ellen' );
+		$tpchild_is_support = 'tpsupport_yes';
+			$tpchild_support = 'http://www.web-savvy-marketing.com/forum/ellen-mae-1/';
+		$tpchild_is_codex = 'tpcodex_yes';
+			$tpchild_codex = 'http://www.web-savvy-marketing.com/forum/ellen-mae-instructions/';
 
 	} elseif ( function_exists( 'elsa_add_settings' )
 			|| CHILD_THEME_NAME == 'Elsa Theme'
@@ -793,7 +808,7 @@ $gtbe_theme_fallback = __( 'Theme', 'genesis-toolbar-extras' ) . ':&nbsp;';
 
 		/**
 		 * by ZIGZAGPRESS.com:
-		 *   Engrave, Showroom, Simplicity, Vanilla
+		 *   Absolute, Engrave, Megalithe, Showroom, Simplicity, Vanilla
 		 */
 	} elseif ( /* CHILD_THEME_NAME == 'Engrave Theme' || */
 			function_exists( 'codes_admin_init' )
@@ -804,6 +819,24 @@ $gtbe_theme_fallback = __( 'Theme', 'genesis-toolbar-extras' ) . ':&nbsp;';
 		$tpchild_aurl = admin_url( 'admin.php?page=optionsframework' );
 		$tpchild_is_support = 'tpsupport_yes';
 			$tpchild_support = 'http://zigzagpress.com/support/';
+		$tpchild_file = 'zigzagpress_file_yes';
+
+	} elseif ( /* CHILD_THEME_NAME == 'Absolute Theme' || */
+			$gtbe_stylesheet_name == 'Absolute'
+	) {
+		$gtbe_is_tpchild = 'tpchild_yes';
+		$tpchild_name = 'Absolute' . $gtbe_theme;	// Absolute
+		$tpchild_aurl = admin_url( 'admin.php?page=optionsframework' );
+		$tpchild_is_support = 'tpsupport_yes';
+			$tpchild_support = 'http://zigzagpress.com/support/';
+		$tpchild_file = 'zigzagpress_file_yes';
+
+	} elseif ( CHILD_THEME_NAME == 'Megalithe' || $gtbe_stylesheet_name == 'Megalithe' ) {
+		$gtbe_is_tpchild = 'tpchild_yes';
+		$tpchild_name = 'Megalithe' . $gtbe_theme;	// Megalithe 1.1+
+		$tpchild_aurl = admin_url( 'admin.php?page=optionsframework' );
+		$tpchild_is_support = 'tpsupport_yes';
+			$tpchild_support = 'http://www.studiopress.com/support/forumdisplay.php?f=217';
 		$tpchild_file = 'zigzagpress_file_yes';
 
 	} elseif ( /* CHILD_THEME_NAME == 'Showroom Theme' || */
