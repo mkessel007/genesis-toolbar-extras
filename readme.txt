@@ -4,7 +4,7 @@ Donate link: http://genesisthemes.de/en/donate/
 Tags: toolbar, tool bar, adminbar, admin bar, genesis, genesis framework, genesiswp, framework, administration, resources, links, theme, settings, manage, deckerweb, ddwtoolbar
 Requires at least: 3.3
 Tested up to: 3.5 Beta 2
-Stable tag: 1.5.1
+Stable tag: 1.6.0
 License: GPLv2 or later
 License URI: http://www.opensource.org/licenses/gpl-license.php
 
@@ -47,7 +47,7 @@ This plugin just adds **a lot Genesis Framework related resources** to your tool
 * Customizing, Branding and Capability support -- give your clients or staff members the menu items and the access THEY need.
 
 = Plugin/ Child Theme Support =
-* Currently more than **260 child themes** plus more than **63 plugins** are supported. How cool is that? :)
+* Currently more than **225 child themes** plus more than **66 plugins** are supported. How cool is that? :)
 * For the full list plus additional info please [**see "Other Notes" here**](http://wordpress.org/extend/plugins/genesis-toolbar-extras/other_notes/)
 * *Your child theme/ plugin? - [Just contact me with specific data](http://genesisthemes.de/en/contact/)*
 
@@ -69,6 +69,7 @@ This plugin just adds **a lot Genesis Framework related resources** to your tool
 = More =
 * [Also see my other plugins](http://genesisthemes.de/en/wp-plugins/) or see [my WordPress.org profile page](http://profiles.wordpress.org/daveshine/)
 * Tip: [*GenesisFinder* - Find then create. Your Genesis Framework Search Engine.](http://genesisfinder.com/)
+* Hey, come & join the [Genesis Community on Google+ :)](http://ddwb.me/genesiscommunity)
 
 == Installation ==
 
@@ -143,7 +144,7 @@ function gtbe_custom_additional_group_item() {
 `
 
 = Can certain sections be removed? =
-Yes, this is possible! You can remove the following sections: "Child Theme" area (all items) / "Extensions" (main item + sub items!) / "Manage Content" group (all items) / "Resources link group" at the bottom (all items) / "German language stuff" (all items) / "Translations" (all items)
+Yes, this is possible! You can remove the following sections: "Child Theme" area (all items) / "Extensions" (main item + sub items!) / "Manage Content" group (all items) / "Resources link group" at the bottom (all items) / "My.StudioPress" Resources / "Old Support Forums" stuff / "German language stuff" (all items) / "Translations" (all items)
 
 To achieve this add one, some or all of the following constants to your child theme's `functions.php` file:
 `
@@ -158,6 +159,12 @@ define( 'GTBE_MANAGE_CONTENT_DISPLAY', FALSE );
 
 /** Genesis Toolbar Extras: Remove Resource Items */
 define( 'GTBE_RESOURCES_DISPLAY', FALSE );
+
+/** Genesis Toolbar Extras: Remove My.StudioPress Items */
+define( 'GTBE_MYSP_DISPLAY', FALSE );
+
+/** Genesis Toolbar Extras: Remove my.StudioPress Items */
+define( 'GTBE_OLDFORUMS_DISPLAY', FALSE );
 
 /** Genesis Toolbar Extras: Remove German Language Items */
 define( 'GTBE_DE_DISPLAY', FALSE );
@@ -413,21 +420,59 @@ function custom_url_child_changelog() {
 
 **Final note:** If you don't like to add your customizations to your child theme's `functions.php` file you can also add them to a functionality plugin or an MU-plugin. This way you can also use this better for Multisite environments. In general you are then more independent from child theme changes etc.
 
+**Final note:** I DON'T recommend to add customization code snippets to your child theme's `functions.php` file! **Please use a functionality plugin or an MU-plugin instead!** This way you can also use this better for Multisite environments. In general you are not abusing the functions.php for plugin-specific stuff and you are then also more independent from child theme changes etc. If you don't know how to create such a plugin yourself just use one of my recommended 'Code Snippets' plugins. Read & bookmark these Sites:
+
+* [**"What is a functionality plugin and how to create one?"**](http://wpcandy.com/teaches/how-to-create-a-functionality-plugin) - *blog post by WPCandy*
+* [**"Creating a custom functions plugin for end users"**](http://justintadlock.com/archives/2011/02/02/creating-a-custom-functions-plugin-for-end-users) - *blog post by Justin Tadlock*
+* DON'T hack your `functions.php` file: [Resource One](http://thomasgriffinmedia.com/custom-snippets-plugin/) - [Resource Two](http://thomasgriffinmedia.com/blog/2012/09/calling-on-the-wordpress-community/) *(both by Thomas Griffin Media)*
+* [**"Code Snippets"** plugin by Shea Bunge](http://wordpress.org/extend/plugins/code-snippets/) - also network wide!
+* [**"Code With WP Code Snippets"** plugin by Thomas Griffin](https://github.com/thomasgriffin/CWWP-Custom-Snippets) - Note: Plugin currently in development at GitHub.
+* [**"Toolbox Modules"** plugin by Sergej Müller](http://wordpress.org/extend/plugins/toolbox/) - see also his [plugin instructions](http://playground.ebiene.de/toolbox-wordpress-plugin/).
+
 All the custom & branding stuff code above can also be found as a Gist on Github: https://gist.github.com/2198788 (you can also add your questions/ feedback there :)
 
 == Screenshots ==
 
-1. Genesis Toolbar Extras: default icon plus additional colored icons -- default color: turquoise/light blue -- 9 additional colors: brown, dark blue, green, ivory, orange, pink, red, white (= Genesis original!), yellow -- changeable via filters, [see FAQ section here](http://wordpress.org/extend/plugins/genesis-toolbar-extras/faq/)
-2. Genesis Toolbar Extras in action - primary level (running with WordPress 3.3+ here)
-3. Genesis Toolbar Extras in action - Genesis theme settings (running with WordPress 3.3+ here)
-4. Genesis Toolbar Extras in action - child theme name plus additional settings, info and support - only if available! (section could be removed via constant!)
-5. Genesis Toolbar Extras in action - active extensions - plugins hook in... (section could be removed via constant!)
-6. Genesis Toolbar Extras in action - manage content section - for special content-related plugins or custom types of themes - displays only if plugins are active or cpt's available! (section could be removed via constant!)
-7. Genesis Toolbar Extras in action - resources - user guides, tools etc. (whole resources section could be removed via constant!)
-8. Genesis Toolbar Extras in action - resources - Genesis HQ with more useful stuff (whole resources section could be removed via constant!)
-9. Genesis Toolbar Extras in action - language and translation specific links at the bottom - example here: German locales - only displaying for non-English locales! (both sections could be removed via constant!)
+1. Genesis Toolbar Extras: default icon plus additional colored icons -- default color: turquoise/light blue -- 9 additional colors: brown, dark blue, green, ivory, orange, pink, red, white (= Genesis original!), yellow -- changeable via filters, [see FAQ section here](http://wordpress.org/extend/plugins/genesis-toolbar-extras/faq/) ([click on image for larger view](https://www.dropbox.com/s/6d0pj7pycj2gdug/screenshot-1.png))
+2. Genesis Toolbar Extras in action - primary level ([click on image for larger view](https://www.dropbox.com/s/catjf3y6zqy0tkw/screenshot-2.png)).
+3. Genesis Toolbar Extras in action - Genesis theme settings ([click on image for larger view](https://www.dropbox.com/s/tu7ye4ajhvhlk40/screenshot-3.png)).
+4. Genesis Toolbar Extras in action - child theme name plus additional settings, info and support - only if available! (section could be removed via constant!) ([click on image for larger view](https://www.dropbox.com/s/7ahs0o4pjqikkxw/screenshot-4.png))
+5. Genesis Toolbar Extras in action - active extensions - plugins hook in... (section could be removed via constant!) ([click on image for larger view](https://www.dropbox.com/s/aaf2tj3nbot9ubc/screenshot-5.png))
+6. Genesis Toolbar Extras in action - manage content section - for special content-related plugins or custom types of themes - displays only if plugins are active or cpt's available! (section could be removed via constant!) ([click on image for larger view](https://www.dropbox.com/s/m9fpxrjvmpu8pdq/screenshot-6.png))
+7. Genesis Toolbar Extras in action - resources - user guides, tools etc. (whole resources section could be removed via constant!) ([click on image for larger view](https://www.dropbox.com/s/w2lb0xiemxsc6up/screenshot-7.png))
+8. Genesis Toolbar Extras in action - resources - Genesis HQ with more useful stuff (whole resources section could be removed via constant!) ([click on image for larger view](https://www.dropbox.com/s/vsutitpx79tfn0m/screenshot-8.png))
+9. Genesis Toolbar Extras in action - language and translation specific links at the bottom - example here: German locales - only displaying for non-English locales! (both sections could be removed via constant!) ([click on image for larger view](https://www.dropbox.com/s/n3ukhy8cwqjs20d/screenshot-9.png))
 
 == Changelog ==
+
+= 1.6.0 (2012-12-09) =
+* *General maintenance:*
+ * UPDATE: Updated links and wording for new/ updated official support resources and forums by StudioPress due to changes by StudioPress support.
+ * UPDATE: Updated links and wording for new/ updated support resources and forums for all official StudioPress child themes due to changes by StudioPress support.
+ * UPDATE: Updated links and wording for new/ updated support resources and forums for all Community/Marketplace child themes sold via studiopress.com due to changes by StudioPress support.
+ * NEW: Added a bunch of new filters to better customize support forums/site plus setup/knowledge base titles and URLs for child themes.
+ * NEW: Added constants for removing My.SP and/or old support forums stuff if needed (see FAQ section here).
+* * Extended Child Theme support:*
+ * NEW: Added support for new official child theme "Stretch" by StudioPress.
+ * NEW: Added support for new Community/Marketplace child theme "MomPreneur" by Lindsey Riel of Pretty Darn Cute Design.
+ * NEW: Added support for "Decor8ted Theme" by Shannon Dow of EightCrazy Designs.
+ * NEW: Added support for "theBiz", "Surefire EDD", "Genesis Sandbox" by Sure Fire Web Services, Inc..
+ * NEW: Added support for "Nancy", "Daniel" and "Christian" by Web Savvy Marketing, LLC.
+ * NEW: Added support for "AyoShop" by AyoThemes at ThemeForest.
+ * NEW: Added support for "Solo" by ZigZagPress.
+ * NEW: Added support for "Nameless" by Mónica Guerra Leiria.
+ * NEW: Added support for "Tasty" by Jared Atchison.
+ * NEW: Added support for "Event Manager Theme" by Social Coup Ltd. & Bill Erickson.
+* *Extended plugin support:*
+ * NEW: Added support for "Genesis Widgetized Archive Pro" (premium, by David Decker of wpAUTOBAHN.com & GenesisThemes.de) - that's from me, hehe :).
+ * NEW: Added support for "Genesis Post Navigation" (free, by Iniyan).
+ * UPDATE: Changed wording for "Genesis Connect for BuddyPress" - as it is now (since v1.2) a free plugin on WordPress.org (formerly premium via studiopress.com).
+ * NEW: Added support for "Infinite Seo" (premium, by WPMU DEV) - also added to Genesis SEO plugin detection.
+* *Other stuff:*
+ * CODE: Some code/documentation updates & improvements.
+ * UPDATE: Corrected and updated readme.txt file here.
+ * UPDATE: Updated German translations and also the .pot file for all translators!
+ * UPDATE: Moved screenshots to 'assets' folder in WP.org SVN to reduce plugin package size.
 
 = 1.5.1 (2012-11-03) =
 * *Extended Child Theme support:*
@@ -572,6 +617,9 @@ All the custom & branding stuff code above can also be found as a Gist on Github
 
 == Upgrade Notice ==
 
+= 1.6.0 =
+Several additions & updates: Updated all support resources to reflect StudioPress changes. Extended theme & plugin support. Updated .pot file for translators plus German translations.
+
 = 1.5.1 =
 Several additions & improvements: Extended theme & plugin support. Updated .pot file for translators plus German translations.
 
@@ -620,13 +668,16 @@ Enjoy using *Genesis Toolbar Extras*? Please consider [making a small donation](
 *Please note, only plugins with linkable settings pages and/or meta boxes (with an ID anchor) can be supported.*
 
 = Official Child Themes by StudioPress =
-* All official *premium* themes, 53+ to date -- see under studiopress.com (including: AgentPress 2.0 and 1.0, Prose 1.0 and 1.5.x, discontinued Church theme)
+* All official *premium* themes, 54+ to date -- see under studiopress.com
+* including: AgentPress 2.0.x and 1.0, Prose 1.0 and 1.5.x
+* also including discontinued/ retired themes: AgentPress 1.x, Church, Lexicon, Pixel Happy, Social Eyes, Tapestry, Venture
 * All official *free* themes, 6+ -- see under studiopress.com
 * Including free "Sample Child Theme"
 * Including "Genesis Default" (no child theme, but it's always recommended to use a child theme...)
 
 = Community/Marketplace Child Themes from studiopress.com =
-* All community/marketplace child themes sold via studiopress.com platform, 23+ to date (including: Fashionista and Politica which seem to be discontinued...)
+* All community/marketplace child themes sold via studiopress.com platform, 24+ to date
+* including these retired themes: Blingless, Driskill, Fashionista, Politica
 * See under studiopress.com for full and growing list...
 * Note: if available, all extra setting pages are fully supported, as well as their specific support link resources.
 
@@ -638,11 +689,12 @@ Enjoy using *Genesis Toolbar Extras*? Please consider [making a small donation](
 = Third-party Child Themes from the Community or Other Marketplaces =
 * All by GenesisThemes.de/DECKERWEB, 2+ (free & premium)
 * All by Appfinite (Wes Straham), 9+ (all premium)
-* All by Web Savvy Marketing, LLC, 15+ (all premium)
-* All by WPCanada (Len Kutchma), 14+ (all free)
+* All by Web Savvy Marketing, LLC, 18+ (all premium)
+* All by WPCanada (Len Kutchma), 16+ (all free)
+* All by ZIGZAGPRESS, 7+ (all premium) - includes support for Portfolio & Slides post types!
+* All by Sure Fire Web Services, Inc., 3+ (free & premium)
 * All by Marco Galasso - Teethgrinder, 6+ (free & premium)
 * All by SomoThemes, 2+ (all premium)
-* All by ZIGZAGPRESS, 6+ (all premium) - includes support for Portfolio & Slides post types!
 * All by FlashingCursor, 2+ (all premium)
 * All by Travis Smith, 2+ (all premium)
 * All by Josh Stauffer, 2+ (all free)
@@ -651,15 +703,18 @@ Enjoy using *Genesis Toolbar Extras*? Please consider [making a small donation](
 * All by MediaCairn Design Studio, 2+ (all free)
 * All by "Allure Themes" brand, 8+ (all premium - though, not longer available at the moment...)
 * All by The Pixelista (Jessica Barnard), 2+ (all premium)
+* "Domestic8ted LifeStyle Theme", "Decor8ted Theme" by Shannon Dow of EightCrazy Designs (both premium).
 * "Dynamik Website Builder" (aka Dynamik Genesis) by Catalyst Themes/Cobalt Apps, Inc. (premium)
+* "Nameless" by Mónica Guerra Leiria (free)
 * "Buster" by Bradley Potter (free)
 * "Simply Sweet" by Auxano Creative (free)
 * "Fluid" by Nick Croft - Designs by Nickthe_Geek (currently free)
 * "Pin It" by Loren Nason/Your Local Tech (free)
+* "Event Manager Theme" by Social Coup Ltd. & Bill Erickson (premium).
 * "Peppermint" by Sara Greenlaw - Swoon Media
 * "Charisma" by Cristian Antohe/Cozmoslabs (free)
 * "Belvedere" by Ryan Holder (once premium, not longer available)
-* "Twenty Diez", "Matrimony" by Jared Atchison (once free)
+* "Tasty" (free), "Twenty Diez" (once free), "Matrimony" (once premium) by Jared Atchison
 * "BE Gallery", "Genesis CRM" by Bill Erickson (free)
 * "Bones for Genesis" by Eddie Machado/Themble (once premium, now free)
 * "Code Chirps" by Daniel Shamburger/Code Chirps (free)
@@ -672,7 +727,7 @@ Enjoy using *Genesis Toolbar Extras*? Please consider [making a small donation](
 * "Tee Box" by Alan Smith/Media317 (free)
 * "Weight Loss" by Selena - PLR Diva (free)
 * "DocPress" (Genesis Version) by Okay Themes (Mike McAlister) (once premium - not longer available, though...)
-* from "ThemeForest" marketplace, all premium: "Caffeinated" by jtwerdy / "Dizain 01" by themedizain (includes support for Portfolio post type!) / "Improvement" by Kuba Sto / "Avett" by KidThemes / "Hightech" by Lauren Mancke & Northbound Design / "Nzig" by haikbvn (not longer available, though...)
+* from "ThemeForest" marketplace, all premium: "AyoShop" by AyoThemes / "Caffeinated" by jtwerdy / "Dizain 01" by themedizain (includes support for Portfolio post type!) / "Improvement" by Kuba Sto / "Avett" by KidThemes / "Hightech" by Lauren Mancke & Northbound Design / "Nzig" by haikbvn (not longer available, though...)
 * "On Demand" (Genesis Version) by Press75.com (once premium, not longer available...)
 * "Extended Magazine" by WPChildThemes (once premium, not longer available, though...)
 
@@ -683,9 +738,10 @@ Enjoy using *Genesis Toolbar Extras*? Please consider [making a small donation](
 * Genesis Slider - free
 * Genesis Responsive Slider - free
 * AgentPress Listings - free
-* Genesis Connect (for BuddyPress) - premium!
+* Genesis Connect for BuddyPress - free since v1.2 (formerly premium!)
 
 = Third-Party Extension Plugins by the Community =
+* Genesis Widgetized Archive Pro - premium
 * Genesis Layout Extras - free
 * Genesis Simple Breadcrumbs - free
 * Genesis Simple Comments - free
@@ -708,6 +764,7 @@ Enjoy using *Genesis Toolbar Extras*? Please consider [making a small donation](
 * Genesis Post Teasers - free
 * Genesis Title Toggle - free
 * Genesis Style Select - free
+* Genesis Post Navigation - free
 * Genesis Footer Widgets - free
 * bbPress Genesis Extend - free
 * Genesis Hooks - free
@@ -749,3 +806,4 @@ Enjoy using *Genesis Toolbar Extras*? Please consider [making a small donation](
 * gdHeadSpace4 by Milan Pretovic of Dev4Press (free, fork of HeadSpace2!)
 * Platinum SEO Pack by Rajesh (free)
 * Greg's High Performance SEO by Greg Mulhauser (free)
+* Infinite Seo by WPMU DEV (premium)

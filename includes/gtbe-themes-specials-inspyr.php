@@ -11,13 +11,11 @@
  * @link       http://twitter.com/deckerweb
  *
  * @since 1.0.0
- * @version 1.1
  */
 
 /** (in)SPYR Theme Specials:
  *
  * @since 1.0.0
- * @version 1.1
  */
 /** Theme How To */
 $menu_items['spmarket-inspyr-howto'] = array(

@@ -41,7 +41,6 @@ $gtbe_themesettings = '&nbsp;' . __( 'Theme Settings', 'genesis-toolbar-extras' 
  * Display link to active Themedy Child theme settings page (premium, by Themedy)
  *
  * @since 1.0.0
- * @version 1.1
  *
  * @param $themedy_child_name
  * @param $themedy_child_forum

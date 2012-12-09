@@ -16,7 +16,6 @@
 /** Dizain 01 Theme Specials:
  *
  * @since 1.4.0
- * @version 1.1
  */
 /** Check for registered 'portfolio' post type */
 if ( function_exists( 'dizain_post_types' ) && post_type_exists( 'portfolio' ) ) {

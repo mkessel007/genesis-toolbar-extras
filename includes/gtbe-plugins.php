@@ -163,6 +163,21 @@ if ( function_exists( 'ddw_genesis_layout_extras_theme_settings_init' ) && curre
 
 
 /**
+ * Genesis Widgetized Archive Pro (premium, by David Decker - DECKERWEB)
+ *
+ * @since 1.6.0
+ */
+if ( defined( 'GWATPRO_VERSION' ) && current_user_can( 'edit_theme_options' ) ) {
+	$menu_items['ext-gwatpro'] = array(
+		'parent' => $extensions,
+		'title'  => __( 'Widgetized Archive Pro', 'genesis-toolbar-extras' ),
+		'href'   => admin_url( 'admin.php?page=gwatpro-settings' ),
+		'meta'   => array( 'target' => '', 'title' => __( 'Widgetized Archive Pro', 'genesis-toolbar-extras' ) )
+	);
+}  // end-if Widgetized Archive Pro
+
+
+/**
  * Genesis Grid (Loop) (free, by Bill Erickson)
  *
  * @since 1.5.0
@@ -313,6 +328,21 @@ if ( function_exists( 'genesis_post_info_teaser_logic' ) && current_user_can( 'e
 
 
 /**
+ * Genesis Post Navigation (free, by Iniyan)
+ *
+ * @since 1.6.0
+ */
+if ( function_exists( 'gpn_init' ) && current_user_can( 'manage_options' ) ) {
+	$menu_items['ext-gpostnavigation'] = array(
+		'parent' => $extensions,
+		'title'  => __( 'Post Navigation Design', 'genesis-toolbar-extras' ),
+		'href'   => admin_url( 'admin.php?page=gpn_design' ),
+		'meta'   => array( 'target' => '', 'title' => __( 'Post Navigation Design', 'genesis-toolbar-extras' ) )
+	);
+}  // end-if Post Navigation
+
+
+/**
  * Genesis Style Select (free, by Nick Croft)
  *
  * @since 1.0.0
@@ -406,7 +436,6 @@ if ( function_exists( 'CT_HR_Activate' ) && current_user_can( 'edit_theme_option
  * Generate Box (free, by Hesham Zebida)
  *
  * @since 1.0.0
- * @version 1.1
  */
 if ( function_exists( 'generatebox_admin_init' ) && current_user_can( 'edit_theme_options' ) 
 ) {
@@ -443,7 +472,7 @@ if ( class_exists( 'bbpge_settings' ) && current_user_can( 'edit_theme_options' 
 
 
 /**
- * Genesis Connect [for BuddyPress] (free, by StudioPress)
+ * Genesis Connect for BuddyPress (free since v1.2, by StudioPress) (formerly premium plugin!)
  *
  * @since 1.0.0
  */
@@ -494,7 +523,6 @@ if ( ( defined( 'GENESIS_ACCORDION_SETTINGS_FIELD' ) || function_exists( 'Genesi
  * Genesis Hooks (free, by Travis Smith)
  *
  * @since 1.0.0
- * @version 1.1
  */
 if ( function_exists( 'genesis_hooks_setup' ) && current_user_can( 'edit_theme_options' ) ) {
 	$menu_items['extsp-ghooks'] = array(
@@ -998,7 +1026,7 @@ if ( class_exists( 'Widget_Data' ) && ( current_user_can( 'manage_options' ) || 
 
 	/**
 	 * Soliloquy for WordPress (premium, by Thomas Griffin Media)
-	 * plus: Soliloquy Lite (free, by Thomas Griffin Media)
+	 *    plus: Soliloquy Lite (free, by Thomas Griffin Media)
 	 *
 	 * @since 1.3.0
 	 */
@@ -1116,7 +1144,6 @@ if ( class_exists( 'Widget_Data' ) && ( current_user_can( 'manage_options' ) || 
 	 * Premise (premium, by Copyblogger Media LLC)
 	 *
 	 * @since 1.0.0
-	 * @version 1.1
 	 */
 	if ( class_exists( 'Premise_Base' ) ) {
 

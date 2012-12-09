@@ -17,10 +17,10 @@
  * Setting default values for some variables & constants
  *
  * @since 1.0.0
- * @version 1.1
  */
 $gtbe_is_spmarket = 'default';
 $spmarket_child_name = 'default';
+$spmarket_child_setup = 'default';
 $spmarket_child_forum = 'default';
 $gtbe_is_tpchild = 'default';
 $tpchild_name = 'default';
@@ -42,7 +42,6 @@ if ( ! defined( 'CHILD_THEME_URL' ) ) {
  * "Theme" Strings for all Child Themes
  *
  * @since 1.0.0
- * @version 1.1
  *
  * @param $gtbe_theme
  * @param $gtbe_theme_fallback
@@ -55,7 +54,6 @@ $gtbe_theme_fallback = __( 'Theme', 'genesis-toolbar-extras' ) . ':&nbsp;';
  * StudioPress Community/Marketplace - Genesis Child Themes
  *
  * @since 1.0.0
- * @version 1.1
  *
  * @param $gtbe_is_spmarket
  * @param $spmarket_child_name
@@ -67,28 +65,25 @@ $gtbe_theme_fallback = __( 'Theme', 'genesis-toolbar-extras' ) . ':&nbsp;';
 	$spmarket_child_aurl = current_theme_supports( 'genesis-style-selector' ) ? admin_url( 'admin.php?page=genesis#genesis-theme-settings-style-selector' ) : admin_url( 'admin.php?page=genesis' );
 
 	/** StudioPress Community/Marketplace child Theme check */
-		// Blingless 1.0+
-	if ( CHILD_THEME_NAME == 'Blingless Theme' || $gtbe_stylesheet_name == 'Blingless Child Theme' ) {
-		$gtbe_is_spmarket = 'spmarket_yes';
-		$spmarket_child_name = 'Blingless' . $gtbe_theme;
-		$spmarket_child_forum = 'http://www.studiopress.com/support/forumdisplay.php?f=181';
-
 		// Adorable 1.0+
-	} elseif ( CHILD_THEME_NAME == 'Adorable Child Theme' || $gtbe_stylesheet_name == 'Adorable' ) {
+	if ( CHILD_THEME_NAME == 'Adorable Child Theme' || $gtbe_stylesheet_name == 'Adorable' ) {
 		$gtbe_is_spmarket = 'spmarket_yes';
 		$spmarket_child_name = 'Adorable' . $gtbe_theme;
+		$spmarket_child_setup = 'http://prettydarncute.com/support-for-premade-themes/';
 		$spmarket_child_forum = 'http://www.studiopress.com/support/forumdisplay.php?f=208';
 
 		// Craftiness 1.0+
 	} elseif ( CHILD_THEME_NAME == 'Craftiness Theme' || $gtbe_stylesheet_name == 'Craftiness Child Theme' ) {
 		$gtbe_is_spmarket = 'spmarket_yes';
 		$spmarket_child_name = 'Craftiness' . $gtbe_theme;
+		$spmarket_child_setup = 'http://www.restored316designs.com/themes/craftiness-theme-faqs/';
 		$spmarket_child_forum = 'http://www.studiopress.com/support/forumdisplay.php?f=215';
 
 		// Cre8tive Burst 1.0+
 	} elseif ( CHILD_THEME_NAME == 'Cre8tive Burst Child Theme' || $gtbe_stylesheet_name == 'Cre8tive Burst Child Theme' ) {
 		$gtbe_is_spmarket = 'spmarket_yes';
 		$spmarket_child_name = 'Cre8tive Burst' . $gtbe_theme;
+		$spmarket_child_setup = 'http://www.eightcrazydesigns.net/forums/forum/cre8tive-burst-theme/';
 		$spmarket_child_forum = 'http://www.studiopress.com/support/forumdisplay.php?f=200';
 
 		// Curtail 1.0/2.0
@@ -96,25 +91,15 @@ $gtbe_theme_fallback = __( 'Theme', 'genesis-toolbar-extras' ) . ':&nbsp;';
 		$gtbe_is_spmarket = 'spmarket_yes';
 		$spmarket_child_name = 'Curtail' . $gtbe_theme;
 		$spmarket_child_aurl = admin_url( 'admin.php?page=curtail-settings' );
+		$spmarket_child_setup = 'http://curtail.tgmtestserver.com/installing-curtail-and-soliloquy/';
 		$spmarket_child_forum = 'http://www.studiopress.com/support/forumdisplay.php?f=191';
-
-		// Driskill 1.0+
-	} elseif ( CHILD_THEME_NAME == 'Driskill Theme' || $gtbe_stylesheet_name == 'Driskill Child Theme' ) {
-		$gtbe_is_spmarket = 'spmarket_yes';
-		$spmarket_child_name = 'Diskill' . $gtbe_theme;
-		$spmarket_child_forum = 'http://www.studiopress.com/support/forumdisplay.php?f=189';
 
 		// Elle 1.0/2.0/2.0.1+
 	} elseif ( CHILD_THEME_NAME == 'Elle Theme' || CHILD_THEME_NAME == 'Elle Theme by Northbound Design' || $gtbe_stylesheet_name == 'Elle Child Theme' ) {
 		$gtbe_is_spmarket = 'spmarket_yes';
 		$spmarket_child_name = 'Elle' . $gtbe_theme;
+		$spmarket_child_setup = 'http://demos.northbounddesign.com/setup/setup_instructions_elle.pdf';
 		$spmarket_child_forum = 'http://www.studiopress.com/support/forumdisplay.php?f=176';
-
-		// Fashionista 1.0+
-	} elseif ( CHILD_THEME_NAME == 'Fashionista Theme' || $gtbe_stylesheet_name == 'Fashionista Child Theme' ) {
-		$gtbe_is_spmarket = 'spmarket_yes';
-		$spmarket_child_name = 'Church' . $gtbe_theme;
-		$spmarket_child_forum = 'http://www.studiopress.com/support/forumdisplay.php?f=185';
 
 		// Glitter and Lace 1.0+
 	} elseif ( CHILD_THEME_NAME == 'Glitter Theme' || $gtbe_stylesheet_name == 'Glitter' ) {
@@ -133,25 +118,28 @@ $gtbe_theme_fallback = __( 'Theme', 'genesis-toolbar-extras' ) . ':&nbsp;';
 	} elseif ( CHILD_THEME_NAME == 'innov8tive' || $gtbe_stylesheet_name == 'Innov8tive Child Theme' ) {
 		$gtbe_is_spmarket = 'spmarket_yes';
 		$spmarket_child_name = 'Innov8tive' . $gtbe_theme;
+		$spmarket_child_setup = 'http://www.eightcrazydesigns.net/forums/forum/innov8tive-theme/';
 		$spmarket_child_forum = 'http://www.studiopress.com/support/forumdisplay.php?f=212';
 
 		// Inspired 1.0+
 	} elseif ( CHILD_THEME_NAME == 'Inspired Theme' || $gtbe_stylesheet_name == 'Inspired Child Theme' ) {
 		$gtbe_is_spmarket = 'spmarket_yes';
 		$spmarket_child_name = 'Inspired' . $gtbe_theme;
+		$spmarket_child_setup = 'http://www.restored316designs.com/themes/inspired-theme-faqs/';
 		$spmarket_child_forum = 'http://www.studiopress.com/support/forumdisplay.php?f=211';
 
 		// Legacy 1.0 - 1.2.1+ (appfinite)
 	} elseif ( CHILD_THEME_NAME == 'Legacy Theme' || $gtbe_stylesheet_name == 'Legacy Child Theme' ) {
 		$gtbe_is_spmarket = 'spmarket_yes';
 		$spmarket_child_name = 'Legacy' . $gtbe_theme;
+		$spmarket_child_setup = 'http://appfinite.com/forum/legacy-theme-support/';
 		$spmarket_child_forum = 'http://www.studiopress.com/support/forumdisplay.php?f=184';
 
 		// Maximum 1.0+ (Brad Potter)
 	} elseif ( CHILD_THEME_NAME == 'Maximum Theme' || $gtbe_stylesheet_name == 'Maximum Child Theme' ) {
 		$gtbe_is_spmarket = 'spmarket_yes';
 		$spmarket_child_name = 'Maximum' . $gtbe_theme;
-		$spmarket_child_forum = 'http://www.studiopress.com/support/forumdisplay.php?f=177';
+		$spmarket_child_forum = 'http://themecraft.com/theme-documentation/maximum-theme-documentation/';
 
 		// Megalithe 1.1+ (ZigZagPress) --> see below under third-party child themes!
 
@@ -159,19 +147,23 @@ $gtbe_theme_fallback = __( 'Theme', 'genesis-toolbar-extras' ) . ':&nbsp;';
 	} elseif ( CHILD_THEME_NAME == 'Modern Blogger Theme' || $gtbe_stylesheet_name == 'Modern Blogger Child Theme' ) {
 		$gtbe_is_spmarket = 'spmarket_yes';
 		$spmarket_child_name = 'Modern Blogger' . $gtbe_theme;
+		$spmarket_child_setup = 'http://prettydarncute.com/support-for-premade-themes/';
 		$spmarket_child_forum = 'http://www.studiopress.com/support/forumdisplay.php?f=187';
 
+		// MomPreneur 1.0+
+	} elseif ( CHILD_THEME_NAME == 'MomPreneur WordPress Theme' || $gtbe_stylesheet_name == 'MomPrenuer Child Theme' ) {
+		$gtbe_is_spmarket = 'spmarket_yes';
+		$spmarket_child_name = 'MomPreneur' . $gtbe_theme;
+		$spmarket_child_setup = 'http://prettydarncute.com/support-for-premade-themes/';
+
 		// Optimal 1.0 - 1.2.1+ (appfinite)
-	} elseif ( CHILD_THEME_URL == 'http://www.studiopress.com/themes/optimal' && ( CHILD_THEME_NAME == 'Optimal Theme' || $gtbe_stylesheet_name == 'Optimal Child Theme' ) ) {
+	} elseif ( CHILD_THEME_URL == 'http://www.studiopress.com/themes/optimal'
+			&& ( CHILD_THEME_NAME == 'Optimal Theme' || $gtbe_stylesheet_name == 'Optimal Child Theme' )
+	) {
 		$gtbe_is_spmarket = 'spmarket_yes';
 		$spmarket_child_name = 'Optimal' . $gtbe_theme;
+		$spmarket_child_setup = 'http://appfinite.com/forum/optimal-theme-support/';
 		$spmarket_child_forum = 'http://www.studiopress.com/support/forumdisplay.php?f=205';
-
-		// Politica 1.0+
-	} elseif ( CHILD_THEME_NAME == 'Politica Theme' || $gtbe_stylesheet_name == 'Politica Child Theme' ) {
-		$gtbe_is_spmarket = 'spmarket_yes';
-		$spmarket_child_name = 'Politica' . $gtbe_theme;
-		$spmarket_child_forum = 'http://www.studiopress.com/support/forumdisplay.php?f=192';
 
 		// Production 1.0+
 	} elseif ( CHILD_THEME_NAME == 'Production Child Theme' || $gtbe_stylesheet_name == 'Production' ) {
@@ -183,6 +175,7 @@ $gtbe_theme_fallback = __( 'Theme', 'genesis-toolbar-extras' ) . ':&nbsp;';
 	} elseif ( CHILD_THEME_NAME == 'Pure Elegance Theme' || $gtbe_stylesheet_name == 'Pure Elegance' ) {
 		$gtbe_is_spmarket = 'spmarket_yes';
 		$spmarket_child_name = 'Pure Elegance' . $gtbe_theme;
+		$spmarket_child_setup = 'http://ohhellodesigns.com/support/pure-elegance-theme-support/';
 		$spmarket_child_forum = 'http://www.studiopress.com/support/forumdisplay.php?f=198';
 
 		// RealPro
@@ -195,9 +188,34 @@ $gtbe_theme_fallback = __( 'Theme', 'genesis-toolbar-extras' ) . ':&nbsp;';
 	} elseif ( CHILD_THEME_NAME == 'Vintage Theme' || $gtbe_stylesheet_name == 'Vintage Child Theme' ) {
 		$gtbe_is_spmarket = 'spmarket_yes';
 		$spmarket_child_name = 'Vintage' . $gtbe_theme;
+		$spmarket_child_setup = 'http://www.restored316designs.com/themes/vintage-theme-faqs/';
 		$spmarket_child_forum = 'http://www.studiopress.com/support/forumdisplay.php?f=178';
 
-	} // end if else SP marketplace theme check
+		// Blingless 1.0+ (retired)
+	} elseif ( CHILD_THEME_NAME == 'Blingless Theme' || $gtbe_stylesheet_name == 'Blingless Child Theme' ) {
+		$gtbe_is_spmarket = 'spmarket_yes';
+		$spmarket_child_name = 'Blingless' . $gtbe_theme;
+		$spmarket_child_forum = 'http://www.studiopress.com/support/forumdisplay.php?f=181';
+
+		// Driskill 1.0+ (retired)
+	} elseif ( CHILD_THEME_NAME == 'Driskill Theme' || $gtbe_stylesheet_name == 'Driskill Child Theme' ) {
+		$gtbe_is_spmarket = 'spmarket_yes';
+		$spmarket_child_name = 'Diskill' . $gtbe_theme;
+		$spmarket_child_forum = 'http://www.studiopress.com/support/forumdisplay.php?f=189';
+
+		// Fashionista 1.0+ (retired)
+	} elseif ( CHILD_THEME_NAME == 'Fashionista Theme' || $gtbe_stylesheet_name == 'Fashionista Child Theme' ) {
+		$gtbe_is_spmarket = 'spmarket_yes';
+		$spmarket_child_name = 'Church' . $gtbe_theme;
+		$spmarket_child_forum = 'http://www.studiopress.com/support/forumdisplay.php?f=185';
+
+		// Politica 1.0+ (retired)
+	} elseif ( CHILD_THEME_NAME == 'Politica Theme' || $gtbe_stylesheet_name == 'Politica Child Theme' ) {
+		$gtbe_is_spmarket = 'spmarket_yes';
+		$spmarket_child_name = 'Politica' . $gtbe_theme;
+		$spmarket_child_forum = 'http://www.studiopress.com/support/forumdisplay.php?f=192';
+
+	} // end if else SP community themes check
 
 	/** Community/Marketplace Themes Display */
 	if ( ( $gtbe_is_spmarket == 'spmarket_yes' ) && current_user_can( 'edit_theme_options' ) ) {
@@ -252,13 +270,35 @@ $gtbe_theme_fallback = __( 'Theme', 'genesis-toolbar-extras' ) . ':&nbsp;';
 			);
 		}  // end-if changelog check
 
-		/** Child Theme Support Forum */
-		$menu_items['spmarket-support'] = array(
-			'parent' => $spmarket,
-			'title'  => __( 'Support Forum', 'genesis-toolbar-extras' ),
-			'href'   => $spmarket_child_forum,
-			'meta'   => array( 'title' => _x( 'Support Forum for Child Theme', 'Translators: For the tooltip', 'genesis-toolbar-extras' ) )
-		);
+		/** Child Theme/StudioPress personal support */
+		if ( GTBE_MYSP_DISPLAY ) {
+			$menu_items['spmarket-personalsupport'] = array(
+				'parent' => $spmarket,
+				'title'  => __( 'my.SP Personal Support', 'genesis-toolbar-extras' ),
+				'href'   => 'https://my.studiopress.com/help/',
+				'meta'   => array( 'title' => 'my.StudioPress.com ' . _x( 'Personal Support Contact &amp; Resources', 'Translators: For the tooltip', 'genesis-toolbar-extras' ) )
+			);
+		}  // end-if my.SP display check
+
+		/** Child Theme setup instructions */
+		if ( 'default' != $spmarket_child_setup ) {
+			$menu_items['spmarket-setupinstructions'] = array(
+				'parent' => $spmarket,
+				'title'  => apply_filters( 'gtbe_filter_spmarket_setup_title', __( 'Setup Instructions', 'genesis-toolbar-extras' ) ),
+				'href'   => apply_filters( 'gtbe_filter_spmarket_setup_url', esc_url_raw( $spmarket_child_setup ) ),
+				'meta'   => array( 'title' => apply_filters( 'gtbe_filter_spmarket_setup_tooltip', _x( 'Setup Instructions', 'Translators: For the tooltip', 'genesis-toolbar-extras' ) ) )
+			);
+		}  // end-if child setup instructions
+
+		/** Child Theme Support Forum - old, read-only */
+		if ( ( 'default' != $spmarket_child_forum ) && GTBE_OLDFORUMS_DISPLAY ) {
+			$menu_items['spmarket-support'] = array(
+				'parent' => $spmarket,
+				'title'  => apply_filters( 'gtbe_filter_spmarket_forum_title', __( 'Support Forum (old)', 'genesis-toolbar-extras' ) ),
+				'href'   => apply_filters( 'gtbe_filter_spmarket_forum_url', esc_url_raw( $spmarket_child_forum ) ),
+				'meta'   => array( 'title' => apply_filters( 'gtbe_filter_spmarket_forum_tooltip', _x( 'Support Forum for Child Theme - Note: Read only!', 'Translators: For the tooltip', 'genesis-toolbar-extras' ) ) )
+			);
+		}  // end-if child old forum
 
 		/** (in)SPYR Theme Specials: */
 		if ( class_exists( 'inspyr_theme' ) ) {
@@ -277,7 +317,6 @@ $gtbe_theme_fallback = __( 'Theme', 'genesis-toolbar-extras' ) . ':&nbsp;';
  * Third-Party Genesis Child Themes
  *
  * @since 1.0.0
- * @version 1.2
  *
  * @param $gtbe_is_tpchild
  * @param $tpchild_name
@@ -429,19 +468,33 @@ $gtbe_theme_fallback = __( 'Theme', 'genesis-toolbar-extras' ) . ':&nbsp;';
 		$tpchild_file = 'dizain_file_yes';
 
 		// by jtwerdy at ThemeForest: Caffeinated
-	} elseif ( function_exists( 'caffeinated_add_viewport_meta_tag' ) || CHILD_THEME_NAME == 'Caffeinated Child Theme' || $gtbe_stylesheet_name == 'Caffeinated Child Theme' ) {
+	} elseif ( function_exists( 'caffeinated_add_viewport_meta_tag' )
+			|| CHILD_THEME_NAME == 'Caffeinated Child Theme'
+			|| $gtbe_stylesheet_name == 'Caffeinated Child Theme'
+	) {
 		$gtbe_is_tpchild = 'tpchild_yes';
 		$tpchild_name = 'Caffeinated' . $gtbe_theme;
 		$tpchild_is_support = 'tpsupport_yes';
 			$tpchild_support = 'http://ddwb.me/support-caffeinated';
+
+		// by AyoThemes at ThemeForest: AyoShop
+	} elseif ( function_exists( 'ayoshop_setup' )
+			|| CHILD_THEME_NAME == 'Ayo Shop'
+			|| $gtbe_stylesheet_name == 'Ayo Shop'
+	) {
+		$gtbe_is_tpchild = 'tpchild_yes';
+		$tpchild_name = 'Ayo Shop' . $gtbe_theme;
+		$tpchild_aurl = admin_url( 'admin.php?page=options-framework' );
+		$tpchild_is_support = 'tpsupport_yes';
+			$tpchild_support = 'http://ddwb.me/support-ayoshop';
 
 		// by haikbvn at ThemeForest: Nzig
 	} elseif ( CHILD_THEME_NAME == 'Nzig' || $gtbe_stylesheet_name == 'Nzig' ) {
 		$gtbe_is_tpchild = 'tpchild_yes';
 		$tpchild_name = 'Nzig' . $gtbe_theme;
 		$tpchild_aurl = admin_url( 'themes.php?page=option_tree' );
-		$tpchild_is_support = 'tpsupport_yes';
-			$tpchild_support = 'http://ddwb.me/support-nzig';
+		//$tpchild_is_support = 'tpsupport_yes';
+		//	$tpchild_support = 'http://ddwb.me/support-nzig';
 
 		// by WPSmith (Travis Smith): Pinkalicious, MinFocus, minFolio
 	} elseif ( CHILD_THEME_NAME == 'Pinkalicious Theme' || $gtbe_stylesheet_name == 'Pinkalicious' ) {
@@ -477,7 +530,10 @@ $gtbe_theme_fallback = __( 'Theme', 'genesis-toolbar-extras' ) . ':&nbsp;';
 			$tpchild_support = 'http://auxanocreative.com/contact/';
 
 		// by FlashingCursor: Endeavor, Photo-Genic
-	} elseif ( CHILD_THEME_NAME == 'Endeavor Theme' || $gtbe_stylesheet_name == 'Endavor Child Theme' || $gtbe_stylesheet_name == 'Endeavor Child Theme' ) {
+	} elseif ( CHILD_THEME_NAME == 'Endeavor Theme'
+			|| $gtbe_stylesheet_name == 'Endavor Child Theme'
+			|| $gtbe_stylesheet_name == 'Endeavor Child Theme'
+	) {
 		$gtbe_is_tpchild = 'tpchild_yes';
 		$tpchild_name = 'Endeavor' . $gtbe_theme;
 		$tpchild_is_support = 'tpsupport_yes';
@@ -531,32 +587,17 @@ $gtbe_theme_fallback = __( 'Theme', 'genesis-toolbar-extras' ) . ':&nbsp;';
 
 		/**
 		 * by WPCanada - Len Kutchma:
-		 *   BlogNews, Conrad, Conrad Full, GoGreen, Herman, Humphrey, Linky Loo, Manifest, Morgan, NewsBeat, Simple,
-		 *   Theodore, Winfield, Winfield Dark
+		 *   current: BlogNews, Herman, Morgan, Winfield
+		 *   retired: Conrad, Conrad Full, GoGreen, Humphrey, Linky Loo, Manifest, NewsBeat, Simple, Theodore, Winfield Dark
 		 */
-	} elseif ( CHILD_THEME_NAME == 'BlogNews' || CHILD_THEME_NAME == 'BlogNews Child Theme' || $gtbe_stylesheet_name == 'BlogNews Child Theme' ) {
+	} elseif ( CHILD_THEME_NAME == 'BlogNews'
+			|| CHILD_THEME_NAME == 'BlogNews Child Theme'
+			|| $gtbe_stylesheet_name == 'BlogNews Child Theme'
+	) {
 		$gtbe_is_tpchild = 'tpchild_yes';
 		$tpchild_name = 'BlogNews' . $gtbe_theme;	// BlogNews
 		$tpchild_is_support = 'tpsupport_yes';
 			$tpchild_support = 'https://github.com/lenkutchma/BlogNews/issues';
-
-	} elseif ( CHILD_THEME_NAME == 'Conrad Theme' || $gtbe_stylesheet_name == 'Conrad Child Theme' ) {
-		$gtbe_is_tpchild = 'tpchild_yes';
-		$tpchild_name = 'Conrad' . $gtbe_theme;		// Conrad
-		$tpchild_is_support = 'tpsupport_yes';
-			$tpchild_support = 'http://wpcanada.ca/contact/';
-
-	} elseif ( CHILD_THEME_NAME == 'Conrad Full Theme' || $gtbe_stylesheet_name == 'Conrad Full Child Theme' ) {
-		$gtbe_is_tpchild = 'tpchild_yes';
-		$tpchild_name = 'Conrad Full' . $gtbe_theme;	// Conrad Full
-		$tpchild_is_support = 'tpsupport_yes';
-			$tpchild_support = 'http://wpcanada.ca/contact/';
-
-	} elseif ( CHILD_THEME_NAME == 'GoGreen Theme' || $gtbe_stylesheet_name == 'GoGreen Child Theme' ) {
-		$gtbe_is_tpchild = 'tpchild_yes';
-		$tpchild_name = 'GoGreen' . $gtbe_theme;	// GoGreen
-		$tpchild_is_support = 'tpsupport_yes';
-			$tpchild_support = 'http://wpcanada.ca/contact/';
 
 	} elseif ( CHILD_THEME_NAME == 'Herman Theme' || $gtbe_stylesheet_name == 'Herman Child Theme' ) {
 		$gtbe_is_tpchild = 'tpchild_yes';
@@ -564,64 +605,85 @@ $gtbe_theme_fallback = __( 'Theme', 'genesis-toolbar-extras' ) . ':&nbsp;';
 		$tpchild_is_support = 'tpsupport_yes';
 			$tpchild_support = 'https://github.com/lenkutchma/Herman/issues';
 
-	} elseif ( CHILD_THEME_NAME == 'Humphrey Theme' || $gtbe_stylesheet_name == 'Humphrey Child Theme' ) {
-		$gtbe_is_tpchild = 'tpchild_yes';
-		$tpchild_name = 'Humphrey' . $gtbe_theme;	// Humphrey
-		$tpchild_is_support = 'tpsupport_yes';
-			$tpchild_support = 'http://wpcanada.ca/contact/';
-
-	} elseif ( CHILD_THEME_NAME == 'Linky Loo Child Theme' || $gtbe_stylesheet_name == 'Linky Loo Child Theme' ) {
-		$gtbe_is_tpchild = 'tpchild_yes';
-		$tpchild_name = 'Linky Loo' . $gtbe_theme;	// Linky Loo
-		$tpchild_is_support = 'tpsupport_yes';
-			$tpchild_support = 'https://github.com/lenkutchma/LinkyLoo/issues';
-
-	} elseif ( CHILD_THEME_NAME == 'Manifest Theme' || $gtbe_stylesheet_name == 'Manifest Child Theme' ) {
-		$gtbe_is_tpchild = 'tpchild_yes';
-		$tpchild_name = 'Manifest' . $gtbe_theme;	// Manifest
-		$tpchild_is_support = 'tpsupport_yes';
-			$tpchild_support = 'http://wpcanada.ca/contact/';
-
 	} elseif ( CHILD_THEME_NAME == 'Morgan Theme' || $gtbe_stylesheet_name == 'Morgan morgan Theme' ) {
 		$gtbe_is_tpchild = 'tpchild_yes';
 		$tpchild_name = 'Morgan' . $gtbe_theme;		// Morgan
 		$tpchild_is_support = 'tpsupport_yes';
 			$tpchild_support = 'https://github.com/lenkutchma/Morgan/issues';
 
-	} elseif ( CHILD_THEME_NAME == 'NewsBeat Child Theme' || $gtbe_stylesheet_name == 'NewsBeat Child Theme' ) {
-		$gtbe_is_tpchild = 'tpchild_yes';
-		$tpchild_name = 'NewsBeat' . $gtbe_theme;	// NewsBeat
-		$tpchild_is_support = 'tpsupport_yes';
-			$tpchild_support = 'http://wpcanada.ca/contact/';
-
-	} elseif ( CHILD_THEME_NAME == 'Simple Theme' || $gtbe_stylesheet_name == 'Simple Child Theme' ) {
-		$gtbe_is_tpchild = 'tpchild_yes';
-		$tpchild_name = 'Simple' . $gtbe_theme;		// Simple
-		$tpchild_is_support = 'tpsupport_yes';
-			$tpchild_support = 'http://wpcanada.ca/contact/';
-
-	} elseif ( CHILD_THEME_NAME == 'Theodore Theme' || $gtbe_stylesheet_name == 'Theodore Child Theme' ) {
-		$gtbe_is_tpchild = 'tpchild_yes';
-		$tpchild_name = 'Theodore' . $gtbe_theme;	// Theodore
-		$tpchild_is_support = 'tpsupport_yes';
-			$tpchild_support = 'http://wpcanada.ca/contact/';
-
-	} elseif ( CHILD_THEME_NAME == 'Winfield Theme' || CHILD_THEME_NAME == 'Winfield Child Theme' || $gtbe_stylesheet_name == 'Winfield Child Theme' ) {
+	} elseif ( CHILD_THEME_NAME == 'Winfield Theme'
+			|| CHILD_THEME_NAME == 'Winfield Child Theme'
+			|| $gtbe_stylesheet_name == 'Winfield Child Theme'
+	) {
 		$gtbe_is_tpchild = 'tpchild_yes';
 		$tpchild_name = 'Winfield' . $gtbe_theme;	// Winfield
 		$tpchild_is_support = 'tpsupport_yes';
 			$tpchild_support = 'https://github.com/lenkutchma/Winfield/issues';
 
+	} elseif ( CHILD_THEME_NAME == 'Conrad Theme' || $gtbe_stylesheet_name == 'Conrad Child Theme' ) {
+		$gtbe_is_tpchild = 'tpchild_yes';
+		$tpchild_name = 'Conrad' . $gtbe_theme;		// Conrad (retired)
+		$tpchild_is_support = 'tpsupport_yes';
+			$tpchild_support = 'http://wpcanada.ca/contact/';
+
+	} elseif ( CHILD_THEME_NAME == 'Conrad Full Theme' || $gtbe_stylesheet_name == 'Conrad Full Child Theme' ) {
+		$gtbe_is_tpchild = 'tpchild_yes';
+		$tpchild_name = 'Conrad Full' . $gtbe_theme;	// Conrad Full (retired)
+		$tpchild_is_support = 'tpsupport_yes';
+			$tpchild_support = 'http://wpcanada.ca/contact/';
+
+	} elseif ( CHILD_THEME_NAME == 'GoGreen Theme' || $gtbe_stylesheet_name == 'GoGreen Child Theme' ) {
+		$gtbe_is_tpchild = 'tpchild_yes';
+		$tpchild_name = 'GoGreen' . $gtbe_theme;	// GoGreen (retired)
+		$tpchild_is_support = 'tpsupport_yes';
+			$tpchild_support = 'http://wpcanada.ca/contact/';
+
+	} elseif ( CHILD_THEME_NAME == 'Humphrey Theme' || $gtbe_stylesheet_name == 'Humphrey Child Theme' ) {
+		$gtbe_is_tpchild = 'tpchild_yes';
+		$tpchild_name = 'Humphrey' . $gtbe_theme;	// Humphrey (retired)
+		$tpchild_is_support = 'tpsupport_yes';
+			$tpchild_support = 'http://wpcanada.ca/contact/';
+
+	} elseif ( CHILD_THEME_NAME == 'Linky Loo Child Theme' || $gtbe_stylesheet_name == 'Linky Loo Child Theme' ) {
+		$gtbe_is_tpchild = 'tpchild_yes';
+		$tpchild_name = 'Linky Loo' . $gtbe_theme;	// Linky Loo (retired)
+		$tpchild_is_support = 'tpsupport_yes';
+			$tpchild_support = 'https://github.com/lenkutchma/LinkyLoo/issues';
+
+	} elseif ( CHILD_THEME_NAME == 'Manifest Theme' || $gtbe_stylesheet_name == 'Manifest Child Theme' ) {
+		$gtbe_is_tpchild = 'tpchild_yes';
+		$tpchild_name = 'Manifest' . $gtbe_theme;	// Manifest (retired)
+		$tpchild_is_support = 'tpsupport_yes';
+			$tpchild_support = 'http://wpcanada.ca/contact/';
+
+	} elseif ( CHILD_THEME_NAME == 'NewsBeat Child Theme' || $gtbe_stylesheet_name == 'NewsBeat Child Theme' ) {
+		$gtbe_is_tpchild = 'tpchild_yes';
+		$tpchild_name = 'NewsBeat' . $gtbe_theme;	// NewsBeat (retired)
+		$tpchild_is_support = 'tpsupport_yes';
+			$tpchild_support = 'http://wpcanada.ca/contact/';
+
+	} elseif ( CHILD_THEME_NAME == 'Simple Theme' || $gtbe_stylesheet_name == 'Simple Child Theme' ) {
+		$gtbe_is_tpchild = 'tpchild_yes';
+		$tpchild_name = 'Simple' . $gtbe_theme;		// Simple (retired)
+		$tpchild_is_support = 'tpsupport_yes';
+			$tpchild_support = 'http://wpcanada.ca/contact/';
+
+	} elseif ( CHILD_THEME_NAME == 'Theodore Theme' || $gtbe_stylesheet_name == 'Theodore Child Theme' ) {
+		$gtbe_is_tpchild = 'tpchild_yes';
+		$tpchild_name = 'Theodore' . $gtbe_theme;	// Theodore (retired)
+		$tpchild_is_support = 'tpsupport_yes';
+			$tpchild_support = 'http://wpcanada.ca/contact/';
+
 	} elseif ( CHILD_THEME_NAME == 'Winfield Dark Theme' || $gtbe_stylesheet_name == 'Winfield Dark Child Theme' ) {
 		$gtbe_is_tpchild = 'tpchild_yes';
-		$tpchild_name = 'Winfield Dark' . $gtbe_theme;	// Winfield Dark
+		$tpchild_name = 'Winfield Dark' . $gtbe_theme;	// Winfield Dark (retired)
 		$tpchild_is_support = 'tpsupport_yes';
 			$tpchild_support = 'http://wpcanada.ca/contact/';
 
 		/**
 		 * by Web Savvy Marketing, LLC.:
-		 *   Carla Anna, Alexandra, Anneliese, Dagmar, Ellen Mae, Elsa, Erik, Frederik, Hans, Kathryn, Lillian,
-		 *   Mariah, Rasmus, Robert, Soren
+		 *   Carla Anna, Alexandra, Anneliese, Christian, Dagmar, Daniel, Ellen Mae, Elsa, Erik, Frederik,
+		 *   Hans, Kathryn, Lillian, Nancy, Mariah, Rasmus, Robert, Soren
 		 */
 	} elseif ( function_exists( 'carla_anna_do_footer' )
 			|| $gtbe_stylesheet_name == 'Carla Anna'
@@ -660,6 +722,18 @@ $gtbe_theme_fallback = __( 'Theme', 'genesis-toolbar-extras' ) . ':&nbsp;';
 		$tpchild_is_codex = 'tpcodex_yes';
 			$tpchild_codex = 'http://www.web-savvy-marketing.com/forum/anneliese-instructions/';
 
+	} elseif ( CHILD_THEME_NAME == 'Christian Child Theme'
+			|| CHILD_THEME_NAME == 'Christian'
+			|| $gtbe_stylesheet_name == 'Christian'
+	) {
+		$gtbe_is_tpchild = 'tpchild_yes';
+		$tpchild_name = 'Christian' . $gtbe_theme;	// Christian
+		$tpchild_aurl = admin_url( 'admin.php?page=christian' );
+		$tpchild_is_support = 'tpsupport_yes';
+			$tpchild_support = 'http://www.web-savvy-marketing.com/forum/christian-1/';
+		$tpchild_is_codex = 'tpcodex_yes';
+			$tpchild_codex = 'http://www.web-savvy-marketing.com/forum/christian-instructions/';
+
 	} elseif ( function_exists( 'dagmar_wrap_bg' )
 			|| CHILD_THEME_NAME == 'Dagmar'
 			|| $gtbe_stylesheet_name == 'Dagmar'
@@ -672,13 +746,26 @@ $gtbe_theme_fallback = __( 'Theme', 'genesis-toolbar-extras' ) . ':&nbsp;';
 		$tpchild_is_codex = 'tpcodex_yes';
 			$tpchild_codex = 'http://www.web-savvy-marketing.com/forum/dagmar-instructions/';
 
+	} elseif ( function_exists( 'daniel_sidebar_logic' )
+			|| CHILD_THEME_NAME == 'Daniel Child Theme'
+			|| CHILD_THEME_NAME == 'Daniel'
+			|| $gtbe_stylesheet_name == 'Daniel'
+	) {
+		$gtbe_is_tpchild = 'tpchild_yes';
+		$tpchild_name = 'Daniel' . $gtbe_theme;		// Daniel
+		$tpchild_aurl = admin_url( 'admin.php?page=daniel' );
+		$tpchild_is_support = 'tpsupport_yes';
+			$tpchild_support = 'http://www.web-savvy-marketing.com/forum/daniel-1/';
+		$tpchild_is_codex = 'tpcodex_yes';
+			$tpchild_codex = 'http://www.web-savvy-marketing.com/forum/daniel-instructions/';
+
 	} elseif ( function_exists( 'ellen_sidebar_logic' )
 			|| CHILD_THEME_NAME == 'Ellen Mae Child Theme'
 			|| CHILD_THEME_NAME == 'Ellen'
 			|| $gtbe_stylesheet_name == 'Ellen Mae'
 	) {
 		$gtbe_is_tpchild = 'tpchild_yes';
-		$tpchild_name = 'Ellen Mae' . $gtbe_theme;		// Ellen Mae
+		$tpchild_name = 'Ellen Mae' . $gtbe_theme;	// Ellen Mae
 		$tpchild_aurl = admin_url( 'admin.php?page=ellen' );
 		$tpchild_is_support = 'tpsupport_yes';
 			$tpchild_support = 'http://www.web-savvy-marketing.com/forum/ellen-mae-1/';
@@ -758,7 +845,7 @@ $gtbe_theme_fallback = __( 'Theme', 'genesis-toolbar-extras' ) . ':&nbsp;';
 			$tpchild_codex = 'http://www.web-savvy-marketing.com/forum/lillian-instructions/';
 
 	} elseif ( function_exists( 'mariah_init' )
-			|| CHILD_THEME_NAME == 'Mariah'
+			|| CHILD_THEME_NAME == 'Nancy Child Theme'
 			|| $gtbe_stylesheet_name == 'Mariah'
 	) {
 		$gtbe_is_tpchild = 'tpchild_yes';
@@ -768,6 +855,19 @@ $gtbe_theme_fallback = __( 'Theme', 'genesis-toolbar-extras' ) . ':&nbsp;';
 			$tpchild_support = 'http://www.web-savvy-marketing.com/forum/mariah/';
 		$tpchild_is_codex = 'tpcodex_yes';
 			$tpchild_codex = 'http://www.web-savvy-marketing.com/forum/mariah-instructions/';
+
+	} elseif ( function_exists( 'nancy_sidebar_logic' )
+			|| CHILD_THEME_NAME == 'Nancy Child Theme'
+			|| CHILD_THEME_NAME == 'Nancy'
+			|| $gtbe_stylesheet_name == 'Nancy'
+	) {
+		$gtbe_is_tpchild = 'tpchild_yes';
+		$tpchild_name = 'Nancy' . $gtbe_theme;		// Nancy
+		$tpchild_aurl = admin_url( 'admin.php?page=nancy' );
+		$tpchild_is_support = 'tpsupport_yes';
+			$tpchild_support = 'http://www.web-savvy-marketing.com/forum/nancy-1/';
+		$tpchild_is_codex = 'tpcodex_yes';
+			$tpchild_codex = 'http://www.web-savvy-marketing.com/forum/nancy-instructions/';
 
 	} elseif ( defined( 'RASMUS_SETTINGS_FIELD' )
 			|| CHILD_THEME_NAME == 'Ramsus Theme'
@@ -808,10 +908,10 @@ $gtbe_theme_fallback = __( 'Theme', 'genesis-toolbar-extras' ) . ':&nbsp;';
 
 		/**
 		 * by ZIGZAGPRESS.com:
-		 *   Absolute, Engrave, Megalithe, Showroom, Simplicity, Vanilla
+		 *   Absolute, Engrave, Megalithe, Showroom, Simplicity, Solo, Vanilla
 		 */
-	} elseif ( /* CHILD_THEME_NAME == 'Engrave Theme' || */
-			function_exists( 'codes_admin_init' )
+	} elseif ( CHILD_THEME_NAME == 'Engrave Theme'
+			|| function_exists( 'codes_admin_init' )
 			&& $gtbe_stylesheet_name == 'Engrave'
 	) {
 		$gtbe_is_tpchild = 'tpchild_yes';
@@ -836,7 +936,7 @@ $gtbe_theme_fallback = __( 'Theme', 'genesis-toolbar-extras' ) . ':&nbsp;';
 		$tpchild_name = 'Megalithe' . $gtbe_theme;	// Megalithe 1.1+
 		$tpchild_aurl = admin_url( 'admin.php?page=optionsframework' );
 		$tpchild_is_support = 'tpsupport_yes';
-			$tpchild_support = 'http://www.studiopress.com/support/forumdisplay.php?f=217';
+			$tpchild_support = 'http://zigzagpress.com/support/knowledgebase/megalithe-documentation/';
 		$tpchild_file = 'zigzagpress_file_yes';
 
 	} elseif ( /* CHILD_THEME_NAME == 'Showroom Theme' || */
@@ -856,6 +956,14 @@ $gtbe_theme_fallback = __( 'Theme', 'genesis-toolbar-extras' ) . ':&nbsp;';
 		$tpchild_is_support = 'tpsupport_yes';
 			$tpchild_support = 'http://zigzagpress.com/support/';
 
+	} elseif ( CHILD_THEME_NAME == 'Solo' || $gtbe_stylesheet_name == 'Solo' ) {
+		$gtbe_is_tpchild = 'tpchild_yes';
+		$tpchild_name = 'Solo' . $gtbe_theme;		// Solo
+		$tpchild_aurl = admin_url( 'admin.php?page=optionsframework' );
+		$tpchild_is_support = 'tpsupport_yes';
+			$tpchild_support = 'http://zigzagpress.com/support/';
+		$tpchild_file = 'zigzagpress_file_yes';
+
 	} elseif ( CHILD_THEME_NAME == 'Vanilla' || $gtbe_stylesheet_name == 'Vanilla' ) {
 		$gtbe_is_tpchild = 'tpchild_yes';
 		$tpchild_name = 'Vanilla' . $gtbe_theme;	// Vanilla
@@ -863,6 +971,37 @@ $gtbe_theme_fallback = __( 'Theme', 'genesis-toolbar-extras' ) . ':&nbsp;';
 		$tpchild_is_support = 'tpsupport_yes';
 			$tpchild_support = 'http://zigzagpress.com/support/';
 		$tpchild_file = 'zigzagpress_file_yes';
+
+		/**
+		 * by Sure Fire Web Services, Inc. (Jonathan Perez): thebiz_inside_layouts
+		 *   theBiz, Surefire EDD, Genesis Sandbox
+		 */
+	} elseif ( function_exists( 'gs_theme_setup' )
+			|| function_exists( 'gs_child_script' )
+			|| $gtbe_stylesheet_name == 'Sandbox Child Theme'
+	) {
+		$gtbe_is_tpchild = 'tpchild_yes';
+		$tpchild_name = 'Genesis Sandbox' . $gtbe_theme;	// Genesis Sandbox
+		//$tpchild_aurl = admin_url( 'admin.php?page=optionsframework' );
+		if ( class_exists( 'Genesis_Sandbox_Settings' ) ) {
+			$tpchild_aurl = admin_url( 'admin.php?page=gs-settings' );
+		} elseif ( function_exists( 'gs_child_script' ) ) {
+			$tpchild_aurl = admin_url( 'themes.php?page=options-framework' );
+		}
+		$tpchild_is_support = 'tpsupport_yes';
+			$tpchild_support = 'https://github.com/surefirewebserv/Genesis-Sandbox/issues';
+
+	} elseif ( function_exists( 'thebiz_inside_layouts' ) || $gtbe_stylesheet_name == 'The Biz' ) {
+		$gtbe_is_tpchild = 'tpchild_yes';
+		$tpchild_name = 'theBiz' . $gtbe_theme;			// theBiz
+		$tpchild_is_support = 'tpsupport_yes';
+			$tpchild_support = 'http://surefirewebservices.com/contact';
+
+	} elseif ( CHILD_THEME_NAME == 'Sure Fire Web Services' || $gtbe_stylesheet_name == 'Sure Fire Web Services Blog' ) {
+		$gtbe_is_tpchild = 'tpchild_yes';
+		$tpchild_name = 'Surefire EDD' . $gtbe_theme;		// Surefire EDD
+		$tpchild_is_support = 'tpsupport_yes';
+			$tpchild_support = 'http://surefirewebservices.com/contact';
 
 		/**
 		 * by Aaron Hartland:
@@ -963,6 +1102,13 @@ $gtbe_theme_fallback = __( 'Theme', 'genesis-toolbar-extras' ) . ':&nbsp;';
 		$tpchild_is_support = 'tpsupport_yes';
 			$tpchild_support = 'http://designsbynickthegeek.com/designs/themes/fluid';
 
+		// by Mónica Guerra Leiria: Nameless
+	} elseif ( CHILD_THEME_NAME == 'Nameless' || $gtbe_stylesheet_name == 'Nameless' ) {
+		$gtbe_is_tpchild = 'tpchild_yes';
+		$tpchild_name = 'Nameless' . $gtbe_theme;
+		$tpchild_is_support = 'tpsupport_yes';
+			$tpchild_support = 'http://www.monicaguerraleiria.com/contact/';
+
 		// by Sara Greenlaw - Swoon Media: Peppermint
 	} elseif ( $gtbe_stylesheet_name == 'Peppermint' ) {
 		$gtbe_is_tpchild = 'tpchild_yes';
@@ -970,7 +1116,13 @@ $gtbe_theme_fallback = __( 'Theme', 'genesis-toolbar-extras' ) . ':&nbsp;';
 		$tpchild_is_support = 'tpsupport_yes';
 			$tpchild_support = 'http://bloggersitedesign.com/contact/';
 
-		// by Jared Atchison: Twenty Diez, Matrimony
+		// by Jared Atchison: Tasty, Twenty Diez, Matrimony
+	} elseif ( CHILD_THEME_NAME == 'Tasty Child Theme' || $gtbe_stylesheet_name == 'Tasty Child Theme' ) {
+		$gtbe_is_tpchild = 'tpchild_yes';
+		$tpchild_name = 'Tasty' . $gtbe_theme;
+		$tpchild_is_support = 'tpsupport_yes';
+			$tpchild_support = 'https://github.com/jaredatch/Tasty/issues';
+
 	} elseif ( $gtbe_stylesheet_name == 'Twenty Diez' ) {
 		$gtbe_is_tpchild = 'tpchild_yes';
 		$tpchild_name = 'Twenty Diez' . $gtbe_theme;
@@ -989,12 +1141,18 @@ $gtbe_theme_fallback = __( 'Theme', 'genesis-toolbar-extras' ) . ':&nbsp;';
 		$tpchild_is_support = 'tpsupport_yes';
 			$tpchild_support = 'http://www.jaredatchison.com/';
 
-		// by EightCrazy Designs: Domestic8ted LifeStyle Theme
+		// by EightCrazy Designs: Domestic8ted LifeStyle Theme, Decor8ted Theme
 	} elseif ( CHILD_THEME_NAME == 'Domestic8ted Style Theme' || $gtbe_stylesheet_name == 'Domestic8ted Theme' ) {
 		$gtbe_is_tpchild = 'tpchild_yes';
 		$tpchild_name = 'Domestic8ted' . $gtbe_theme;
 		$tpchild_is_support = 'tpsupport_yes';
 			$tpchild_support = 'http://www.eightcrazydesigns.net/forums/forum/domestic8ted-theme/';
+
+	} elseif ( CHILD_THEME_NAME == 'decor8ted Theme' || $gtbe_stylesheet_name == 'Decor8ted Child Theme' ) {
+		$gtbe_is_tpchild = 'tpchild_yes';
+		$tpchild_name = 'Decor8ted' . $gtbe_theme;
+		$tpchild_is_support = 'tpsupport_yes';
+			$tpchild_support = 'http://www.eightcrazydesigns.net/forums/forum/decor8ted-theme/';
 
 		// by Jessica Barnard - The Pixelista: Color, Celebrate
 	} elseif ( CHILD_THEME_NAME == 'Color Me Happy theme' || $gtbe_stylesheet_name == 'Color Me Happy Child Theme' ) {
@@ -1046,7 +1204,14 @@ $gtbe_theme_fallback = __( 'Theme', 'genesis-toolbar-extras' ) . ':&nbsp;';
 		$tpchild_is_support = 'tpsupport_yes';
 			$tpchild_support = 'http://press75.com/support/';
 
-		// by Bill Erickson: BE Gallery, Genesis CRM
+		// by Bill Erickson: Event Manager Theme, BE Gallery, Genesis CRM
+	} elseif ( function_exists( 'cs_event_description' ) || $gtbe_stylesheet_name == 'Event Manager' ) {
+		$gtbe_is_tpchild = 'tpchild_yes';
+		$tpchild_name = 'Event Manager' . $gtbe_theme;
+		$tpchild_aurl = admin_url( 'admin.php?page=event-manager' );
+		$tpchild_is_support = 'tpsupport_yes';
+			$tpchild_support = 'http://www.eventmanagerblog.com/store/login';
+
 	} elseif ( function_exists( 'be_gallery_count' ) || $gtbe_stylesheet_name == 'BE Gallery' ) {
 		$gtbe_is_tpchild = 'tpchild_yes';
 		$tpchild_name = 'BE Gallery' . $gtbe_theme;
@@ -1263,9 +1428,9 @@ $gtbe_theme_fallback = __( 'Theme', 'genesis-toolbar-extras' ) . ':&nbsp;';
 		if ( $tpchild_is_support == 'tpsupport_yes' ) {
 			$menu_items['tpchild-support'] = array(
 				'parent' => $tpchild,
-				'title'  => __( 'Support Site', 'genesis-toolbar-extras' ),
+				'title'  => apply_filters( 'gtbe_filter_theme_support_title', __( 'Support Site', 'genesis-toolbar-extras' ) ),
 				'href'   => esc_url_raw( apply_filters( 'gtbe_filter_theme_support_url', $tpchild_support ) ),
-				'meta'   => array( 'title' => _x( 'Support Site/Info for Child Theme', 'Translators: For the tooltip', 'genesis-toolbar-extras' ) )
+				'meta'   => array( 'title' => apply_filters( 'gtbe_filter_theme_support_tooltip', _x( 'Support Site/Info for Child Theme', 'Translators: For the tooltip', 'genesis-toolbar-extras' ) ) )
 			);
 		}  // end-if child support check
 
@@ -1276,9 +1441,9 @@ $gtbe_theme_fallback = __( 'Theme', 'genesis-toolbar-extras' ) . ':&nbsp;';
 		if ( $tpchild_is_codex == 'tpcodex_yes' ) {
 			$menu_items['tpchild-codex'] = array(
 				'parent' => $tpchild,
-				'title'  => __( 'Knowledge Base', 'genesis-toolbar-extras' ),
+				'title'  => apply_filters( 'gtbe_filter_theme_docs_title', __( 'Knowledge Base', 'genesis-toolbar-extras' ) ),
 				'href'   => esc_url_raw( apply_filters( 'gtbe_filter_theme_docs_url', $tpchild_codex ) ),
-				'meta'   => array( 'title' => _x( 'Documentation/ Knowledge Base for Child Theme', 'Translators: For the tooltip', 'genesis-toolbar-extras' ) )
+				'meta'   => array( 'title' => apply_filters( 'gtbe_filter_theme_docs_tooltip', _x( 'Documentation/ Knowledge Base for Child Theme', 'Translators: For the tooltip', 'genesis-toolbar-extras' ) ) )
 			);
 		}  // end-if child codex check
 

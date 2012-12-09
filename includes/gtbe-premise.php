@@ -11,14 +11,12 @@
  * @link       http://twitter.com/deckerweb
  *
  * @since 1.0.0
- * @version 1.2
  */
 
 /**
  * Premise (premium, by Copyblogger Media LLC)
  *
  * @since 1.0.0
- * @version 1.3
  */
 /** Premise Landing Pages Module */
 $menu_items['premise'] = array(

@@ -16,7 +16,7 @@
  * Plugin Name: Genesis Toolbar Extras
  * Plugin URI: http://genesisthemes.de/en/wp-plugins/genesis-toolbar-extras/
  * Description: This plugin adds useful admin settings links and massive resources for Genesis Framework and its ecosystem to the WordPress Toolbar / Admin Bar.
- * Version: 1.5.1
+ * Version: 1.6.0
  * Author: David Decker - DECKERWEB
  * Author URI: http://deckerweb.de/
  * License: GPLv2 or later
@@ -66,7 +66,6 @@ add_action( 'init', 'ddw_gtbe_init' );
  * Load admin helper functions - only within 'wp-admin'.
  * 
  * @since 1.0.0
- * @version 1.3
  *
  * @param string $gtbe_wp_lang_dir
  * @param string $gtbe_lang_dir
@@ -139,6 +138,14 @@ function ddw_gtbe_init() {
 		define( 'GTBE_TRANSLATIONS_DISPLAY', TRUE );
 	}
 
+	if ( ! defined( 'GTBE_MYSP_DISPLAY' ) ) {
+		define( 'GTBE_MYSP_DISPLAY', TRUE );
+	}
+
+	if ( ! defined( 'GTBE_OLDFORUMS_DISPLAY' ) ) {
+		define( 'GTBE_OLDFORUMS_DISPLAY', TRUE );
+	}
+
 }  // end of function ddw_gtbe_init
 
 
@@ -148,12 +155,14 @@ function ddw_gtbe_init() {
  * @since 1.1.0
  *
  * @uses filter 'genesis_detect_seo_plugins'
+ *
  * @param $gtbe_seo_plugins
  */
-if ( class_exists( 'All_in_One_SEO_Pack_p' ) ||
-	defined( 'GDHEADSPACE4_PATH' ) ||
-	defined( 'SU_VERSION' ) ||
-	( in_array( 'gregs-high-performance-seo/ghpseo.php', apply_filters( 'active_plugins', get_option( 'active_plugins' ) ) ) )
+if ( class_exists( 'All_in_One_SEO_Pack_p' )
+	|| defined( 'GDHEADSPACE4_PATH' )
+	|| defined( 'SU_VERSION' )
+	|| ( in_array( 'wpmu-dev-seo/wpmu-dev-seo.php', apply_filters( 'active_plugins', get_option( 'active_plugins' ) ) ) )
+	|| ( in_array( 'gregs-high-performance-seo/ghpseo.php', apply_filters( 'active_plugins', get_option( 'active_plugins' ) ) ) )
 ) {
 
 	add_filter( 'genesis_detect_seo_plugins', 'ddw_gtbe_add_seo_plugins' );
@@ -172,8 +181,13 @@ if ( class_exists( 'All_in_One_SEO_Pack_p' ) ||
 					'constants' => array(
 						'GDHEADSPACE4_PATH',		// gdHeadSpace4
 						'SU_VERSION',			// SEO Ultimate
+						'WDS_SITEMAP_POST_LIMIT',	// Infinite SEO (WPMU DEV)
 					),
-				);
+					/** Functions to detect */
+					'functions' => array(
+						'wds_get_value',		// Infinite SEO (WPMU DEV)
+					),
+		);  // end of array
 
 		return $gtbe_seo_plugins;
 
@@ -189,6 +203,7 @@ add_action( 'admin_bar_menu', 'ddw_gtbe_admin_bar_menu', 98 );
  * @since 1.0.0
  *
  * @global mixed $wp_admin_bar, $locale, $gtbe_child_type_check, $spchild, $spmarket, $tpchild, $gtbe_is_mcgroup, $theme, $stylesheet
+ *
  * @param $gtbe_user
  */
 function ddw_gtbe_admin_bar_menu() {
@@ -213,13 +228,14 @@ function ddw_gtbe_admin_bar_menu() {
 	 *
 	 * @since 1.0.0
 	 */
-	if ( ! is_user_logged_in() || 
-		! is_admin_bar_showing() || 
-		! current_user_can( $gtbe_filter_capability ) ||  // allows for custom filtering the required capability
-		! get_the_author_meta( 'genesis_admin_menu', $gtbe_user->ID ) ||  // users who can't see left G icon won't see toolbar items!
-		! GTBE_DISPLAY  // allows for custom disabling
-	)
+	if ( ! is_user_logged_in()
+		|| ! is_admin_bar_showing()
+		|| ! current_user_can( $gtbe_filter_capability )	// allows for custom filtering the required capability
+		|| ! get_the_author_meta( 'genesis_admin_menu', $gtbe_user->ID )  // users who can't see left G icon won't see toolbar items!
+		|| ! GTBE_DISPLAY	// allows for custom disabling
+	) {
 		return;
+	}
 
 
 	/**
@@ -242,6 +258,8 @@ function ddw_gtbe_admin_bar_menu() {
 	/** Create parent menu item references */
 	$genesisbar = $prefix . 'admin-bar';				// root level
 		$genesissupport = $prefix . 'genesissupport';			// sub level: genesis support
+			$supportcommon = $prefix . 'supportcommon';			// third level: genesis support helper group
+				$genesisoldsupport = $prefix . 'genesisoldsupport';		// fourth level: genesis old support forum
 		$genesisguide = $prefix . 'genesisguide';			// sub level: genesis user guide
 		$genesistutorials = $prefix . 'genesistutorials';			// third level: genesis tutorials
 		$genesissites = $prefix . 'genesissites';			// sub level: genesis sites
@@ -257,6 +275,7 @@ function ddw_gtbe_admin_bar_menu() {
 			$extgseoultimate = $prefix . 'extgseoultimate';			// third level: genesis seo plugins: seo ultimate
 			$extgseogdhs = $prefix . 'extgseogdhs';				// third level: genesis seo plugins: gdheadspace4
 			$extgseoghpseo = $prefix . 'extgseoghpseo';			// third level: genesis seo plugins: g.h.p.seo
+			$extgseowpmudev = $prefix . 'extgseowpmudev';			// third level: genesis seo plugins: infinite seo
 		$extgroup = $prefix . 'extgroup';				// sub level: extend group ("hook" place)
 			$tgroup = $prefix . 'tgroup';				// sub level: theme group ("hook" place)
 				$spgenesischild = $prefix . 'spgenesischild';		// third level theme: sp genesis child themes
@@ -440,8 +459,11 @@ function ddw_gtbe_admin_bar_menu() {
 		 *
 		 * @since 1.0.0
 		 */
-		if ( GTBE_EXTENSIONS_DISPLAY && 
-			( current_theme_supports( 'genesis-admin-menu' ) && get_the_author_meta( 'genesis_admin_menu', $gtbe_user->ID ) ) 
+		if ( GTBE_EXTENSIONS_DISPLAY
+			&& (
+				current_theme_supports( 'genesis-admin-menu' )
+				&& get_the_author_meta( 'genesis_admin_menu', $gtbe_user->ID )
+			) 
 		) {
 			$menu_items['extensions'] = array(
 				'parent' => $pgroup,
@@ -487,8 +509,10 @@ function ddw_gtbe_admin_bar_menu() {
 	 * @since 1.0.0
 	 */
 	if ( function_exists( 'themedy_load_styles' ) ) {
+
 		/** Include plugin file with theme support links */
 		require_once( GTBE_PLUGIN_DIR . '/includes/gtbe-themedy.php' );
+
 	}  // end-if Themedy Genesis child theme check
 
 
@@ -513,31 +537,34 @@ function ddw_gtbe_admin_bar_menu() {
 	$menu_items = (array) apply_filters( 'ddw_gtbe_menu_items', $menu_items,
 									$genesisgroup_menu_items,
 									$prefix,
-									$genesisbar, 
+									$genesisbar,
 									$genesissupport,
+										$supportcommon,
+											$genesisoldsupport,
 									$genesisguide,
 									$genesistutorials,
 									$genesissites,
-									$genesisaffiliates, 
-									$gfindersearchform, 
+									$genesisaffiliates,
+									$gfindersearchform,
 									$genesisblog,
 									$genesisresources,
 									$genesissettings,
-									$genesiscustom, 
+									$genesiscustom,
 									$genesisimportexport,
 										$extgseoyoastseo,
 										$extgseowpseo,
-										$extgseoultimate, 
+										$extgseoultimate,
 										$extgseogdhs,
-										$extgseoghpseo, 
+										$extgseoghpseo,
+										$extgseowpmudev,
 										$extensions,
-										$extgroup, 
+										$extgroup,
 									$spgenesischild,
 										$spgminimum2x,
 									$spmarket,
 										$themedysettings,
 										$themedyportfolio,
-										$themedyslide, 
+										$themedyslide,
 										$themedyphoto,
 										$themedyproduct,
 									$tpchild,
@@ -545,20 +572,20 @@ function ddw_gtbe_admin_bar_menu() {
 									$gextendersettings,
 									$gextendercustom,
 									$tpchild_dynamik,
-									$dynamikdesign, 
+									$dynamikdesign,
 									$dynamikcustom,
 									$dynamikdesignstructure,
-									$dynamikdesigncontent, 
+									$dynamikdesigncontent,
 									$dynamikdesignextras,
 									$dizain01portfolio,
 									$zzpportfolio,
 									$zzpslides,
 										$mcgroup,
-										$mcgroupstart, 
+										$mcgroupstart,
 										$mcgthemedyportfolio,
 										$mcgthemedyslide,
 										$mcgthemedyphoto,
-										$mcgthemedyproduct, 
+										$mcgthemedyproduct,
 										$mcginspyr,
 										$mcgdizain01,
 										$mcgzzpportfolio,
@@ -569,10 +596,10 @@ function ddw_gtbe_admin_bar_menu() {
 										$mcggmp,
 										$mcggppt,
 										$mcggpbox,
-										$mcgspsurls, 
+										$mcgspsurls,
 										$mcgsoliloquy,
 										$mcgroyalslider,
-										$mcgtouchcarousel, 
+										$mcgtouchcarousel,
 									$premise,
 									$premiselanding,
 									$premisesettings,
@@ -582,7 +609,7 @@ function ddw_gtbe_admin_bar_menu() {
 									$premisemember_links,
 									$premisemember_members,
 										$tgroup,
-										$pgroup, 
+										$pgroup,
 									$genesisgroup,
 									$tpsgroup,
 									$languagesde
@@ -622,15 +649,20 @@ function ddw_gtbe_admin_bar_menu() {
 		$menu_item['id'] = $prefix . $id;
 
 		/** Add meta target to each item where it's not already set, so links open in new window/tab */
-		if ( ! isset( $menu_item['meta']['target'] ) )		
+		if ( ! isset( $menu_item['meta']['target'] ) ) {
 			$menu_item['meta']['target'] = '_blank';
+		}
 
 		/** Add class to links that open up in a new window/tab */
 		if ( '_blank' === $menu_item['meta']['target'] ) {
-			if ( ! isset( $menu_item['meta']['class'] ) )
+
+			if ( ! isset( $menu_item['meta']['class'] ) ) {
 				$menu_item['meta']['class'] = '';
+			}
+
 			$menu_item['meta']['class'] .= $prefix . 'gtbe-new-tab';
-		}
+
+		}  // end-if menu values check
 
 		/** Add menu items */
 		$wp_admin_bar->add_menu( $menu_item );
@@ -640,7 +672,7 @@ function ddw_gtbe_admin_bar_menu() {
 
 	/**
 	 * Action Hook 'gtbe_custom_main_items'
-	 * allows for hooking other main items in
+	 *   allows for hooking other main items in.
 	 *
 	 * @since 1.1.0
 	 */
@@ -678,7 +710,7 @@ function ddw_gtbe_admin_bar_menu() {
 
 		/**
 		 * Action Hook 'gtbe_custom_theme_items'
-		 * allows for hooking other theme-related items in
+		 *   allows for hooking other theme-related items in.
 		 *
 		 * @since 1.1.0
 		 */
@@ -700,7 +732,7 @@ function ddw_gtbe_admin_bar_menu() {
 
 		/**
 		 * Action Hook 'gtbe_custom_extend_items'
-		 * allows for hooking other extend items in
+		 *   allows for hooking other extend items in.
 		 *
 		 * @since 1.1.0
 		 */
@@ -722,20 +754,32 @@ function ddw_gtbe_admin_bar_menu() {
 		$genesisgroup_menu_item['id'] = $prefix . $id;
 
 		/** Genesis Group: Add meta target to each item where it's not already set, so links open in new window/tab */
-		if ( ! isset( $genesisgroup_menu_item['meta']['target'] ) )		
+		if ( ! isset( $genesisgroup_menu_item['meta']['target'] ) ) {
 			$genesisgroup_menu_item['meta']['target'] = '_blank';
+		}
 
 		/** Genesis Group: Add class to links that open up in a new window/tab */
 		if ( '_blank' === $genesisgroup_menu_item['meta']['target'] ) {
-			if ( ! isset( $genesisgroup_menu_item['meta']['class'] ) )
+
+			if ( ! isset( $genesisgroup_menu_item['meta']['class'] ) ) {
 				$genesisgroup_menu_item['meta']['class'] = '';
+			}
+
 			$genesisgroup_menu_item['meta']['class'] .= $prefix . 'gtbe-new-tab';
-		}
+
+		}  // end-if menu values check
 
 		/** Genesis Group: Add menu items */
 		$wp_admin_bar->add_menu( $genesisgroup_menu_item );
 
 	}  // end foreach Genesis Group
+
+
+	/** Common Support Resources: Group Helper Item */
+	$wp_admin_bar->add_group( array(
+		'parent' => $genesissupport,
+		'id'     => $supportcommon,
+	) );
 
 
 	/** TPS (Third-Party-Support) Group: Sub-Level Entry (under "Genesis Support") */
@@ -747,7 +791,7 @@ function ddw_gtbe_admin_bar_menu() {
 
 	/**
 	 * Action Hook 'gtbe_custom_group_items'
-	 * allows for hooking other Genesis Group items in
+	 *   allows for hooking other Genesis Group items in.
 	 *
 	 * @since 1.1.0
 	 */
@@ -768,8 +812,12 @@ add_action( 'admin_head', 'ddw_gtbe_admin_style' );
 function ddw_gtbe_admin_style() {
 
 	/** No styles if admin bar is disabled or user is not logged in or items are disabled via constant */
-	if ( ! is_admin_bar_showing() || ! is_user_logged_in() || ! GTBE_DISPLAY )
+	if ( ! is_admin_bar_showing()
+		|| ! is_user_logged_in()
+		|| ! GTBE_DISPLAY
+	) {
 		return;
+	}
 
 	/** Add CSS styles to wp_head/admin_head */
 	$gtbe_main_icon = apply_filters( 'gtbe_filter_main_icon', plugins_url( 'genesis-toolbar-extras/images/icon-genesistbe.png', dirname( __FILE__ ) ) );
@@ -857,12 +905,13 @@ function ddw_gtbe_admin_style() {
  * @param $gtbe_plugin_folder
  * @param $gtbe_plugin_file
  *
- * @return string Plugin version
+ * @return string Plugin data.
  */
 function ddw_gtbe_plugin_get_data( $gtbe_plugin_value ) {
 
-	if ( ! function_exists( 'get_plugins' ) )
+	if ( ! function_exists( 'get_plugins' ) ) {
 		require_once( ABSPATH . 'wp-admin/includes/plugin.php' );
+	}
 
 	$gtbe_plugin_folder = get_plugins( '/' . plugin_basename( dirname( __FILE__ ) ) );
 	$gtbe_plugin_file = basename( ( __FILE__ ) );

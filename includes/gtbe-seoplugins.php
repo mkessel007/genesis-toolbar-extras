@@ -30,6 +30,7 @@ $gtbe_seoplugin = __( 'SEO Plugin', 'genesis-toolbar-extras' ) . ': ';
  * @since 1.1.0
  */
 if ( defined( 'WPSEO_VERSION' ) && current_user_can( 'manage_options' ) ) {
+
 	$menu_items['extgseoyoastseo'] = array(
 		'parent' => $genesisbar,
 		'title'  => $gtbe_seoplugin . 'WordPress SEO',
@@ -40,7 +41,7 @@ if ( defined( 'WPSEO_VERSION' ) && current_user_can( 'manage_options' ) ) {
 		'parent' => $extgseoyoastseo,
 		'title'  => __( 'Titles &amp; Metas', 'genesis-toolbar-extras' ),
 		'href'   => admin_url( 'admin.php?page=wpseo_titles' ),
-		'meta'   => array( 'target' => '', 'title' => $gtbe_seoplugin . __( 'Titles &amp; Metas', 'genesis-toolbar-extras' ) )
+		'meta'   => array( 'target' => '', 'title' => __( 'Titles &amp; Metas', 'genesis-toolbar-extras' ) )
 	);
 	$menu_items['extgseoyoastseo-permalinks'] = array(
 		'parent' => $extgseoyoastseo,
@@ -54,6 +55,7 @@ if ( defined( 'WPSEO_VERSION' ) && current_user_can( 'manage_options' ) ) {
 		'href'   => admin_url( 'admin.php?page=wpseo_internal-links' ),
 		'meta'   => array( 'target' => '', 'title' => __( 'Internal Links', 'genesis-toolbar-extras' ) )
 	);
+
 }  // end-if WordPress SEO by Yoast
 
 
@@ -63,12 +65,14 @@ if ( defined( 'WPSEO_VERSION' ) && current_user_can( 'manage_options' ) ) {
  * @since 1.1.0
  */
 if ( ( defined( 'AIOSEOP_VERSION' ) || ( function_exists( 'is_plugin_active' ) && is_plugin_active( 'all-in-one-seo-pack/all_in_one_seo_pack.php' ) ) ) && current_user_can( 'manage_options' ) ) {
+
 	$menu_items['extgseo-aiosp'] = array(
 		'parent' => $genesisbar,
 		'title'  => $gtbe_seoplugin . __( 'AIO SEO Pack', 'genesis-toolbar-extras' ),
 		'href'   => admin_url( 'options-general.php?page=all-in-one-seo-pack/aioseop.class.php' ),
 		'meta'   => array( 'target' => '', 'title' => $gtbe_seoplugin . _x( 'All In One SEO Pack', 'Translators: For the tooltip', 'genesis-toolbar-extras' ) )
 	);
+
 }  // end-if All In One SEO Pack
 
 
@@ -78,12 +82,14 @@ if ( ( defined( 'AIOSEOP_VERSION' ) || ( function_exists( 'is_plugin_active' ) &
  * @since 1.1.0
  */
 if ( ( class_exists( 'All_in_One_SEO_Pack_p' ) || ( function_exists( 'is_plugin_active' ) && is_plugin_active( 'all-in-one-seo-pack-pro/all_in_one_seo_pack.php' ) ) ) && current_user_can( 'manage_options' ) ) {
+
 	$menu_items['extgseo-aiosppro'] = array(
 		'parent' => $genesisbar,
 		'title'  => $gtbe_seoplugin . __( 'AIO SEO Pack Pro', 'genesis-toolbar-extras' ),
 		'href'   => admin_url( 'options-general.php?page=all-in-one-seo-pack-pro/aioseop.class.php' ),
 		'meta'   => array( 'target' => '', 'title' => $gtbe_seoplugin . _x( 'All In One SEO Pack Pro', 'Translators: For the tooltip', 'genesis-toolbar-extras' ) )
 	);
+
 }  // end-if All In One SEO Pack Pro
 
 
@@ -93,6 +99,7 @@ if ( ( class_exists( 'All_in_One_SEO_Pack_p' ) || ( function_exists( 'is_plugin_
  * @since 1.1.0
  */
 if ( class_exists( 'wpSEO' ) && current_user_can( 'manage_options' ) ) {
+
 	$menu_items['extgseowpseo'] = array(
 		'parent' => $genesisbar,
 		'title'  => $gtbe_seoplugin . __( 'wpSEO Settings', 'genesis-toolbar-extras' ),
@@ -111,6 +118,7 @@ if ( class_exists( 'wpSEO' ) && current_user_can( 'manage_options' ) ) {
 		'href'   => 'http://helpdesk.wpseo.de/',
 		'meta'   => array( 'title' => __( 'Helpdesk - Support', 'genesis-toolbar-extras' ) )
 	);
+
 }  // end-if wpSEO
 
 
@@ -120,6 +128,7 @@ if ( class_exists( 'wpSEO' ) && current_user_can( 'manage_options' ) ) {
  * @since 1.1.0
  */
 if ( defined( 'SU_PLUGIN_NAME' ) && current_user_can( 'manage_options' ) ) {
+
 	$menu_items['extgseoultimate'] = array(
 		'parent' => $genesisbar,
 		'title'  => $gtbe_seoplugin . 'SEO Ultimate',
@@ -138,6 +147,7 @@ if ( defined( 'SU_PLUGIN_NAME' ) && current_user_can( 'manage_options' ) ) {
 		'href'   => admin_url( 'admin.php?page=seo' ),
 		'meta'   => array( 'target' => '', 'title' => __( 'More Moduls &amp; Settings', 'genesis-toolbar-extras' ) )
 	);
+
 }  // end-if SEO Ultimate
 
 
@@ -147,6 +157,7 @@ if ( defined( 'SU_PLUGIN_NAME' ) && current_user_can( 'manage_options' ) ) {
  * @since 1.1.0
  */
 if ( defined( 'GDHEADSPACE4_PATH' ) && current_user_can( 'manage_options' ) ) {
+
 	$menu_items['extgseogdhs'] = array(
 		'parent' => $genesisbar,
 		'title'  => $gtbe_seoplugin . 'gdHeadSpace4',
@@ -165,6 +176,7 @@ if ( defined( 'GDHEADSPACE4_PATH' ) && current_user_can( 'manage_options' ) ) {
 		'href'   => admin_url( 'options-general.php?page=headspace_options&sub=modules' ),
 		'meta'   => array( 'target' => '', 'title' => __( 'Page Modules', 'genesis-toolbar-extras' ) )
 	);
+
 }  // end-if gdHeadSpace4
 
 
@@ -174,12 +186,14 @@ if ( defined( 'GDHEADSPACE4_PATH' ) && current_user_can( 'manage_options' ) ) {
  * @since 1.1.0
  */
 if ( class_exists( 'HeadSpace2_Admin' ) && current_user_can( 'manage_options' ) ) {
+
 	$menu_items['extgseoheadspace'] = array(
 		'parent' => $genesisbar,
 		'title'  => $gtbe_seoplugin . 'HeadSpace2',
 		'href'   => admin_url( 'options-general.php?page=headspace.php' ),
 		'meta'   => array( 'target' => '', 'title' => $gtbe_seoplugin . _x( 'HeadSpace2', 'Translators: For the tooltip', 'genesis-toolbar-extras' ) )
 	);
+
 }  // end-if HeadSpace2
 
 
@@ -189,12 +203,14 @@ if ( class_exists( 'HeadSpace2_Admin' ) && current_user_can( 'manage_options' ) 
  * @since 1.1.0
  */
 if ( class_exists( 'Platinum_SEO_Pack' ) && current_user_can( 'manage_options' ) ) {
-	$menu_items['extgseoheadspace'] = array(
+
+	$menu_items['extgseoplatinumseo'] = array(
 		'parent' => $genesisbar,
 		'title'  => $gtbe_seoplugin . 'Platinum SEO Pack',
 		'href'   => admin_url( 'admin.php?page=platinum-seo-pack/platinum_seo_pack.php' ),
 		'meta'   => array( 'target' => '', 'title' => $gtbe_seoplugin . _x( 'Platinum SEO Pack', 'Translators: For the tooltip', 'genesis-toolbar-extras' ) )
 	);
+
 }  // end-if Platinum SEO Pack
 
 
@@ -204,6 +220,7 @@ if ( class_exists( 'Platinum_SEO_Pack' ) && current_user_can( 'manage_options' )
  * @since 1.1.0
  */
 if ( class_exists( 'gregsHighPerformanceSEO' ) && current_user_can( 'manage_options' ) ) {
+
 	$menu_items['extgseoghpseo'] = array(
 		'parent' => $genesisbar,
 		'title'  => $gtbe_seoplugin . 'Greg\'s H.P. SEO',
@@ -234,4 +251,40 @@ if ( class_exists( 'gregsHighPerformanceSEO' ) && current_user_can( 'manage_opti
 		'href'   => admin_url( 'options-general.php?page=gregs-high-performance-seo/ghpseo-options.php&submenu=headmeta' ),
 		'meta'   => array( 'target' => '', 'title' => __( 'Head Meta', 'genesis-toolbar-extras' ) )
 	);
+
 }  // end-if Greg's High Performance SEO
+
+
+/**
+ * Infinite Seo by WPMU DEV (premium, by WPMU DEV/ Ulrich Sossou (Incsub))
+ *
+ * @since 1.6.0
+ */
+if ( ( function_exists( 'wds_get_value' ) || defined( 'WDS_SITEMAP_POST_LIMIT' ) ) && current_user_can( 'manage_options' ) ) {
+
+	$menu_items['extgseowpmudev'] = array(
+		'parent' => $genesisbar,
+		'title'  => $gtbe_seoplugin . 'Infinite SEO',
+		'href'   => admin_url( 'options-general.php?page=wds_wizard' ),
+		'meta'   => array( 'target' => '', 'title' => $gtbe_seoplugin . _x( 'Infinite SEO by WPMU DEV', 'Translators: For the tooltip', 'genesis-toolbar-extras' ) )
+	);
+	$menu_items['extgseowpmudev-titlemeta'] = array(
+		'parent' => $extgseowpmudev,
+		'title'  => __( 'Title &amp; Meta', 'genesis-toolbar-extras' ),
+		'href'   => admin_url( 'admin.php?page=wds_wizard&step=3' ),
+		'meta'   => array( 'target' => '', 'title' => __( 'Title &amp; Meta', 'genesis-toolbar-extras' ) )
+	);
+	$menu_items['extgseowpmudev-automatic'] = array(
+		'parent' => $extgseowpmudev,
+		'title'  => __( 'Automatic Links', 'genesis-toolbar-extras' ),
+		'href'   => admin_url( 'admin.php?page=wds_wizard&step=5' ),
+		'meta'   => array( 'target' => '', 'title' => __( 'Automatic Links', 'genesis-toolbar-extras' ) )
+	);
+	$menu_items['extgseowpmudev-sitemaps'] = array(
+		'parent' => $extgseowpmudev,
+		'title'  => __( 'Sitemaps', 'genesis-toolbar-extras' ),
+		'href'   => admin_url( 'admin.php?page=wds_wizard&step=2' ),
+		'meta'   => array( 'target' => '', 'title' => __( 'Sitemaps', 'genesis-toolbar-extras' ) )
+	);
+
+}  // end-if Infinite SEO

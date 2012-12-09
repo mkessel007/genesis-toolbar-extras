@@ -20,7 +20,6 @@
  * Except: Themedy Brand! (see gtbe-themedy.php)
  *
  * @since 1.1.0
- * @version 1.2
  *
  * @param $gtbe_edit_themes_style
  * @param $gtbe_edit_themes_functions
