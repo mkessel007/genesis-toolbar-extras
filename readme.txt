@@ -3,7 +3,7 @@ Contributors: daveshine, deckerweb
 Donate link: http://genesisthemes.de/en/donate/
 Tags: toolbar, tool bar, adminbar, admin bar, genesis, genesis framework, genesiswp, framework, administration, resources, links, theme, settings, manage, deckerweb, ddwtoolbar
 Requires at least: 3.3
-Tested up to: 3.5 Beta 2
+Tested up to: 3.5
 Stable tag: 1.6.0
 License: GPLv2 or later
 License URI: http://www.opensource.org/licenses/gpl-license.php
